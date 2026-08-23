@@ -70,7 +70,7 @@ export default function PlaatsVacaturePage() {
         <VacatureForm />
 
         <div className="mt-14 grid grid-cols-[repeat(auto-fit,minmax(min(100%,280px),1fr))] items-start gap-10 border-t border-black/10 pt-11">
-          <div className="sticky top-26 flex flex-col gap-3.5">
+          <div className="flex flex-col gap-3.5 md:sticky md:top-26">
             <h2 className="m-0 max-w-[18ch] font-display text-[clamp(24px,3vw,34px)] leading-none font-extrabold tracking-[-0.04em]">
               Wat je kunt verwachten
             </h2>

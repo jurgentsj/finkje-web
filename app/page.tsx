@@ -170,7 +170,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/plaats-je-vacature"
-              className="self-start rounded-full bg-black px-6.5 py-3.5 font-semibold text-white transition-colors hover:bg-white hover:text-[#111]"
+              className="flex w-full items-center justify-center rounded-full bg-black px-5 py-3.5 text-center font-semibold text-white transition-colors hover:bg-white hover:text-[#111] sm:w-auto sm:self-start sm:px-6.5"
             >
               Gratis vacature plaatsen →
             </Link>
