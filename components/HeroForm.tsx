@@ -23,24 +23,26 @@ export default function HeroForm() {
 
   return (
     <form onSubmit={submit} className="mt-11 max-w-[900px]">
-      <div className="flex flex-wrap items-center gap-3.5 rounded-full border border-black/10 bg-sand py-2.5 pr-2.5 pl-7">
-        <span className="font-display text-[clamp(19px,2.4vw,30px)] font-semibold tracking-[-0.02em] whitespace-nowrap">
-          Ik wil
-        </span>
-        <input
-          value={wil}
-          onChange={(e) => setWil(e.target.value)}
-          placeholder={phrases[phraseIdx]}
-          className="min-w-[180px] flex-1 border-0 bg-transparent py-2.5 font-display text-[clamp(19px,2.4vw,30px)] font-bold tracking-[-0.02em] text-accent outline-none"
-        />
+      <div className="flex flex-col gap-3 rounded-3xl border border-black/10 bg-sand p-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3.5 sm:rounded-full sm:py-2.5 sm:pr-2.5 sm:pl-7">
+        <div className="flex min-w-0 items-center gap-2.5 sm:contents">
+          <span className="shrink-0 font-display text-xl font-semibold tracking-[-0.02em] whitespace-nowrap sm:text-[clamp(19px,2.4vw,30px)]">
+            Ik wil
+          </span>
+          <input
+            value={wil}
+            onChange={(e) => setWil(e.target.value)}
+            placeholder={phrases[phraseIdx]}
+            className="min-w-0 flex-1 border-0 bg-transparent py-2 font-display text-xl font-bold tracking-[-0.02em] text-accent outline-none sm:min-w-[180px] sm:py-2.5 sm:text-[clamp(19px,2.4vw,30px)]"
+          />
+        </div>
         <button
           type="submit"
-          className="flex shrink-0 items-center gap-2.5 rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-black"
+          className="flex w-full shrink-0 items-center justify-center gap-2.5 rounded-full bg-accent px-7 py-3.5 text-base font-semibold text-white transition-colors hover:bg-black sm:w-auto sm:py-4 sm:text-[17px]"
         >
           Zet me erop <span className="text-xl">→</span>
         </button>
       </div>
-      <p className="mt-3.5 ml-7 text-sm text-black/45">
+      <p className="mt-3.5 ml-1 text-sm text-black/45 sm:ml-7">
         Weet je nog niet wat je wil? Denk er over na en kom dan later bij ons terug.
       </p>
     </form>

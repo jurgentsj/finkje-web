@@ -1,55 +1,72 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { railFotos } from "@/lib/data";
+
+const CARD_W = "clamp(220px, 24vw, 300px)";
+// Image is a 3:4 (w:h) box, so its rendered height is card-width * 4/3 —
+// used to center the arrows on the PHOTO itself, not the card+caption.
+const CARD_H = `calc(${CARD_W} * 4 / 3)`;
 
 export default function Carousel() {
   const railRef = useRef<HTMLDivElement>(null);
   const blockWidth = useRef(0);
   const animating = useRef(false);
+  const initialized = useRef(false);
+  const wrapTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Three copies of the same list so the rail can scroll infinitely: start
+  // in the middle copy, and once the user scrolls into copy 1 or 3, snap
+  // back to the equivalent spot in copy 2 — invisibly, since the copies
+  // are identical.
+  const items = useMemo(
+    () => [0, 1, 2].flatMap((setIdx) => railFotos.map((f) => ({ ...f, key: `${f.id}-${setIdx}`, setIdx }))),
+    [],
+  );
 
   useEffect(() => {
     const el = railRef.current;
     if (!el) return;
 
-    const setup = () => {
-      const real = Array.from(el.children) as HTMLElement[];
-      // Guard against re-running after clones already exist.
-      if (el.dataset.railBound === "1") {
-        blockWidth.current = el.scrollWidth / 3;
-        return;
-      }
-      const makeClone = (n: HTMLElement) => {
-        const c = n.cloneNode(true) as HTMLElement;
-        c.setAttribute("aria-hidden", "true");
-        return c;
-      };
-      real.forEach((n) => el.appendChild(makeClone(n)));
-      for (let i = real.length - 1; i >= 0; i--) el.insertBefore(makeClone(real[i]), el.firstChild);
-      blockWidth.current = el.scrollWidth / 3;
-      el.scrollLeft = blockWidth.current;
-      el.dataset.railBound = "1";
-
-      const onScroll = () => {
-        if (animating.current || !blockWidth.current) return;
-        const b = blockWidth.current;
-        if (el.scrollLeft < b * 0.5) el.scrollLeft += b;
-        else if (el.scrollLeft > b * 1.5) el.scrollLeft -= b;
-      };
-      el.addEventListener("scroll", onScroll, { passive: true });
-      const onResize = () => {
-        blockWidth.current = el.scrollWidth / 3;
-      };
-      window.addEventListener("resize", onResize);
-      return () => {
-        el.removeEventListener("scroll", onScroll);
-        window.removeEventListener("resize", onResize);
-      };
+    const maybeWrap = () => {
+      if (animating.current) return;
+      const b = blockWidth.current;
+      if (!b) return;
+      if (el.scrollLeft < b * 0.5) el.scrollLeft += b;
+      else if (el.scrollLeft > b * 1.5) el.scrollLeft -= b;
     };
 
-    const t1 = setTimeout(setup, 100);
-    return () => clearTimeout(t1);
+    // Re-measure whenever the rail's size changes (images finishing load,
+    // resize, orientation change) — scrollWidth isn't reliable before the
+    // images have laid out, so this replaces any fixed setTimeout guess.
+    const ro = new ResizeObserver(() => {
+      const b = el.scrollWidth / 3;
+      blockWidth.current = b;
+      if (!initialized.current && b > 0) {
+        el.scrollLeft = b;
+        initialized.current = true;
+      } else {
+        maybeWrap();
+      }
+    });
+    ro.observe(el);
+
+    // Only wrap once scrolling has actually settled — nudging scrollLeft
+    // mid-gesture fights the browser's native touch/momentum scrolling and
+    // is what made the rail feel broken on mobile. Once settled, the jump
+    // between the (identical) copies is visually imperceptible.
+    const onScroll = () => {
+      if (wrapTimer.current) clearTimeout(wrapTimer.current);
+      wrapTimer.current = setTimeout(maybeWrap, 120);
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      ro.disconnect();
+      el.removeEventListener("scroll", onScroll);
+      if (wrapTimer.current) clearTimeout(wrapTimer.current);
+    };
   }, []);
 
   const scroll = (direction: 1 | -1) => {
@@ -75,12 +92,13 @@ export default function Carousel() {
   };
 
   return (
-    <div className="relative flex flex-col">
+    <div className="relative" style={{ "--card-w": CARD_W, "--card-h": CARD_H } as React.CSSProperties}>
       <button
         type="button"
         aria-label="Vorige"
         onClick={() => scroll(-1)}
-        className="absolute top-1/2 left-2 z-10 flex h-[52px] w-[52px] -translate-y-1/2 items-center justify-center rounded-full border border-black/10 bg-white/45 text-black/75 opacity-70 shadow-[0_2px_10px_rgba(17,17,17,0.06)] backdrop-blur-md transition hover:border-black hover:bg-black hover:text-white hover:opacity-100"
+        style={{ top: "calc(var(--card-h) / 2)" }}
+        className="absolute left-1 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-black/10 bg-white/70 text-black/75 opacity-90 shadow-[0_2px_10px_rgba(17,17,17,0.1)] backdrop-blur-md transition hover:border-black hover:bg-black hover:text-white hover:opacity-100 sm:left-2 sm:h-[52px] sm:w-[52px] sm:bg-white/45 sm:opacity-70"
       >
         ←
       </button>
@@ -88,7 +106,8 @@ export default function Carousel() {
         type="button"
         aria-label="Volgende"
         onClick={() => scroll(1)}
-        className="absolute top-1/2 right-2 z-10 flex h-[52px] w-[52px] -translate-y-1/2 items-center justify-center rounded-full border border-black/10 bg-white/45 text-black/75 opacity-70 shadow-[0_2px_10px_rgba(17,17,17,0.06)] backdrop-blur-md transition hover:border-black hover:bg-black hover:text-white hover:opacity-100"
+        style={{ top: "calc(var(--card-h) / 2)" }}
+        className="absolute right-1 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-black/10 bg-white/70 text-black/75 opacity-90 shadow-[0_2px_10px_rgba(17,17,17,0.1)] backdrop-blur-md transition hover:border-black hover:bg-black hover:text-white hover:opacity-100 sm:right-2 sm:h-[52px] sm:w-[52px] sm:bg-white/45 sm:opacity-70"
       >
         →
       </button>
@@ -97,8 +116,13 @@ export default function Carousel() {
         className="finkje-rail flex items-start gap-4 overflow-x-auto overflow-y-hidden pb-2"
         style={{ scrollSnapType: "x mandatory" }}
       >
-        {railFotos.map((f) => (
-          <figure key={f.id} className="m-0 flex-none" style={{ flexBasis: "clamp(220px, 24vw, 300px)", scrollSnapAlign: "start" }}>
+        {items.map((f) => (
+          <figure
+            key={f.key}
+            aria-hidden={f.setIdx !== 1}
+            className="m-0 flex-none"
+            style={{ flexBasis: "var(--card-w)", scrollSnapAlign: "start" }}
+          >
             <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-black/5">
               <Image src={f.src} alt={f.beroep} fill sizes="300px" className="object-cover" />
             </div>
