@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Finkje
 
-## Getting Started
+Marketing site for Finkje — a Dutch platform that flips the job board: candidates say what
+they want to become, employers respond to them instead of the other way around.
 
-First, run the development server:
+Implemented from a [Claude Design](https://claude.ai/design) prototype (`.dc.html`) as a
+production Next.js + Tailwind CSS project, structured to import cleanly into
+[v0.dev](https://v0.dev).
+
+## Stack
+
+- **Next.js 16** (App Router, TypeScript)
+- **Tailwind CSS v4**
+- Fonts: Bricolage Grotesque (display) + Instrument Sans (body), loaded via Google Fonts
+- No backend — all forms (signup, contact, job posting) are client-side only with a
+  local "success" state and no submission endpoint. Wire them up to your backend/API
+  of choice before going live.
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build   # production build
+npm run lint    # eslint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+```
+app/
+  layout.tsx              Root layout: fonts, Header, Footer
+  page.tsx                Home
+  hoe-het-werkt/           "How it works"
+  onze-visie/              "Our vision"
+  contact/                 Contact + FAQ
+  aanmelden/                4-step candidate signup form
+  plaats-je-vacature/       Employer job-posting form
+  mensen/                   Candidate directory (filters + expandable cards)
+  voor-werkgevers/          Employer landing page
+  algemene-voorwaarden/     Terms of service
+  privacybeleid/            Privacy policy
+  blog/                     Blog index
+  [slug]/                   Individual blog article (13 posts, generateStaticParams)
+components/                 Header, Footer, forms, FAQ accordion, photo carousel, etc.
+lib/
+  data.ts                   Candidate profiles, FAQ copy, step/benefit content
+  blogs.ts                  All 13 blog posts (ported verbatim from the source bundle)
+public/images/               Photography (extracted from the design bundle's asset store)
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Content notes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- All copy is in Dutch, ported verbatim from the original design.
+- The accent color is `#FF5A00`, defined as a CSS variable (`--accent`) in
+  `app/globals.css` and exposed to Tailwind as `bg-accent` / `text-accent` — change it in
+  one place to re-theme the whole site.
+- Candidate/job data in `lib/data.ts` is illustrative seed content from the design
+  phase — swap in real data or an API before launch.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Importing into v0.dev
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This is a standard Next.js App Router project, so it can be imported directly:
+push this repo to GitHub and use v0's "Import from GitHub" flow, or paste individual
+files into a v0 chat to iterate on them further.
