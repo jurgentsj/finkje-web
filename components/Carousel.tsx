@@ -129,7 +129,7 @@ export default function Carousel() {
                 alt={f.beroep}
                 fill
                 sizes="300px"
-                className={`object-cover ${f.src.includes("finkje-rail-6") ? "scale-[1.08] translate-x-[-1%] -translate-y-[4%]" : ""}`}
+                className={`object-cover ${f.src.includes("finkje-rail-6") ? "scale-[1.08] translate-x-[-1%] translate-y-[2%]" : ""}`}
               />
             </div>
             <figcaption className="mt-3 text-[15px] text-black/60">
