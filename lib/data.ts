@@ -1532,6 +1532,16 @@ export const voordelen = [
 
 export const faqData = [
   {
+    vraag: "Wat gebeurt er nadat ik me heb aangemeld?",
+    antwoord:
+      "Wij leggen jouw aanmelding voor aan onze werkgevers. Willen zij meer weten over jouw motivatie of in gesprek? Dan laten wij dat jou direct weten.",
+  },
+  {
+    vraag: "Hoe lang duurt het voor ik iets hoor?",
+    antwoord:
+      "Dat hangt af van wat je zoekt. Soms binnen een week, soms langer. Niet iedere werkgever komt bij ons binnen: we kijken goed met wie we samenwerken en of een baan écht bij je past. Ook als het even stil is, blijf je dus in beeld.",
+  },
+  {
     vraag: "Wat is een Willer?",
     antwoord:
       "Iemand die weet wat hij of zij wil. Je meldt jezelf met je wil en motivatie, niet omdat een vacature je verleidde, maar omdat je zelf iets wil. Wie weet wat hij wil, is gedreven en presteert dus beter.",
@@ -1564,6 +1574,19 @@ export const faqData = [
     vraag: "Wat gebeurt er met mijn gegevens?",
     antwoord:
       "Op basis van je antwoorden maken we een profiel dat werkgevers kunnen bekijken. Je naam en contactgegevens blijven daarbij afgeschermd. Die delen we pas wanneer een werkgever met je in gesprek wil én jij daarmee instemt. Je kunt je profiel op ieder moment offline halen; je gegevens worden dan ook uit ons systeem verwijderd.",
+  },
+  {
+    vraag: "Moet ik een cv uploaden?",
+    antwoord:
+      "Nee. Als een bedrijf je uitnodigt, ga je in gesprek op basis van de antwoorden die je bij Finkje hebt gegeven. Om een cv vragen wij niet.",
+  },
+  {
+    vraag: "Wat als een baan toch niet bij mij past?",
+    antwoord: "Dan zeg je gewoon nee. Het belangrijkste is dat jij jezelf er ziet werken. Is dat niet zo? Dan zit je nergens aan vast.",
+  },
+  {
+    vraag: "Kan ik me aanmelden als ik al een baan heb?",
+    antwoord: "Zeker. Vertel ons waar je al langer van droomt.",
   },
 ];
 
@@ -1634,7 +1657,7 @@ export const werkgeverStappen = [
     nr: "04",
     titel: "Jij voert het gesprek",
     tekst:
-      "Wil je kennismaken? Dan vragen we eerst of die persoon dat ook wil. Pas daarna delen we naam en contactgegevens. Vanaf daar is het aan jullie en stapt Finkje ertussenuit.",
+      "Wil je kennismaken? Dan leggen we je vacature voor aan de werkzoekende. Is er wederzijdse interesse? Finkje stapt ertussenuit en het vervolg is aan jullie.",
   },
 ];
 
@@ -1652,12 +1675,7 @@ export const werkgeverFaq = [
   {
     vraag: "Waarom komt mijn vacature niet online?",
     antwoord:
-      "Omdat we je vacature niet bij zoveel mogelijk mensen onder de aandacht brengen. We kijken juist naar mensen die zelf al hebben aangegeven wat voor werk ze willen. Sluit jouw baan daarop aan? Dan brengen we die bij hen onder de aandacht. Zo begint de interesse bij de persoon zelf, niet bij de vacature.",
-  },
-  {
-    vraag: "Hoe snel heb ik reactie?",
-    antwoord:
-      "Zit er al iemand in onze database die past, dan hoor je dat binnen enkele dagen. Anders blijft je vacature meelopen met iedereen die zich daarna aanmeldt.",
+      "Omdat we je vacature niet bij zoveel mogelijk mensen onder de aandacht brengen. We kijken juist naar mensen die zelf al hebben aangegeven wat voor werk ze willen. Sluit jouw baan daarop aan? Dan brengen we die bij hen onder de aandacht. Zo begint de motivatie bij de persoon zelf, niet bij de vacature.",
   },
   {
     vraag: "Werkt dit ook voor ervaren functies?",

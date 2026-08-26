@@ -41,9 +41,9 @@ export default function PlaatsVacaturePage() {
           Plaats gratis je vacature
         </h1>
         <p className="mt-6 mb-10 max-w-[46ch] text-lg leading-snug text-black/62">
-          Binnen 24 uur kijken we eerst tussen onze mensen. Zit de juiste kandidaat er nog niet tussen? Dan blijft
-          je vacature open tot de door jou gekozen sluitingsdatum. Iedereen die zich in de tussentijd aanmeldt,
-          nemen we direct mee.
+          Na het plaatsen van je vacature, kijken we in onze database of er een match is. Hebben we op dit moment
+          niemand? Dan blijft je vacature open tot de door jou gekozen sluitingsdatum. Goed om te weten: we krijgen
+          elke dag nieuwe aanmeldingen.
         </p>
 
         <VacatureForm />

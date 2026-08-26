@@ -49,8 +49,8 @@ export default function ReageerModal({
           <div className="flex flex-col gap-3.5 border-t border-black/10 pt-5.5">
             <span className="font-display text-2xl font-extrabold tracking-[-0.03em] text-accent">Verstuurd</span>
             <p className="m-0 text-[17px] leading-relaxed text-black/70">
-              We leggen jouw uitnodiging voor aan deze persoon. Zegt diegene ja, dan sturen we naam en
-              contactgegevens naar het opgegeven e-mailadres, meestal binnen één werkdag.
+              We sturen je reactie direct door naar deze persoon. Is er wederzijdse interesse, brengen we jullie meteen met elkaar in
+              contact.
             </p>
             <button
               type="button"

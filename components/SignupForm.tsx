@@ -331,7 +331,7 @@ export default function SignupForm() {
         {stap === 4 && (
           <div className="flex flex-col gap-9">
             <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">
-              Stap 4 — Wat voor werk
+              Stap 4 — Jouw ideale werkomgeving
             </span>
 
             <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-4.5">
@@ -361,23 +361,6 @@ export default function SignupForm() {
               </label>
             </div>
 
-            <div className="flex flex-col gap-3">
-              <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">
-                Wat heb je ervoor over?
-              </span>
-              <div className="flex flex-wrap gap-2.5">
-                {overOpties.map((label) => (
-                  <button
-                    key={label}
-                    type="button"
-                    onClick={toggle(overs, setOvers, label)}
-                    className={chipClass(overs.includes(label))}
-                  >
-                    {label}
-                  </button>
-                ))}
-              </div>
-            </div>
 
             <div className="flex flex-col gap-3">
               <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">
@@ -425,6 +408,24 @@ export default function SignupForm() {
                     </button>
                   );
                 })}
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">
+                Wat heb je ervoor over?
+              </span>
+              <div className="flex flex-wrap gap-2.5">
+                {overOpties.map((label) => (
+                  <button
+                    key={label}
+                    type="button"
+                    onClick={toggle(overs, setOvers, label)}
+                    className={chipClass(overs.includes(label))}
+                  >
+                    {label}
+                  </button>
+                ))}
               </div>
             </div>
 

@@ -19,6 +19,11 @@ export default function VacatureBrief() {
           We zijn selectief. Niet iedereen komt zomaar in aanmerking om bij jouw bedrijf op gesprek te gaan. Daarom
           hebben we bewust drempels gecreëerd die alleen oprecht gemotiveerde mensen nemen.
         </p>
+        {!uitgeklapt && (
+          <button type="button" onClick={() => setUitgeklapt(true)} className="self-start text-base font-semibold text-[#111] md:hidden">
+            Lees meer →
+          </button>
+        )}
         <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
           Dat begint bij dat we de vacature die jij zo gaat plaatsen niet laten zien. Want de ervaring leert dat
           mensen naar een vacature toe schrijven. Was het intrinsieke motivatie? Of waren het toch de voorwaarden
@@ -35,11 +40,6 @@ export default function VacatureBrief() {
             verschil op de werkvloer.
           </p>
         </div>
-        {!uitgeklapt && (
-          <button type="button" onClick={() => setUitgeklapt(true)} className="self-start text-base font-semibold text-accent md:hidden">
-            Lees meer →
-          </button>
-        )}
         <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
           Vragen over je vacature of onze manier van werken? App of mail ons.
         </p>
