@@ -1497,11 +1497,7 @@ export const stapData = [
 
 export const voordelen = [
   {
-    titel: "Jouw besluit, jouw voorwaarden",
-    tekst: "Na je aanmelding reageren bedrijven op jou, zo blijf jij altijd in control.",
-  },
-  {
-    titel: "Nooit meer speuren tussen vacatures",
+    titel: "Vacatures speuren is verleden tijd",
     tekst: "Door te beginnen bij wat jij zoekt, is het zoeken tussen honderden vacatures voorbij.",
   },
   {
@@ -1511,6 +1507,10 @@ export const voordelen = [
   {
     titel: "Begin met een ja",
     tekst: "Elke afwijzing is een teleurstelling. Als je überhaupt al een bericht kreeg. Daarom reageren bedrijven op jou.",
+  },
+  {
+    titel: "Jouw besluit, jouw voorwaarden",
+    tekst: "Na je aanmelding reageren bedrijven op jou, zo blijf jij altijd in control.",
   },
   {
     titel: "Schrijf jouw motivatiebrief één keer",
