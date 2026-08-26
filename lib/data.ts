@@ -1578,11 +1578,6 @@ export const hoeHetWerktFaq = [
       "Dat hangt af van wat je zoekt. Soms binnen een week, soms langer. Niet iedere werkgever komt bij ons binnen: we kijken goed met wie we samenwerken en of een baan écht bij je past. Ook als het even stil is, blijf je dus in beeld.",
   },
   {
-    vraag: "Wat zien werkgevers precies van mij?",
-    antwoord:
-      "Wat je wil worden, je motivatie, je sterke punten, waar je tegenaan loopt en je voorkeuren. Geen naam, geen leeftijd, geen foto, geen contactgegevens.",
-  },
-  {
     vraag: "Kan ik zelf bepalen met welke bedrijven ik in gesprek ga?",
     antwoord:
       "Ja. Jij bepaalt altijd of je met een bedrijf in gesprek wilt. Zien wij een baan die goed bij je past, dan leggen we die aan je voor. Interesse? Dan brengen we jullie met elkaar in contact. Geen interesse? Ook prima.",
@@ -1601,11 +1596,6 @@ export const hoeHetWerktFaq = [
     vraag: "Kan ik mijn aanmelding aanpassen of stoppen?",
     antwoord:
       "Ja, zeker! Stuur ons een appje of e-mailtje en we passen je aanmelding aan.",
-  },
-  {
-    vraag: "Wat als ik nog niet actief zoek?",
-    antwoord:
-      "Dan is aanmelden juist slim. Je profiel wacht rustig af en je hoort het alleen als er iets écht passends langskomt.",
   },
   {
     vraag: "Wat kost het mij?",
