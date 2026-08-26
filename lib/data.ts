@@ -1486,7 +1486,7 @@ export const stapData = [
     nr: "02",
     titel: "Bedrijven zien je motivatie",
     tekst:
-      "Op ons platform, binnen 24 uur. Als een van onze werkgevers je wil uitnodigen voor een gesprek, neemt Finkje contact met je op.",
+      "Op ons platform, binnen 24 uur. Als een van onze werkgevers je wil uitnodigen, neemt Finkje contact met je op.",
   },
   {
     nr: "03",
