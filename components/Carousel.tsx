@@ -124,7 +124,13 @@ export default function Carousel() {
             style={{ flexBasis: "var(--card-w)", scrollSnapAlign: "start" }}
           >
             <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-black/5">
-              <Image src={f.src} alt={f.beroep} fill sizes="300px" className="object-cover" />
+              <Image
+                src={f.src}
+                alt={f.beroep}
+                fill
+                sizes="300px"
+                className={`object-cover ${f.src.includes("finkje-rail-6") ? "scale-[1.08] translate-x-[-1%]" : ""}`}
+              />
             </div>
             <figcaption className="mt-3 text-[15px] text-black/60">
               &ldquo;{f.wil}&rdquo;
