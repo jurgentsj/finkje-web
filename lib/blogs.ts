@@ -397,7 +397,7 @@ export const blogs: Blog[] = [
     datum: "Augustus 2026",
     lead: "Iemand zonder ervaring aannemen voelt als een risico nemen. Met de juiste selectie is het vaak de veiligere keuze.",
     voor: "werkgever",
-    beeld: "assets/foto-oprichters.jpeg",
+    beeld: "assets/foto-werkervaring.png",
     secties: [
       {
         kop: "Ervaring voorspelt minder dan je hoopt",
@@ -479,9 +479,8 @@ const localImage: Record<string, string> = {
   "van-sector-wisselen-zonder-ervaring":
     "/images/blogfoto-van-sector-wisselen-zonder-ervaring.webp",
   "eerste-baan-na-werkloosheid": "/images/blogfoto-eerste-baan-na-werkloosheid.webp",
-  studenten: "/images/blogfoto-studenten.webp",
-  "nieuwe-medewerker-zonder-werkervaring":
-    "/images/blogfoto-nieuwe-medewerker-zonder-werkervaring.webp",
+  studenten: "/images/pexels-mart-production-8885189.jpg",
+  "nieuwe-medewerker-zonder-werkervaring": "/assets/foto-werkervaring.png",
   "gratis-personeel-vinden": "/images/blogfoto-gratis-personeel-vinden.jpg",
 };
 
