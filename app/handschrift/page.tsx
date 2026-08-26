@@ -63,13 +63,6 @@ export default function HandschriftPage() {
               key={w}
               className="relative flex flex-col gap-2.5 overflow-hidden rounded-3xl border border-black/12 bg-white p-6.5"
             >
-              <div
-                className="mb-1.5 flex h-11.5 w-[54%] items-center rounded-tl-[18px] rounded-br-[18px] px-4 text-[18px] font-bold text-white"
-                style={{
-                  background: handKleuren[i % handKleuren.length].hex,
-                  fontFamily: `'${handFonts[i % handFonts.length].font}', sans-serif`,
-                }}
-              />
               <span className="font-display text-2xl font-bold tracking-[-0.03em]">{w}</span>
               <span className="text-base leading-snug text-black/62">{handUitleg[w]}</span>
             </div>
