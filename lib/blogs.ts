@@ -397,7 +397,7 @@ export const blogs: Blog[] = [
     datum: "Augustus 2026",
     lead: "Iemand zonder ervaring aannemen voelt als een risico nemen. Met de juiste selectie is het vaak de veiligere keuze.",
     voor: "werkgever",
-    beeld: "assets/foto-oprichters.jpeg",
+    beeld: "assets/foto-werkervaring.png",
     secties: [
       {
         kop: "Ervaring voorspelt minder dan je hoopt",
