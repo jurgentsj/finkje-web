@@ -24,12 +24,12 @@ export default function VacatureBrief() {
             Lees meer →
           </button>
         )}
-        <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
-          Dat begint bij dat we de vacature die jij zo gaat plaatsen niet laten zien. Want de ervaring leert dat
-          mensen naar een vacature toe schrijven. Was het intrinsieke motivatie? Of waren het toch de voorwaarden
-          in jouw vacaturetekst? Of simpelweg een sollicitatie bij gebrek aan beter?
-        </p>
         <div className={`${uitgeklapt ? "flex" : "hidden"} flex-col gap-5 md:flex`}>
+          <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
+            Dat begint bij dat we de vacature die jij zo gaat plaatsen niet laten zien. Want de ervaring leert dat
+            mensen naar een vacature toe schrijven. Was het intrinsieke motivatie? Of waren het toch de voorwaarden
+            in jouw vacaturetekst? Of simpelweg een sollicitatie bij gebrek aan beter?
+          </p>
           <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
             Wij draaien het om. Onze mensen beschrijven en motiveren hun ideale droombaan. Daarna zoek je zelf tussen
             onze Willers, of laat je dat aan ons over. Past er nu niemand? Dan blijft de vacature openstaan tot de
@@ -40,10 +40,10 @@ export default function VacatureBrief() {
             verschil op de werkvloer.
           </p>
         </div>
-        <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
+        <p className={`${uitgeklapt ? "block" : "hidden"} m-0 text-[17.5px] leading-relaxed text-black/78 md:block`}>
           Vragen over je vacature of onze manier van werken? App of mail ons.
         </p>
-        <div className="flex flex-col gap-0.5 pt-1">
+        <div className={`${uitgeklapt ? "flex" : "hidden"} flex-col gap-0.5 pt-1 md:flex`}>
           <span className="font-display text-[19px] font-bold tracking-[-0.03em]">Rembt &amp; Jurgen</span>
           <span className="text-[15px] text-black/50">Oprichters van Finkje</span>
         </div>
