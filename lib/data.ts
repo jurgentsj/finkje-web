@@ -1480,18 +1480,18 @@ export const stapData = [
   {
     nr: "01",
     titel: "Wat is jouw droombaan?",
-    tekst: "Meld je aan met je droombaan. Vertel ons wat je zoekt en wat je voorkeuren zijn.",
+    tekst: "Meld je aan met je droombaan. Vertel ons wat je zoekt, waar je goed in bent en wat je voorkeuren zijn.",
   },
   {
     nr: "02",
-    titel: "Bedrijven zien je motivatie",
+    titel: "Een werkgever reageert",
     tekst:
-      "Op ons platform, binnen 24 uur. Als een van onze werkgevers je wil uitnodigen, neemt Finkje contact met je op.",
+      "Is een werkgever enthousiast? We nemen contact met je op en laten de keuze bij jou.",
   },
   {
     nr: "03",
     titel: "Jij beslist",
-    tekst: "Ben jij ook enthousiast? Dan zorgen we dat jullie in contact komen. ",
+    tekst: "Pas als jij ja zegt zorgen we dat jullie in contact komen. Zeg je nee, blijft je aanmelding gewoon staan. Totdat jij tevreden bent.",
   },
 ];
 
