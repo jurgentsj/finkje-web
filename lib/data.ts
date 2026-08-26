@@ -1590,7 +1590,7 @@ export const hoeHetWerktFaq = [
   {
     vraag: "Wanneer worden mijn gegevens gedeeld?",
     antwoord:
-      "Pas als jij een uitnodiging accepteert. Zeg je nee, dan krijgt het bedrijf niets te zien en blijft je profiel gewoon staan.",
+      "Pas als jij een uitnodiging accepteert.",
   },
   {
     vraag: "Moet ik een cv uploaden?",
