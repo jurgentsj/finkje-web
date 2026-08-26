@@ -1532,6 +1532,16 @@ export const voordelen = [
 
 export const faqData = [
   {
+    vraag: "Wat gebeurt er nadat ik me heb aangemeld?",
+    antwoord:
+      "Wij leggen jouw aanmelding voor aan onze werkgevers. Willen zij meer weten over jouw motivatie of in gesprek? Dan laten wij dat jou direct weten.",
+  },
+  {
+    vraag: "Hoe lang duurt het voor ik iets hoor?",
+    antwoord:
+      "Dat hangt af van wat je zoekt. Soms binnen een week, soms langer. Niet iedere werkgever komt bij ons binnen: we kijken goed met wie we samenwerken en of een baan écht bij je past. Ook als het even stil is, blijf je dus in beeld.",
+  },
+  {
     vraag: "Wat is een Willer?",
     antwoord:
       "Iemand die weet wat hij of zij wil. Je meldt jezelf met je wil en motivatie, niet omdat een vacature je verleidde, maar omdat je zelf iets wil. Wie weet wat hij wil, is gedreven en presteert dus beter.",
@@ -1543,7 +1553,8 @@ export const faqData = [
   },
   {
     vraag: "Moet ik zelf contact zoeken met bedrijven?",
-    antwoord: "Nee. Jij meldt je één keer aan. Daarna komen wij naar jou zodra er iets aansluit.",
+    antwoord:
+      "Nee. Je meldt je één keer aan met je droombaan. Is er een match? Brengen wij jullie direct met elkaar in contact.",
   },
   {
     vraag: "Waarom vragen jullie waar ik tegenaan loop?",
@@ -1564,23 +1575,31 @@ export const faqData = [
     antwoord:
       "Op basis van je antwoorden maken we een profiel dat werkgevers kunnen bekijken. Je naam en contactgegevens blijven daarbij afgeschermd. Die delen we pas wanneer een werkgever met je in gesprek wil én jij daarmee instemt. Je kunt je profiel op ieder moment offline halen; je gegevens worden dan ook uit ons systeem verwijderd.",
   },
+  {
+    vraag: "Moet ik een cv uploaden?",
+    antwoord:
+      "Nee. Als een bedrijf je uitnodigt, ga je in gesprek op basis van de antwoorden die je bij Finkje hebt gegeven. Om een cv vragen wij niet.",
+  },
+  {
+    vraag: "Wat als een baan toch niet bij mij past?",
+    antwoord: "Dan zeg je gewoon nee. Het belangrijkste is dat jij jezelf er ziet werken. Is dat niet zo? Dan zit je nergens aan vast.",
+  },
+  {
+    vraag: "Kan ik me aanmelden als ik al een baan heb?",
+    antwoord: "Zeker. Vertel ons waar je al langer van droomt.",
+  },
 ];
 
 export const hoeHetWerktFaq = [
   {
     vraag: "Wat gebeurt er nadat ik me heb aangemeld?",
     antwoord:
-      "Wij leggen jouw profiel voor aan onze werkgevers. Willen zij meer weten over jouw motivatie of in gesprek? Dan laten wij dat jou direct weten.",
+      "Wij leggen jouw aanmelding voor aan onze werkgevers. Willen zij meer weten over jouw motivatie of in gesprek? Dan laten wij dat jou direct weten.",
   },
   {
     vraag: "Hoe lang duurt het voor ik iets hoor?",
     antwoord:
-      "Dat hangt af van wat je zoekt. Soms binnen een week, soms langer. Niet iedere werkgever komt bij ons binnen: we kijken goed met wie we samenwerken en of een baan écht bij je past. Je profiel blijft actief tot jij het weghaalt, dus ook als het even stil is, blijf je in beeld.",
-  },
-  {
-    vraag: "Wat zien werkgevers precies van mij?",
-    antwoord:
-      "Wat je wil worden, je motivatie, je sterke punten, waar je tegenaan loopt en je voorkeuren. Geen naam, geen leeftijd, geen foto, geen contactgegevens.",
+      "Dat hangt af van wat je zoekt. Soms binnen een week, soms langer. Niet iedere werkgever komt bij ons binnen: we kijken goed met wie we samenwerken en of een baan écht bij je past. Ook als het even stil is, blijf je dus in beeld.",
   },
   {
     vraag: "Kan ik zelf bepalen met welke bedrijven ik in gesprek ga?",
@@ -1590,22 +1609,17 @@ export const hoeHetWerktFaq = [
   {
     vraag: "Wanneer worden mijn gegevens gedeeld?",
     antwoord:
-      "Pas als jij een uitnodiging accepteert. Zeg je nee, dan krijgt het bedrijf niets te zien en blijft je profiel gewoon staan.",
+      "Pas als jij een uitnodiging accepteert.",
   },
   {
     vraag: "Moet ik een cv uploaden?",
     antwoord:
-      "Nee. Als een bedrijf je uitnodigt, ga je in gesprek op basis van de antwoorden die je bij Finkje hebt gegeven. Wat je daar invult, bepaal je zelf. Om een cv vragen wij niet.",
+      "Nee. Als een bedrijf je uitnodigt, ga je in gesprek op basis van de antwoorden die je bij Finkje hebt gegeven. Om een cv vragen wij niet.",
   },
   {
     vraag: "Kan ik mijn aanmelding aanpassen of stoppen?",
     antwoord:
-      "Altijd. Je past je kaart aan of haalt hem offline wanneer je wil; daarna is hij voor niemand meer zichtbaar. Ook voor ons niet.",
-  },
-  {
-    vraag: "Wat als ik nog niet actief zoek?",
-    antwoord:
-      "Dan is aanmelden juist slim. Je profiel wacht rustig af en je hoort het alleen als er iets écht passends langskomt.",
+      "Ja, zeker! Stuur ons een appje of e-mailtje en we passen je aanmelding aan.",
   },
   {
     vraag: "Wat kost het mij?",
@@ -1643,7 +1657,7 @@ export const werkgeverStappen = [
     nr: "04",
     titel: "Jij voert het gesprek",
     tekst:
-      "Wil je kennismaken? Dan vragen we eerst of die persoon dat ook wil. Pas daarna delen we naam en contactgegevens. Vanaf daar is het aan jullie en stapt Finkje ertussenuit.",
+      "Wil je kennismaken? Dan leggen we je vacature voor aan de werkzoekende. Is er wederzijdse interesse? Finkje stapt ertussenuit en het vervolg is aan jullie.",
   },
 ];
 
@@ -1661,12 +1675,7 @@ export const werkgeverFaq = [
   {
     vraag: "Waarom komt mijn vacature niet online?",
     antwoord:
-      "Omdat we je vacature niet bij zoveel mogelijk mensen onder de aandacht brengen. We kijken juist naar mensen die zelf al hebben aangegeven wat voor werk ze willen. Sluit jouw baan daarop aan? Dan brengen we die bij hen onder de aandacht. Zo begint de interesse bij de persoon zelf, niet bij de vacature.",
-  },
-  {
-    vraag: "Hoe snel heb ik reactie?",
-    antwoord:
-      "Zit er al iemand in onze database die past, dan hoor je dat binnen enkele dagen. Anders blijft je vacature meelopen met iedereen die zich daarna aanmeldt.",
+      "Omdat we je vacature niet bij zoveel mogelijk mensen onder de aandacht brengen. We kijken juist naar mensen die zelf al hebben aangegeven wat voor werk ze willen. Sluit jouw baan daarop aan? Dan brengen we die bij hen onder de aandacht. Zo begint de motivatie bij de persoon zelf, niet bij de vacature.",
   },
   {
     vraag: "Werkt dit ook voor ervaren functies?",

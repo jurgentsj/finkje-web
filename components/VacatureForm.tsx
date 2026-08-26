@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { saveLead } from "@/lib/leads";
 
 type VacState = {
   titel: string;
@@ -36,14 +37,19 @@ export default function VacatureForm() {
       setFout("");
     };
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!vac.titel.trim()) return setFout("Vul een functietitel in.");
     if (!/.+@.+\..+/.test(vac.email)) return setFout("Vul een geldig e-mailadres in.");
     if (!vac.akkoord) return setFout("Ga akkoord met de voorwaarden om te plaatsen.");
-    setVerzonden(true);
-    setFout("");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    try {
+      await saveLead("vacancy", vac);
+      setVerzonden(true);
+      setFout("");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch {
+      setFout("Opslaan lukt nu niet. Probeer het nog een keer.");
+    }
   };
 
   if (verzonden) {

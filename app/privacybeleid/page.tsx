@@ -134,11 +134,8 @@ export default function PrivacyPage() {
         <div className="mt-14 flex flex-col gap-2 rounded-3xl bg-sand p-7 text-[17px] leading-relaxed">
           <span className="mb-1.5 text-xs font-semibold tracking-[0.14em] text-black/45 uppercase">Contact</span>
           <a href="mailto:contact@finkje.nl">contact@finkje.nl</a>
-          <a href="tel:+31108906696" className="text-[#111]">
-            010 - 890 66 96
-          </a>
           <span>Schiedamsesingel 187 E, 3012 BB Rotterdam</span>
-          <span>KvK 95213120 · www.finkje.nl</span>
+          <span>KvK 95213120</span>
         </div>
       </section>
     </>

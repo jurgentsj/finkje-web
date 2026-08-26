@@ -28,12 +28,12 @@ export default function VoorWerkgeversPage() {
               Ontdek mensen die weten wat ze willen
             </h1>
             <p className="mt-7 max-w-[42ch] text-[clamp(18px,2.1vw,24px)] leading-snug text-black/62">
-              Onze mensen beginnen bij zichzelf en worden niet extern geprikkeld door jouw vacature. Zo beloven we
-              enorm gedreven mensen, die weten wat ze willen.
+              Onze mensen beginnen bij zichzelf en worden niet extern geprikkeld door de voorwaarden op jouw vacature. Zo
+              beloven we enorm gedreven mensen, die intrinsiek gemotiveerd zijn.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link
-                href="/plaats-je-vacature"
+                href="/motivatiebrief"
                 className="rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-black"
               >
                 Plaats gratis een vacature →
@@ -46,7 +46,7 @@ export default function VoorWerkgeversPage() {
               </Link>
             </div>
             <p className="mt-5 text-[15px] text-black/50">
-              Finkje is nu nog kosteloos: geen plaatsingskosten, geen abonnement, geen fee.
+              Finkje is nu nog kosteloos: geen plaatsingskosten, geen abonnement of fee.
             </p>
           </div>
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-black/5">
@@ -70,13 +70,13 @@ export default function VoorWerkgeversPage() {
           {werkgeverStappen.map((s) => (
             <div
               key={s.nr}
-              className="grid grid-cols-[64px_minmax(180px,300px)_1fr] items-baseline gap-6 border-b border-black/10 py-6.5"
+              className="grid grid-cols-[40px_minmax(0,1fr)] items-start gap-x-4 gap-y-2 border-b border-black/10 py-6.5 sm:grid-cols-[64px_minmax(180px,300px)_1fr] sm:items-baseline sm:gap-6"
             >
               <span className="font-display text-xl font-bold text-accent">{s.nr}</span>
-              <h3 className="m-0 font-display text-[clamp(20px,2.2vw,27px)] leading-tight font-bold tracking-[-0.03em]">
+              <h3 className="col-span-1 m-0 font-display text-[clamp(20px,2.2vw,27px)] leading-tight font-bold tracking-[-0.03em]">
                 {s.titel}
               </h3>
-              <p className="m-0 max-w-[56ch] text-[17px] leading-snug text-black/65">{s.tekst}</p>
+              <p className="col-span-2 m-0 w-full max-w-none text-[17px] leading-snug text-black/65 sm:col-auto sm:max-w-[56ch]">{s.tekst}</p>
             </div>
           ))}
         </div>
@@ -122,7 +122,7 @@ export default function VoorWerkgeversPage() {
               actief tot je sluitingsdatum.
             </p>
             <Link
-              href="/plaats-je-vacature"
+              href="/motivatiebrief"
               className="self-start rounded-full bg-black px-6.5 py-3.5 font-semibold text-white transition-colors hover:bg-white hover:text-[#111]"
             >
               Gratis vacature plaatsen →
@@ -141,11 +141,11 @@ export default function VoorWerkgeversPage() {
       <section className="mx-auto max-w-[1360px] px-6 pt-18 pb-28">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] items-center gap-8 rounded-[32px] bg-black p-8 text-white sm:p-14">
           <h2 className="m-0 max-w-[22ch] font-display text-[clamp(28px,3.6vw,50px)] leading-[0.96] font-extrabold tracking-[-0.04em]">
-            Eén vacature, en wij gaan zoeken.
+            Jij hebt de baan, wij weten wie &apos;m wil.
           </h2>
           <div className="flex flex-wrap gap-3">
             <Link
-              href="/plaats-je-vacature"
+              href="/motivatiebrief"
               className="rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-white hover:text-[#111]"
             >
               Plaats gratis een vacature →

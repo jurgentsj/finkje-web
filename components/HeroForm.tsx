@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { phrases } from "@/lib/data";
+import { saveLead } from "@/lib/leads";
 
 export default function HeroForm() {
   const router = useRouter();
@@ -16,9 +17,17 @@ export default function HeroForm() {
     return () => clearInterval(id);
   }, []);
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    router.push(wil.trim() ? `/aanmelden?wil=${encodeURIComponent(wil.trim())}` : "/aanmelden");
+    const value = wil.trim();
+    if (value) {
+      try {
+        await saveLead("hero", { wil: value });
+      } catch {
+        return;
+      }
+    }
+    router.push(value ? `/aanmelden?wil=${encodeURIComponent(value)}` : "/aanmelden");
   };
 
   return (

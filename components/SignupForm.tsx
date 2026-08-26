@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { saveLead } from "@/lib/leads";
 import {
   dienstverbandOpties,
   omgevingOpties,
@@ -79,7 +80,7 @@ export default function SignupForm() {
     setList(list.includes(label) ? list.filter((x) => x !== label) : [...list, label]);
   };
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (stap === 1) {
       if (!form.droombaan.trim()) return setFout("Vertel eerst wat voor baan je wil.");
@@ -112,8 +113,13 @@ export default function SignupForm() {
     if (!form.naam.trim() || !/.+@.+\..+/.test(form.email)) {
       return setFout("Vul je naam en een geldig e-mailadres in.");
     }
-    setKlaar(true);
-    setFout("");
+    try {
+      await saveLead("signup", { ...form, overs, omgevingen });
+      setKlaar(true);
+      setFout("");
+    } catch {
+      setFout("Opslaan lukt nu niet. Probeer het nog een keer.");
+    }
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -167,10 +173,10 @@ export default function SignupForm() {
       <form onSubmit={submit} className="flex flex-col gap-8.5 rounded-[28px] bg-sand p-8.5">
         {stap === 1 && (
           <div className="flex flex-col gap-8">
-            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Stap 1 — Je wil</span>
+            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Stap 1 — de Functie</span>
             <label className="flex flex-col gap-3">
               <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
-                Wat voor baan wil jíj?
+                Wat wil je graag doen?
               </span>
               <input
                 value={form.droombaan}
@@ -181,7 +187,7 @@ export default function SignupForm() {
             </label>
             <label className="flex flex-col gap-3">
               <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
-                Waarom wil je dat?
+                Waarom juist dat?
               </span>
               <textarea
                 value={form.waarom}
@@ -196,7 +202,7 @@ export default function SignupForm() {
 
         {stap === 2 && (
           <div className="flex flex-col gap-8">
-            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Stap 2 — Jij</span>
+            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Stap 2 — OVER JOU</span>
             <label className="flex flex-col gap-3">
               <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
                 Waar ben je sterk in?
@@ -325,7 +331,7 @@ export default function SignupForm() {
         {stap === 4 && (
           <div className="flex flex-col gap-9">
             <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">
-              Stap 4 — Wat voor werk
+              Stap 4 — Jouw ideale werkomgeving
             </span>
 
             <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-4.5">
@@ -355,23 +361,6 @@ export default function SignupForm() {
               </label>
             </div>
 
-            <div className="flex flex-col gap-3">
-              <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">
-                Wat heb je ervoor over?
-              </span>
-              <div className="flex flex-wrap gap-2.5">
-                {overOpties.map((label) => (
-                  <button
-                    key={label}
-                    type="button"
-                    onClick={toggle(overs, setOvers, label)}
-                    className={chipClass(overs.includes(label))}
-                  >
-                    {label}
-                  </button>
-                ))}
-              </div>
-            </div>
 
             <div className="flex flex-col gap-3">
               <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">
@@ -419,6 +408,24 @@ export default function SignupForm() {
                     </button>
                   );
                 })}
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">
+                Wat heb je ervoor over?
+              </span>
+              <div className="flex flex-wrap gap-2.5">
+                {overOpties.map((label) => (
+                  <button
+                    key={label}
+                    type="button"
+                    onClick={toggle(overs, setOvers, label)}
+                    className={chipClass(overs.includes(label))}
+                  >
+                    {label}
+                  </button>
+                ))}
               </div>
             </div>
 

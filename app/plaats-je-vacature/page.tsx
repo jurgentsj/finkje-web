@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import VacatureForm from "@/components/VacatureForm";
-import VacatureBrief from "@/components/VacatureBrief";
 
 export const metadata: Metadata = {
   title: "Plaats je vacature — Finkje",
@@ -36,19 +35,14 @@ const tijdlijn = [
 export default function PlaatsVacaturePage() {
   return (
     <>
-      <section className="mx-auto max-w-[940px] px-6 pt-18">
-        <VacatureBrief />
-      </section>
-
       <section id="vacature-formulier" className="mx-auto max-w-[940px] px-6 pt-20 pb-28">
         <p className="m-0 mb-6 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Voor werkgevers</p>
         <h1 className="m-0 font-display text-[clamp(36px,7vw,92px)] leading-[0.9] font-extrabold tracking-[-0.05em]">
           Plaats gratis je vacature
         </h1>
         <p className="mt-6 mb-10 max-w-[46ch] text-lg leading-snug text-black/62">
-          Binnen 24 uur kijken we eerst tussen onze mensen. Zit de juiste kandidaat er nog niet tussen? Dan blijft
-          je vacature open tot de door jou gekozen sluitingsdatum. Iedereen die zich in de tussentijd aanmeldt,
-          nemen we direct mee.
+          Na het plaatsen van je vacature, kijken we in onze database of er een match is. Hebben we op dit moment
+          niemand? Dan blijft je vacature open tot de door jou gekozen sluitingsdatum.
         </p>
 
         <VacatureForm />

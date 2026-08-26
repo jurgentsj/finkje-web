@@ -1,18 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 export default function VacatureBrief() {
-  const [briefKlaar, setBriefKlaar] = useState(false);
-
-  const briefGelezen = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setBriefKlaar(true);
-    requestAnimationFrame(() => {
-      const el = document.getElementById("vacature-formulier");
-      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 24, behavior: "smooth" });
-    });
-  };
+  const [uitgeklapt, setUitgeklapt] = useState(false);
 
   return (
     <>
@@ -27,21 +19,28 @@ export default function VacatureBrief() {
           We zijn selectief. Niet iedereen komt zomaar in aanmerking om bij jouw bedrijf op gesprek te gaan. Daarom
           hebben we bewust drempels gecreëerd die alleen oprecht gemotiveerde mensen nemen.
         </p>
-        <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
-          Dat begint bij dat we de vacature die jij zo gaat plaatsen niet laten zien. Want de ervaring leert dat
-          mensen naar een vacature toe schrijven. Was het intrinsieke motivatie? Of waren het toch de voorwaarden
-          in jouw vacaturetekst? Of simpelweg een sollicitatie bij gebrek aan beter?
-        </p>
-        <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
-          Wij draaien het om. Onze mensen beschrijven en motiveren hun ideale droombaan. Daarna zoek je zelf tussen
-          onze Willers, of laat je dat aan ons over. Past er nu niemand? Dan blijft de vacature openstaan tot de
-          einddatum. Zo krijg je kandidaten die niet proberen te passen, maar het al doen.
-        </p>
-        <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
-          Mensen die doen wat ze echt willen, zijn gelukkiger. En precies die mensen maken uiteindelijk het
-          verschil op de werkvloer.
-        </p>
-        <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
+        {!uitgeklapt && (
+          <button type="button" onClick={() => setUitgeklapt(true)} className="self-start text-base font-semibold text-[#111] md:hidden">
+            Lees meer →
+          </button>
+        )}
+        <div className={`${uitgeklapt ? "flex" : "hidden"} flex-col gap-5 md:flex`}>
+          <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
+            Dat begint bij dat we de vacature die jij zo gaat plaatsen niet laten zien. Want de ervaring leert dat
+            mensen naar een vacature toe schrijven. Was het intrinsieke motivatie? Of waren het toch de voorwaarden
+            in jouw vacaturetekst? Of simpelweg een sollicitatie bij gebrek aan beter?
+          </p>
+          <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
+            Wij draaien het om. Onze mensen beschrijven en motiveren hun ideale droombaan. Daarna zoek je zelf tussen
+            onze Willers, of laat je dat aan ons over. Past er nu niemand? Dan blijft de vacature openstaan tot de
+            einddatum. Zo krijg je mensen die niet proberen te passen, maar het al doen.
+          </p>
+          <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
+            Mensen die doen wat ze echt willen, zijn gelukkiger. En precies die mensen maken uiteindelijk het
+            verschil op de werkvloer.
+          </p>
+        </div>
+        <p className={`${uitgeklapt ? "block" : "hidden"} m-0 text-[17.5px] leading-relaxed text-black/78 md:block`}>
           Vragen over je vacature of onze manier van werken? App of mail ons.
         </p>
         <div className="flex flex-col gap-0.5 pt-1">
@@ -51,20 +50,12 @@ export default function VacatureBrief() {
       </div>
 
       <div className="flex flex-col gap-3.5 px-1 pt-7">
-        {briefKlaar ? (
-          <span className="text-[15px] text-black/45">Bedankt voor het lezen. Het formulier staat hieronder.</span>
-        ) : (
-          <div className="flex flex-wrap items-center gap-4">
-            <a
-              href="#vacature-formulier"
-              onClick={briefGelezen}
-              className="rounded-full bg-black px-7.5 py-4.5 text-[17px] font-semibold text-white transition-colors hover:bg-accent"
-            >
-              Plaats je vacature →
-            </a>
-            <span className="text-[15px] text-black/45">Bedankt voor het lezen.</span>
-          </div>
-        )}
+        <Link
+          href="/plaats-je-vacature"
+          className="self-start rounded-full bg-black px-7.5 py-4.5 text-[17px] font-semibold text-white transition-colors hover:bg-accent"
+        >
+          Plaats je vacature →
+        </Link>
       </div>
     </>
   );
