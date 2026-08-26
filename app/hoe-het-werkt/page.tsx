@@ -113,7 +113,7 @@ export default function HoeHetWerktPage() {
           <div className="border-t border-black/15 pt-9">
             <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] items-center gap-10">
               <div className="flex flex-col gap-5">
-                <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Je profielkaart</p>
+                <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Je AANMELDING</p>
                 <h2 className="m-0 max-w-[16ch] font-display text-[clamp(30px,4.4vw,56px)] leading-[0.96] font-extrabold tracking-[-0.045em]">
                   Zo ziet jouw profiel eruit.
                 </h2>
