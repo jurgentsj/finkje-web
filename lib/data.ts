@@ -1490,8 +1490,8 @@ export const stapData = [
   },
   {
     nr: "03",
-    titel: "Jij beslist",
-    tekst: "Ben jij ook enthousiast? Dan zorgen we dat jullie in contact komen. ",
+    titel: "Wordt uitgenodigd",
+    tekst: "Ben jij ook enthousiast? Dan zorgen we dat jullie in contact komen. ",
   },
 ];
 
