@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative mx-auto w-full max-w-[1360px] px-6 pt-16">
+      <section className="relative mx-auto w-full max-w-[1360px] px-6 pt-[46px]">
         <div className="flex flex-wrap items-end gap-10">
           <div className="min-w-0 flex-[3_1_420px]">
             <h1 className="m-0 mt-7 font-display text-[clamp(48px,10vw,148px)] leading-[0.88] font-extrabold tracking-[-0.045em] text-[#111]">
