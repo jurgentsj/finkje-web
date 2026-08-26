@@ -8,5 +8,15 @@ export async function saveLead(kind: LeadKind, payload: Record<string, unknown>,
     console.error("[v0] Lead submission failed:", { kind, code: error.code, message: error.message });
     throw error;
   }
+
+  try {
+    await fetch("/api/telegram", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ kind, status, payload }),
+    });
+  } catch (notificationError) {
+    console.error("[v0] Telegram notification request failed:", notificationError);
+  }
 }
 
