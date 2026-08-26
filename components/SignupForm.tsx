@@ -202,7 +202,7 @@ export default function SignupForm() {
 
         {stap === 2 && (
           <div className="flex flex-col gap-8">
-            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Stap 2 — Jij</span>
+            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Stap 2 — OVER JOU</span>
             <label className="flex flex-col gap-3">
               <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
                 Waar ben je sterk in?
