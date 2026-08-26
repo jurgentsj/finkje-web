@@ -1490,7 +1490,7 @@ export const stapData = [
   },
   {
     nr: "03",
-    titel: "Jij beslist",
+    titel: "Jij beslist, altijd",
     tekst: "Pas als jij ja zegt zorgen we dat jullie in contact komen. Zeg je nee, blijft je aanmelding gewoon staan. Totdat jij tevreden bent.",
   },
 ];
