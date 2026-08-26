@@ -1600,7 +1600,7 @@ export const hoeHetWerktFaq = [
   {
     vraag: "Kan ik mijn aanmelding aanpassen of stoppen?",
     antwoord:
-      "Altijd. Je past je kaart aan of haalt hem offline wanneer je wil; daarna is hij voor niemand meer zichtbaar. Ook voor ons niet.",
+      "Ja, zeker! Stuur ons een appje of e-mailtje en we passen je aanmelding aan.",
   },
   {
     vraag: "Wat als ik nog niet actief zoek?",
