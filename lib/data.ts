@@ -1781,7 +1781,7 @@ export const railFotos: { id: string; wil: string; beroep: string; src: string; 
     wil: "Ik heb passie voor mijn vak: het sleutelen aan auto’s, en vind het leuk om dingen aan mensen uit te leggen.",
     beroep: "Automonteur",
     src: "/images/finkje-rail-6.jpg",
-    briefing: "Automonteur in overall onder een geheven auto",
+    briefing: "Automonteur in een moderne werkplaats, lachend tijdens het werk",
   },
   {
     id: "finkje-rail-1",
