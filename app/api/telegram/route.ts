@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
+  const chatId = process.env.TELEGRAM_CHAT_ID || "187413204";
 
   if (!token || !chatId) {
     return NextResponse.json({ ok: false, error: "Telegram is not configured" }, { status: 503 });
