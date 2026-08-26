@@ -13,7 +13,7 @@ const stappen = [
     nr: "01",
     titel: "Meld je aan",
     tekst:
-      "In vier korte stappen vertel je wat je zoekt, waar je sterk in bent, waar je tegenaan loopt en wat je voorkeuren zijn.",
+      "In zes korte stappen vertel je wat je zoekt, waar je sterk in bent, waar je tegenaan loopt en wat je voorkeuren zijn.",
   },
   {
     nr: "02",
@@ -24,7 +24,7 @@ const stappen = [
     nr: "03",
     titel: "Jij beslist",
     tekst:
-      "Pas als jij ja zegt worden je gegevens gedeeld. Zeg je nee, dan blijft je aanmelding gewoon staan. Totdat jij tevreden bent.",
+      "Pas als jij ja zegt zorgen wij dat jullie in contact komen. Zeg je nee, dan blijft je aanmelding gewoon staan. Totdat jij tevreden bent.",
   },
 ];
 
@@ -78,14 +78,14 @@ export default function HoeHetWerktPage() {
               Geen vacatures, waarom?
             </h2>
             <p className="m-0 max-w-[42ch] text-[clamp(17px,1.9vw,22px)] leading-snug text-black/68">
-              Een vacature vraagt jou om je aan te passen. Wij draaien het om.
+              Een vacature vraagt jou om je aan te passen. Wij draaien de boel om.
             </p>
           </div>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4">
             <div className="flex flex-col gap-5 rounded-3xl border border-black/10 bg-white px-8 py-8.5">
               <span className="text-xs font-semibold tracking-[0.16em] text-black/40 uppercase">Met een vacature</span>
               <div className="flex flex-col gap-3.5">
-                {["Schrijven naar de tekst toe", "Wachten op antwoord", "Weer een afwijzing"].map((t) => (
+                {["Schrijf je naar de eisen toe", "Wacht je op antwoord", "Verzamel je afwijzingen"].map((t) => (
                   <span
                     key={t}
                     className="font-display text-[clamp(19px,2.1vw,24px)] leading-tight font-semibold tracking-[-0.03em] text-black/42"
@@ -98,7 +98,7 @@ export default function HoeHetWerktPage() {
             <div className="flex flex-col gap-5 rounded-3xl border border-black bg-black px-8 py-8.5">
               <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Bij Finkje</span>
               <div className="flex flex-col gap-3.5">
-                {["Zeggen wat je écht wil", "Bedrijven komen naar jou", "Alleen uitnodigingen"].map((t) => (
+                {["Zeg je wat je wil", "Komen bedrijven naar jou toe", "Verzamel je uitnodigingen"].map((t) => (
                   <span
                     key={t}
                     className="font-display text-[clamp(19px,2.1vw,24px)] leading-tight font-semibold tracking-[-0.03em] text-white"
@@ -115,11 +115,11 @@ export default function HoeHetWerktPage() {
               <div className="flex flex-col gap-5">
                 <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Je profielkaart</p>
                 <h2 className="m-0 max-w-[16ch] font-display text-[clamp(30px,4.4vw,56px)] leading-[0.96] font-extrabold tracking-[-0.045em]">
-                  Zo ziet jouw kaart eruit.
+                  Zo ziet jouw profiel eruit.
                 </h2>
                 <p className="m-0 max-w-[38ch] text-[17.5px] leading-relaxed text-black/66">
-                  Geen naam, geen leeftijd, geen foto. Een werkgever ziet je baan en je motivatie — je gegevens
-                  pas als jíj ja zegt.
+                  Jouw motivatie in beeld voor onze werkgevers. Naam en contactgegevens delen wij pas als jij op
+                  gesprek wil.
                 </p>
                 <Link
                   href="/mensen"
@@ -190,7 +190,7 @@ export default function HoeHetWerktPage() {
           href="/aanmelden"
           className="rounded-full bg-accent px-11 py-5.5 text-[clamp(18px,2vw,23px)] font-bold text-white transition-colors hover:bg-black"
         >
-          Aanmelden →
+          Deze →
         </Link>
       </section>
     </>

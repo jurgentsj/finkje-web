@@ -26,27 +26,24 @@ export const blogs: Blog[] = [
     beeld: "assets/foto-bouw.jpg",
     secties: [
       {
-        kop: "Het diploma is een filter, niet een oordeel",
+        kop: "Solliciteren zonder diploma",
         tekst: [
-          "Als je zonder diploma solliciteert, loop je bijna altijd tegen hetzelfde aan. Je stuurt iets in, je hoort een week niets, en dan komt er een bericht dat ze verder gaan met andere kandidaten. Niemand heeft je gesproken. Niemand weet wat je wilde. Het voelt als een oordeel over jou, maar dat is het meestal niet.",
-          "Wat er gebeurt is veel simpeler en veel minder persoonlijk. Bij een vacature met tachtig reacties moet iemand die stapel terugbrengen tot vijf gesprekken. Dat gaat op de snelste manier die er is: kijken of het gevraagde papiertje erbij zit. Niet omdat het werk het altijd vraagt, maar omdat het de enige eis is die je in twee seconden kunt aftikken. Motivatie kost tien minuten lezen en is bovendien lastig te vergelijken, want iedereen schrijft dat hij enthousiast is.",
-          "Daar zit de kern van het probleem. Je valt niet af omdat je het werk niet kan. Je valt af voordat iemand daar iets over te weten is gekomen.",
+          "Als je zonder diploma solliciteert, loop je vaak tegen hetzelfde aan. Je stuurt iets in, je hoort een week niets en dan komt er een bericht dat ze verder gaan met andere kandidaat. Mega frusterend en uiteindelijk niemand gesproken. Toch hoef je het niet persoonlijk op te vatten: bij een vacature met tachtig reacties moet iemand die stapel terugbrengen tot vijf gesprekken. Dat gaat op de snelste manier die er is, en dat is kijken of het gevraagde papiertje erbij zit.",
+          "Maar toch, steeds meer bedrijven naar wat je kunt, hoe snel je leert en hoeveel motivatie je meebrengt. Zeker nu veel werkgevers personeel zoeken, ontstaan er kansen voor mensen die via een andere route willen binnenkomen.",
         ],
       },
       {
         kop: "Werkgevers hebben je harder nodig dan ze in de vacature toegeven",
         tekst: [
-          "Tegelijk gebeurt er iets anders. In vrijwel elke sector staan functies maanden open. Werkgevers merken dat de kandidaat die aan alle eisen voldoet niet komt, en dat ze intussen wel het werk moeten doen. Steeds meer bedrijven zijn daarom overgestapt op zelf opleiden. Ze zoeken iemand die het wil, en de vakkennis komt in de praktijk.",
+          "In vrijwel elke sector staan functies maanden open. Werkgevers merken dat de kandidaat die aan alle eisen voldoet niet komt, en dat ze intussen wel het werk moeten doen. Steeds meer bedrijven zijn daarom overgestapt op zelf opleiden. Ze zoeken iemand die het wil, en de vakkennis komt in de praktijk.",
           "Dat zie je alleen niet aan de vacature. Die staat er nog precies zo als drie jaar geleden, met dezelfde eisen erin, omdat niemand de tijd heeft gehad om hem te herschrijven. Als je afgaat op wat er staat, denk je dat je nergens welkom bent. Terwijl dezelfde werkgever bij een goed gesprek zomaar zegt dat het diploma minder belangrijk is dan hij had opgeschreven.",
-          "Dat betekent dat de vraag voor jou niet is of je zonder diploma aan de slag komt. De vraag is hoe je bij iemand aan tafel komt zonder eerst door dat papieren filter te moeten.",
         ],
       },
       {
         kop: "Zo kom je binnen",
         tekst: [
-          'Wat de mensen die het wel lukt gemeen hebben, is dat iemand hun verhaal eerst hoorde. Via een kennis, via een uitzendbureau dat ze goed kende, of omdat ze ergens al een tijdje meeliepen. Niet toevallig: in al die gevallen kwam de motivatie voor het cv.',
-          'Je kunt daar zelf iets aan doen. Wees precies over wat je wil gaan doen en waarom. Niet "ik sta open voor alles", want dat maakt het voor een werkgever onmogelijk om te zien waar je past. Wel: dit werk wil ik doen, hierom, en dit heb ik al gedaan waaruit blijkt dat ik doorzet. Dat laatste hoeft geen baan te zijn. Een bijbaan, een vereniging, mantelzorg of een eigen project zeggen genoeg over hoe je bent.',
-          "Wij hebben Finkje precies om die reden omgedraaid. Je vult geen cv in en schrijft geen brief per vacature. Je vertelt in vier korte stappen wat je wil worden en waarom, wij maken daar een anoniem profiel van, en werkgevers die verder kijken dan papier nodigen jou uit. Aanmelden kost twee minuten en is gratis, en je gegevens gaan pas naar een bedrijf op het moment dat jij zelf ja zegt.",
+          "Wat de mensen die het wel lukt gemeen hebben, is dat iemand hun verhaal eerst hoorde. Via een kennis, een vriend of de buurvrouw. Niet toevallig: in al die gevallen kwam de motivatie voor het cv.",
+          "Wij hebben Finkje precies om die reden omgedraaid. Je meld je één keer aan met wat jij wil, vult geen cv in en schrijft geen brief per vacature. Je vertelt in een aantal korte stappen wat je wil worden en waarom, wij maken daar een anoniem profiel van, en bedrijven die verder kijken dan papier nodigen jou uit. Het beste nieuws? Bedrijven die bij Finkje aangesloten zijn kijken verder dan je cv. Aanmelden kost maar een aantal minuten en is gratis, en je blijft anoniem totdat jij ja zegt.",
         ],
       },
     ],

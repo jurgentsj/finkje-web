@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import VacatureForm from "@/components/VacatureForm";
+import VacatureBrief from "@/components/VacatureBrief";
 
 export const metadata: Metadata = {
   title: "Plaats je vacature — Finkje",
@@ -36,35 +37,18 @@ export default function PlaatsVacaturePage() {
   return (
     <>
       <section className="mx-auto max-w-[940px] px-6 pt-18">
-        <div className="flex flex-col gap-5 rounded-3xl bg-sand p-8 sm:p-11">
-          <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
-            We laten jouw vacature niet zien, en dat is bewust. Zodra iemand een functietitel en een lijst eisen
-            leest, gaat hij zich daarnaartoe schrijven. Je krijgt dan het antwoord dat jij wilde horen en weet nog
-            niets over wat die persoon zelf wil. Daarom beginnen we andersom: eerst wat iemand wil worden en
-            waarom, zonder vacature in zicht. Wat er dan uit komt, is niet aangepast aan jou.
-          </p>
-          <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
-            Een werkzoekende schrijft zijn vacature dus zelf. Past jouw baan daarop, dan spreek je iemand die er al
-            ja tegen had gezegd voordat hij bestond. Mensen die doen wat ze echt willen zijn gelukkiger en dat is
-            precies waar het beste personeel uit komt.
-          </p>
-          <p className="m-0 text-[17.5px] leading-relaxed text-black/78">Vragen over je vacature? App of mail ons.</p>
-          <div className="flex flex-col gap-0.5 pt-1">
-            <span className="font-display text-[19px] font-bold tracking-[-0.03em]">Rembt &amp; Jurgen</span>
-            <span className="text-[15px] text-black/50">Oprichters van Finkje</span>
-          </div>
-        </div>
+        <VacatureBrief />
       </section>
 
-      <section className="mx-auto max-w-[940px] px-6 pt-20 pb-28">
+      <section id="vacature-formulier" className="mx-auto max-w-[940px] px-6 pt-20 pb-28">
         <p className="m-0 mb-6 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Voor werkgevers</p>
         <h1 className="m-0 font-display text-[clamp(36px,7vw,92px)] leading-[0.9] font-extrabold tracking-[-0.05em]">
-          Plaats gratis vacature, bewust niet zichtbaar
+          Plaats gratis je vacature
         </h1>
         <p className="mt-6 mb-10 max-w-[46ch] text-lg leading-snug text-black/62">
-          Je vacature verdwijnt niet in een lijst tussen duizend anderen. We gaan binnen 24 uur gericht voor je op
-          zoek tussen onze mensen. Hebben we op dit moment niemand? We houden je vacature open tot de
-          sluitingsdatum.
+          Binnen 24 uur kijken we eerst tussen onze mensen. Zit de juiste kandidaat er nog niet tussen? Dan blijft
+          je vacature open tot de door jou gekozen sluitingsdatum. Iedereen die zich in de tussentijd aanmeldt,
+          nemen we direct mee.
         </p>
 
         <VacatureForm />

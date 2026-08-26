@@ -20,7 +20,7 @@ export default function HomePage() {
           </div>
           <figure className="relative m-0 min-w-0 flex-[1_1_280px] max-w-[420px]">
             <figcaption className="pointer-events-none absolute bottom-4 left-4 z-10 rounded-full bg-white px-4.5 py-2.5 text-[17px] font-semibold text-[#111]">
-              &ldquo;Ik wil goed worden in iets.&rdquo;
+              &ldquo;Ik wil mijn passie achterna&rdquo;
             </figcaption>
             <div className="relative aspect-[2/3] w-full overflow-hidden rounded-[40px] bg-black/5">
               <Image
@@ -161,7 +161,7 @@ export default function HomePage() {
       <section className="mx-auto max-w-[1360px] px-6 py-24">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] items-start gap-8 rounded-3xl bg-accent p-6 text-white sm:p-11">
           <h3 className="m-0 max-w-[16ch] font-display text-[clamp(26px,3.2vw,42px)] leading-[0.98] font-extrabold tracking-[-0.04em]">
-            Jouw vacature, onze aanpak.
+            Niet plaatsen, aanpakken.
           </h3>
           <div className="flex flex-col gap-5.5">
             <p className="m-0 max-w-[34ch] text-lg leading-snug text-white/92">

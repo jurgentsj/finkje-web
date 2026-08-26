@@ -53,8 +53,8 @@ export default function VacatureForm() {
           Vacature staat bij ons.
         </h1>
         <p className="m-0 max-w-[48ch] text-lg leading-relaxed text-white/70">
-          Nergens openbaar. We kijken eerst wie er al op zit te wachten en houden je vacature actief tot jouw
-          sluitingsdatum.
+          Je vacature komt nergens openbaar te staan. We kijken eerst wie er al op zit te wachten en houden je
+          vacature actief tot jouw sluitingsdatum.
         </p>
         <Link
           href="/"
