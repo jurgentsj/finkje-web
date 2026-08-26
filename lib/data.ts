@@ -1543,7 +1543,8 @@ export const faqData = [
   },
   {
     vraag: "Moet ik zelf contact zoeken met bedrijven?",
-    antwoord: "Nee. Jij meldt je één keer aan. Daarna komen wij naar jou zodra er iets aansluit.",
+    antwoord:
+      "Nee. Je meldt je één keer aan met je droombaan. Is er een match? Brengen wij jullie direct met elkaar in contact.",
   },
   {
     vraag: "Waarom vragen jullie waar ik tegenaan loop?",
