@@ -1486,7 +1486,7 @@ export const stapData = [
     nr: "02",
     titel: "Bedrijven zien je motivatie",
     tekst:
-      "Op ons platform, binnen 24 uur. Als een van onze werkgevers je wil uitnodigen voor een gesprek, neemt Finkje contact met je op.",
+      "Op ons platform, binnen 24 uur. Als een van onze werkgevers je wil uitnodigen, neemt Finkje contact met je op.",
   },
   {
     nr: "03",
@@ -1781,7 +1781,7 @@ export const railFotos: { id: string; wil: string; beroep: string; src: string; 
     wil: "Ik heb passie voor mijn vak: het sleutelen aan auto’s, en vind het leuk om dingen aan mensen uit te leggen.",
     beroep: "Automonteur",
     src: "/images/finkje-rail-6.jpg",
-    briefing: "Automonteur in overall onder een geheven auto",
+    briefing: "Automonteur in een moderne werkplaats, lachend tijdens het werk",
   },
   {
     id: "finkje-rail-1",
