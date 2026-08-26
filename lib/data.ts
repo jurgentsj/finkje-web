@@ -1595,7 +1595,7 @@ export const hoeHetWerktFaq = [
   {
     vraag: "Moet ik een cv uploaden?",
     antwoord:
-      "Nee. Als een bedrijf je uitnodigt, ga je in gesprek op basis van de antwoorden die je bij Finkje hebt gegeven. Wat je daar invult, bepaal je zelf. Om een cv vragen wij niet.",
+      "Nee. Als een bedrijf je uitnodigt, ga je in gesprek op basis van de antwoorden die je bij Finkje hebt gegeven. Om een cv vragen wij niet.",
   },
   {
     vraag: "Kan ik mijn aanmelding aanpassen of stoppen?",
