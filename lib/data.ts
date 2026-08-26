@@ -1497,7 +1497,7 @@ export const stapData = [
 
 export const voordelen = [
   {
-    titel: "Nooit meer speuren tussen vacatures",
+    titel: "Vacatures speuren is verleden tijd",
     tekst: "Door te beginnen bij wat jij zoekt, is het zoeken tussen honderden vacatures voorbij.",
   },
   {
