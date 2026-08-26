@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   title: "Finkje — Zeg het maar. Wat voor baan wil jíj?",
   description:
     "Finkje draait de arbeidsmarkt om: jij zegt wat je wil worden, wij leggen het voor aan werkgevers. Geen cv, geen motivatiebrief, gratis en anoniem tot jij ja zegt.",
+  icons: { icon: "/thumbnail.png" },
+  openGraph: { images: ["/thumbnail.png"] },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

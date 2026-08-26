@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import VacatureForm from "@/components/VacatureForm";
-import VacatureBrief from "@/components/VacatureBrief";
 
 export const metadata: Metadata = {
   title: "Plaats je vacature — Finkje",
@@ -36,10 +35,6 @@ const tijdlijn = [
 export default function PlaatsVacaturePage() {
   return (
     <>
-      <section className="mx-auto max-w-[940px] px-6 pt-18">
-        <VacatureBrief />
-      </section>
-
       <section id="vacature-formulier" className="mx-auto max-w-[940px] px-6 pt-20 pb-28">
         <p className="m-0 mb-6 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Voor werkgevers</p>
         <h1 className="m-0 font-display text-[clamp(36px,7vw,92px)] leading-[0.9] font-extrabold tracking-[-0.05em]">

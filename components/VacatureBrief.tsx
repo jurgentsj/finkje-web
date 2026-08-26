@@ -1,9 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 export default function VacatureBrief() {
   const [briefKlaar, setBriefKlaar] = useState(false);
+  const [uitgeklapt, setUitgeklapt] = useState(false);
 
   const briefGelezen = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -32,15 +34,22 @@ export default function VacatureBrief() {
           mensen naar een vacature toe schrijven. Was het intrinsieke motivatie? Of waren het toch de voorwaarden
           in jouw vacaturetekst? Of simpelweg een sollicitatie bij gebrek aan beter?
         </p>
-        <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
-          Wij draaien het om. Onze mensen beschrijven en motiveren hun ideale droombaan. Daarna zoek je zelf tussen
-          onze Willers, of laat je dat aan ons over. Past er nu niemand? Dan blijft de vacature openstaan tot de
-          einddatum. Zo krijg je kandidaten die niet proberen te passen, maar het al doen.
-        </p>
-        <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
-          Mensen die doen wat ze echt willen, zijn gelukkiger. En precies die mensen maken uiteindelijk het
-          verschil op de werkvloer.
-        </p>
+        <div className={`${uitgeklapt ? "flex" : "hidden"} flex-col gap-5 md:flex`}>
+          <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
+            Wij draaien het om. Onze mensen beschrijven en motiveren hun ideale droombaan. Daarna zoek je zelf tussen
+            onze Willers, of laat je dat aan ons over. Past er nu niemand? Dan blijft de vacature openstaan tot de
+            einddatum. Zo krijg je kandidaten die niet proberen te passen, maar het al doen.
+          </p>
+          <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
+            Mensen die doen wat ze echt willen, zijn gelukkiger. En precies die mensen maken uiteindelijk het
+            verschil op de werkvloer.
+          </p>
+        </div>
+        {!uitgeklapt && (
+          <button type="button" onClick={() => setUitgeklapt(true)} className="self-start text-base font-semibold text-accent md:hidden">
+            Lees meer →
+          </button>
+        )}
         <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
           Vragen over je vacature of onze manier van werken? App of mail ons.
         </p>
@@ -55,13 +64,13 @@ export default function VacatureBrief() {
           <span className="text-[15px] text-black/45">Bedankt voor het lezen. Het formulier staat hieronder.</span>
         ) : (
           <div className="flex flex-wrap items-center gap-4">
-            <a
-              href="#vacature-formulier"
+            <Link
+              href="/plaats-je-vacature"
               onClick={briefGelezen}
               className="rounded-full bg-black px-7.5 py-4.5 text-[17px] font-semibold text-white transition-colors hover:bg-accent"
             >
               Plaats je vacature →
-            </a>
+            </Link>
             <span className="text-[15px] text-black/45">Bedankt voor het lezen.</span>
           </div>
         )}

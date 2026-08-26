@@ -33,7 +33,7 @@ export default function VoorWerkgeversPage() {
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link
-                href="/plaats-je-vacature"
+                href="/motivatiebrief"
                 className="rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-black"
               >
                 Plaats gratis een vacature →
@@ -70,10 +70,10 @@ export default function VoorWerkgeversPage() {
           {werkgeverStappen.map((s) => (
             <div
               key={s.nr}
-              className="grid grid-cols-[64px_minmax(180px,300px)_1fr] items-baseline gap-6 border-b border-black/10 py-6.5"
+              className="grid grid-cols-[40px_minmax(0,1fr)] items-start gap-x-4 gap-y-2 border-b border-black/10 py-6.5 sm:grid-cols-[64px_minmax(180px,300px)_1fr] sm:items-baseline sm:gap-6"
             >
               <span className="font-display text-xl font-bold text-accent">{s.nr}</span>
-              <h3 className="m-0 font-display text-[clamp(20px,2.2vw,27px)] leading-tight font-bold tracking-[-0.03em]">
+              <h3 className="col-span-1 m-0 font-display text-[clamp(20px,2.2vw,27px)] leading-tight font-bold tracking-[-0.03em]">
                 {s.titel}
               </h3>
               <p className="m-0 max-w-[56ch] text-[17px] leading-snug text-black/65">{s.tekst}</p>
@@ -122,7 +122,7 @@ export default function VoorWerkgeversPage() {
               actief tot je sluitingsdatum.
             </p>
             <Link
-              href="/plaats-je-vacature"
+              href="/motivatiebrief"
               className="self-start rounded-full bg-black px-6.5 py-3.5 font-semibold text-white transition-colors hover:bg-white hover:text-[#111]"
             >
               Gratis vacature plaatsen →
@@ -145,7 +145,7 @@ export default function VoorWerkgeversPage() {
           </h2>
           <div className="flex flex-wrap gap-3">
             <Link
-              href="/plaats-je-vacature"
+              href="/motivatiebrief"
               className="rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-white hover:text-[#111]"
             >
               Plaats gratis een vacature →
