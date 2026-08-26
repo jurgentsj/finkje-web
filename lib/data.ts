@@ -1575,7 +1575,7 @@ export const hoeHetWerktFaq = [
   {
     vraag: "Hoe lang duurt het voor ik iets hoor?",
     antwoord:
-      "Dat hangt af van wat je zoekt. Soms binnen een week, soms langer. Niet iedere werkgever komt bij ons binnen: we kijken goed met wie we samenwerken en of een baan écht bij je past. Je aanmelding blijft actief tot jij het weghaalt, dus ook als het even stil is, blijf je in beeld.",
+      "Dat hangt af van wat je zoekt. Soms binnen een week, soms langer. Niet iedere werkgever komt bij ons binnen: we kijken goed met wie we samenwerken en of een baan écht bij je past. Ook als het even stil is, blijf je dus in beeld.",
   },
   {
     vraag: "Wat zien werkgevers precies van mij?",
