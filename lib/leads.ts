@@ -10,11 +10,19 @@ export async function saveLead(kind: LeadKind, payload: Record<string, unknown>,
   }
 
   try {
-    await fetch("/api/telegram", {
+    const notificationResponse = await fetch("/api/telegram", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ kind, status, payload }),
     });
+
+    if (!notificationResponse.ok) {
+      const errorBody = await notificationResponse.text();
+      console.error("[v0] Telegram notification failed:", {
+        status: notificationResponse.status,
+        body: errorBody,
+      });
+    }
   } catch (notificationError) {
     console.error("[v0] Telegram notification request failed:", notificationError);
   }

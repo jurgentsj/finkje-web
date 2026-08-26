@@ -26,12 +26,16 @@ export async function POST(request: Request) {
   const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: "POST",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify({ chat_id: chatId, text: message }),
+    body: JSON.stringify({ chat_id: chatId, text: message.slice(0, 4096) }),
   });
 
   if (!response.ok) {
-    console.error("[v0] Telegram notification failed", { status: response.status });
-    return NextResponse.json({ ok: false }, { status: 502 });
+    const errorBody = await response.text();
+    console.error("[v0] Telegram notification failed", {
+      status: response.status,
+      body: errorBody,
+    });
+    return NextResponse.json({ ok: false, error: "Telegram rejected the message" }, { status: 502 });
   }
 
   return NextResponse.json({ ok: true });
