@@ -198,7 +198,7 @@ export default function SignupForm() {
 
             <div className="flex flex-col gap-3">
               <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">Dienstverband</span>
-              <div className="flex flex-wrap gap-1.5 rounded-full border border-black/15 bg-white p-1.5">
+              <div className="grid grid-cols-3 gap-1.5 rounded-full border border-black/15 bg-white p-1.5">
                 {dienstverbandOpties.map((label) => {
                   const on = form.dienstverband === label;
                   return (
@@ -206,10 +206,9 @@ export default function SignupForm() {
                       key={label}
                       type="button"
                       onClick={() => setForm((f) => ({ ...f, dienstverband: label }))}
-                      className={`flex-1 rounded-full px-4.5 py-3.5 text-[17px] font-semibold transition-colors ${
+                      className={`rounded-full px-2 py-3 text-center text-sm font-semibold whitespace-nowrap transition-colors sm:px-4.5 sm:py-3.5 sm:text-[17px] ${
                         on ? "bg-accent text-white" : "bg-transparent text-black/70"
                       }`}
-                      style={{ flexBasis: "120px" }}
                     >
                       {label}
                     </button>
@@ -357,7 +356,7 @@ export default function SignupForm() {
 
         {fout && <p className="m-0 text-base font-semibold text-[#C42A00]">{fout}</p>}
 
-        <div className="flex items-center gap-3 border-t border-black/10 pt-6.5">
+        <div className="flex flex-col-reverse gap-3 border-t border-black/10 pt-6.5 sm:flex-row sm:items-center">
           {stap > 1 && (
             <button
               type="button"
@@ -365,14 +364,14 @@ export default function SignupForm() {
                 setStap((s) => Math.max(1, s - 1));
                 setFout("");
               }}
-              className="rounded-full border border-black/20 px-6.5 py-4 text-base font-semibold text-[#111] transition-colors hover:border-black"
+              className="w-full rounded-full border border-black/20 px-6.5 py-4 text-base font-semibold whitespace-nowrap text-[#111] transition-colors hover:border-black sm:w-auto"
             >
               ← Terug
             </button>
           )}
           <button
             type="submit"
-            className="ml-auto rounded-full bg-accent px-8.5 py-4.5 text-lg font-bold text-white transition-colors hover:bg-black"
+            className="w-full rounded-full bg-accent px-8.5 py-4 text-base font-bold whitespace-nowrap text-white transition-colors hover:bg-black sm:ml-auto sm:w-auto sm:py-4.5 sm:text-lg"
           >
             {stap === 4 ? "Zet me erop →" : "Verder →"}
           </button>

@@ -159,7 +159,7 @@ export default function HomePage() {
 
       {/* Orange CTA */}
       <section className="mx-auto max-w-[1360px] px-6 py-24">
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] items-start gap-8 rounded-3xl bg-accent p-11 text-white">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] items-start gap-8 rounded-3xl bg-accent p-6 text-white sm:p-11">
           <h3 className="m-0 max-w-[16ch] font-display text-[clamp(26px,3.2vw,42px)] leading-[0.98] font-extrabold tracking-[-0.04em]">
             Jouw vacature, onze aanpak.
           </h3>
@@ -170,7 +170,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/plaats-je-vacature"
-              className="self-start rounded-full bg-black px-6.5 py-3.5 font-semibold text-white transition-colors hover:bg-white hover:text-[#111]"
+              className="self-start rounded-2xl bg-black px-5 py-3 text-center text-[15px] font-semibold text-white transition-colors hover:bg-white hover:text-[#111] sm:rounded-full sm:px-6.5 sm:py-3.5 sm:text-base"
             >
               Gratis vacature plaatsen →
             </Link>
