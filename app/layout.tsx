@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import ReageerProvider from "@/lib/reageer-context";
 
 export const metadata: Metadata = {
-  title: "Finkje — Zeg het maar. Wat voor baan wil jíj?",
+  title: "Finkje | Vind werk met je motivatie",
   description:
     "Finkje draait de arbeidsmarkt om: jij zegt wat je wil worden, wij leggen het voor aan werkgevers. Geen cv, geen motivatiebrief, gratis en anoniem tot jij ja zegt.",
   icons: { icon: "/thumbnail.png" },
