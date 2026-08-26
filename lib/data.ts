@@ -1497,7 +1497,7 @@ export const stapData = [
 
 export const voordelen = [
   {
-    titel: "Jouw besluit, jouw voorwaarden",
+    titel: "Begin met een ja",
     tekst: "Na je aanmelding reageren bedrijven op jou, zo blijf jij altijd in control.",
   },
   {
