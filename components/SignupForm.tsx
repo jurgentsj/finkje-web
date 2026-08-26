@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { saveLead } from "@/lib/leads";
 import {
   dienstverbandOpties,
   omgevingOpties,
@@ -79,7 +80,7 @@ export default function SignupForm() {
     setList(list.includes(label) ? list.filter((x) => x !== label) : [...list, label]);
   };
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (stap === 1) {
       if (!form.droombaan.trim()) return setFout("Vertel eerst wat voor baan je wil.");
@@ -112,8 +113,13 @@ export default function SignupForm() {
     if (!form.naam.trim() || !/.+@.+\..+/.test(form.email)) {
       return setFout("Vul je naam en een geldig e-mailadres in.");
     }
-    setKlaar(true);
-    setFout("");
+    try {
+      await saveLead("signup", { ...form, overs, omgevingen });
+      setKlaar(true);
+      setFout("");
+    } catch {
+      setFout("Opslaan lukt nu niet. Probeer het nog een keer.");
+    }
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 

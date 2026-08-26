@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, type ReactNode } from "react";
 import ReageerModal from "@/components/ReageerModal";
+import { saveLead } from "@/lib/leads";
 
 export type ReageerVelden = {
   naam: string;
@@ -66,16 +67,21 @@ export default function ReageerProvider({ children }: { children: ReactNode }) {
       setR((s) => ({ ...s, [key]: v }));
     };
 
-  const versturen = (e: React.FormEvent) => {
+  const versturen = async (e: React.FormEvent) => {
     e.preventDefault();
     const mailOk = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(r.email.trim());
     if (!r.naam.trim() || !r.bedrijf.trim()) return setFout("Vul je naam en bedrijfsnaam in.");
     if (!mailOk) return setFout("Vul een geldig e-mailadres in.");
     if (!r.bericht.trim()) return setFout("Schrijf een kort bericht aan deze persoon.");
     if (!r.akkoord) return setFout("Je moet akkoord gaan met de voorwaarden.");
-    if (actief) setReacties((s) => (s.includes(actief.id) ? s : [...s, actief.id]));
-    setFout("");
-    setKlaar(true);
+    try {
+      await saveLead("reaction", { vacatureId: actief?.id, vacatureWil: actief?.wil, ...r });
+      if (actief) setReacties((s) => (s.includes(actief.id) ? s : [...s, actief.id]));
+      setFout("");
+      setKlaar(true);
+    } catch {
+      setFout("Opslaan lukt nu niet. Probeer het nog een keer.");
+    }
   };
 
   return (

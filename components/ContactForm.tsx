@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { saveLead } from "@/lib/leads";
 
 export default function ContactForm() {
   const [verzonden, setVerzonden] = useState(false);
@@ -9,9 +10,14 @@ export default function ContactForm() {
   const set = (key: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setForm((f) => ({ ...f, [key]: e.target.value }));
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setVerzonden(true);
+    try {
+      await saveLead("contact", form);
+      setVerzonden(true);
+    } catch {
+      // Keep the form visible when the submission could not be saved.
+    }
   };
 
   return (
