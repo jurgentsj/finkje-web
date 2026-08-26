@@ -43,7 +43,7 @@ export default function VacatureBrief() {
         <p className={`${uitgeklapt ? "block" : "hidden"} m-0 text-[17.5px] leading-relaxed text-black/78 md:block`}>
           Vragen over je vacature of onze manier van werken? App of mail ons.
         </p>
-        <div className={`${uitgeklapt ? "flex" : "hidden"} flex-col gap-0.5 pt-1 md:flex`}>
+        <div className="flex flex-col gap-0.5 pt-1">
           <span className="font-display text-[19px] font-bold tracking-[-0.03em]">Rembt &amp; Jurgen</span>
           <span className="text-[15px] text-black/50">Oprichters van Finkje</span>
         </div>
