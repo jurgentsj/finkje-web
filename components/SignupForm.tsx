@@ -173,10 +173,10 @@ export default function SignupForm() {
       <form onSubmit={submit} className="flex flex-col gap-8.5 rounded-[28px] bg-sand p-8.5">
         {stap === 1 && (
           <div className="flex flex-col gap-8">
-            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Stap 1 — Je wil</span>
+            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Stap 1 — de Functie</span>
             <label className="flex flex-col gap-3">
               <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
-                Wat voor baan wil jíj?
+                Wat wil je graag doen?
               </span>
               <input
                 value={form.droombaan}
@@ -187,7 +187,7 @@ export default function SignupForm() {
             </label>
             <label className="flex flex-col gap-3">
               <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
-                Waarom wil je dat?
+                Waarom juist dat?
               </span>
               <textarea
                 value={form.waarom}
