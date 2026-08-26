@@ -1570,7 +1570,7 @@ export const hoeHetWerktFaq = [
   {
     vraag: "Wat gebeurt er nadat ik me heb aangemeld?",
     antwoord:
-      "Wij leggen jouw profiel voor aan onze werkgevers. Willen zij meer weten over jouw motivatie of in gesprek? Dan laten wij dat jou direct weten.",
+      "Wij leggen jouw aanmelding voor aan onze werkgevers. Willen zij meer weten over jouw motivatie of in gesprek? Dan laten wij dat jou direct weten.",
   },
   {
     vraag: "Hoe lang duurt het voor ik iets hoor?",
