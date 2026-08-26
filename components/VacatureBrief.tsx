@@ -4,17 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function VacatureBrief() {
-  const [briefKlaar, setBriefKlaar] = useState(false);
   const [uitgeklapt, setUitgeklapt] = useState(false);
-
-  const briefGelezen = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setBriefKlaar(true);
-    requestAnimationFrame(() => {
-      const el = document.getElementById("vacature-formulier");
-      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 24, behavior: "smooth" });
-    });
-  };
 
   return (
     <>
@@ -60,20 +50,12 @@ export default function VacatureBrief() {
       </div>
 
       <div className="flex flex-col gap-3.5 px-1 pt-7">
-        {briefKlaar ? (
-          <span className="text-[15px] text-black/45">Bedankt voor het lezen. Het formulier staat hieronder.</span>
-        ) : (
-          <div className="flex flex-wrap items-center gap-4">
-            <Link
-              href="/plaats-je-vacature"
-              onClick={briefGelezen}
-              className="rounded-full bg-black px-7.5 py-4.5 text-[17px] font-semibold text-white transition-colors hover:bg-accent"
-            >
-              Plaats je vacature →
-            </Link>
-            <span className="text-[15px] text-black/45">Bedankt voor het lezen.</span>
-          </div>
-        )}
+        <Link
+          href="/plaats-je-vacature"
+          className="self-start rounded-full bg-black px-7.5 py-4.5 text-[17px] font-semibold text-white transition-colors hover:bg-accent"
+        >
+          Plaats je vacature →
+        </Link>
       </div>
     </>
   );

@@ -1,16 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { phrases } from "@/lib/data";
-import { saveHeroDraft, submitHeroDraft } from "@/lib/leads";
+import { saveLead } from "@/lib/leads";
 
 export default function HeroForm() {
   const router = useRouter();
   const [wil, setWil] = useState("");
   const [phraseIdx, setPhraseIdx] = useState(0);
-  const [draftId, setDraftId] = useState<string | null>(null);
-  const draftTimer = useRef<number | null>(null);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -19,26 +17,17 @@ export default function HeroForm() {
     return () => clearInterval(id);
   }, []);
 
-  const handleWilChange = (value: string) => {
-    setWil(value);
-    if (!value.trim()) return;
-    if (draftTimer.current) window.clearTimeout(draftTimer.current);
-    draftTimer.current = window.setTimeout(async () => {
-      if (!draftId) {
-        const id = await saveHeroDraft(value.trim());
-        setDraftId(id);
-      }
-    }, 700);
-  };
-
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      if (wil.trim() && draftId) await submitHeroDraft(draftId, wil.trim());
-      router.push(wil.trim() ? `/aanmelden?wil=${encodeURIComponent(wil.trim())}` : "/aanmelden");
-    } catch {
-      router.push(wil.trim() ? `/aanmelden?wil=${encodeURIComponent(wil.trim())}` : "/aanmelden");
+    const value = wil.trim();
+    if (value) {
+      try {
+        await saveLead("hero", { wil: value });
+      } catch {
+        return;
+      }
     }
+    router.push(value ? `/aanmelden?wil=${encodeURIComponent(value)}` : "/aanmelden");
   };
 
   return (
@@ -50,7 +39,7 @@ export default function HeroForm() {
           </span>
           <input
             value={wil}
-            onChange={(e) => handleWilChange(e.target.value)}
+            onChange={(e) => setWil(e.target.value)}
             placeholder={phrases[phraseIdx]}
             className="min-w-0 flex-1 border-0 bg-transparent py-2 font-display text-xl font-bold tracking-[-0.02em] text-accent outline-none sm:min-w-[180px] sm:py-2.5 sm:text-[clamp(19px,2.4vw,30px)]"
           />

@@ -167,7 +167,7 @@ export default function HoeHetWerktPage() {
 
       <section className="mx-auto max-w-[1360px] px-6 pt-26">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] items-start gap-14">
-          <div className="sticky top-25 flex flex-col gap-4">
+          <div className="flex flex-col gap-4 lg:sticky lg:top-25">
             <h2 className="m-0 max-w-[12ch] font-display text-[clamp(30px,4.4vw,60px)] leading-[0.94] font-extrabold tracking-[-0.05em]">
               Vragen over het proces
             </h2>
@@ -184,7 +184,7 @@ export default function HoeHetWerktPage() {
 
       <section className="mx-auto flex max-w-[1360px] flex-col items-center gap-9 px-6 pt-24 pb-30 text-center">
         <h2 className="m-0 font-display text-[clamp(40px,9vw,140px)] leading-[0.88] font-extrabold tracking-[-0.05em]">
-          Wat voor baan wil <span className="text-accent">jíj</span>?
+          Wat voor baan wil <br className="sm:hidden" /><span className="text-accent">jíj</span>?
         </h2>
         <Link
           href="/aanmelden"
