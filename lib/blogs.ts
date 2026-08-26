@@ -479,7 +479,7 @@ const localImage: Record<string, string> = {
   "van-sector-wisselen-zonder-ervaring":
     "/images/blogfoto-van-sector-wisselen-zonder-ervaring.webp",
   "eerste-baan-na-werkloosheid": "/images/blogfoto-eerste-baan-na-werkloosheid.webp",
-  studenten: "/images/blogfoto-eerste-baan-na-werkloosheid.webp",
+  studenten: "/images/pexels-mart-production-8885189.jpg",
   "nieuwe-medewerker-zonder-werkervaring": "/assets/foto-werkervaring.png",
   "gratis-personeel-vinden": "/images/blogfoto-gratis-personeel-vinden.jpg",
 };
