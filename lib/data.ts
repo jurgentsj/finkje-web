@@ -1486,7 +1486,7 @@ export const stapData = [
     nr: "02",
     titel: "Een werkgever reageert",
     tekst:
-      "Is een werkgever enthousiast en willen ze met je in gesprek? We nemen contact met je op. ",
+      "Is een werkgever enthousiast, willen ze meer weten en met je in gesprek? We nemen contact met je op. ",
   },
   {
     nr: "03",
