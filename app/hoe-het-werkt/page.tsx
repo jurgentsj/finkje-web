@@ -138,7 +138,7 @@ export default function HoeHetWerktPage() {
                     Junior developer
                   </span>
                 </div>
-                <div className="grid grid-cols-2 gap-x-5 gap-y-4.5 border-b border-black/10 px-7 py-6">
+                <div className="grid grid-cols-1 gap-x-5 gap-y-5 border-b border-black/10 px-7 py-6 sm:grid-cols-2">
                   {[
                     ["Dienstverband", "Fulltime"],
                     ["Reisafstand", "Tot 50 km"],
