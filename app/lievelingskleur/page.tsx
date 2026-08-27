@@ -94,7 +94,7 @@ export default function LievelingskleurPage() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/mensen"
-              className="rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-black"
+              className="rounded-full bg-black px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-accent"
             >
               Bekijk onze mensen →
             </Link>
