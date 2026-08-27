@@ -54,7 +54,9 @@ export default function LievelingskleurPage() {
           Kies je lievelingskleur
         </h2>
         <p className="m-0 mb-9 max-w-[54ch] text-[17.5px] leading-snug text-black/62">
-          Staat jouw lievelingskleur er niet bij? Kies dan de kleur die het dichtst in de buurt komt. 
+          Staat jouw lievelingskleur er niet bij? Kies dan de kleur die het
+          <br className="hidden md:block" />
+          dichtst in de buurt komt. 
         </p>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-4">
           {handKleuren.map((c) => (
