@@ -17,9 +17,8 @@ export default function LievelingskleurPage() {
           Maak het persoonlijk.
         </h1>
         <p className="mt-7.5 max-w-[48ch] text-[clamp(17px,2vw,23px)] leading-snug text-black/64">
-          Solliciteren moet weer leuk worden. Waar we kunnen, proberen we daarom altijd net even anders te zijn. Door
-          jou om je lievelingskleur te vragen, geven we je toekomstig werkgever een persoonlijk tintje mee én vinden we
-          het ook gewoon best wel grappig.
+          Solliciteren moet weer leuk worden. Waar we kunnen, proberen we daarom altijd net even anders te zijn. Het
+          vragen naar je lievelingskleur past in dat rijtje.
         </p>
       </section>
 
@@ -28,9 +27,9 @@ export default function LievelingskleurPage() {
           Kies je lievelingskleur
         </h2>
         <p className="m-0 mb-9 max-w-[54ch] text-[17.5px] leading-snug text-black/62">
-          Staat jouw lievelingskleur er niet bij? Kies dan de kleur die het
+          Staat jouw lievelingskleur er niet bij? Kies dan de kleur die
           <br className="hidden md:block" />
-          dichtst in de buurt komt. 
+          het dichtst in de buurt komt. 
         </p>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-4">
           {handKleuren.map((c) => (
