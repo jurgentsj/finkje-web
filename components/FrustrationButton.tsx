@@ -9,7 +9,6 @@ type FrustrationCounterRow = {
 };
 
 type FrustrationButtonProps = {
-  eyebrow?: string;
   heading?: string;
   description?: string;
   note?: string;
@@ -21,7 +20,6 @@ const FLUSH_INTERVAL_MS = 450;
 const MAX_BATCH_PER_FLUSH = 50;
 
 export default function FrustrationButton({
-  eyebrow = "De frustratieknop",
   heading = "Bewijs dat solliciteren frustreert.",
   description = "Klik zo vaak je wil. Iedere klik bewijst hoeveel mensen vastlopen in het huidige sollicitatiesysteem.",
   note,
@@ -133,7 +131,6 @@ export default function FrustrationButton({
     <div
       className={`flex flex-col items-center gap-6 rounded-[32px] bg-black px-8 py-12 text-center text-white sm:px-14 ${className}`}
     >
-      <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">{eyebrow}</span>
       <h2 className="m-0 max-w-[22ch] font-display text-[clamp(28px,4vw,52px)] leading-[0.96] font-extrabold tracking-[-0.04em]">
         {heading}
       </h2>
