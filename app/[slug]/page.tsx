@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -26,6 +27,12 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
 
   const voorWerkgever = blog.voor === "werkgever";
   const andere = blogs.filter((b) => b.slug !== blog.slug).slice(0, 4);
+  const inlineCta =
+    blog.slug === "gratis-personeel-vinden"
+      ? "Gratis personeel vinden zonder vacaturekosten of bureau →"
+      : blog.slug === "nieuwe-medewerker-zonder-werkervaring"
+        ? "Nieuwe medewerker aannemen zonder werkervaring? Zo werkt het →"
+        : "Vind werk zonder vacatures →";
 
   return (
     <article className="mx-auto max-w-[780px] px-6 pt-18">
@@ -50,9 +57,17 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
               {s.kop}
             </h2>
             {s.tekst.map((p, i) => (
-              <p key={i} className="m-0 text-lg leading-relaxed text-black/76">
-                {p}
-              </p>
+              <Fragment key={`${s.kop}-${i}`}>
+                <p className="m-0 text-lg leading-relaxed text-black/76">{p}</p>
+                {(i + 1) % 2 === 0 ? (
+                  <Link
+                    href="/aanmelden"
+                    className="mt-3.5 self-start text-[15px] font-semibold text-accent underline decoration-accent/55 underline-offset-4 transition-colors hover:text-black"
+                  >
+                    {inlineCta}
+                  </Link>
+                ) : null}
+              </Fragment>
             ))}
           </div>
         ))}
