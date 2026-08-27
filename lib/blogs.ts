@@ -53,7 +53,7 @@ export const blogs: Blog[] = [
     titel: "Waarom steeds meer mensen werken zonder diploma",
     tag: "Arbeidsmarkt",
     datum: "Augustus 2026",
-    lead: "Een diploma is een manier om binnen te komen bij een vacature of werkgever. Voor steeds meer mensen is het alleen niet langer het enige toegangsbewijs en dat heeft een hele logische reden.",
+    lead: "Een diploma is een manier om binnen te komen bij een vacature of werkgever. Voor steeds meer mensen is het alleen niet langer het enige toegangsbewijs, en dat heeft een hele logische reden.",
     voor: "kandidaat",
     beeld: "assets/foto-keuken.jpg",
     secties: [
