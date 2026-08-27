@@ -51,25 +51,27 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
       </div>
 
       <div className="mt-13 flex flex-col gap-10">
-        {blog.secties.map((s) => (
-          <div key={s.kop} className="flex flex-col gap-3.5">
-            <h2 className="m-0 font-display text-[clamp(24px,3vw,34px)] leading-tight font-bold tracking-[-0.035em]">
-              {s.kop}
-            </h2>
-            {s.tekst.map((p, i) => (
-              <Fragment key={`${s.kop}-${i}`}>
-                <p className="m-0 text-lg leading-relaxed text-black/76">{p}</p>
-                {(i + 1) % 2 === 0 ? (
-                  <Link
-                    href="/aanmelden"
-                    className="mt-3.5 self-start text-[15px] font-semibold text-accent underline decoration-accent/55 underline-offset-4 transition-colors hover:text-black"
-                  >
-                    {inlineCta}
-                  </Link>
-                ) : null}
-              </Fragment>
-            ))}
-          </div>
+        {blog.secties.map((s, i) => (
+          <Fragment key={s.kop}>
+            <div className="flex flex-col gap-3.5">
+              <h2 className="m-0 font-display text-[clamp(24px,3vw,34px)] leading-tight font-bold tracking-[-0.035em]">
+                {s.kop}
+              </h2>
+              {s.tekst.map((p) => (
+                <p key={p} className="m-0 text-lg leading-relaxed text-black/76">
+                  {p}
+                </p>
+              ))}
+            </div>
+            {i === 1 ? (
+              <Link
+                href="/aanmelden"
+                className="self-start text-[15px] font-semibold text-accent underline decoration-accent/55 underline-offset-4 transition-colors hover:text-black"
+              >
+                {inlineCta}
+              </Link>
+            ) : null}
+          </Fragment>
         ))}
       </div>
 
