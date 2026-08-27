@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Faq from "@/components/Faq";
+import FrustrationButton from "@/components/FrustrationButton";
 import { hoeHetWerktFaq } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -180,6 +181,10 @@ export default function HoeHetWerktPage() {
           </div>
           <Faq items={hoeHetWerktFaq} />
         </div>
+      </section>
+
+      <section className="mx-auto max-w-[1360px] px-6 pt-26">
+        <FrustrationButton />
       </section>
 
       <section className="mx-auto flex max-w-[1360px] flex-col items-center gap-9 px-6 pt-24 pb-30 text-center">

@@ -1,29 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { handKleuren } from "@/lib/data";
+import FrustrationButton from "@/components/FrustrationButton";
 
 export const metadata: Metadata = {
   title: "Kies je lievelingskleur — Finkje",
   description:
     "Elke persoon kiest zelf een lievelingskleur. Zo geef je een persoonlijk tintje mee aan je aanmelding.",
 };
-
-const punten = [
-  {
-    titel: "Het is indicatief",
-    tekst:
-      "Er is geen goed of fout. Kies wat het beste bij je past en denk er niet te lang over na.",
-  },
-  {
-    titel: "Persoonlijke knipoog",
-    tekst:
-      "Zonder meteen naar de hoed én de rand te vragen, maak je je profiel op een eenvoudige manier persoonlijk.",
-  },
-  {
-    titel: "Het is een opening",
-    tekst: "Handig als eerste vraag in een gesprek: waarom koos je deze kleur?",
-  },
-];
 
 export default function LievelingskleurPage() {
   return (
@@ -34,20 +18,9 @@ export default function LievelingskleurPage() {
         </h1>
         <p className="mt-7.5 max-w-[48ch] text-[clamp(17px,2vw,23px)] leading-snug text-black/64">
           Solliciteren moet weer leuk worden. Waar we kunnen, proberen we daarom altijd net even anders te zijn. Door
-          het vragen om jouw lievelingskleur, geven we aan een werkgever een persoonlijk tintje mee én vinden we het
-          ook gewoon best wel grappig.
+          jou om je lievelingskleur te vragen, geven we je toekomstig werkgever een persoonlijk tintje mee én vinden we
+          het ook gewoon best wel grappig.
         </p>
-      </section>
-
-      <section className="mx-auto max-w-[1100px] px-6 pt-14">
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] gap-7 rounded-[28px] bg-sand p-6.5 sm:p-11">
-          {punten.map((p) => (
-            <div key={p.titel} className="flex flex-col gap-2">
-              <span className="font-display text-[21px] font-bold tracking-[-0.025em]">{p.titel}</span>
-              <span className="text-[16.5px] leading-snug text-black/62">{p.tekst}</span>
-            </div>
-          ))}
-        </div>
       </section>
 
       <section className="mx-auto max-w-[1100px] px-6 pt-18">
@@ -72,24 +45,34 @@ export default function LievelingskleurPage() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-[1100px] px-6 pt-18">
+        <h2 className="m-0 mb-8 max-w-[26ch] font-display text-[clamp(24px,3.4vw,40px)] leading-[1.05] font-extrabold tracking-[-0.035em]">
+          Benieuwd wat we nog meer doen om solliciteren weer leuk te maken?
+        </h2>
+        <FrustrationButton
+          heading="De frustratieteller."
+          description="Onze frustratieteller staat op een aantal willekeurige plekken op de website. Klik er zo vaak op als je wil en bewijs met ons hoeveel mensen vastlopen in het huidige sollicitatiesysteem."
+        />
+      </section>
+
       <section className="mx-auto max-w-[1100px] px-6 pt-18 pb-28">
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] items-center gap-8 rounded-[32px] bg-black p-8 text-white sm:p-14">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] items-center gap-8 rounded-[32px] border border-black/10 bg-sand p-8 text-black sm:p-14">
           <div className="flex flex-col gap-3.5">
             <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Voor werkgevers</span>
-            <h2 className="m-0 max-w-[18ch] font-display text-[clamp(28px,3.6vw,50px)] leading-[0.96] font-extrabold tracking-[-0.04em]">
+            <h2 className="m-0 max-w-[18ch] font-display text-[clamp(28px,3.6vw,50px)] leading-[0.96] font-extrabold tracking-[-0.04em] text-black">
               Zie ze staan bij onze mensen.
             </h2>
           </div>
           <div className="flex flex-wrap gap-3">
             <Link
               href="/mensen"
-              className="rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-white hover:text-[#111]"
+              className="rounded-full bg-black px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-accent"
             >
               Bekijk onze mensen →
             </Link>
             <Link
               href="/aanmelden"
-              className="rounded-full border border-white/30 px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-white hover:text-[#111]"
+              className="rounded-full border border-black/20 px-7 py-4 text-[17px] font-semibold text-black transition-colors hover:bg-black hover:text-white"
             >
               Kies je eigen kleur →
             </Link>
