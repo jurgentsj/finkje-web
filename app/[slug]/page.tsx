@@ -93,7 +93,7 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <Link
-              href="/plaats-je-vacature"
+              href="/motivatiebrief"
               className="rounded-full bg-accent px-7.5 py-4 text-[17px] font-bold text-white transition-colors hover:bg-white hover:text-[#111]"
             >
               Plaats je vacature →

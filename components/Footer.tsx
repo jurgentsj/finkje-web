@@ -34,7 +34,7 @@ export default function Footer() {
           <Link href="/voor-werkgevers" className="text-white/75 hover:text-white">
             Hoe het werkt
           </Link>
-          <Link href="/plaats-je-vacature" className="text-white/75 hover:text-white">
+          <Link href="/motivatiebrief" className="text-white/75 hover:text-white">
             Vacature plaatsen
           </Link>
         </div>

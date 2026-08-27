@@ -169,7 +169,7 @@ export default function HomePage() {
               direct voor aan gemotiveerde mensen. Én bieden jou de mogelijkheid om zelf op zoek te gaan.
             </p>
             <Link
-              href="/plaats-je-vacature"
+              href="/motivatiebrief"
               className="self-start rounded-2xl bg-black px-5 py-3 text-center text-[15px] font-semibold text-white transition-colors hover:bg-white hover:text-[#111] sm:rounded-full sm:px-6.5 sm:py-3.5 sm:text-base"
             >
               Gratis vacature plaatsen →

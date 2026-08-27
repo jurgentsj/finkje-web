@@ -1436,37 +1436,6 @@ export const handKleuren: HandKleur[] = [
   { naam: "Middernacht", hex: "#111111", toon: "nuchter, recht door zee" },
 ];
 
-export type HandFont = { naam: string; font: string; toon: string };
-export const handFonts: HandFont[] = [
-  { naam: "Origineel", font: "Bricolage Grotesque", toon: "aanpakken, doorzetten" },
-  { naam: "Klassiek", font: "Instrument Serif", toon: "eerst denken, dan doen" },
-  { naam: "Speels", font: "Space Mono", toon: "nauwkeurig, gestructureerd" },
-  { naam: "Nieuw", font: "Syne", toon: "eigen route, eigen ideeën" },
-];
-
-export const handWoorden = [
-  "Doener",
-  "Denker",
-  "Maker",
-  "Organisator",
-  "Mensenmens",
-  "Ontdekker",
-  "Leider",
-  "Steunpilaar",
-];
-
-export const handUitleg: Record<string, string> = {
-  Doener: "Werkt het liefst met de handen aan de knoppen. Komt op gang door te beginnen, niet door te overleggen.",
-  Denker: "Wil eerst begrijpen hoe iets in elkaar zit. Leest, rekent en zoekt uit voordat er een besluit valt.",
-  Maker: "Levert werk af waar iets van te zien is. Vakmanschap en kwaliteit wegen zwaarder dan snelheid.",
-  Organisator: "Brengt structuur en overzicht. Planning, afspraken en details lopen hier op orde.",
-  Mensenmens: "Werkt het best tussen mensen. Klantcontact, samenwerken en een team dragen geven energie.",
-  Ontdekker: "Wordt aangetrokken door wat nieuw en onbekend is. Wisselt graag van onderwerp en leert snel bij.",
-  Leider: "Neemt de kar op zich. Geeft richting, hakt knopen door en durft verantwoordelijkheid te dragen.",
-  Steunpilaar:
-    "De vaste waarde in een team. Betrouwbaar, rustig onder druk en de plek waar anderen op terugvallen.",
-};
-
 export const phrases = [
   "meubelmaker worden",
   "in de zorg werken",

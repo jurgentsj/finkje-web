@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { handKleuren, handFonts, handWoorden, handUitleg } from "@/lib/data";
+import { handKleuren } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Maak het persoonlijk — Finkje",
+  title: "Kies je lievelingskleur — Finkje",
   description:
-    "Elke persoon kiest zelf een kleur, een lettertype en een woord. Zo geef je een persoonlijk tintje mee aan je aanmelding.",
+    "Elke persoon kiest zelf een lievelingskleur. Zo geef je een persoonlijk tintje mee aan je aanmelding.",
 };
 
 const punten = [
@@ -21,11 +21,11 @@ const punten = [
   },
   {
     titel: "Het is een opening",
-    tekst: "Handig als eerste vraag in een gesprek: waarom koos je dit woord?",
+    tekst: "Handig als eerste vraag in een gesprek: waarom koos je deze kleur?",
   },
 ];
 
-export default function HandschriftPage() {
+export default function LievelingskleurPage() {
   return (
     <>
       <section className="mx-auto max-w-[1100px] px-6 pt-18">
@@ -33,7 +33,7 @@ export default function HandschriftPage() {
           Maak het persoonlijk.
         </h1>
         <p className="mt-7.5 max-w-[48ch] text-[clamp(17px,2vw,23px)] leading-snug text-black/64">
-          Elke persoon kiest zelf een kleur, een lettertype en een woord.
+          Elke persoon kiest zelf een lievelingskleur.
           <br />
           Op deze manier geef je een persoonlijk tintje mee aan je aanmelding, voor je toekomstige werkgever.
         </p>
@@ -52,56 +52,22 @@ export default function HandschriftPage() {
 
       <section className="mx-auto max-w-[1100px] px-6 pt-18">
         <h2 className="m-0 mb-3 font-display text-[clamp(28px,4.4vw,58px)] leading-[0.96] font-extrabold tracking-[-0.045em]">
-          De acht woorden
+          Kies je lievelingskleur
         </h2>
-        <p className="m-0 mb-9 max-w-[50ch] text-[17.5px] leading-snug text-black/62">
-          De kleur en het lettertype hieronder zijn voorbeelden, elke combinatie is mogelijk.
+        <p className="m-0 mb-9 max-w-[54ch] text-[17.5px] leading-snug text-black/62">
+          Staat jouw lievelingskleur er niet bij? Kies dan degene die het meest dichtbij komt. Waarom we dit doen?
+          Om je profiel persoonlijker te maken. En omdat het kan. Niemand vraagt naar je lievelingskleur, wij wel.
         </p>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,250px),1fr))] gap-4">
-          {handWoorden.map((w, i) => (
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-4">
+          {handKleuren.map((c) => (
             <div
-              key={w}
-              className="relative flex flex-col gap-2.5 overflow-hidden rounded-3xl border border-black/12 bg-white p-6.5"
+              key={c.naam}
+              className="flex items-center gap-3.5 rounded-3xl border border-black/12 bg-white p-6.5"
             >
-              <span className="font-display text-2xl font-bold tracking-[-0.03em]">{w}</span>
-              <span className="text-base leading-snug text-black/62">{handUitleg[w]}</span>
+              <span className="h-10 w-10 shrink-0 rounded-full" style={{ background: c.hex }} />
+              <span className="text-[16.5px] font-semibold">{c.naam}</span>
             </div>
           ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-[1100px] px-6 pt-18">
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] gap-12">
-          <div className="flex flex-col gap-5.5">
-            <h2 className="m-0 font-display text-[clamp(26px,3.4vw,42px)] leading-none font-extrabold tracking-[-0.04em]">
-              Vijf kleuren
-            </h2>
-            <div className="flex flex-col gap-3">
-              {handKleuren.map((c) => (
-                <div key={c.naam} className="flex items-center gap-3.5">
-                  <span className="h-10 w-10 shrink-0 rounded-full" style={{ background: c.hex }} />
-                  <span className="text-[16.5px] font-semibold">{c.naam}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="flex flex-col gap-5.5">
-            <h2 className="m-0 font-display text-[clamp(26px,3.4vw,42px)] leading-none font-extrabold tracking-[-0.04em]">
-              Vier lettertypes
-            </h2>
-            <div className="flex flex-col gap-4.5">
-              {handFonts.map((f) => (
-                <div key={f.naam} className="flex flex-col gap-0.5 border-t border-black/12 pt-4">
-                  <span
-                    className="text-[clamp(28px,4vw,44px)] leading-[1.05] font-bold tracking-[-0.02em]"
-                    style={{ fontFamily: `'${f.font}', sans-serif` }}
-                  >
-                    {f.naam}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -124,7 +90,7 @@ export default function HandschriftPage() {
               href="/aanmelden"
               className="rounded-full border border-white/30 px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-white hover:text-[#111]"
             >
-              Kies je eigen handschrift →
+              Kies je eigen kleur →
             </Link>
           </div>
         </div>

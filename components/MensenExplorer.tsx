@@ -42,8 +42,8 @@ export default function MensenExplorer() {
   return (
     <>
       <p className="mt-3.5 text-[16px]">
-        <Link href="/handschrift" className="font-semibold">
-          Wat is dat balkje bovenaan elke kaart? →
+        <Link href="/lievelingskleur" className="font-semibold">
+          Wat is dat kleurbolletje bovenaan elke kaart? →
         </Link>
       </p>
 
@@ -157,7 +157,7 @@ export default function MensenExplorer() {
               Plaats je vacature en wij melden het zodra iemand zich aanmeldt die hierop aansluit.
             </span>
             <Link
-              href="/plaats-je-vacature"
+              href="/motivatiebrief"
               className="mt-2 self-start rounded-full bg-accent px-6 py-3.5 font-semibold text-white transition-colors hover:bg-black"
             >
               Plaats gratis een vacature →
