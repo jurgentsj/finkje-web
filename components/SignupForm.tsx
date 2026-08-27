@@ -205,7 +205,7 @@ export default function SignupForm() {
                 value={form.tegenaan}
                 onChange={setField("tegenaan")}
                 rows={3}
-                placeholder="Omdat dat vaak het echte verhaal is: geen diploma, een gat in je cv, taal of gezondheid."
+                placeholder="Bijvoorbeeld: ik spreek vloeiend Spaans, maar dat staat nergens op papier."
                 className={`resize-y font-body ${inputClass}`}
               />
               <span className="text-sm text-black/50">Dit gebruiken we om je te helpen, niet om je af te wijzen.</span>
