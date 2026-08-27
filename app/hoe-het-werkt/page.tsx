@@ -14,18 +14,18 @@ const stappen = [
     nr: "01",
     titel: "Meld je aan",
     tekst:
-      "In zes korte stappen vertel je wat je zoekt, waar je sterk in bent, waar je tegenaan loopt en wat je voorkeuren zijn.",
+      "In zes korte stappen brengen we je motivatie en voorkeuren in kaart.",
   },
   {
     nr: "02",
     titel: "Een werkgever reageert",
-    tekst: "Is een werkgever enthousiast? Wij nemen contact met je op en laten de keuze aan jou.",
+    tekst: "Wil een werkgever je uitnodigen voor een gesprek? We nemen contact met je op en leggen de vacature aan je voor.",
   },
   {
     nr: "03",
     titel: "Jij beslist",
     tekst:
-      "Pas als jij ja zegt zorgen wij dat jullie in contact komen. Zeg je nee, dan blijft je aanmelding gewoon staan. Totdat jij tevreden bent.",
+      "Als jij ja zegt zorgen we dat jullie in contact komen. Zeg je nee, dan blijft je aanmelding gewoon staan. Totdat jij tevreden bent.",
   },
 ];
 
@@ -41,7 +41,7 @@ export default function HoeHetWerktPage() {
         </h1>
         <div className="mt-9 grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] items-end gap-8 border-t border-black/10 pt-8">
           <p className="m-0 max-w-[40ch] text-[clamp(18px,2vw,23px)] leading-snug text-black/64">
-            Wij werken andersom: geen vacatures waar jij op moet reageren, maar bedrijven die reageren op jou.
+            Finkje draait solliciteren om: je motivatie staat centraal. Enthousiaste werkgevers reageren op jou. 
           </p>
           <div className="justify-self-start">
             <Link
@@ -79,7 +79,7 @@ export default function HoeHetWerktPage() {
               Geen vacatures, waarom?
             </h2>
             <p className="m-0 max-w-[42ch] text-[clamp(17px,1.9vw,22px)] leading-snug text-black/68">
-              Een vacature vraagt jou om je aan te passen. Wij draaien de boel om.
+              Een vacature vraagt jou om je aan te passen. Wij draaien de boel om. Of de om boel.
             </p>
           </div>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4">
@@ -119,8 +119,8 @@ export default function HoeHetWerktPage() {
                   Zo ziet jouw profiel eruit.
                 </h2>
                 <p className="m-0 max-w-[38ch] text-[17.5px] leading-relaxed text-black/66">
-                  Jouw motivatie in beeld voor onze werkgevers. Naam en contactgegevens delen wij pas als jij op
-                  gesprek wil.
+                  Jouw motivatie in beeld voor onze werkgevers. Naam en contactgegevens delen we als jíj op gesprek
+                  wil.
                 </p>
                 <Link
                   href="/mensen"

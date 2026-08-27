@@ -38,11 +38,14 @@ export default function PersonCard({ persoon, filterRegio }: { persoon: Persoon;
     >
       {persoon.hkleur && (
         <div className="group absolute top-4.5 left-4.5 z-[2]">
-          <span
-            className="block h-6 w-6 rounded-full ring-2 ring-white"
+          <button
+            type="button"
+            aria-label="Toon uitleg over de lievelingskleur"
+            className="block h-6 w-6 rounded-full ring-2 ring-white outline-none focus-visible:ring-4 focus-visible:ring-accent"
             style={{ background: persoon.hkleur }}
+            onClick={(event) => event.stopPropagation()}
           />
-          <div className="pointer-events-none absolute top-9 left-0 z-[6] flex w-72 flex-col gap-2 rounded-2xl bg-black p-4.5 text-white opacity-0 transition-all duration-150 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
+          <div className="pointer-events-none absolute top-9 left-0 z-[6] flex w-72 flex-col gap-2 rounded-2xl bg-black p-4.5 text-white opacity-0 transition-all duration-150 before:absolute before:-top-3 before:left-0 before:h-3 before:w-full group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
             <span className="font-display text-[15px] font-bold tracking-[-0.01em]">
               De lievelingskleur van deze persoon
             </span>

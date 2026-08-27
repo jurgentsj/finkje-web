@@ -32,13 +32,6 @@ export default function MensenExplorer() {
     setStart("Maakt niet uit");
   };
 
-  const teller =
-    gefilterd.length === 0
-      ? "Geen resultaten"
-      : gefilterd.length === 1
-        ? "1 persoon gevonden"
-        : `${gefilterd.length} mensen gevonden`;
-
   return (
     <>
       <p className="mt-3.5 text-[16px]">
@@ -135,8 +128,7 @@ export default function MensenExplorer() {
           </div>
         )}
 
-        <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
-          <span className="text-[15px] text-black/60">{teller}</span>
+        <div className="mt-5 flex flex-wrap items-center justify-end gap-4">
           <button
             type="button"
             onClick={wisFilters}

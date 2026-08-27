@@ -1455,7 +1455,7 @@ export const stapData = [
     nr: "02",
     titel: "Een werkgever reageert",
     tekst:
-      "We leggen je aanmelding voor aan onze werkgevers. Als ze je willen uitnodigen voor een gesprek, laten we je dat direct weten.",
+      "Wij leggen je aanmelding voor aan onze werkgevers. Willen zij meer weten over jouw motivatie of met je in gesprek, laten we het je weten.",
   },
   {
     nr: "03",
@@ -1588,7 +1588,7 @@ export const hoeHetWerktFaq = [
   {
     vraag: "Kan ik mijn aanmelding aanpassen of stoppen?",
     antwoord:
-      "Ja, zeker! Stuur ons een appje of e-mailtje en we passen je aanmelding aan.",
+      "Ja. Stuur ons een appje of e-mail en we passen je aanmelding aan.",
   },
   {
     vraag: "Wat kost het mij?",
@@ -1596,7 +1596,7 @@ export const hoeHetWerktFaq = [
   },
   {
     vraag: "Wat als een baan toch niet bij mij past?",
-    antwoord: "Dan zeg je gewoon nee. Het belangrijkste is dat jij jezelf er ziet werken. Is dat niet zo? Dan zit je nergens aan vast.",
+    antwoord: "Dan zeg je gewoon nee. Het belangrijkste is dat jij jezelf er ziet werken.",
   },
   {
     vraag: "Kan ik me aanmelden als ik al een baan heb?",
@@ -1607,9 +1607,9 @@ export const hoeHetWerktFaq = [
 export const werkgeverStappen = [
   {
     nr: "01",
-    titel: "Bekijk de profielen, of...",
+    titel: "Blader zelf door profielen",
     tekst:
-      "Onze mensen vertellen eerlijk wat ze zoeken, waarom ze dat willen, waar ze goed in zijn en waar ze tegenaan lopen. Vrij te bekijken, ook als je geen vacature bij ons plaatst.",
+      "Wil je zelf zoeken? Onze mensen vertellen eerlijk wat ze zoeken, waarom ze dat willen, waar ze goed in zijn en waar ze tegenaan lopen. Vrij te bekijken, ook als je geen vacature bij ons plaatst",
   },
   {
     nr: "02",
