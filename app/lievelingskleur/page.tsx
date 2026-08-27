@@ -15,7 +15,7 @@ const punten = [
       "Er is geen goed of fout. Het is puur een persoonlijke tint aan je profiel. Kies wat het beste bij jezelf past en denk er niet te lang over na.",
   },
   {
-    titel: "Laagdrempelig",
+    titel: "Persoonlijke knipoog",
     tekst:
       "Zonder meteen naar de hoed én de rand te vragen, maak je je profiel op een eenvoudige manier persoonlijk, voor jouw toekomstige werkgever.",
   },
