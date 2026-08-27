@@ -235,8 +235,8 @@ export default function SignupForm() {
                 Kies je lievelingskleur
               </span>
               <span className="max-w-[56ch] text-[16.5px] leading-snug text-black/60">
-                We vragen je om je lievelingskleur te kiezen. Dat doen we om je aanmelding voor onze werkgevers net
-                een beetje persoonljker te maken. Gewoon omdat het kan, en niemand anders daar om vraagt.
+                Ja, serieus. We vragen je om je lievelingskleur te kiezen. En daar hebben we best een goede reden
+                voor. Kies wat het beste bij je past en denk er niet te lang over na.
               </span>
             </div>
 
