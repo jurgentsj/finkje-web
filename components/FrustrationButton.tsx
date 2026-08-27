@@ -21,7 +21,7 @@ const MAX_BATCH_PER_FLUSH = 50;
 
 export default function FrustrationButton({
   heading = "De frustratiedeurbel",
-  description = "Bel aan zo vaak je wil. Aan de teller zie je hoeveel mensen al bij ons hebben aangebeld met hun sollicitatie-frustratie.",
+  description = "Bel aan zo vaak je wil. Aan de teller zie je hoeveel mensen bij ons hebben aangebeld met hun sollicitatie-frustratie.",
   note,
   buttonLabel = "Bel hier aan",
   className = "",
@@ -163,7 +163,7 @@ export default function FrustrationButton({
           {count === null ? "—" : count.toLocaleString("nl-NL")}
         </span>
         <span className="text-xs font-semibold tracking-[0.14em] text-white/40 uppercase">
-          mensen belden bij ons aan.
+          keer ging bij ons de bel
         </span>
       </div>
 
