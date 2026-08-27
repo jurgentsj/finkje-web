@@ -9,23 +9,6 @@ export const metadata: Metadata = {
     "Elke persoon kiest zelf een lievelingskleur. Zo geef je een persoonlijk tintje mee aan je aanmelding.",
 };
 
-const punten = [
-  {
-    titel: "Het is indicatief",
-    tekst:
-      "Er is geen goed of fout. Kies wat het beste bij je past en denk er niet te lang over na.",
-  },
-  {
-    titel: "Persoonlijke knipoog",
-    tekst:
-      "Zonder meteen naar de hoed én de rand te vragen, maak je je profiel op een eenvoudige manier persoonlijk.",
-  },
-  {
-    titel: "Het is een opening",
-    tekst: "Handig als eerste vraag in een gesprek: waarom koos je deze kleur?",
-  },
-];
-
 export default function LievelingskleurPage() {
   return (
     <>
@@ -38,17 +21,6 @@ export default function LievelingskleurPage() {
           jou om je lievelingskleur te vragen, geven we je toekomstig werkgever een persoonlijk tintje mee én vinden we
           het ook gewoon best wel grappig.
         </p>
-      </section>
-
-      <section className="mx-auto max-w-[1100px] px-6 pt-14">
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] gap-7 rounded-[28px] bg-sand p-6.5 sm:p-11">
-          {punten.map((p) => (
-            <div key={p.titel} className="flex flex-col gap-2">
-              <span className="font-display text-[21px] font-bold tracking-[-0.025em]">{p.titel}</span>
-              <span className="text-[16.5px] leading-snug text-black/62">{p.tekst}</span>
-            </div>
-          ))}
-        </div>
       </section>
 
       <section className="mx-auto max-w-[1100px] px-6 pt-18">
@@ -78,7 +50,7 @@ export default function LievelingskleurPage() {
           Benieuwd wat we nog meer doen om solliciteren weer leuk te maken?
         </h2>
         <FrustrationButton
-          heading="Bewijs dat solliciteren frustreert."
+          heading="De frustratieteller."
           description="Deze frustratieteller staat op allerlei willekeurige plekken op de website. Klik er zo vaak op als je wil en bewijs met ons hoeveel mensen vastlopen in het huidige sollicitatiesysteem."
         />
       </section>
