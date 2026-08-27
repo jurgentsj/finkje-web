@@ -53,31 +53,29 @@ export const blogs: Blog[] = [
     titel: "Waarom steeds meer mensen werken zonder diploma",
     tag: "Arbeidsmarkt",
     datum: "Augustus 2026",
-    lead: "Het diploma is niet verdwenen. Het is alleen niet langer het enige toegangsbewijs, en dat heeft een nuchtere reden.",
+    lead: "Een diploma is een manier om binnen te komen bij een vacature of werkgever. Voor steeds meer mensen is het alleen niet langer het enige toegangsbewijs en dat heeft een hele logische reden.",
     voor: "kandidaat",
     beeld: "assets/foto-keuken.jpg",
     secties: [
       {
-        kop: "Er is niemand meer om op te wachten",
+        kop: "Tekort op de arbeidsmarkt: een rekensom",
         tekst: [
-          "Jarenlang kon een werkgever een vacature plaatsen en wachten tot de juiste kandidaat langskwam. Er waren er meestal genoeg. Dat is voorbij. In veel sectoren staan functies nu maanden open, en iedere maand dat een plek onbezet blijft, kost geld en overuren van het team dat wel is gebleven.",
-          "Op een bepaald moment gaat een werkgever dan rekenen. Wachten op iemand met het juiste papiertje kost drie maanden. Iemand aannemen die het werk echt wil en zelf inwerken kost zes weken. Dat is geen ideologische keuze over diploma's, dat is de goedkoopste oplossing van de twee.",
-          'Dat verklaart waarom je de laatste jaren steeds vaker leest dat een diploma "een plus" is in plaats van een eis. Niet omdat werkgevers minder streng zijn geworden, maar omdat ze het zich niet meer kunnen veroorloven.',
+          "Jarenlang kon een werkgever een vacature plaatsen en wachten tot de juiste persoon langskwam. Dat is in veel sectoren al een aantal verleden tijd. In sectoren als de zorg, het onderwijs of horeca staan functies nu maanden open. Dat kost tijd en geld, dus is de meest logische oplossing: minder eisen op de vacature.",
+          "Wachten op iemand met het juiste papiertje kost drie maanden, iemand aannemen die intern kan worden opgeleid kost soms maar vier, vijf of zes weken. Dat is geen ideologische keuze over diploma's maar puur is de goedkoopste oplossing van de twee.",
+          'Dat verklaart waarom je de laatste jaren steeds vaker leest dat een diploma "een plus" is in plaats van een eis. Niet omdat álle werkgevers minder streng zijn geworden, maar omdat ze het zich niet meer kunnen veroorloven.',
         ],
       },
       {
-        kop: "Vakkennis blijkt sneller te leren dan gedacht",
+        kop: "Een positieve ontwikkeling",
         tekst: [
-          "De tweede reden is dat bedrijven zijn gaan meten wat inwerken echt kost. Vaak minder dan ze dachten. Bij veel functies is iemand na een paar weken begeleiding productief, en na een half jaar niet meer te onderscheiden van iemand die er met een opleiding binnenkwam.",
-          "Wat wel duur is, is verloop. Iemand die na vijf maanden weggaat, kost je de hele inwerkperiode plus een nieuwe wervingsronde. En daar zit de omslag: verloop hangt veel minder samen met opleiding dan met de vraag of iemand dit werk eigenlijk wel wilde doen. Iemand die reageerde omdat het de eerste vacature was die langskwam, vertrekt sneller dan iemand die dit werk zelf had uitgekozen.",
-          "Zo is motivatie van een vaag pluspunt een hard selectiecriterium geworden. Niet omdat het aardiger klinkt, maar omdat het beter voorspelt.",
+          "Terugkomend op het eerste puntje, zijn steeds meer bedrijven door het tekort op de arbeidsmarkt vermoedelijk gaan meten wat inwerken echt kost. Conclusie: vaak minder dan ze dachten. Bij veel functies is iemand na een paar weken begeleiding productief, en na een half jaar niet meer te onderscheiden van iemand die er met een opleiding binnenkwam. Dat opent deuren voor mensen zonder diploma.",
         ],
       },
       {
         kop: "Wat dat voor jou verandert",
         tekst: [
-          "Het betekent dat je je niet langer hoeft te verontschuldigen voor wat je niet hebt. Er zit geen kracht in uitleggen waarom een ontbrekend diploma geen probleem is. Wel in duidelijk maken wat je wil gaan doen en waarom je daar geschikt voor bent.",
-          "Dat vraagt wel iets anders van je dan tien keer reageren op wat er langskomt. Het vraagt dat je één keer goed nadenkt over wat je zoekt, en dat dan bij de juiste mensen terechtkomt. Precies daar is Finkje voor gemaakt. Je meldt je één keer aan, vertelt wat je wil worden, en werkgevers die daarop zitten te wachten nodigen jou uit. Zonder dat je bij elke functie opnieuw hoeft te beginnen.",
+          "Steeds meer werkgevers zijn daarom de kracht van motivatie en iets heel graag willen gaan inzien. Een diploma is belangrijk, maar steeds meer werkgevers snappen dat degene met diploma soms minder levert dan degene zonder diploma, puur omdat iemand het leuker vindt om zijn of haar werk te doen.",
+          "Een groot aantal bedrijven die hierin geloven zijn aangesloten bij Finkje. Wij werken om bovenstaande reden zonder vacatures, maar vragen je wat je zoekt en wat je voorkeuren zijn qua werk. Want iets heel graag willen, betekent ook dat je een enorme drive met je meebrengt. Precies voor die werkgevers en die werkzoekenden hebben we Finkje gemaakt. Jij meldt je één keer aan, vertelt ons wat je wil worden, en werkgevers die precies daar op zitten te wachten nodigen jou uit. Zonder dat je bij elke functie opnieuw hoeft te beginnen.",
         ],
       },
     ],

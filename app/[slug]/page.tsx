@@ -64,8 +64,7 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
             Klaar in twee minuten.
           </h2>
           <p className="m-0 max-w-[44ch] text-[17px] leading-snug text-black/66">
-            Geen cv, geen motivatiebrief. Vertel wat je wil worden en laat werkgevers naar jou toe komen. Gratis,
-            en anoniem tot jij ja zegt.
+            Vertel ons wat je zoekt en laat werkgevers naar jou toe komen. Gratis, en anoniem tot jij ja zegt.
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <Link
