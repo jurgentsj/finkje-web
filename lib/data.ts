@@ -1588,7 +1588,7 @@ export const hoeHetWerktFaq = [
   {
     vraag: "Kan ik mijn aanmelding aanpassen of stoppen?",
     antwoord:
-      "Ja, zeker! Stuur ons een appje of e-mailtje en we passen je aanmelding aan.",
+      "Ja. Stuur ons een appje of e-mail en we passen je aanmelding aan.",
   },
   {
     vraag: "Wat kost het mij?",
