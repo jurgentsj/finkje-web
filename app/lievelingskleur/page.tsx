@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { handKleuren } from "@/lib/data";
+import FrustrationButton from "@/components/FrustrationButton";
 
 export const metadata: Metadata = {
   title: "Kies je lievelingskleur — Finkje",
@@ -70,6 +71,14 @@ export default function LievelingskleurPage() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="mx-auto max-w-[1100px] px-6 pt-18">
+        <FrustrationButton
+          eyebrow="Benieuwd wat we nog meer doen?"
+          heading="Benieuwd wat we nog meer doen om solliciteren leuk te maken?"
+          description="Deze frustratieknop staat op allerlei willekeurige plekken op de website. Je kan er zo vaak op klikken als je wil — bewijs met ons hoeveel mensen vastlopen in het huidige sollicitatiesysteem."
+        />
       </section>
 
       <section className="mx-auto max-w-[1100px] px-6 pt-18 pb-28">
