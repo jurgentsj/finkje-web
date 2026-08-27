@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -26,6 +27,12 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
 
   const voorWerkgever = blog.voor === "werkgever";
   const andere = blogs.filter((b) => b.slug !== blog.slug).slice(0, 4);
+  const inlineCta =
+    blog.slug === "gratis-personeel-vinden"
+      ? "Gratis personeel vinden zonder vacaturekosten of bureau →"
+      : blog.slug === "nieuwe-medewerker-zonder-werkervaring"
+        ? "Nieuwe medewerker aannemen zonder werkervaring? Zo werkt het →"
+        : "Vind werk zonder vacatures →";
 
   return (
     <article className="mx-auto max-w-[780px] px-6 pt-18">
@@ -44,24 +51,34 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
       </div>
 
       <div className="mt-13 flex flex-col gap-10">
-        {blog.secties.map((s) => (
-          <div key={s.kop} className="flex flex-col gap-3.5">
-            <h2 className="m-0 font-display text-[clamp(24px,3vw,34px)] leading-tight font-bold tracking-[-0.035em]">
-              {s.kop}
-            </h2>
-            {s.tekst.map((p, i) => (
-              <p key={i} className="m-0 text-lg leading-relaxed text-black/76">
-                {p}
-              </p>
-            ))}
-          </div>
+        {blog.secties.map((s, i) => (
+          <Fragment key={s.kop}>
+            <div className="flex flex-col gap-3.5">
+              <h2 className="m-0 font-display text-[clamp(24px,3vw,34px)] leading-tight font-bold tracking-[-0.035em]">
+                {s.kop}
+              </h2>
+              {s.tekst.map((p) => (
+                <p key={p} className="m-0 text-lg leading-relaxed text-black/76">
+                  {p}
+                </p>
+              ))}
+            </div>
+            {i === 1 ? (
+              <Link
+                href="/aanmelden"
+                className="self-start text-[15px] font-semibold text-accent underline decoration-accent/55 underline-offset-4 transition-colors hover:text-black"
+              >
+                {inlineCta}
+              </Link>
+            ) : null}
+          </Fragment>
         ))}
       </div>
 
       {!voorWerkgever ? (
         <div className="mt-15 flex flex-col gap-4.5 rounded-3xl bg-sand p-8 sm:p-11">
           <h2 className="m-0 max-w-[20ch] font-display text-[clamp(24px,3vw,36px)] leading-none font-extrabold tracking-[-0.04em]">
-            Alleen als je weet wat je wil:
+            Vind werk met je motivatie
           </h2>
           <p className="m-0 max-w-[44ch] text-[17px] leading-snug text-black/66">
             Vertel ons wat je zoekt en laat werkgevers naar jou toe komen. Gratis, en anoniem tot jij ja zegt.
