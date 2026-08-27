@@ -33,8 +33,8 @@ export default function LievelingskleurPage() {
           Maak het persoonlijk.
         </h1>
         <p className="mt-7.5 max-w-[48ch] text-[clamp(17px,2vw,23px)] leading-snug text-black/64">
-          We vragen iedere aanmelding om zijn of haar lievelingskleur te kiezen. Op deze manier geef je een persoonlijk
-          tintje mee aan je toekomstige werkgever én vinden we het vragen om een kleur, gewoon best wel leuk.
+          Waar we kunnen, proberen we altijd net even anders te zijn. Door het vragen om jouw lievelingskleur, geven we
+          aan een werkgever een persoonlijk tintje mee én vinden we het ook gewoon best wel grappig.
         </p>
       </section>
 
