@@ -20,10 +20,10 @@ const FLUSH_INTERVAL_MS = 450;
 const MAX_BATCH_PER_FLUSH = 50;
 
 export default function FrustrationButton({
-  heading = "Bewijs dat solliciteren frustreert.",
-  description = "Klik zo vaak je wil. Iedere klik bewijst hoeveel mensen vastlopen in het huidige sollicitatiesysteem.",
+  heading = "De frustratiedeurbel",
+  description = "Bel aan zo vaak je wil. Aan de teller zie je hoeveel mensen al bij ons hebben aangebeld met hun sollicitatie-frustratie.",
   note,
-  buttonLabel = "Ram op de knop!",
+  buttonLabel = "Bel hier aan",
   className = "",
 }: FrustrationButtonProps) {
   const supabaseRef = useRef(createClient());
