@@ -75,9 +75,8 @@ export default function LievelingskleurPage() {
 
       <section className="mx-auto max-w-[1100px] px-6 pt-18">
         <FrustrationButton
-          eyebrow="Benieuwd wat we nog meer doen?"
-          heading="Benieuwd wat we nog meer doen om solliciteren leuk te maken?"
-          description="Deze frustratieknop staat op allerlei willekeurige plekken op de website. Je kan er zo vaak op klikken als je wil — bewijs met ons hoeveel mensen vastlopen in het huidige sollicitatiesysteem."
+          heading="Benieuwd wat we nog meer doen om solliciteren weer leuk te maken?"
+          description="Deze frustratieknop staat op allerlei willekeurige plekken op de website. Klik er zo vaak op als je wil en bewijs met ons hoeveel mensen vastlopen in het huidige sollicitatiesysteem."
         />
       </section>
 
