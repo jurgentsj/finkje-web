@@ -1440,9 +1440,9 @@ export const phrases = [
   "meubelmaker worden",
   "in de zorg werken",
   "met mijn handen werken",
-  "een eigen zaak",
+  "UX-designer worden",
   "buiten werken",
-  "iets creatiefs doen",
+  "projecten managen",
 ];
 
 export const stapData = [
