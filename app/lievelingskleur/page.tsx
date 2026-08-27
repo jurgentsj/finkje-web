@@ -17,8 +17,8 @@ export default function LievelingskleurPage() {
           Maak het persoonlijk.
         </h1>
         <p className="mt-7.5 max-w-[48ch] text-[clamp(17px,2vw,23px)] leading-snug text-black/64">
-          Solliciteren moet weer leuk worden. Waar we kunnen, proberen we daarom altijd net even anders te zijn. Het
-          vragen naar je lievelingskleur past in dat rijtje.
+          Solliciteren moet weer leuk worden. Waar we kunnen proberen we daarom altijd net even anders te zijn. Het
+          vragen naar je lievelingskleur past in dat rijtje. 
         </p>
       </section>
 
