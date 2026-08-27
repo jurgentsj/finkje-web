@@ -154,7 +154,7 @@ export const blogs: Blog[] = [
     titel: "Administratief werk zonder diploma: zo ga je aan de slag",
     tag: "Zonder diploma",
     datum: "Augustus 2026",
-    lead: "Administratie lijkt van buiten gesloten en is dat van binnen zelden. Wat je nodig hebt is nauwkeurigheid en vertrouwen.",
+    lead: "Misschien ben je na de middelbare school meteen gaan werken of heb je een opleiding niet afgemaakt. Maar één ding is zeker: je wilt aan het werk in een administratieve functie. Het goede nieuws? Ook zonder diploma kun je prima aan de slag.",
     voor: "kandidaat",
     beeld: "assets/foto-roaster.jpg",
     secties: [
@@ -167,7 +167,7 @@ export const blogs: Blog[] = [
         ],
       },
       {
-        kop: "Zo maak je aannemelijk dat je het kunt",
+        kop: "Wat helpt als je zonder diploma aan de slag wil?",
         tekst: [
           "Zoek naar momenten waarop je al met details en systemen werkte, en wees daar concreet over. Een kassa die je afsloot en die moest kloppen. Een planning die je bijhield voor een team. De administratie van een vereniging. Een webshop of Marktplaats-handeltje van jezelf waarbij je zelf de voorraad en de verzendingen bijhield.",
           'Dat soort voorbeelden doet meer dan het woord "accuraat" op een cv. Ze laten zien dat je het al deed, ook al stond er geen functietitel boven. Vertel er ook bij wat er misging en hoe je dat oploste, want iemand die weet waar het bij administratie fout gaat, kijkt vooruit.',
