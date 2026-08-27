@@ -179,18 +179,6 @@ export default function SignupForm() {
                 className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 font-display text-[clamp(20px,2.6vw,30px)] font-bold tracking-[-0.03em] text-accent outline-none focus:border-accent"
               />
             </label>
-            <label className="flex flex-col gap-3">
-              <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
-                Waarom juist dat?
-              </span>
-              <textarea
-                value={form.waarom}
-                onChange={setField("waarom")}
-                rows={3}
-                placeholder="In je eigen woorden, dit blijft tussen ons."
-                className={`resize-y font-body ${inputClass}`}
-              />
-            </label>
           </div>
         )}
 
