@@ -74,31 +74,33 @@ export default function LievelingskleurPage() {
       </section>
 
       <section className="mx-auto max-w-[1100px] px-6 pt-18">
+        <h2 className="m-0 mb-8 max-w-[26ch] font-display text-[clamp(24px,3.4vw,40px)] leading-[1.05] font-extrabold tracking-[-0.035em]">
+          Benieuwd wat we nog meer doen om solliciteren weer leuk te maken?
+        </h2>
         <FrustrationButton
           heading="Bewijs dat solliciteren frustreert."
           description="Deze frustratieteller staat op allerlei willekeurige plekken op de website. Klik er zo vaak op als je wil en bewijs met ons hoeveel mensen vastlopen in het huidige sollicitatiesysteem."
-          note="Benieuwd wat we nog meer doen om solliciteren weer leuk te maken?"
         />
       </section>
 
       <section className="mx-auto max-w-[1100px] px-6 pt-18 pb-28">
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] items-center gap-8 rounded-[32px] bg-black p-8 text-white sm:p-14">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] items-center gap-8 rounded-[32px] border border-black/10 bg-sand p-8 text-black sm:p-14">
           <div className="flex flex-col gap-3.5">
             <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Voor werkgevers</span>
-            <h2 className="m-0 max-w-[18ch] font-display text-[clamp(28px,3.6vw,50px)] leading-[0.96] font-extrabold tracking-[-0.04em]">
+            <h2 className="m-0 max-w-[18ch] font-display text-[clamp(28px,3.6vw,50px)] leading-[0.96] font-extrabold tracking-[-0.04em] text-black">
               Zie ze staan bij onze mensen.
             </h2>
           </div>
           <div className="flex flex-wrap gap-3">
             <Link
               href="/mensen"
-              className="rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-white hover:text-[#111]"
+              className="rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-black"
             >
               Bekijk onze mensen →
             </Link>
             <Link
               href="/aanmelden"
-              className="rounded-full border border-white/30 px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-white hover:text-[#111]"
+              className="rounded-full border border-black/20 px-7 py-4 text-[17px] font-semibold text-black transition-colors hover:bg-black hover:text-white"
             >
               Kies je eigen kleur →
             </Link>
