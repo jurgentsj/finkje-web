@@ -79,7 +79,7 @@ export default function HoeHetWerktPage() {
               Geen vacatures, waarom?
             </h2>
             <p className="m-0 max-w-[42ch] text-[clamp(17px,1.9vw,22px)] leading-snug text-black/68">
-              Een vacature vraagt jou om je aan te passen. Wij draaien de boel om.
+              Een vacature vraagt jou om je aan te passen. Wij draaien de boel om. Of de om boel.
             </p>
           </div>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4">
