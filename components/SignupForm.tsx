@@ -258,7 +258,7 @@ export default function SignupForm() {
                 ))}
               </div>
               <Link href="/lievelingskleur" className="text-[14.5px] font-semibold">
-                Waarom een lievelingskleur? →
+                Waarom mijn lievelingskleur? →
               </Link>
             </div>
 
