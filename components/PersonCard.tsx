@@ -36,27 +36,21 @@ export default function PersonCard({ persoon, filterRegio }: { persoon: Persoon;
         open ? "border-black/25" : "border-black/12"
       }`}
     >
-      {persoon.hwoord && (
-        <div
-          className="finkje-hand group absolute top-0 left-0 z-[2] flex h-11.5 w-[54%] items-center gap-2 rounded-tl-3xl rounded-br-[18px] px-4 text-white"
-          style={{
-            background: persoon.hkleur,
-            fontFamily: `'${persoon.hfont || "Bricolage Grotesque"}', sans-serif`,
-            letterSpacing: persoon.hfont === "Instrument Serif" ? "0.03em" : "-0.01em",
-          }}
-        >
-          <span className="truncate text-[18px] font-bold">{persoon.hwoord}</span>
-          <div
-            className="pointer-events-none absolute top-[52px] left-0 z-[6] flex w-72 flex-col gap-2 rounded-2xl bg-black p-4.5 text-white opacity-0 transition-all duration-150 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100"
-          >
+      {persoon.hkleur && (
+        <div className="group absolute top-4.5 left-4.5 z-[2]">
+          <span
+            className="block h-6 w-6 rounded-full ring-2 ring-white"
+            style={{ background: persoon.hkleur }}
+          />
+          <div className="pointer-events-none absolute top-9 left-0 z-[6] flex w-72 flex-col gap-2 rounded-2xl bg-black p-4.5 text-white opacity-0 transition-all duration-150 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
             <span className="font-display text-[15px] font-bold tracking-[-0.01em]">
-              Het eigen handschrift van deze persoon
+              De lievelingskleur van deze persoon
             </span>
             <span className="text-[13.5px] leading-relaxed text-white/72">
-              Kleur, lettertype en woord koos hij zelf. Indicatief, maar het zegt iets over hoe iemand werkt.
+              Gewoon iets leuks om te laten zien aan een werkgever. Verder niks bijzonders.
             </span>
-            <Link href="/handschrift" className="text-[13.5px] font-semibold text-white underline">
-              Bekijk alle handschriften →
+            <Link href="/lievelingskleur" className="text-[13.5px] font-semibold text-white underline">
+              Waarom een lievelingskleur? →
             </Link>
           </div>
         </div>
@@ -68,7 +62,7 @@ export default function PersonCard({ persoon, filterRegio }: { persoon: Persoon;
       >
         <span className="flex min-h-7.5 w-full items-center justify-end gap-4">
           {toonAfstand && (
-            <span className="mr-auto pl-[56%] text-xs font-semibold tracking-[0.06em] text-black/45 uppercase">
+            <span className="mr-auto text-xs font-semibold tracking-[0.06em] text-black/45 uppercase">
               {loc.km} km van {filterRegio}
             </span>
           )}

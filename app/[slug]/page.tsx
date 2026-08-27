@@ -61,11 +61,10 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
       {!voorWerkgever ? (
         <div className="mt-15 flex flex-col gap-4.5 rounded-3xl bg-sand p-8 sm:p-11">
           <h2 className="m-0 max-w-[20ch] font-display text-[clamp(24px,3vw,36px)] leading-none font-extrabold tracking-[-0.04em]">
-            Klaar in twee minuten.
+            Alleen als je weet wat je wil:
           </h2>
           <p className="m-0 max-w-[44ch] text-[17px] leading-snug text-black/66">
-            Geen cv, geen motivatiebrief. Vertel wat je wil worden en laat werkgevers naar jou toe komen. Gratis,
-            en anoniem tot jij ja zegt.
+            Vertel ons wat je zoekt en laat werkgevers naar jou toe komen. Gratis, en anoniem tot jij ja zegt.
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <Link
@@ -93,7 +92,7 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <Link
-              href="/plaats-je-vacature"
+              href="/motivatiebrief"
               className="rounded-full bg-accent px-7.5 py-4 text-[17px] font-bold text-white transition-colors hover:bg-white hover:text-[#111]"
             >
               Plaats je vacature →

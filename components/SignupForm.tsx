@@ -10,8 +10,6 @@ import {
   overOpties,
   sectorOpties,
   handKleuren,
-  handFonts,
-  handWoorden,
 } from "@/lib/data";
 
 type FormState = {
@@ -19,9 +17,7 @@ type FormState = {
   waarom: string;
   sterk: string;
   tegenaan: string;
-  hwoord: string;
   hkleur: string;
-  hfont: string;
   dienstverband: string;
   beschikbaarheid: string;
   locatie: string;
@@ -38,9 +34,7 @@ const emptyForm: FormState = {
   waarom: "",
   sterk: "",
   tegenaan: "",
-  hwoord: "",
   hkleur: "",
-  hfont: "",
   dienstverband: "",
   beschikbaarheid: "",
   locatie: "",
@@ -71,8 +65,8 @@ export default function SignupForm() {
       setFout("");
     };
 
-  const kiesHand = (key: "hwoord" | "hkleur" | "hfont", waarde: string) => () => {
-    setForm((f) => ({ ...f, [key]: waarde }));
+  const kiesKleur = (waarde: string) => () => {
+    setForm((f) => ({ ...f, hkleur: waarde }));
     setFout("");
   };
 
@@ -95,7 +89,7 @@ export default function SignupForm() {
       return;
     }
     if (stap === 3) {
-      if (!form.hwoord || !form.hkleur || !form.hfont) return setFout("Kies een woord, een lettertype en een kleur.");
+      if (!form.hkleur) return setFout("Kies je lievelingskleur.");
       setStap(4);
       setFout("");
       return;
@@ -238,54 +232,12 @@ export default function SignupForm() {
                 Stap 3 — Persoonlijk tintje
               </span>
               <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
-                Geef je aanmelding een persoonlijk tintje
+                Kies je lievelingskleur
               </span>
               <span className="max-w-[56ch] text-[16.5px] leading-snug text-black/60">
-                Kies een woord, een lettertype en een kleur dat bij je past. Er is geen goed of fout. Kies wat het
-                beste bij je past en denk er niet te lang over na.
+                Ja, serieus. Er is geen goed of fout. Kies wat het beste bij je past en denk er niet te lang over
+                na.
               </span>
-            </div>
-
-            <div className="flex flex-col gap-3">
-              <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">
-                Kies het woord dat het meest bij je past
-              </span>
-              <div className="flex flex-wrap gap-2.5">
-                {handWoorden.map((w) => (
-                  <button
-                    key={w}
-                    type="button"
-                    onClick={kiesHand("hwoord", w)}
-                    className={`rounded-full border px-5 py-3 text-base font-semibold transition-colors ${
-                      form.hwoord === w ? "border-black bg-black text-white" : "border-black/14 bg-white text-[#111]"
-                    }`}
-                  >
-                    {w}
-                  </button>
-                ))}
-              </div>
-              <Link href="/handschrift" className="text-[14.5px] font-semibold">
-                Wat betekenen deze woorden? →
-              </Link>
-            </div>
-
-            <div className="flex flex-col gap-3">
-              <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">Lettertype</span>
-              <div className="flex flex-wrap gap-2.5">
-                {handFonts.map((f) => (
-                  <button
-                    key={f.font}
-                    type="button"
-                    onClick={kiesHand("hfont", f.font)}
-                    style={{ fontFamily: `'${f.font}', sans-serif` }}
-                    className={`flex-1 basis-40 rounded-2xl border px-5 py-4 text-left text-[22px] font-bold text-[#111] transition-colors ${
-                      form.hfont === f.font ? "border-2 border-black" : "border border-black/14"
-                    }`}
-                  >
-                    {f.naam}
-                  </button>
-                ))}
-              </div>
             </div>
 
             <div className="flex flex-col gap-3">
@@ -295,7 +247,7 @@ export default function SignupForm() {
                   <button
                     key={k.hex}
                     type="button"
-                    onClick={kiesHand("hkleur", k.hex)}
+                    onClick={kiesKleur(k.hex)}
                     aria-label={k.naam}
                     title={k.naam}
                     style={{ background: k.hex }}
@@ -305,24 +257,21 @@ export default function SignupForm() {
                   />
                 ))}
               </div>
+              <Link href="/lievelingskleur" className="text-[14.5px] font-semibold">
+                Waarom een lievelingskleur? →
+              </Link>
             </div>
 
             <div className="flex flex-col gap-2.5">
               <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">Jouw voorbeeld</span>
-              <div className="max-w-[380px] overflow-hidden rounded-3xl border border-black/12 bg-white">
-                <div
-                  className="flex h-11.5 min-w-45 items-center rounded-tl-[24px] rounded-br-[18px] px-4 text-[18px] font-bold text-white"
-                  style={{
-                    background: form.hkleur || "rgba(17,17,17,0.15)",
-                    fontFamily: `'${form.hfont || "Bricolage Grotesque"}', sans-serif`,
-                    letterSpacing: form.hfont === "Instrument Serif" ? "0.03em" : "normal",
-                  }}
-                >
-                  {form.hwoord || "Jouw woord"}
-                </div>
-                <div className="px-5.5 pt-3.5 pb-6 font-display text-3xl leading-[0.98] font-extrabold tracking-[-0.04em]">
+              <div className="flex max-w-[380px] items-center gap-3 overflow-hidden rounded-3xl border border-black/12 bg-white px-5.5 py-5">
+                <span
+                  className="h-9 w-9 shrink-0 rounded-full"
+                  style={{ background: form.hkleur || "rgba(17,17,17,0.15)" }}
+                />
+                <span className="font-display text-2xl leading-[0.98] font-extrabold tracking-[-0.04em]">
                   {form.droombaan || "Jouw baan"}
-                </div>
+                </span>
               </div>
             </div>
           </div>
