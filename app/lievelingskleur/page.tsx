@@ -13,7 +13,7 @@ export default function LievelingskleurPage() {
   return (
     <>
       <section className="mx-auto max-w-[1100px] px-6 pt-18">
-        <h1 className="m-0 max-w-[16ch] font-display text-[clamp(38px,7.5vw,104px)] leading-[0.9] font-extrabold tracking-[-0.05em]">
+        <h1 className="m-0 max-w-[16ch] font-display text-[51px] leading-[0.9] font-extrabold tracking-[-0.05em]">
           Maak het persoonlijk.
         </h1>
         <p className="mt-7.5 max-w-[48ch] text-[clamp(17px,2vw,23px)] leading-snug text-black/64">
