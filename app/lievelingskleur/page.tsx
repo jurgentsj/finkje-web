@@ -12,12 +12,12 @@ const punten = [
   {
     titel: "Het is indicatief",
     tekst:
-      "Er is geen goed of fout. Het is puur een persoonlijke tint aan je profiel. Kies wat het beste bij jezelf past en denk er niet te lang over na.",
+      "Er is geen goed of fout. Kies wat het beste bij je past en denk er niet te lang over na.",
   },
   {
     titel: "Persoonlijke knipoog",
     tekst:
-      "Zonder meteen naar de hoed én de rand te vragen, maak je je profiel op een eenvoudige manier persoonlijk, voor jouw toekomstige werkgever.",
+      "Zonder meteen naar de hoed én de rand te vragen, maak je je profiel op een eenvoudige manier persoonlijk.",
   },
   {
     titel: "Het is een opening",
