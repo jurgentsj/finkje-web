@@ -1596,7 +1596,7 @@ export const hoeHetWerktFaq = [
   },
   {
     vraag: "Wat als een baan toch niet bij mij past?",
-    antwoord: "Dan zeg je gewoon nee. Het belangrijkste is dat jij jezelf er ziet werken. Is dat niet zo? Dan zit je nergens aan vast.",
+    antwoord: "Dan zeg je gewoon nee. Het belangrijkste is dat jij jezelf er ziet werken.",
   },
   {
     vraag: "Kan ik me aanmelden als ik al een baan heb?",
