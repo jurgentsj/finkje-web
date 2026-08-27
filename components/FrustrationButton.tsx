@@ -1,7 +1,12 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import type { RealtimePostgresChangesPayload } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/client";
+
+type FrustrationCounterRow = {
+  count: number;
+};
 
 type FrustrationButtonProps = {
   eyebrow?: string;
@@ -72,8 +77,8 @@ export default function FrustrationButton({
         .on(
           "postgres_changes",
           { event: "UPDATE", schema: "public", table: "frustration_counter" },
-          (payload) => {
-            const updated = payload.new as { count: number };
+          (payload: RealtimePostgresChangesPayload<FrustrationCounterRow>) => {
+            const updated = payload.new as FrustrationCounterRow;
             applyConfirmed(Number(updated.count));
           },
         )
