@@ -63,7 +63,7 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
                 </p>
               ))}
             </div>
-            {i === 1 ? (
+            {(blog.slug === "werken-zonder-diploma" ? i === 0 : i === 1) ? (
               <Link
                 href="/aanmelden"
                 className="self-start text-[15px] font-semibold text-accent underline decoration-accent/55 underline-offset-4 transition-colors hover:text-black"
