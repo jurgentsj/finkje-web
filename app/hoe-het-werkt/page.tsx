@@ -19,7 +19,7 @@ const stappen = [
   {
     nr: "02",
     titel: "Een werkgever reageert",
-    tekst: "Is een werkgever enthousiast? Wij nemen contact met je op en laten de keuze aan jou.",
+    tekst: "Wil een werkgever je uitnodigen voor een gesprek? We nemen contact met je op en leggen de vacature aan je voor.",
   },
   {
     nr: "03",
