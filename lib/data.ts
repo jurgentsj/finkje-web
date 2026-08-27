@@ -1442,7 +1442,7 @@ export const phrases = [
   "met mijn handen werken",
   "UX-designer worden",
   "buiten werken",
-  "hovenier worden",
+  "projecten managen",
 ];
 
 export const stapData = [
