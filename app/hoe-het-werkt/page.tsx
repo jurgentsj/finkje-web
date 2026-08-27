@@ -119,8 +119,8 @@ export default function HoeHetWerktPage() {
                   Zo ziet jouw profiel eruit.
                 </h2>
                 <p className="m-0 max-w-[38ch] text-[17.5px] leading-relaxed text-black/66">
-                  Jouw motivatie in beeld voor onze werkgevers. Naam en contactgegevens delen wij pas als jij op
-                  gesprek wil.
+                  Jouw motivatie in beeld voor onze werkgevers. Naam en contactgegevens delen we als jíj op gesprek
+                  wil.
                 </p>
                 <Link
                   href="/mensen"
