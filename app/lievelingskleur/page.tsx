@@ -51,7 +51,7 @@ export default function LievelingskleurPage() {
         </h2>
         <FrustrationButton
           heading="De frustratieteller."
-          description="Deze frustratieteller staat op allerlei willekeurige plekken op de website. Klik er zo vaak op als je wil en bewijs met ons hoeveel mensen vastlopen in het huidige sollicitatiesysteem."
+          description="Onze frustratieteller staat op een aantal willekeurige plekken op de website. Klik er zo vaak op als je wil en bewijs met ons hoeveel mensen vastlopen in het huidige sollicitatiesysteem."
         />
       </section>
 
