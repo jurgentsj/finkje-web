@@ -14,7 +14,7 @@ const stappen = [
     nr: "01",
     titel: "Meld je aan",
     tekst:
-      "In zes korte stappen vertel je wat je zoekt, waar je sterk in bent, waar je tegenaan loopt en wat je voorkeuren zijn.",
+      "In zes korte stappen brengen we je motivatie en voorkeuren in kaart.",
   },
   {
     nr: "02",
@@ -41,7 +41,7 @@ export default function HoeHetWerktPage() {
         </h1>
         <div className="mt-9 grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] items-end gap-8 border-t border-black/10 pt-8">
           <p className="m-0 max-w-[40ch] text-[clamp(18px,2vw,23px)] leading-snug text-black/64">
-            Wij werken andersom: geen vacatures waar jij op moet reageren, maar bedrijven die reageren op jou.
+            Via Finkje vind je werk met je motivatie. Geen vacatures waar jij op moet reageren, maar bedrijven die reageren op jou.
           </p>
           <div className="justify-self-start">
             <Link
