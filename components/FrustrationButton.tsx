@@ -23,7 +23,7 @@ export default function FrustrationButton({
   heading = "Bewijs dat solliciteren frustreert.",
   description = "Klik zo vaak je wil. Iedere klik bewijst hoeveel mensen vastlopen in het huidige sollicitatiesysteem.",
   note,
-  buttonLabel = "Frustratieteller",
+  buttonLabel = "Ram op de knop!",
   className = "",
 }: FrustrationButtonProps) {
   const supabaseRef = useRef(createClient());
@@ -163,7 +163,7 @@ export default function FrustrationButton({
           {count === null ? "—" : count.toLocaleString("nl-NL")}
         </span>
         <span className="text-xs font-semibold tracking-[0.14em] text-white/40 uppercase">
-          Mensen die net als jij vastlopen
+          KLIKKERS die net als jij vastlopen
         </span>
       </div>
 
