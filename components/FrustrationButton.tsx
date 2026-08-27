@@ -163,7 +163,7 @@ export default function FrustrationButton({
           {count === null ? "—" : count.toLocaleString("nl-NL")}
         </span>
         <span className="text-xs font-semibold tracking-[0.14em] text-white/40 uppercase">
-          KLIKKERS die net als jij vastlopen
+          mensen belden bij ons aan.
         </span>
       </div>
 
