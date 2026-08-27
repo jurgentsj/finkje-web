@@ -25,7 +25,7 @@ const stappen = [
     nr: "03",
     titel: "Jij beslist",
     tekst:
-      "Pas als jij ja zegt zorgen wij dat jullie in contact komen. Zeg je nee, dan blijft je aanmelding gewoon staan. Totdat jij tevreden bent.",
+      "Als jij ja zegt zorgen we dat jullie in contact komen. Zeg je nee, dan blijft je aanmelding gewoon staan. Totdat jij tevreden bent.",
   },
 ];
 
