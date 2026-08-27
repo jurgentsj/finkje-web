@@ -1455,7 +1455,7 @@ export const stapData = [
     nr: "02",
     titel: "Een werkgever reageert",
     tekst:
-      "We leggen je aanmelding voor aan onze werkgevers. Als ze je willen uitnodigen voor een gesprek, laten we je dat direct weten.",
+      "Wij leggen je aanmelding voor aan onze werkgevers. Willen zij meer weten over jouw motivatie of met je in gesprek, laten we het je weten.",
   },
   {
     nr: "03",
