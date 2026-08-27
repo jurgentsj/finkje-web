@@ -154,7 +154,7 @@ export const blogs: Blog[] = [
     titel: "Administratief werk zonder diploma: zo ga je aan de slag",
     tag: "Zonder diploma",
     datum: "Augustus 2026",
-    lead: "Niet iedereen volgt een standaardroute. Misschien ben je na de middelbare school meteen gaan werken of heb je een opleiding niet afgemaakt. Maar één ding is zeker: je wilt aan het werk in een administratieve functie. Het goede nieuws? Ook zonder diploma kun je prima aan de slag.",
+    lead: "Misschien ben je na de middelbare school meteen gaan werken of heb je een opleiding niet afgemaakt. Maar één ding is zeker: je wilt aan het werk in een administratieve functie. Het goede nieuws? Ook zonder diploma kun je prima aan de slag.",
     voor: "kandidaat",
     beeld: "assets/foto-roaster.jpg",
     secties: [
