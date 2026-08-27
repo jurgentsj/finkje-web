@@ -27,7 +27,7 @@ export default function LievelingskleurPage() {
           Kies je lievelingskleur
         </h2>
         <p className="m-0 mb-9 max-w-[54ch] text-[17.5px] leading-snug text-black/62">
-          Staat jouw lievelingskleur er niet bij? Kies dan de kleur die
+          Staat je favoriete kleur er niet bij? Kies dan de kleur die 
           <br className="hidden md:block" />
           het dichtst in de buurt komt. 
         </p>
