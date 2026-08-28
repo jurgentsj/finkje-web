@@ -76,6 +76,16 @@ export async function updateSession(request: NextRequest) {
       }
       return NextResponse.redirect(url);
     }
+
+    // Ingelogde werkgevers zien de mensenlijst/profielen ingebed in het dashboard.
+    if (needsEmployer && role === "werkgever" && startsWithAny(pathname, werkgeverMuur)) {
+      const url = request.nextUrl.clone();
+      url.pathname = pathname.startsWith("/profiel/")
+        ? `/werkgever/dashboard/profielen/${pathname.split("/")[2] ?? ""}`
+        : "/werkgever/dashboard/profielen";
+      url.search = "";
+      return NextResponse.redirect(url);
+    }
   }
 
   // IMPORTANT: You *must* return the supabaseResponse object as it is.

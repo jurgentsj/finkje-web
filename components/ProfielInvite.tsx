@@ -45,7 +45,7 @@ export default function ProfielInvite({
           Reageer op dit profiel
         </button>
       )}
-      <span className="text-[13.5px] text-black/45">Gratis. Geen abonnement, geen account nodig.</span>
+      <span className="text-[13.5px] text-black/45">Gratis. Geen abonnement, geen plaatsingskosten.</span>
     </div>
   );
 }
