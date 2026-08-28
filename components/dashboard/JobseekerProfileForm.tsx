@@ -41,26 +41,24 @@ export default function JobseekerProfileForm({ userId, initial }: { userId: stri
     const supabase = createClient();
 
     const { error: profileError } = await supabase.from("profiles").update({ naam: form.naam }).eq("id", userId);
-    const { error: jobseekerError } = await supabase
-      .from("jobseeker_profiles")
-      .update({
-        droombaan: form.droombaan,
-        waarom: form.waarom,
-        sterk: form.sterk,
-        tegenaan: form.tegenaan,
-        hkleur: form.hkleur,
-        dienstverband: form.dienstverband,
-        beschikbaarheid: form.beschikbaarheid,
-        locatie: form.locatie,
-        reisafstand: form.reisafstand,
-        sector: form.sector,
-        ervaring: form.ervaring,
-        telefoon: form.telefoon,
-        overs: form.overs,
-        omgevingen: form.omgevingen,
-        updated_at: new Date().toISOString(),
-      })
-      .eq("id", userId);
+    const { error: jobseekerError } = await supabase.from("jobseeker_profiles").upsert({
+      id: userId,
+      droombaan: form.droombaan,
+      waarom: form.waarom,
+      sterk: form.sterk,
+      tegenaan: form.tegenaan,
+      hkleur: form.hkleur,
+      dienstverband: form.dienstverband,
+      beschikbaarheid: form.beschikbaarheid,
+      locatie: form.locatie,
+      reisafstand: form.reisafstand,
+      sector: form.sector,
+      ervaring: form.ervaring,
+      telefoon: form.telefoon,
+      overs: form.overs,
+      omgevingen: form.omgevingen,
+      updated_at: new Date().toISOString(),
+    });
 
     setStatus(profileError || jobseekerError ? "error" : "saved");
   };

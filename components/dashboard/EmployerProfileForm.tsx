@@ -29,18 +29,16 @@ export default function EmployerProfileForm({ userId, initial }: { userId: strin
     const supabase = createClient();
 
     const { error: profileError } = await supabase.from("profiles").update({ naam: form.naam }).eq("id", userId);
-    const { error: employerError } = await supabase
-      .from("employer_profiles")
-      .update({
-        bedrijfsnaam: form.bedrijfsnaam,
-        contactpersoon: form.contactpersoon,
-        sector: form.sector,
-        bedrijfsgrootte: form.bedrijfsgrootte,
-        website: form.website,
-        telefoon: form.telefoon,
-        updated_at: new Date().toISOString(),
-      })
-      .eq("id", userId);
+    const { error: employerError } = await supabase.from("employer_profiles").upsert({
+      id: userId,
+      bedrijfsnaam: form.bedrijfsnaam,
+      contactpersoon: form.contactpersoon,
+      sector: form.sector,
+      bedrijfsgrootte: form.bedrijfsgrootte,
+      website: form.website,
+      telefoon: form.telefoon,
+      updated_at: new Date().toISOString(),
+    });
 
     setStatus(profileError || employerError ? "error" : "saved");
   };
