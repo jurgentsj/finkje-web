@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import ReageerProvider from "@/lib/reageer-context";
+import AuthProvider from "@/lib/auth-context";
 
 export const metadata: Metadata = {
   title: "Finkje | Vind werk met je motivatie",
@@ -25,12 +26,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="flex min-h-screen flex-col font-body text-[#111]">
-        <ReageerProvider>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <CookieBanner />
-        </ReageerProvider>
+        <AuthProvider>
+          <ReageerProvider>
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <CookieBanner />
+          </ReageerProvider>
+        </AuthProvider>
       </body>
     </html>
   );

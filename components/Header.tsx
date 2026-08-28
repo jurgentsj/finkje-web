@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useAuth } from "@/lib/auth-context";
 
 const links = [
   { href: "/hoe-het-werkt", label: "Hoe het werkt" },
@@ -14,6 +15,8 @@ const links = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const { loading, role } = useAuth();
+  const dashboardHref = role === "werkgever" ? "/werkgever/dashboard" : "/werkzoekende/dashboard";
 
   // Lock background scroll while the drawer is open, and let Escape close it.
   useEffect(() => {
@@ -56,12 +59,29 @@ export default function Header() {
                 {l.label}
               </Link>
             ))}
-            <Link
-              href="/aanmelden"
-              className="ml-2 rounded-full bg-accent px-[22px] py-3 font-semibold text-white transition-colors hover:bg-black"
-            >
-              Meld je aan
-            </Link>
+            {!loading && role ? (
+              <Link
+                href={dashboardHref}
+                className="ml-2 rounded-full bg-accent px-[22px] py-3 font-semibold text-white transition-colors hover:bg-black"
+              >
+                Mijn dashboard
+              </Link>
+            ) : (
+              <>
+                <Link
+                  href="/inloggen"
+                  className="rounded-full px-3.5 py-2.5 text-black/65 transition-colors hover:bg-black/5 hover:text-black"
+                >
+                  Inloggen
+                </Link>
+                <Link
+                  href="/aanmelden"
+                  className="ml-2 rounded-full bg-accent px-[22px] py-3 font-semibold text-white transition-colors hover:bg-black"
+                >
+                  Meld je aan
+                </Link>
+              </>
+            )}
           </nav>
 
           {/* Mobile/tablet: hamburger trigger only, below lg */}
@@ -128,13 +148,32 @@ export default function Header() {
               {l.label}
             </Link>
           ))}
-          <Link
-            href="/aanmelden"
-            onClick={() => setOpen(false)}
-            className="mt-3 rounded-full bg-accent px-6 py-4 text-center text-lg font-semibold text-white transition-colors hover:bg-black"
-          >
-            Meld je aan
-          </Link>
+          {!loading && role ? (
+            <Link
+              href={dashboardHref}
+              onClick={() => setOpen(false)}
+              className="mt-3 rounded-full bg-accent px-6 py-4 text-center text-lg font-semibold text-white transition-colors hover:bg-black"
+            >
+              Mijn dashboard
+            </Link>
+          ) : (
+            <>
+              <Link
+                href="/inloggen"
+                onClick={() => setOpen(false)}
+                className="rounded-xl px-4 py-3.5 text-lg font-medium text-black/75 transition-colors hover:bg-black/5 hover:text-black"
+              >
+                Inloggen
+              </Link>
+              <Link
+                href="/aanmelden"
+                onClick={() => setOpen(false)}
+                className="mt-3 rounded-full bg-accent px-6 py-4 text-center text-lg font-semibold text-white transition-colors hover:bg-black"
+              >
+                Meld je aan
+              </Link>
+            </>
+          )}
         </nav>
       </div>
     </>

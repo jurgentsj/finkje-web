@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { saveLead } from "@/lib/leads";
+import { createClient } from "@/lib/supabase/client";
 import {
   dienstverbandOpties,
   omgevingOpties,
@@ -27,6 +28,7 @@ type FormState = {
   naam: string;
   email: string;
   telefoon: string;
+  wachtwoord: string;
 };
 
 const emptyForm: FormState = {
@@ -44,6 +46,7 @@ const emptyForm: FormState = {
   naam: "",
   email: "",
   telefoon: "",
+  wachtwoord: "",
 };
 
 const ervaringOpties = ["Geen ervaring in deze sector", "Minder dan 1 jaar", "1–3 jaar", "3–5 jaar", "5–10 jaar", "10+ jaar"];
@@ -58,6 +61,7 @@ export default function SignupForm() {
   const [omgevingen, setOmgevingen] = useState<string[]>([]);
   const [fout, setFout] = useState("");
   const [klaar, setKlaar] = useState(false);
+  const [bezig, setBezig] = useState(false);
 
   const setField =
     (key: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -107,11 +111,82 @@ export default function SignupForm() {
     if (!form.naam.trim() || !/.+@.+\..+/.test(form.email)) {
       return setFout("Vul je naam en een geldig e-mailadres in.");
     }
+    if (form.wachtwoord.length < 6) {
+      return setFout("Kies een wachtwoord van minimaal 6 tekens.");
+    }
+
+    setBezig(true);
     try {
       await saveLead("signup", { ...form, overs, omgevingen });
+
+      const supabase = createClient();
+      const { data, error } = await supabase.auth.signUp({
+        email: form.email,
+        password: form.wachtwoord,
+        options: {
+          emailRedirectTo:
+            process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? `${window.location.origin}/auth/callback`,
+          data: {
+            role: "werkzoekende",
+            naam: form.naam,
+            droombaan: form.droombaan,
+            waarom: form.waarom,
+            sterk: form.sterk,
+            tegenaan: form.tegenaan,
+            hkleur: form.hkleur,
+            dienstverband: form.dienstverband,
+            beschikbaarheid: form.beschikbaarheid,
+            locatie: form.locatie,
+            reisafstand: form.reisafstand,
+            sector: form.sector,
+            ervaring: form.ervaring,
+            telefoon: form.telefoon,
+            overs,
+            omgevingen,
+          },
+        },
+      });
+
+      if (error) {
+        setBezig(false);
+        if (error.message.toLowerCase().includes("rate limit")) {
+          setFout("Te veel pogingen. Probeer het over een paar minuten opnieuw.");
+        } else if (error.message.toLowerCase().includes("password")) {
+          setFout("Kies een sterker wachtwoord.");
+        } else {
+          setFout("Aanmelden lukt nu niet. Probeer het nog een keer.");
+        }
+        return;
+      }
+
+      // If email confirmation is disabled we already have a session — write
+      // the jobseeker profile now. Otherwise the /auth/callback route does
+      // this once the confirmation link is used (see user_metadata above).
+      if (data.session && data.user) {
+        await supabase.from("jobseeker_profiles").upsert({
+          id: data.user.id,
+          droombaan: form.droombaan,
+          waarom: form.waarom,
+          sterk: form.sterk,
+          tegenaan: form.tegenaan,
+          hkleur: form.hkleur,
+          dienstverband: form.dienstverband,
+          beschikbaarheid: form.beschikbaarheid,
+          locatie: form.locatie,
+          reisafstand: form.reisafstand,
+          sector: form.sector,
+          ervaring: form.ervaring,
+          telefoon: form.telefoon,
+          overs,
+          omgevingen,
+        });
+      }
+
       setKlaar(true);
       setFout("");
+      setBezig(false);
     } catch {
+      setBezig(false);
       setFout("Opslaan lukt nu niet. Probeer het nog een keer.");
     }
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -124,8 +199,8 @@ export default function SignupForm() {
           Je staat erop. Welkom, Willer.
         </h1>
         <p className="m-0 max-w-[46ch] text-lg leading-relaxed text-white/70">
-          Je hoeft nu niets meer te doen. Zodra een werkgever een vacature neerzet die aansluit op jouw wil en
-          voorkeuren, laten wij het weten.
+          Check je mail en bevestig je e-mailadres om je account te activeren. Zodra een werkgever een vacature
+          neerzet die aansluit op jouw wil en voorkeuren, laten wij het weten.
         </p>
         <Link
           href="/"
@@ -439,6 +514,18 @@ export default function SignupForm() {
                 className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-[19px] text-[#111] outline-none focus:border-accent"
               />
             </label>
+            <label className="flex flex-col gap-2.5">
+              <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">Wachtwoord</span>
+              <input
+                type="password"
+                value={form.wachtwoord}
+                onChange={setField("wachtwoord")}
+                placeholder="Minimaal 6 tekens"
+                autoComplete="new-password"
+                className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-[19px] text-[#111] outline-none focus:border-accent"
+              />
+              <span className="text-sm text-black/50">Hiermee log je later in op je eigen dashboard.</span>
+            </label>
             <p className="m-0 max-w-[52ch] text-[15px] leading-relaxed text-black/50">
               Je naam en contactgegevens zijn nooit zichtbaar voor werkgevers, totdat jij beslist om in gesprek te
               gaan.
@@ -463,9 +550,10 @@ export default function SignupForm() {
           )}
           <button
             type="submit"
-            className="w-full rounded-full bg-accent px-8.5 py-4 text-base font-bold whitespace-nowrap text-white transition-colors hover:bg-black sm:ml-auto sm:w-auto sm:py-4.5 sm:text-lg"
+            disabled={bezig}
+            className="w-full rounded-full bg-accent px-8.5 py-4 text-base font-bold whitespace-nowrap text-white transition-colors hover:bg-black disabled:opacity-60 sm:ml-auto sm:w-auto sm:py-4.5 sm:text-lg"
           >
-            {stap === 6 ? "Zet me erop →" : "Verder →"}
+            {stap === 6 ? (bezig ? "Bezig…" : "Zet me erop →") : "Verder →"}
           </button>
         </div>
       </form>
