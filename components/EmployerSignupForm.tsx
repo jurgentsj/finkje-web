@@ -128,8 +128,8 @@ export default function EmployerSignupForm() {
       onSubmit={stap === 1 ? handleNext : handleSubmit}
       className="flex flex-col gap-7 rounded-[22px] bg-transparent p-0"
     >
-      <div className="flex items-center justify-between border-b border-black/10 pb-5">
-        <h1 className="m-0 font-display text-[clamp(22px,2.8vw,28px)] leading-tight font-bold tracking-[-0.03em]">
+      <div className="flex items-start justify-between gap-4 border-b border-black/10 pb-6">
+        <h1 className="m-0 font-display text-[clamp(24px,2.8vw,32px)] leading-[1.05] font-semibold tracking-[-0.035em]">
           Werkgeversaccount aanmaken
         </h1>
         <span className="text-[13px] font-medium text-black/45">Stap {stap} van 2</span>
@@ -138,23 +138,23 @@ export default function EmployerSignupForm() {
       {stap === 1 ? (
         <div className="flex flex-col gap-5">
           <label className="flex flex-col gap-2">
-            <span className="text-xs font-semibold tracking-[0.1em] text-black/50 uppercase">Jouw naam</span>
+            <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Jouw naam</span>
             <input
               type="text"
               value={form.naam}
               onChange={setField("naam")}
               placeholder="Voor- en achternaam"
-              className="rounded-2xl border border-black/15 bg-white px-5 py-4 text-[18px] text-[#111] outline-none focus:border-black"
+              className="rounded-xl border border-black/15 bg-white px-4 py-3.5 text-[16px] text-[#111] outline-none transition-shadow placeholder:text-black/35 focus:border-accent focus:ring-4 focus:ring-accent/10"
             />
           </label>
           <label className="flex flex-col gap-2">
-            <span className="text-xs font-semibold tracking-[0.1em] text-black/50 uppercase">Zakelijk e-mailadres</span>
+            <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Zakelijk e-mailadres</span>
             <input
               type="email"
               value={form.email}
               onChange={setField("email")}
               placeholder="naam@bedrijf.nl"
-              className="rounded-2xl border border-black/15 bg-white px-5 py-4 text-[18px] text-[#111] outline-none focus:border-black"
+              className="rounded-xl border border-black/15 bg-white px-4 py-3.5 text-[16px] text-[#111] outline-none transition-shadow placeholder:text-black/35 focus:border-accent focus:ring-4 focus:ring-accent/10"
             />
           </label>
         </div>
@@ -164,42 +164,42 @@ export default function EmployerSignupForm() {
             Nodig voor toegang tot de profielen van onze mensen.
           </p>
           <label className="flex flex-col gap-2">
-            <span className="text-xs font-semibold tracking-[0.1em] text-black/50 uppercase">Bedrijfsnaam</span>
+            <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Bedrijfsnaam</span>
             <input
               type="text"
               value={form.bedrijfsnaam}
               onChange={setField("bedrijfsnaam")}
               placeholder="Bedrijfsnaam B.V."
-              className="rounded-2xl border border-black/15 bg-white px-5 py-4 text-[18px] text-[#111] outline-none focus:border-black"
+              className="rounded-xl border border-black/15 bg-white px-4 py-3.5 text-[16px] text-[#111] outline-none transition-shadow placeholder:text-black/35 focus:border-accent focus:ring-4 focus:ring-accent/10"
             />
           </label>
           <label className="flex flex-col gap-2">
-            <span className="text-xs font-semibold tracking-[0.1em] text-black/50 uppercase">Contactpersoon</span>
+            <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Contactpersoon</span>
             <input
               type="text"
               value={form.contactpersoon}
               onChange={setField("contactpersoon")}
               placeholder="Wie is het aanspreekpunt?"
-              className="rounded-2xl border border-black/15 bg-white px-5 py-4 text-[18px] text-[#111] outline-none focus:border-black"
+              className="rounded-xl border border-black/15 bg-white px-4 py-3.5 text-[16px] text-[#111] outline-none transition-shadow placeholder:text-black/35 focus:border-accent focus:ring-4 focus:ring-accent/10"
             />
           </label>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <label className="flex flex-col gap-2">
-              <span className="text-xs font-semibold tracking-[0.1em] text-black/50 uppercase">Sector</span>
+              <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Sector</span>
               <input
                 type="text"
                 value={form.sector}
                 onChange={setField("sector")}
                 placeholder="Bijv. Zorg, Bouw, IT"
-                className="rounded-2xl border border-black/15 bg-white px-5 py-4 text-[18px] text-[#111] outline-none focus:border-black"
+                className="rounded-xl border border-black/15 bg-white px-4 py-3.5 text-[16px] text-[#111] outline-none transition-shadow placeholder:text-black/35 focus:border-accent focus:ring-4 focus:ring-accent/10"
               />
             </label>
             <label className="flex flex-col gap-2">
-              <span className="text-xs font-semibold tracking-[0.1em] text-black/50 uppercase">Bedrijfsgrootte</span>
+              <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Bedrijfsgrootte</span>
               <select
                 value={form.bedrijfsgrootte}
                 onChange={(e) => setForm((f) => ({ ...f, bedrijfsgrootte: e.target.value }))}
-                className="rounded-2xl border border-black/15 bg-white px-5 py-4 text-[18px] text-[#111] outline-none focus:border-black"
+                className="rounded-xl border border-black/15 bg-white px-4 py-3.5 text-[16px] text-[#111] outline-none transition-shadow placeholder:text-black/35 focus:border-accent focus:ring-4 focus:ring-accent/10"
               >
                 <option value="">Kies een optie</option>
                 {bedrijfsgrootteOpties.map((o) => (
@@ -212,23 +212,23 @@ export default function EmployerSignupForm() {
           </div>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <label className="flex flex-col gap-2">
-              <span className="text-xs font-semibold tracking-[0.1em] text-black/50 uppercase">Website (optioneel)</span>
+              <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Website (optioneel)</span>
               <input
                 type="text"
                 value={form.website}
                 onChange={setField("website")}
                 placeholder="www.bedrijf.nl"
-                className="rounded-2xl border border-black/15 bg-white px-5 py-4 text-[18px] text-[#111] outline-none focus:border-black"
+                className="rounded-xl border border-black/15 bg-white px-4 py-3.5 text-[16px] text-[#111] outline-none transition-shadow placeholder:text-black/35 focus:border-accent focus:ring-4 focus:ring-accent/10"
               />
             </label>
             <label className="flex flex-col gap-2">
-              <span className="text-xs font-semibold tracking-[0.1em] text-black/50 uppercase">Telefoon (optioneel)</span>
+              <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Telefoon (optioneel)</span>
               <input
                 type="text"
                 value={form.telefoon}
                 onChange={setField("telefoon")}
                 placeholder="06-12345678"
-                className="rounded-2xl border border-black/15 bg-white px-5 py-4 text-[18px] text-[#111] outline-none focus:border-black"
+                className="rounded-xl border border-black/15 bg-white px-4 py-3.5 text-[16px] text-[#111] outline-none transition-shadow placeholder:text-black/35 focus:border-accent focus:ring-4 focus:ring-accent/10"
               />
             </label>
           </div>
