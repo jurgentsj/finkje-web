@@ -55,6 +55,30 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
     setLinkVerstuurd(true);
   };
 
+  if (linkVerstuurd) {
+    return (
+      <div className="flex flex-col gap-6 rounded-[28px] bg-sand p-8 sm:p-10" role="status">
+        <div className="flex flex-col gap-3">
+          <span className="text-base font-semibold text-accent">Gelukt</span>
+          <h2 className="m-0 font-display text-[clamp(26px,3vw,36px)] leading-tight font-bold tracking-[-0.03em]">
+            Check je inbox.
+          </h2>
+          <p className="m-0 text-lg leading-relaxed text-black/60">
+            We hebben een eenmalige loginlink gestuurd naar <strong className="font-semibold text-black">{email}</strong>.
+          </p>
+        </div>
+        <div className="border-t border-black/10 pt-6">
+          <p className="m-0 text-[15px] leading-relaxed text-black/55">
+            Klik op de link in de e-mail om direct naar je {employer ? "werkgeversdashboard" : "dashboard"} te gaan.
+          </p>
+        </div>
+        <button type="button" onClick={() => setLinkVerstuurd(false)} className="self-start text-[15px] font-semibold text-accent underline-offset-4 hover:underline">
+          Ander e-mailadres gebruiken
+        </button>
+      </div>
+    );
+  }
+
   const inputClass =
     "rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent";
 
