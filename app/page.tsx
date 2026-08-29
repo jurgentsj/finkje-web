@@ -16,6 +16,14 @@ export default async function HomePage({
     redirect(`/auth/callback?code=${encodeURIComponent(params.code)}`);
   }
 
+  if (params.error || params.error_code) {
+    const errorParams = new URLSearchParams();
+    if (params.error) errorParams.set("error", params.error);
+    if (params.error_code) errorParams.set("error_code", params.error_code);
+    if (params.error_description) errorParams.set("error_description", params.error_description);
+    redirect(`/auth/error?${errorParams.toString()}`);
+  }
+
   return (
     <>
       {/* Hero */}
