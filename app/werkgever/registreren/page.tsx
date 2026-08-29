@@ -23,7 +23,7 @@ export default function WerkgeverRegistrerenPage() {
         </div>
         <p className="m-0 text-lg text-black/50">Gratis. Geen abonnement, geen kosten.</p>
       </section>
-      <section className="rounded-2xl border border-black/8 bg-sand p-6 sm:p-10 lg:p-12">
+      <section>
         <Suspense fallback={null}><EmployerSignupForm /></Suspense>
       </section>
     </main>
