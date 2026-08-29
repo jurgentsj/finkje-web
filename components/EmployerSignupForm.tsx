@@ -64,11 +64,14 @@ export default function EmployerSignupForm() {
     setBezig(true);
     try {
       const supabase = createClient();
+      const callbackUrl = window.location.hostname === "finkje.nl"
+        ? `${window.location.origin}/auth/callback`
+        : process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? `${window.location.origin}/auth/callback`;
       const { error } = await supabase.auth.signInWithOtp({
         email: form.email,
         options: { shouldCreateUser: true,
           emailRedirectTo:
-            `${process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? `${window.location.origin}/auth/callback`}?next=${encodeURIComponent(next || "/werkgever/dashboard")}`,
+            `${callbackUrl}?next=${encodeURIComponent(next || "/werkgever/dashboard")}`,
           data: {
             role: "werkgever",
             naam: form.naam,
