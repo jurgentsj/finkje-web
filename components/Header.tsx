@@ -68,13 +68,13 @@ export default function Header() {
             ) : (
               <>
                 <div className="flex items-center gap-3">
+                  <span aria-hidden="true" className="h-5 w-px bg-black/15" />
                   <Link
                     href="/inloggen"
                     className="rounded-full px-3.5 py-2.5 text-black/65 transition-colors hover:bg-black/5 hover:text-black"
                   >
                     Inloggen
                   </Link>
-                  <span aria-hidden="true" className="h-5 w-px bg-black/15" />
                 </div>
                 <Link
                   href="/aanmelden"
@@ -161,6 +161,7 @@ export default function Header() {
           ) : (
             <>
               <div className="flex items-center gap-3">
+                <span aria-hidden="true" className="h-6 w-px bg-black/15" />
                 <Link
                   href="/inloggen"
                   onClick={() => setOpen(false)}
@@ -168,7 +169,6 @@ export default function Header() {
                 >
                   Inloggen
                 </Link>
-                <span aria-hidden="true" className="h-6 w-px bg-black/15" />
               </div>
               <Link
                 href="/aanmelden"

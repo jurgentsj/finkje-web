@@ -126,7 +126,7 @@ export default function EmployerSignupForm() {
   return (
     <form
       onSubmit={stap === 1 ? handleNext : handleSubmit}
-      className="flex flex-col gap-7 rounded-2xl border border-black/10 bg-white p-7 sm:p-10"
+      className="flex flex-col gap-7 rounded-[22px] bg-transparent p-0"
     >
       <div className="flex items-center justify-between border-b border-black/10 pb-5">
         <h1 className="m-0 font-display text-[clamp(22px,2.8vw,28px)] leading-tight font-bold tracking-[-0.03em]">
@@ -144,7 +144,7 @@ export default function EmployerSignupForm() {
               value={form.naam}
               onChange={setField("naam")}
               placeholder="Voor- en achternaam"
-              className="rounded-lg border border-black/15 bg-white px-4 py-3 text-[16px] text-[#111] outline-none focus:border-black"
+              className="rounded-2xl border border-black/15 bg-white px-5 py-4 text-[18px] text-[#111] outline-none focus:border-black"
             />
           </label>
           <label className="flex flex-col gap-2">
@@ -154,7 +154,7 @@ export default function EmployerSignupForm() {
               value={form.email}
               onChange={setField("email")}
               placeholder="naam@bedrijf.nl"
-              className="rounded-lg border border-black/15 bg-white px-4 py-3 text-[16px] text-[#111] outline-none focus:border-black"
+              className="rounded-2xl border border-black/15 bg-white px-5 py-4 text-[18px] text-[#111] outline-none focus:border-black"
             />
           </label>
         </div>
@@ -170,7 +170,7 @@ export default function EmployerSignupForm() {
               value={form.bedrijfsnaam}
               onChange={setField("bedrijfsnaam")}
               placeholder="Bedrijfsnaam B.V."
-              className="rounded-lg border border-black/15 bg-white px-4 py-3 text-[16px] text-[#111] outline-none focus:border-black"
+              className="rounded-2xl border border-black/15 bg-white px-5 py-4 text-[18px] text-[#111] outline-none focus:border-black"
             />
           </label>
           <label className="flex flex-col gap-2">
@@ -180,7 +180,7 @@ export default function EmployerSignupForm() {
               value={form.contactpersoon}
               onChange={setField("contactpersoon")}
               placeholder="Wie is het aanspreekpunt?"
-              className="rounded-lg border border-black/15 bg-white px-4 py-3 text-[16px] text-[#111] outline-none focus:border-black"
+              className="rounded-2xl border border-black/15 bg-white px-5 py-4 text-[18px] text-[#111] outline-none focus:border-black"
             />
           </label>
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
@@ -191,7 +191,7 @@ export default function EmployerSignupForm() {
                 value={form.sector}
                 onChange={setField("sector")}
                 placeholder="Bijv. Zorg, Bouw, IT"
-                className="rounded-lg border border-black/15 bg-white px-4 py-3 text-[16px] text-[#111] outline-none focus:border-black"
+                className="rounded-2xl border border-black/15 bg-white px-5 py-4 text-[18px] text-[#111] outline-none focus:border-black"
               />
             </label>
             <label className="flex flex-col gap-2">
@@ -199,7 +199,7 @@ export default function EmployerSignupForm() {
               <select
                 value={form.bedrijfsgrootte}
                 onChange={(e) => setForm((f) => ({ ...f, bedrijfsgrootte: e.target.value }))}
-                className="rounded-lg border border-black/15 bg-white px-4 py-3 text-[16px] text-[#111] outline-none focus:border-black"
+                className="rounded-2xl border border-black/15 bg-white px-5 py-4 text-[18px] text-[#111] outline-none focus:border-black"
               >
                 <option value="">Kies een optie</option>
                 {bedrijfsgrootteOpties.map((o) => (
@@ -218,7 +218,7 @@ export default function EmployerSignupForm() {
                 value={form.website}
                 onChange={setField("website")}
                 placeholder="www.bedrijf.nl"
-                className="rounded-lg border border-black/15 bg-white px-4 py-3 text-[16px] text-[#111] outline-none focus:border-black"
+                className="rounded-2xl border border-black/15 bg-white px-5 py-4 text-[18px] text-[#111] outline-none focus:border-black"
               />
             </label>
             <label className="flex flex-col gap-2">
@@ -228,7 +228,7 @@ export default function EmployerSignupForm() {
                 value={form.telefoon}
                 onChange={setField("telefoon")}
                 placeholder="06-12345678"
-                className="rounded-lg border border-black/15 bg-white px-4 py-3 text-[16px] text-[#111] outline-none focus:border-black"
+                className="rounded-2xl border border-black/15 bg-white px-5 py-4 text-[18px] text-[#111] outline-none focus:border-black"
               />
             </label>
           </div>
@@ -254,7 +254,7 @@ export default function EmployerSignupForm() {
         <button
           type="submit"
           disabled={bezig}
-          className="rounded-lg bg-black px-6 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-black/80 disabled:opacity-60"
+          className="rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-black disabled:opacity-60"
         >
           {stap === 1 ? "Volgende →" : bezig ? "Bezig…" : "Account aanmaken"}
         </button>
