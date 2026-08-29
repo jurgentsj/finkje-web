@@ -21,6 +21,9 @@ export default function Footer() {
           <Link href="/aanmelden" className="text-white/75 hover:text-white">
             Zeg wat je wil
           </Link>
+          <Link href="/inloggen" className="text-white/75 hover:text-white">
+            Inloggen
+          </Link>
           <Link href="/mensen" className="text-white/75 hover:text-white">
             Mensen
           </Link>
@@ -33,6 +36,9 @@ export default function Footer() {
           <span className="text-xs tracking-[0.14em] text-white/35 uppercase">Voor werkgevers</span>
           <Link href="/voor-werkgevers" className="text-white/75 hover:text-white">
             Hoe het werkt
+          </Link>
+          <Link href="/inloggen?mode=employer" className="text-white/75 hover:text-white">
+            Inloggen
           </Link>
           <Link href="/motivatiebrief" className="text-white/75 hover:text-white">
             Vacature plaatsen

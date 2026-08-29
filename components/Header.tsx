@@ -7,7 +7,6 @@ import { useAuth } from "@/lib/auth-context";
 
 const links = [
   { href: "/hoe-het-werkt", label: "Hoe het werkt" },
-  { href: "/blog", label: "Blog" },
   { href: "/onze-visie", label: "Onze visie" },
   { href: "/contact", label: "Contact & FAQ" },
   { href: "/voor-werkgevers", label: "Voor werkgevers" },
@@ -68,17 +67,20 @@ export default function Header() {
               </Link>
             ) : (
               <>
-                <Link
-                  href="/inloggen"
-                  className="rounded-full px-3.5 py-2.5 text-black/65 transition-colors hover:bg-black/5 hover:text-black"
-                >
-                  Inloggen
-                </Link>
+                <div className="flex items-center gap-3">
+                  <span aria-hidden="true" className="h-5 w-px bg-black/15" />
+                  <Link
+                    href="/inloggen"
+                    className="rounded-full px-3.5 py-2.5 text-black/65 transition-colors hover:bg-black/5 hover:text-black"
+                  >
+                    Inloggen
+                  </Link>
+                </div>
                 <Link
                   href="/aanmelden"
                   className="ml-2 rounded-full bg-accent px-[22px] py-3 font-semibold text-white transition-colors hover:bg-black"
                 >
-                  Meld je aan
+                  Aanmelden
                 </Link>
               </>
             )}
@@ -158,19 +160,22 @@ export default function Header() {
             </Link>
           ) : (
             <>
-              <Link
-                href="/inloggen"
-                onClick={() => setOpen(false)}
-                className="rounded-xl px-4 py-3.5 text-lg font-medium text-black/75 transition-colors hover:bg-black/5 hover:text-black"
-              >
-                Inloggen
-              </Link>
+              <div className="flex items-center gap-3">
+                <span aria-hidden="true" className="h-6 w-px bg-black/15" />
+                <Link
+                  href="/inloggen"
+                  onClick={() => setOpen(false)}
+                  className="rounded-xl px-4 py-3.5 text-lg font-medium text-black/75 transition-colors hover:bg-black/5 hover:text-black"
+                >
+                  Inloggen
+                </Link>
+              </div>
               <Link
                 href="/aanmelden"
                 onClick={() => setOpen(false)}
                 className="mt-3 rounded-full bg-accent px-6 py-4 text-center text-lg font-semibold text-white transition-colors hover:bg-black"
               >
-                Meld je aan
+                Aanmelden
               </Link>
             </>
           )}

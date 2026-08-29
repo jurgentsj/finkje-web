@@ -126,80 +126,86 @@ export default function EmployerSignupForm() {
   return (
     <form
       onSubmit={stap === 1 ? handleNext : handleSubmit}
-      className="flex flex-col gap-7 rounded-2xl border border-black/10 bg-white p-7 sm:p-10"
+      className="flex flex-col gap-6 rounded-[28px] bg-sand p-8 sm:p-10"
     >
-      <div className="flex items-center justify-between border-b border-black/10 pb-5">
-        <h1 className="m-0 font-display text-[clamp(22px,2.8vw,28px)] leading-tight font-bold tracking-[-0.03em]">
-          Werkgeversaccount aanmaken
+      <div className="flex flex-col gap-2 border-b border-black/10 pb-6">
+        <div className="flex items-center justify-between gap-4">
+          <span className="text-[13px] font-semibold text-accent">Stap {stap} van 2</span>
+          <span className="text-[13px] text-black/45">Gratis account</span>
+        </div>
+        <h1 className="m-0 font-display text-[clamp(26px,3.4vw,36px)] leading-tight font-bold tracking-[-0.03em]">
+          {stap === 1 ? "Eerst je e-mailadres" : "Je bedrijfsgegevens"}
         </h1>
-        <span className="text-[13px] font-medium text-black/45">Stap {stap} van 2</span>
+        <p className="m-0 text-[15px] leading-relaxed text-black/55">
+          {stap === 1 ? "Je maakt gratis een account aan. Je ontvangt daarna een eenmalige inloglink." : "Nog twee gegevens en je kunt direct profielen bekijken."}
+        </p>
       </div>
 
       {stap === 1 ? (
         <div className="flex flex-col gap-5">
           <label className="flex flex-col gap-2">
-            <span className="text-xs font-semibold tracking-[0.1em] text-black/50 uppercase">Jouw naam</span>
+            <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Jouw naam</span>
             <input
               type="text"
               value={form.naam}
               onChange={setField("naam")}
               placeholder="Voor- en achternaam"
-              className="rounded-lg border border-black/15 bg-white px-4 py-3 text-[16px] text-[#111] outline-none focus:border-black"
+              className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
             />
           </label>
           <label className="flex flex-col gap-2">
-            <span className="text-xs font-semibold tracking-[0.1em] text-black/50 uppercase">Zakelijk e-mailadres</span>
+            <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Zakelijk e-mailadres</span>
             <input
               type="email"
               value={form.email}
               onChange={setField("email")}
               placeholder="naam@bedrijf.nl"
-              className="rounded-lg border border-black/15 bg-white px-4 py-3 text-[16px] text-[#111] outline-none focus:border-black"
+              className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
             />
           </label>
         </div>
       ) : (
         <div className="flex flex-col gap-5">
           <p className="m-0 text-[14px] leading-relaxed text-black/50">
-            Nodig voor toegang tot de profielen van onze mensen.
+            Nog een paar gegevens, daarna kun je direct profielen bekijken en reageren.
           </p>
           <label className="flex flex-col gap-2">
-            <span className="text-xs font-semibold tracking-[0.1em] text-black/50 uppercase">Bedrijfsnaam</span>
+            <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Bedrijfsnaam</span>
             <input
               type="text"
               value={form.bedrijfsnaam}
               onChange={setField("bedrijfsnaam")}
               placeholder="Bedrijfsnaam B.V."
-              className="rounded-lg border border-black/15 bg-white px-4 py-3 text-[16px] text-[#111] outline-none focus:border-black"
+              className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
             />
           </label>
           <label className="flex flex-col gap-2">
-            <span className="text-xs font-semibold tracking-[0.1em] text-black/50 uppercase">Contactpersoon</span>
+            <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Contactpersoon</span>
             <input
               type="text"
               value={form.contactpersoon}
               onChange={setField("contactpersoon")}
               placeholder="Wie is het aanspreekpunt?"
-              className="rounded-lg border border-black/15 bg-white px-4 py-3 text-[16px] text-[#111] outline-none focus:border-black"
+              className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
             />
           </label>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <div className="hidden grid-cols-1 gap-5 sm:grid-cols-2">
             <label className="flex flex-col gap-2">
-              <span className="text-xs font-semibold tracking-[0.1em] text-black/50 uppercase">Sector</span>
+              <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Sector</span>
               <input
                 type="text"
                 value={form.sector}
                 onChange={setField("sector")}
                 placeholder="Bijv. Zorg, Bouw, IT"
-                className="rounded-lg border border-black/15 bg-white px-4 py-3 text-[16px] text-[#111] outline-none focus:border-black"
+                className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
               />
             </label>
             <label className="flex flex-col gap-2">
-              <span className="text-xs font-semibold tracking-[0.1em] text-black/50 uppercase">Bedrijfsgrootte</span>
+              <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Bedrijfsgrootte</span>
               <select
                 value={form.bedrijfsgrootte}
                 onChange={(e) => setForm((f) => ({ ...f, bedrijfsgrootte: e.target.value }))}
-                className="rounded-lg border border-black/15 bg-white px-4 py-3 text-[16px] text-[#111] outline-none focus:border-black"
+                className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
               >
                 <option value="">Kies een optie</option>
                 {bedrijfsgrootteOpties.map((o) => (
@@ -210,25 +216,25 @@ export default function EmployerSignupForm() {
               </select>
             </label>
           </div>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <div className="hidden grid-cols-1 gap-5 sm:grid-cols-2">
             <label className="flex flex-col gap-2">
-              <span className="text-xs font-semibold tracking-[0.1em] text-black/50 uppercase">Website (optioneel)</span>
+              <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Website (optioneel)</span>
               <input
                 type="text"
                 value={form.website}
                 onChange={setField("website")}
                 placeholder="www.bedrijf.nl"
-                className="rounded-lg border border-black/15 bg-white px-4 py-3 text-[16px] text-[#111] outline-none focus:border-black"
+                className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
               />
             </label>
             <label className="flex flex-col gap-2">
-              <span className="text-xs font-semibold tracking-[0.1em] text-black/50 uppercase">Telefoon (optioneel)</span>
+              <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Telefoon (optioneel)</span>
               <input
                 type="text"
                 value={form.telefoon}
                 onChange={setField("telefoon")}
                 placeholder="06-12345678"
-                className="rounded-lg border border-black/15 bg-white px-4 py-3 text-[16px] text-[#111] outline-none focus:border-black"
+                className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
               />
             </label>
           </div>
@@ -254,9 +260,9 @@ export default function EmployerSignupForm() {
         <button
           type="submit"
           disabled={bezig}
-          className="rounded-lg bg-black px-6 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-black/80 disabled:opacity-60"
+          className="rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-black disabled:opacity-60"
         >
-          {stap === 1 ? "Volgende →" : bezig ? "Bezig…" : "Account aanmaken"}
+          {stap === 1 ? "Verder →" : bezig ? "Account wordt aangemaakt…" : "Gratis account aanmaken"}
         </button>
       </div>
       {next && <input type="hidden" name="next" value={next} />}
