@@ -49,7 +49,7 @@ export default async function HomePage({
                 alt="Iemand kijkt recht in de camera"
                 fill
                 priority
-                sizes="420px"
+                sizes="(max-width: 640px) 100vw, 420px"
                 className="object-cover"
               />
             </div>
