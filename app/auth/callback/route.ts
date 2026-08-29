@@ -4,19 +4,12 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = request.nextUrl;
   const code = searchParams.get("code");
-  const tokenHash = searchParams.get("token_hash") ?? searchParams.get("token");
-  const type = searchParams.get("type");
   const next = searchParams.get("next");
   const safeNext = next && next.startsWith("/") && !next.startsWith("//") ? next : null;
 
-  if (code || tokenHash) {
+  if (code) {
     const supabase = await createClient();
-    const { error } = code
-      ? await supabase.auth.exchangeCodeForSession(code)
-      : await supabase.auth.verifyOtp({
-          token_hash: tokenHash!,
-          type: type === "signup" || type === "invite" || type === "recovery" || type === "magiclink" || type === "email_change" || type === "email" ? type : "magiclink",
-        });
+    const { error } = await supabase.auth.exchangeCodeForSession(code);
 
     if (!error) {
       const {
@@ -102,7 +95,7 @@ export async function GET(request: NextRequest) {
     }
   }
 
-  const error = searchParams.get("error");
+  const error = searchParams.get("error") ?? (searchParams.get("token_hash") || searchParams.get("token") ? "invalid_or_expired_link" : null);
   const errorCode = searchParams.get("error_code");
   const errorDescription = searchParams.get("error_description");
   const errorParams = new URLSearchParams();
