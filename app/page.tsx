@@ -1,10 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import HeroForm from "@/components/HeroForm";
 import Carousel from "@/components/Carousel";
 import { stapData, voordelen } from "@/lib/data";
 
-export default function HomePage() {
+export default async function HomePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ code?: string; error?: string; error_code?: string; error_description?: string }>;
+}) {
+  const params = await searchParams;
+
+  if (params.code) {
+    redirect(`/auth/callback?code=${encodeURIComponent(params.code)}`);
+  }
+
   return (
     <>
       {/* Hero */}
