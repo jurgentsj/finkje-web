@@ -35,7 +35,7 @@ export default function LoginForm() {
       options: {
         shouldCreateUser: false,
         emailRedirectTo:
-          `${window.location.origin}/auth/callback${defaultNext ? `?next=${encodeURIComponent(defaultNext)}` : ""}`,
+          `${process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL!}${defaultNext ? `?next=${encodeURIComponent(defaultNext)}` : ""}`,
       },
     });
 
