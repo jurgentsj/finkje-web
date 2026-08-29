@@ -37,7 +37,7 @@ export default function Footer() {
           <Link href="/voor-werkgevers" className="text-white/75 hover:text-white">
             Hoe het werkt
           </Link>
-          <Link href="/inloggen?mode=employer" className="text-white/75 hover:text-white">
+          <Link href="/account/inloggen-werkgever" className="text-white/75 hover:text-white">
             Inloggen
           </Link>
           <Link href="/motivatiebrief" className="text-white/75 hover:text-white">
