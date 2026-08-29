@@ -68,7 +68,7 @@ export default function EmployerSignupForm() {
         email: form.email,
         options: { shouldCreateUser: true,
           emailRedirectTo:
-            process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? `${window.location.origin}/auth/callback`,
+            `${window.location.origin}/auth/callback`,
           data: {
             role: "werkgever",
             naam: form.naam,
