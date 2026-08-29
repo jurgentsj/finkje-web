@@ -15,7 +15,7 @@ export default function WerkgeversLoginPage() {
         Welkom terug.
       </h1>
       <p className="mt-6 mb-10 max-w-[46ch] text-lg leading-snug text-black/62">
-        Log in met je e-mailadres via een eenmalige link.
+        Log in met je e-mailadres via een eenmalige inlogcode.
       </p>
       <Suspense>
         <LoginForm employer />
