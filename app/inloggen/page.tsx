@@ -15,7 +15,7 @@ export default function InloggenPage() {
         Welkom terug.
       </h1>
       <p className="mt-6 mb-10 max-w-[46ch] text-lg leading-snug text-black/62">
-        Log in met je e-mail en wachtwoord. We brengen je automatisch naar het juiste dashboard.
+        Log in met je e-mail en wachtwoord.
       </p>
       <Suspense>
         <LoginForm />
