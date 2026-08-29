@@ -213,12 +213,9 @@ export default function SignupForm() {
 
       setFout("");
       setBezig(false);
-      if (data.session) {
-        router.push("/mijn-finkje");
-        router.refresh();
-        return;
-      }
-      setKlaar(true);
+      router.push(`/inloggen?email=${encodeURIComponent(form.email)}&voornaam=${encodeURIComponent(form.naam)}`);
+      router.refresh();
+      return;
     } catch (error) {
       console.error("[v0] Signup request failed:", error);
       setBezig(false);
@@ -231,7 +228,7 @@ export default function SignupForm() {
     return (
       <div className="flex flex-col gap-5.5 rounded-[32px] bg-black p-14 text-white">
         <h1 className="m-0 font-display text-[clamp(34px,6vw,76px)] leading-[0.92] font-extrabold tracking-[-0.05em]">
-          Je staat erop. Welkom bij Finkje.
+          Welkom bij Finkje, {form.naam}!
         </h1>
         <p className="m-0 max-w-[46ch] text-lg leading-relaxed text-white/70">
           Je account is aangemaakt. We hebben een eenmalige inloglink naar je e-mailadres gestuurd. Klik op de link om verder te gaan.

@@ -9,14 +9,18 @@ export default function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const next = searchParams.get("next") || "";
+  const initialEmail = searchParams.get("email") || "";
+  const voornaam = searchParams.get("voornaam") || "";
 
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(initialEmail);
   const [fout, setFout] = useState("");
+  const [linkVerstuurd, setLinkVerstuurd] = useState(false);
   const [bezig, setBezig] = useState(false);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFout("");
+    setLinkVerstuurd(false);
     if (!/.+@.+\..+/.test(email)) {
       setFout("Vul een geldig e-mailadres in.");
       return;
@@ -46,7 +50,7 @@ export default function LoginForm() {
     }
 
     setBezig(false);
-    setFout("Een eenmalige inloglink is naar je e-mailadres gestuurd. Klik op de link om verder te gaan.");
+    setLinkVerstuurd(true);
   };
 
   const inputClass =
@@ -67,6 +71,12 @@ export default function LoginForm() {
       </label>
       <p className="m-0 text-[15px] leading-relaxed text-black/55">Je ontvangt een eenmalige inloglink per e-mail.</p>
       {fout && <p className="m-0 text-base font-semibold text-[#C42A00]">{fout}</p>}
+      {linkVerstuurd && (
+        <p className="m-0 flex items-center gap-2 text-base font-semibold text-accent" role="status">
+          <span className="h-4 w-4 animate-spin rounded-full border-2 border-accent/30 border-t-accent" aria-hidden="true" />
+          Check je mail — je eenmalige inloglink is onderweg.
+        </p>
+      )}
       <div className="flex flex-col-reverse gap-3 border-t border-black/10 pt-6.5 sm:flex-row sm:items-center sm:justify-between">
         <span className="text-[15px] text-black/55">
           Nog geen account?{" "}
@@ -84,7 +94,12 @@ export default function LoginForm() {
           disabled={bezig}
           className="w-full rounded-full bg-accent px-8.5 py-4.5 text-lg font-bold whitespace-nowrap text-white transition-colors hover:bg-black disabled:opacity-60 sm:w-auto"
         >
-          {bezig ? "Link versturen…" : "Stuur mij een inloglink →"}
+          {bezig ? (
+            <span className="inline-flex items-center gap-2">
+              <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" aria-hidden="true" />
+              Even geduld…
+            </span>
+          ) : linkVerstuurd ? "Opnieuw sturen" : "Stuur mij een inloglink →"}
         </button>
       </div>
     </form>
