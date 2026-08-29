@@ -13,7 +13,9 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
   const voornaam = searchParams.get("voornaam") || "";
   const nextParam = searchParams.get("next") || "";
   const defaultNext = nextParam || (employer ? "/werkgever/dashboard" : voornaam ? "/werkzoekende/dashboard" : "");
-  const callbackUrl = process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? `${window.location.origin}/auth/callback`;
+  const callbackUrl = typeof window !== "undefined" && window.location.hostname.endsWith("finkje.nl")
+    ? `${window.location.origin}/auth/callback`
+    : process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? `${window.location.origin}/auth/callback`;
 
   const [email, setEmail] = useState(initialEmail);
   const [fout, setFout] = useState("");
