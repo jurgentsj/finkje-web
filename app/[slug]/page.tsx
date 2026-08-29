@@ -17,7 +17,18 @@ export async function generateMetadata({
   const { slug } = await params;
   const blog = getBlog(slug);
   if (!blog) return {};
-  return { title: `${blog.titel} — Finkje`, description: blog.lead };
+  return {
+    title: blog.titel,
+    description: blog.lead,
+    alternates: { canonical: `/${blog.slug}` },
+    openGraph: {
+      type: "article",
+      title: blog.titel,
+      description: blog.lead,
+      url: `https://finkje.nl/${blog.slug}`,
+      images: [{ url: blogImage(blog.slug), alt: blog.titel }],
+    },
+  };
 }
 
 export default async function BlogPage({ params }: { params: Promise<{ slug: string }> }) {
