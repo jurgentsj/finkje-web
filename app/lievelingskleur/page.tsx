@@ -4,7 +4,7 @@ import { handKleuren } from "@/lib/data";
 import FrustrationButton from "@/components/FrustrationButton";
 
 export const metadata: Metadata = {
-  title: "Kies je lievelingskleur — Finkje",
+  title: "Kies je lievelingskleur",
   description:
     "Elke persoon kiest zelf een lievelingskleur. Zo geef je een persoonlijk tintje mee aan je aanmelding.",
 };

@@ -4,7 +4,7 @@ import Faq from "@/components/Faq";
 import { faqData } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Contact & vragen — Finkje",
+  title: "Contact & vragen",
   description: "Stuur ons een appje of een mailtje, we reageren binnen één werkdag.",
 };
 

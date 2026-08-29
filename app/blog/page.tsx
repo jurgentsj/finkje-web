@@ -4,7 +4,7 @@ import Link from "next/link";
 import { blogImage, blogs } from "@/lib/blogs";
 
 export const metadata: Metadata = {
-  title: "Blog — Finkje",
+  title: "Blog",
   description: "Wij schrijven wel eens over motivatie. Check het hieronder.",
 };
 

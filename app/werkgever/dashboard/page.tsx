@@ -5,7 +5,7 @@ import EmployerDashboard from "@/components/dashboard/EmployerDashboard";
 import { isPreviewDemo } from "@/lib/demo-mode";
 
 export const metadata: Metadata = {
-  title: "Werkgeversdashboard — Finkje",
+  title: "Werkgeversdashboard",
 };
 
 export default async function WerkgeverDashboardPage() {

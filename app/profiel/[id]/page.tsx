@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const { id } = await params;
   const m = mensenData.find((x) => x.id === id);
   return {
-    title: m ? `${m.wil} — Finkje` : "Profiel — Finkje",
+    title: m ? m.wil : "Profiel",
     description: m?.intro,
   };
 }

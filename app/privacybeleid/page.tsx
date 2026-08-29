@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacyverklaring — Finkje",
+  title: "Privacyverklaring",
 };
 
 function H({ children }: { children: React.ReactNode }) {

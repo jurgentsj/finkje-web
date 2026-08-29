@@ -6,7 +6,7 @@ import JobseekerProfileForm from "@/components/dashboard/JobseekerProfileForm";
 import { isPreviewDemo } from "@/lib/demo-mode";
 
 export const metadata: Metadata = {
-  title: "Mijn dashboard — Finkje",
+  title: "Mijn dashboard",
 };
 
 const navItems = [{ href: "/werkzoekende/dashboard", label: "Mijn profiel" }];

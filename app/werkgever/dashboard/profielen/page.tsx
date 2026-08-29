@@ -5,7 +5,7 @@ import DashboardShell from "@/components/dashboard/DashboardShell";
 import MensenExplorer from "@/components/MensenExplorer";
 
 export const metadata: Metadata = {
-  title: "Profielen bekijken — Finkje",
+  title: "Profielen bekijken",
 };
 
 const navItems = [

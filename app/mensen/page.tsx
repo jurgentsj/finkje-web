@@ -3,7 +3,7 @@ import Link from "next/link";
 import MensenExplorer from "@/components/MensenExplorer";
 
 export const metadata: Metadata = {
-  title: "Onze mensen — Finkje",
+  title: "Onze mensen",
   description: "Onze helden. Erop gebrand om te doen wat ze leuk vinden.",
 };
 

@@ -5,7 +5,7 @@ import Faq from "@/components/Faq";
 import { redenen, werkgeverFaq, werkgeverStappen } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Voor werkgevers — Finkje",
+  title: "Voor werkgevers",
   description: "Ontdek mensen die weten wat ze willen. Plaats gratis een vacature, niet online, wel bij de juiste mensen.",
 };
 
