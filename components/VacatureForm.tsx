@@ -62,12 +62,29 @@ export default function VacatureForm() {
           Je vacature komt nergens openbaar te staan. We kijken eerst wie er al op zit te wachten en houden je
           vacature actief tot jouw sluitingsdatum.
         </p>
-        <Link
-          href="/"
-          className="self-start rounded-full bg-accent px-7 py-4 font-semibold text-white transition-colors hover:bg-white hover:text-[#111]"
-        >
-          Terug naar home
-        </Link>
+        <div className="flex flex-wrap gap-3">
+          <Link
+            href="/"
+            className="self-start rounded-full border border-white/30 px-7 py-4 font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
+          >
+            Terug naar home
+          </Link>
+        </div>
+        <div className="mt-2 flex flex-col gap-2.5 rounded-2xl bg-white/10 p-6.5">
+          <span className="font-display text-xl leading-tight font-bold tracking-[-0.02em]">
+            Maak een werkgeversaccount aan om te reageren op profielen
+          </span>
+          <p className="m-0 max-w-[48ch] text-[15.5px] leading-relaxed text-white/70">
+            Met een account bekijk je de profielen van onze mensen, reageer je rechtstreeks en beheer je je
+            vacature.
+          </p>
+          <Link
+            href="/werkgever/registreren"
+            className="mt-1 self-start rounded-full bg-accent px-6.5 py-3.5 font-semibold text-white transition-colors hover:bg-white hover:text-[#111]"
+          >
+            Werkgeversaccount aanmaken →
+          </Link>
+        </div>
       </div>
     );
   }
@@ -134,10 +151,14 @@ export default function VacatureForm() {
         </span>
       </label>
       {fout && <p className="m-0 text-base font-semibold text-[#C42A00]">{fout}</p>}
-      <div className="flex border-t border-black/10 pt-6.5">
+      <div className="flex flex-col gap-4 border-t border-black/10 pt-6.5 sm:flex-row sm:items-center sm:justify-between">
+        <span className="text-[14.5px] leading-snug text-black/50">
+          Geen account nodig om te plaatsen. Wil je ook reageren op profielen? Maak na het plaatsen gratis een
+          werkgeversaccount aan.
+        </span>
         <button
           type="submit"
-          className="ml-auto rounded-full bg-accent px-8.5 py-4.5 text-lg font-bold text-white transition-colors hover:bg-black"
+          className="self-end rounded-full bg-accent px-8.5 py-4.5 text-lg font-bold whitespace-nowrap text-white transition-colors hover:bg-black sm:self-auto"
         >
           Vacature plaatsen →
         </button>
