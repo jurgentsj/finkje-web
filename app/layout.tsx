@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import ReageerProvider from "@/lib/reageer-context";
 import AuthProvider from "@/lib/auth-context";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Finkje | Vind werk met je motivatie",
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <main className="flex-1">{children}</main>
             <Footer />
             <CookieBanner />
+            <Analytics />
           </ReageerProvider>
         </AuthProvider>
       </body>
