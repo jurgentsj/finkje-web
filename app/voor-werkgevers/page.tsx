@@ -39,7 +39,7 @@ export default function VoorWerkgeversPage() {
                 Plaats gratis een vacature →
               </Link>
               <Link
-                href="/mensen"
+                href="/werkgever/registreren"
                 className="rounded-full border border-black/20 px-7 py-4 text-[17px] font-semibold text-[#111] transition-colors hover:border-black hover:bg-black/5"
               >
                 Bekijk de profielen

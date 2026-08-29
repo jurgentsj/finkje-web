@@ -114,10 +114,10 @@ export default function EmployerSignupForm() {
           We hebben een eenmalige inloglink naar <strong className="font-semibold text-black">{form.email}</strong> gestuurd. Open je inbox en klik op de link om verder te gaan.
         </p>
         <Link
-          href={`/account/inloggen-werkgever?email=${encodeURIComponent(form.email)}`}
+          href="/voor-werkgevers"
           className="mx-auto mt-2 rounded-full bg-accent px-7 py-4 text-[16px] font-bold text-white transition-colors hover:bg-black"
         >
-          Naar mijn e-mail →
+          Terug naar voor werkgevers →
         </Link>
       </div>
     );
