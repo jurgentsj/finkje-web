@@ -4,6 +4,8 @@ import Faq from "@/components/Faq";
 import FrustrationButton from "@/components/FrustrationButton";
 import { hoeHetWerktFaq } from "@/lib/data";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Hoe het werkt — Finkje",
   description: "Wij werken andersom: geen vacatures waar jij op moet reageren, maar bedrijven die reageren op jou.",
