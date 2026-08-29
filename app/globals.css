@@ -71,6 +71,14 @@ summary::-webkit-details-marker {
   display: none;
 }
 
+@media (max-width: 760px) {
+  .account-shell {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 32px !important;
+    padding: 40px 24px 88px !important;
+  }
+}
+
 @keyframes frustration-float {
   from {
     transform: translate(calc(-50% + var(--frustration-x, 0px)), 0);

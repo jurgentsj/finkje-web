@@ -1,8 +1,8 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
-const werkzoekendeOnly = ["/werkzoekende/dashboard"];
-const werkgeverOnly = ["/werkgever/dashboard"];
+const werkzoekendeOnly = ["/werkzoekende/dashboard", "/mijn-finkje"];
+const werkgeverOnly = ["/werkgever/dashboard", "/dashboard"];
 const werkgeverMuur = ["/mensen", "/profiel"];
 
 function startsWithAny(pathname: string, prefixes: string[]) {
