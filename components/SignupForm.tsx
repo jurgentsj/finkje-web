@@ -50,6 +50,28 @@ const emptyForm: FormState = {
 };
 
 const ervaringOpties = ["Geen ervaring in deze sector", "Minder dan 1 jaar", "1–3 jaar", "3–5 jaar", "5–10 jaar", "10+ jaar"];
+const groteSteden = [
+  "Amsterdam",
+  "Rotterdam",
+  "Den Haag",
+  "Utrecht",
+  "Eindhoven",
+  "Groningen",
+  "Tilburg",
+  "Almere",
+  "Breda",
+  "Nijmegen",
+  "Enschede",
+  "Haarlem",
+  "Arnhem",
+  "Amersfoort",
+  "Leiden",
+  "Dordrecht",
+  "Zoetermeer",
+  "Zwolle",
+  "Delft",
+  "Alkmaar",
+];
 
 export default function SignupForm() {
   const searchParams = useSearchParams();
@@ -62,6 +84,8 @@ export default function SignupForm() {
   const [fout, setFout] = useState("");
   const [klaar, setKlaar] = useState(false);
   const [bezig, setBezig] = useState(false);
+  const [locatieZoekterm, setLocatieZoekterm] = useState("");
+  const [geenVoorkeur, setGeenVoorkeur] = useState(false);
 
   const setField =
     (key: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -87,24 +111,30 @@ export default function SignupForm() {
       return;
     }
     if (stap === 2) {
-      if (!form.sterk.trim()) return setFout("Vertel waar je sterk in bent — één regel is genoeg.");
+      if (!geenVoorkeur && !form.locatie.trim()) return setFout("Kies een stad of geef aan dat je geen voorkeur hebt.");
       setStap(3);
       setFout("");
       return;
     }
     if (stap === 3) {
-      if (!form.hkleur) return setFout("Kies je lievelingskleur.");
+      if (!form.sterk.trim()) return setFout("Vertel waar je sterk in bent — één regel is genoeg.");
       setStap(4);
       setFout("");
       return;
     }
     if (stap === 4) {
+      if (!form.hkleur) return setFout("Kies je lievelingskleur.");
       setStap(5);
       setFout("");
       return;
     }
     if (stap === 5) {
       setStap(6);
+      setFout("");
+      return;
+    }
+    if (stap === 6) {
+      setStap(7);
       setFout("");
       return;
     }
@@ -196,18 +226,20 @@ export default function SignupForm() {
     return (
       <div className="flex flex-col gap-5.5 rounded-[32px] bg-black p-14 text-white">
         <h1 className="m-0 font-display text-[clamp(34px,6vw,76px)] leading-[0.92] font-extrabold tracking-[-0.05em]">
-          Je staat erop. Welkom, Willer.
+          Je staat erop. Welkom bij Finkje.
         </h1>
         <p className="m-0 max-w-[46ch] text-lg leading-relaxed text-white/70">
-          Check je mail en bevestig je e-mailadres om je account te activeren. Zodra een werkgever een vacature
-          neerzet die aansluit op jouw wil en voorkeuren, laten wij het weten.
+          Je account is aangemaakt. Je kunt meteen verder met je profiel en je voorkeuren; we beloven je geen losse
+          bevestigingsmail.
         </p>
-        <Link
-          href="/"
-          className="self-start rounded-full bg-accent px-7 py-4 font-semibold text-white transition-colors hover:bg-white hover:text-[#111]"
-        >
-          Terug naar home
-        </Link>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/" className="rounded-full border border-white/30 px-7 py-4 font-semibold text-white transition-colors hover:bg-white/10">
+            ← Home
+          </Link>
+          <Link href="/mijn-finkje" className="rounded-full bg-accent px-7 py-4 font-semibold text-white transition-colors hover:bg-white hover:text-[#111]">
+            Mijn Finkje →
+          </Link>
+        </div>
       </div>
     );
   }
@@ -227,11 +259,11 @@ export default function SignupForm() {
         Wat is je droombaan?
       </h1>
       <p className="mt-6 mb-10 max-w-[56ch] text-lg leading-snug text-black/62">
-        In zes stappen naar jouw droombaan. Kies zorgvuldig en voel dat jouw hart er sneller van gaat kloppen.
+        In zeven stappen naar jouw droombaan. Kies zorgvuldig en voel dat jouw hart er sneller van gaat kloppen.
       </p>
 
       <div className="mb-10 flex gap-2">
-        {[1, 2, 3, 4, 5, 6].map((n) => (
+        {[1, 2, 3, 4, 5, 6, 7].map((n) => (
           <span
             key={n}
             className={`h-[5px] flex-1 rounded-full transition-colors ${n <= stap ? "bg-accent" : "bg-black/10"}`}
@@ -258,8 +290,38 @@ export default function SignupForm() {
         )}
 
         {stap === 2 && (
+          <div className="flex flex-col gap-7">
+            <div className="flex flex-col gap-2">
+              <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Stap 2 — Jouw plek</span>
+              <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">Goede keuze! Waar wil je het liefst aan de slag?</span>
+            </div>
+            <button type="button" onClick={() => { setGeenVoorkeur(true); setForm((f) => ({ ...f, locatie: "Maakt mij niet uit" })); setFout(""); }} className={`rounded-2xl border px-5 py-4 text-left text-[17px] font-semibold transition-colors ${geenVoorkeur ? "border-accent bg-accent text-white" : "border-black/15 bg-white text-[#111]"}`}>
+              Het maakt mij niet uit, ik wil vooral deze baan
+            </button>
+            <label className="flex flex-col gap-3">
+              <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">Zoek een stad</span>
+              <input value={locatieZoekterm} onChange={(e) => { setLocatieZoekterm(e.target.value); setGeenVoorkeur(false); }} placeholder="Zoek een stad…" className={inputClass} />
+            </label>
+            <div className="flex items-center justify-between gap-4">
+              <span className="text-sm text-black/50">Kies een stad uit de lijst</span>
+              <button type="button" onClick={() => navigator.geolocation?.getCurrentPosition(() => { setForm((f) => ({ ...f, locatie: "Mijn locatie" })); setLocatieZoekterm("Mijn locatie"); setGeenVoorkeur(false); }, () => setFout("Je locatie kon niet worden opgehaald."))} className="font-semibold text-accent">Mijn locatie</button>
+            </div>
+            <div className="flex flex-wrap gap-2.5">
+              {groteSteden.filter((stad) => stad.toLowerCase().includes(locatieZoekterm.toLowerCase())).map((stad) => (
+                <button key={stad} type="button" onClick={() => { setForm((f) => ({ ...f, locatie: stad })); setLocatieZoekterm(stad); setGeenVoorkeur(false); setFout(""); }} className={chipClass(form.locatie === stad)}>{stad}</button>
+              ))}
+            </div>
+            <label className="flex flex-col gap-3 rounded-2xl border border-black/10 bg-white p-5">
+              <span className="font-display text-xl font-bold">Maximale reisafstand: {form.reisafstand || "25 km"}</span>
+              <input type="range" min="1" max="50" value={form.reisafstand ? Number.parseInt(form.reisafstand) || 25 : 25} onChange={(e) => setForm((f) => ({ ...f, reisafstand: `${e.target.value} km` }))} className="accent-accent" />
+              <div className="flex justify-between text-sm text-black/50"><span>1 km</span><span>50 km</span></div>
+            </label>
+          </div>
+        )}
+
+        {stap === 3 && (
           <div className="flex flex-col gap-8">
-            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Stap 2 — OVER JOU</span>
+            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Stap 3 — OVER JOU</span>
             <label className="flex flex-col gap-3">
               <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
                 Waar ben je sterk in?
@@ -288,7 +350,7 @@ export default function SignupForm() {
           </div>
         )}
 
-        {stap === 3 && (
+        {stap === 4 && (
           <div className="flex flex-col gap-7.5">
             <div className="flex flex-col gap-2.5">
               <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">
@@ -340,10 +402,10 @@ export default function SignupForm() {
           </div>
         )}
 
-        {stap === 4 && (
+        {stap === 5 && (
           <div className="flex flex-col gap-9">
             <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">
-              Stap 4 — Jouw ideale werkomgeving
+              Stap 5 — Jouw ideale werkomgeving
             </span>
 
             <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-4.5">
@@ -394,10 +456,10 @@ export default function SignupForm() {
           </div>
         )}
 
-        {stap === 5 && (
+        {stap === 6 && (
           <div className="flex flex-col gap-9">
             <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">
-              Stap 5 — Wanneer en waar
+              Stap 6 — Wanneer en waar
             </span>
 
             <div className="flex flex-col gap-3">
@@ -455,15 +517,6 @@ export default function SignupForm() {
                 </select>
               </label>
               <label className="flex flex-col gap-2.5">
-                <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">Woonplaats</span>
-                <input
-                  value={form.locatie}
-                  onChange={setField("locatie")}
-                  placeholder="bijv. Rotterdam"
-                  className={pillInputClass}
-                />
-              </label>
-              <label className="flex flex-col gap-2.5">
                 <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">
                   Max. reisafstand
                 </span>
@@ -479,10 +532,10 @@ export default function SignupForm() {
           </div>
         )}
 
-        {stap === 6 && (
+        {stap === 7 && (
           <div className="flex flex-col gap-6.5">
             <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">
-              Stap 6 — Hoe bereiken we je?
+              Stap 7 — Hoe bereiken we je?
             </span>
             <label className="flex flex-col gap-2.5">
               <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">Naam</span>
@@ -553,7 +606,7 @@ export default function SignupForm() {
             disabled={bezig}
             className="w-full rounded-full bg-accent px-8.5 py-4 text-base font-bold whitespace-nowrap text-white transition-colors hover:bg-black disabled:opacity-60 sm:ml-auto sm:w-auto sm:py-4.5 sm:text-lg"
           >
-            {stap === 6 ? (bezig ? "Bezig…" : "Zet me erop →") : "Verder →"}
+            {stap === 7 ? (bezig ? "Bezig…" : "Zet me erop →") : "Verder →"}
           </button>
         </div>
       </form>
