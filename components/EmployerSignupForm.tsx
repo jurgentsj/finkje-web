@@ -130,9 +130,9 @@ export default function EmployerSignupForm() {
     >
       <div className="flex items-start justify-between gap-4 border-b border-black/10 pb-6">
         <h1 className="m-0 font-display text-[clamp(24px,2.8vw,32px)] leading-[1.05] font-semibold tracking-[-0.035em]">
-          Werkgeversaccount aanmaken
+          Maak je gratis account aan
         </h1>
-        <span className="text-[13px] font-medium text-black/45">Stap {stap} van 2</span>
+        <span className="text-[13px] font-medium text-black/45">Gratis account · 2 korte stappen</span>
       </div>
 
       {stap === 1 ? (
@@ -161,7 +161,7 @@ export default function EmployerSignupForm() {
       ) : (
         <div className="flex flex-col gap-5">
           <p className="m-0 text-[14px] leading-relaxed text-black/50">
-            Nodig voor toegang tot de profielen van onze mensen.
+            Nog een paar gegevens, daarna kun je direct profielen bekijken en reageren.
           </p>
           <label className="flex flex-col gap-2">
             <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Bedrijfsnaam</span>
@@ -183,7 +183,7 @@ export default function EmployerSignupForm() {
               className="rounded-xl border border-black/15 bg-white px-4 py-3.5 text-[16px] text-[#111] outline-none transition-shadow placeholder:text-black/35 focus:border-accent focus:ring-4 focus:ring-accent/10"
             />
           </label>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <div className="hidden grid-cols-1 gap-5 sm:grid-cols-2">
             <label className="flex flex-col gap-2">
               <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Sector</span>
               <input
@@ -210,7 +210,7 @@ export default function EmployerSignupForm() {
               </select>
             </label>
           </div>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <div className="hidden grid-cols-1 gap-5 sm:grid-cols-2">
             <label className="flex flex-col gap-2">
               <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Website (optioneel)</span>
               <input
@@ -256,7 +256,7 @@ export default function EmployerSignupForm() {
           disabled={bezig}
           className="rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-black disabled:opacity-60"
         >
-          {stap === 1 ? "Volgende →" : bezig ? "Bezig…" : "Account aanmaken"}
+          {stap === 1 ? "Verder naar bedrijfsgegevens" : bezig ? "Account wordt aangemaakt…" : "Gratis account aanmaken"}
         </button>
       </div>
       {next && <input type="hidden" name="next" value={next} />}
