@@ -168,7 +168,7 @@ export default function EmployerSignupForm() {
             Vul je inlogcode in.
           </h2>
           <p className="m-0 text-lg leading-relaxed text-black/60">
-            We hebben een 6-cijferige code gestuurd naar <strong className="font-semibold text-black">{form.email}</strong>.
+            We hebben een inlogcode gestuurd naar <strong className="font-semibold text-black">{form.email}</strong>.
           </p>
         </div>
         <label className="flex flex-col gap-2.5">
@@ -181,7 +181,7 @@ export default function EmployerSignupForm() {
             value={code}
             onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
             placeholder="123456"
-            className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-center text-2xl tracking-[0.3em] text-[#111] outline-none focus:border-accent"
+            className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-center text-2xl font-bold tracking-[0.3em] text-accent outline-none placeholder:font-normal placeholder:text-black/25 focus:border-accent"
           />
         </label>
         {fout && <p className="m-0 text-[14px] font-medium text-red-600">{fout}</p>}
@@ -223,7 +223,7 @@ export default function EmployerSignupForm() {
           {stap === 1 ? "Eerst je e-mailadres" : "Je bedrijfsgegevens"}
         </h1>
         <p className="m-0 text-[15px] leading-relaxed text-black/55">
-          {stap === 1 ? "Je maakt gratis een account aan. Je ontvangt daarna een eenmalige inlogcode." : "Nog twee gegevens en je kunt direct profielen bekijken."}
+          {stap === 1 ? "Je maakt gratis een account aan. Je ontvangt daarna een inlogcode per e-mail." : "Nog twee gegevens en je kunt direct profielen bekijken."}
         </p>
       </div>
 
