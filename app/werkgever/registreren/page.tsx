@@ -12,7 +12,7 @@ export default function WerkgeverRegistrerenPage() {
     <main className="mx-auto grid max-w-[1280px] gap-16 px-6 py-14 lg:grid-cols-[minmax(0,0.92fr)_minmax(420px,0.8fr)] lg:items-start lg:gap-24 lg:px-10 lg:py-24">
       <section className="flex flex-col gap-6 pt-2 lg:pt-12">
         <p className="m-0 text-sm font-bold tracking-[0.16em] text-accent uppercase">Voor werkgevers</p>
-        <h1 className="m-0 max-w-[11ch] font-display text-[clamp(48px,6.5vw,88px)] leading-[0.94] font-semibold tracking-[-0.055em] text-balance">Vind de juiste mensen voor je team.</h1>
+        <h1 className="m-0 max-w-[11ch] font-display text-[clamp(40px,4.5vw,62px)] leading-[0.98] font-semibold tracking-[-0.055em] text-balance">Vind de juiste mensen voor je team.</h1>
         <p className="m-0 max-w-[40ch] text-[clamp(19px,2.2vw,27px)] leading-relaxed text-black/60">Maak gratis een account aan en ontdek kandidaten die zelf hebben aangegeven dat ze openstaan voor iets nieuws.</p>
         <div className="mt-4 flex max-w-[620px] flex-col">
           {["Alle profielen doorzoeken en filteren", "Gratis reageren, zo vaak je wil", "Contactgegevens zodra iemand ja zegt"].map((item) => (
