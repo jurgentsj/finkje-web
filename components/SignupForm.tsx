@@ -152,7 +152,9 @@ export default function SignupForm() {
         email: form.email,
         options: { shouldCreateUser: true,
           emailRedirectTo:
-            process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? `${window.location.origin}/auth/callback`,
+            typeof window !== "undefined" && window.location.hostname.endsWith("finkje.nl")
+              ? `${window.location.origin}/auth/callback`
+              : process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? `${window.location.origin}/auth/callback`,
           data: {
             role: "werkzoekende",
             naam: form.naam,

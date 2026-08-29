@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import HeroForm from "@/components/HeroForm";
+import AuthRedirect from "@/components/AuthRedirect";
 import Carousel from "@/components/Carousel";
 import { stapData, voordelen } from "@/lib/data";
 
@@ -26,6 +27,7 @@ export default async function HomePage({
 
   return (
     <>
+      <AuthRedirect />
       {/* Hero */}
       <section className="relative mx-auto w-full max-w-[1360px] px-6 pt-[46px]">
         <div className="flex flex-wrap items-end gap-10">
