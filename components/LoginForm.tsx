@@ -53,8 +53,8 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
   const bevestigCode = async (e: React.FormEvent) => {
     e.preventDefault();
     setFout("");
-    if (!/^\d{6}$/.test(code)) {
-      setFout("Vul de 6-cijferige code uit je e-mail in.");
+    if (!/^\d{6,8}$/.test(code)) {
+      setFout("Vul de code uit je e-mail in.");
       return;
     }
 
@@ -85,7 +85,7 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
             Vul je inlogcode in.
           </h2>
           <p className="m-0 text-lg leading-relaxed text-black/60">
-            We hebben een 6-cijferige code gestuurd naar <strong className="font-semibold text-black">{email}</strong>.
+            We hebben een inlogcode gestuurd naar <strong className="font-semibold text-black">{email}</strong>.
           </p>
         </div>
         <label className="flex flex-col gap-2.5">
@@ -94,11 +94,11 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
             type="text"
             inputMode="numeric"
             autoComplete="one-time-code"
-            maxLength={6}
+            maxLength={8}
             value={code}
             onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
             placeholder="123456"
-            className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-center text-2xl tracking-[0.3em] text-[#111] outline-none focus:border-accent"
+            className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-center text-2xl font-bold tracking-[0.3em] text-accent outline-none placeholder:font-normal placeholder:text-black/25 focus:border-accent"
           />
         </label>
         {fout && <p className="m-0 text-base font-semibold text-[#C42A00]">{fout}</p>}
@@ -147,7 +147,7 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
           autoComplete="email"
         />
       </label>
-      <p className="m-0 text-[15px] leading-relaxed text-black/55">Je ontvangt een 6-cijferige inlogcode per e-mail.</p>
+      <p className="m-0 text-[15px] leading-relaxed text-black/55">Je ontvangt een inlogcode per e-mail.</p>
       {fout && <p className="m-0 text-base font-semibold text-[#C42A00]">{fout}</p>}
       <div className="flex flex-col-reverse gap-3 border-t border-black/10 pt-6.5 sm:flex-row sm:items-center sm:justify-between">
         <span className="text-[15px] text-black/55">

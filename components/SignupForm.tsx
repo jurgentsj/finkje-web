@@ -216,8 +216,8 @@ export default function SignupForm() {
   const bevestigCode = async (e: React.FormEvent) => {
     e.preventDefault();
     setFout("");
-    if (!/^\d{6}$/.test(code)) {
-      setFout("Vul de 6-cijferige code uit je e-mail in.");
+    if (!/^\d{6,8}$/.test(code)) {
+      setFout("Vul de code uit je e-mail in.");
       return;
     }
 
@@ -268,12 +268,15 @@ export default function SignupForm() {
   if (wachtOpCode) {
     return (
       <form onSubmit={bevestigCode} className="flex flex-col gap-5.5 rounded-[32px] bg-black p-14 text-white">
-        <span className="text-base font-semibold text-accent">Check je inbox</span>
+        <div className="flex items-center gap-2.5 text-base font-semibold text-accent">
+          <span className="h-4 w-4 animate-spin rounded-full border-2 border-accent/30 border-t-accent" aria-hidden="true" />
+          Je inlogcode is onderweg
+        </div>
         <h1 className="m-0 font-display text-[clamp(30px,5vw,52px)] leading-[0.95] font-extrabold tracking-[-0.05em]">
-          Vul je inlogcode in.
+          Welkom, {form.naam || "toekomstige Finkje-collega"}!
         </h1>
         <p className="m-0 max-w-[46ch] text-lg leading-relaxed text-white/70">
-          We hebben een 6-cijferige code gestuurd naar <strong className="font-semibold text-white">{form.email}</strong>.
+          We hebben een inlogcode gestuurd naar <strong className="font-semibold text-white">{form.email}</strong>. Vul die hieronder in om je account te bevestigen.
         </p>
         <label className="flex max-w-xs flex-col gap-2.5">
           <span className="text-base font-semibold">Inlogcode</span>
@@ -281,11 +284,11 @@ export default function SignupForm() {
             type="text"
             inputMode="numeric"
             autoComplete="one-time-code"
-            maxLength={6}
+            maxLength={8}
             value={code}
             onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
             placeholder="123456"
-            className="rounded-2xl border border-white/20 bg-white/10 px-4.5 py-4 text-center text-2xl tracking-[0.3em] text-white outline-none focus:border-accent"
+            className="rounded-2xl border border-white/20 bg-white/10 px-4.5 py-4 text-center text-2xl font-bold tracking-[0.3em] text-accent outline-none placeholder:font-normal placeholder:text-white/30 focus:border-accent"
           />
         </label>
         {fout && <p className="m-0 text-base font-semibold text-[#FF8A6B]">{fout}</p>}
