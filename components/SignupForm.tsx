@@ -231,7 +231,7 @@ export default function SignupForm() {
           Welkom bij Finkje, {form.naam}!
         </h1>
         <p className="m-0 max-w-[46ch] text-lg leading-relaxed text-white/70">
-          Je account is aangemaakt. Bekijk je aanmelding en stuur daar een eenmalige inloglink naar jezelf.
+          Je account is aangemaakt. We hebben een eenmalige inloglink naar je e-mailadres gestuurd. Klik op de link om verder te gaan.
         </p>
         <div className="flex flex-wrap gap-3">
           <Link href="/" className="rounded-full border border-white/30 px-7 py-4 font-semibold text-white transition-colors hover:bg-white/10">

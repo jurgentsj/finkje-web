@@ -111,7 +111,7 @@ export default function EmployerSignupForm() {
           Account aangemaakt
         </h1>
         <p className="m-0 text-[15.5px] leading-relaxed text-black/60">
-          Bekijk je account en stuur daar een eenmalige inloglink naar jezelf om profielen te bekijken.
+          We hebben een eenmalige inloglink naar je e-mailadres gestuurd. Klik op de link om verder te gaan en profielen te bekijken.
         </p>
         <Link
           href="/inloggen"
