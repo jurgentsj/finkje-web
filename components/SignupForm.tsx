@@ -152,7 +152,7 @@ export default function SignupForm() {
         email: form.email,
         options: { shouldCreateUser: true,
           emailRedirectTo:
-            `${window.location.origin}/auth/callback`,
+            process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? `${window.location.origin}/auth/callback`,
           data: {
             role: "werkzoekende",
             naam: form.naam,
@@ -219,9 +219,10 @@ export default function SignupForm() {
         return;
       }
       setKlaar(true);
-    } catch {
+    } catch (error) {
+      console.error("[v0] Signup request failed:", error);
       setBezig(false);
-      setFout("Opslaan lukt nu niet. Probeer het nog een keer.");
+      setFout(error instanceof Error ? `Opslaan: ${error.message}` : "Opslaan lukt nu niet. Probeer het nog een keer.");
     }
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
