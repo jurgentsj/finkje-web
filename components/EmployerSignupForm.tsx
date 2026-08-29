@@ -111,13 +111,13 @@ export default function EmployerSignupForm() {
           Account aangemaakt
         </h1>
         <p className="m-0 text-[15.5px] leading-relaxed text-black/60">
-          We hebben een eenmalige inloglink naar je e-mailadres gestuurd. Klik op de link om verder te gaan en profielen te bekijken.
+          We hebben een eenmalige inloglink naar <strong className="font-semibold text-black">{email}</strong> gestuurd. Open je inbox en klik op de link om verder te gaan.
         </p>
         <Link
-          href="/account/inloggen-werkgever"
-          className="mx-auto mt-2 rounded-lg bg-black px-6 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-black/80"
+          href={`/account/inloggen-werkgever?email=${encodeURIComponent(email)}`}
+          className="mx-auto mt-2 rounded-full bg-accent px-7 py-4 text-[16px] font-bold text-white transition-colors hover:bg-black"
         >
-          Naar inloggen
+          Naar mijn e-mail →
         </Link>
       </div>
     );
