@@ -114,7 +114,7 @@ export default function EmployerSignupForm() {
           We hebben een eenmalige inloglink naar je e-mailadres gestuurd. Klik op de link om verder te gaan en profielen te bekijken.
         </p>
         <Link
-          href="/inloggen"
+          href="/account/inloggen-werkgever"
           className="mx-auto mt-2 rounded-lg bg-black px-6 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-black/80"
         >
           Naar inloggen
@@ -253,7 +253,7 @@ export default function EmployerSignupForm() {
             ← Terug
           </button>
         ) : (
-          <Link href="/inloggen" className="text-[14px] font-semibold text-black/50 transition-colors hover:text-black">
+          <Link href="/account/inloggen-werkgever" className="text-[14px] font-semibold text-black/50 transition-colors hover:text-black">
             Al een account?
           </Link>
         )}
