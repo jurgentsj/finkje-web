@@ -70,6 +70,10 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
             We hebben een eenmalige loginlink gestuurd naar <strong className="font-semibold text-black">{email}</strong>.
           </p>
         </div>
+        <div className="flex items-center gap-2 border-t border-black/10 pt-6 text-base font-semibold text-accent">
+          <span className="h-4 w-4 animate-spin rounded-full border-2 border-accent/30 border-t-accent" aria-hidden="true" />
+          De loginlink is onderweg.
+        </div>
         <div className="border-t border-black/10 pt-6">
           <p className="m-0 text-[15px] leading-relaxed text-black/55">
             Klik op de link in de e-mail om direct naar je {employer ? "werkgeversdashboard" : "dashboard"} te gaan.
