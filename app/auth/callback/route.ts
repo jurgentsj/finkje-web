@@ -76,5 +76,13 @@ export async function GET(request: NextRequest) {
     }
   }
 
-  return NextResponse.redirect(`${origin}/auth/error`);
+  const error = searchParams.get("error");
+  const errorCode = searchParams.get("error_code");
+  const errorDescription = searchParams.get("error_description");
+  const errorParams = new URLSearchParams();
+  if (error) errorParams.set("error", error);
+  if (errorCode) errorParams.set("error_code", errorCode);
+  if (errorDescription) errorParams.set("error_description", errorDescription);
+
+  return NextResponse.redirect(`${origin}/auth/error${errorParams.toString() ? `?${errorParams}` : ""}`);
 }
