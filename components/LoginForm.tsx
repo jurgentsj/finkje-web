@@ -11,6 +11,8 @@ export default function LoginForm() {
   const next = searchParams.get("next") || "";
   const initialEmail = searchParams.get("email") || "";
   const voornaam = searchParams.get("voornaam") || "";
+  const nextParam = searchParams.get("next") || "";
+  const defaultNext = nextParam || (voornaam ? "/werkzoekende/dashboard" : "");
 
   const [email, setEmail] = useState(initialEmail);
   const [fout, setFout] = useState("");
@@ -33,7 +35,8 @@ export default function LoginForm() {
       options: {
         shouldCreateUser: false,
         emailRedirectTo:
-          `${window.location.origin}/auth/callback`,
+          process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ??
+          `${window.location.origin}/auth/callback${defaultNext ? `?next=${encodeURIComponent(defaultNext)}` : ""}`,
       },
     });
 

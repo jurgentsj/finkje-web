@@ -5,6 +5,7 @@ export async function GET(request: NextRequest) {
   const { searchParams, origin } = request.nextUrl;
   const code = searchParams.get("code");
   const next = searchParams.get("next");
+  const safeNext = next && next.startsWith("/") && !next.startsWith("//") ? next : null;
 
   if (code) {
     const supabase = await createClient();
@@ -15,7 +16,7 @@ export async function GET(request: NextRequest) {
         data: { user },
       } = await supabase.auth.getUser();
 
-      let destination = next || "/";
+      let destination = safeNext || "/";
 
       if (user) {
         const meta = user.user_metadata ?? {};
@@ -49,7 +50,7 @@ export async function GET(request: NextRequest) {
               omgevingen: meta.omgevingen ?? [],
             });
           }
-          if (!next) destination = "/werkzoekende/dashboard";
+          if (!safeNext) destination = "/werkzoekende/dashboard";
         } else if (role === "werkgever") {
           const { data: existing } = await supabase
             .from("employer_profiles")
@@ -67,7 +68,7 @@ export async function GET(request: NextRequest) {
               telefoon: meta.telefoon ?? null,
             });
           }
-          if (!next) destination = "/werkgever/dashboard";
+          if (!safeNext) destination = "/werkgever/dashboard";
         }
       }
 
