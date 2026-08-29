@@ -314,7 +314,7 @@ export default function SignupForm() {
             </div>
             <label className="flex flex-col gap-3 rounded-2xl border border-black/10 bg-white p-5">
               <span className="font-display text-xl font-bold">Maximale reisafstand: {form.reisafstand || "25 km"}</span>
-              <input type="range" min="1" max="50" value={form.reisafstand ? Number.parseInt(form.reisafstand) || 25 : 25} onChange={(e) => setForm((f) => ({ ...f, reisafstand: `${e.target.value} km` }))} className="location-slider h-3 w-full appearance-none rounded-full border border-black/15 bg-transparent accent-accent" />
+              <input type="range" min="1" max="50" value={form.reisafstand ? Number.parseInt(form.reisafstand) || 25 : 25} onChange={(e) => setForm((f) => ({ ...f, reisafstand: `${e.target.value} km` }))} style={{ background: `linear-gradient(to right, var(--accent) 0%, var(--accent) ${((form.reisafstand ? Number.parseInt(form.reisafstand) || 25 : 25) - 1) / 49 * 100}%, transparent ${((form.reisafstand ? Number.parseInt(form.reisafstand) || 25 : 25) - 1) / 49 * 100}%, transparent 100%)` }} className="location-slider h-3 w-full appearance-none rounded-full border border-black/15 bg-transparent accent-accent" />
               <div className="flex justify-between text-sm text-black/50"><span>1 km</span><span>50 km</span></div>
             </label>
           </div>
