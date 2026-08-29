@@ -53,8 +53,8 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
   const bevestigCode = async (e: React.FormEvent) => {
     e.preventDefault();
     setFout("");
-    if (!/^\d{6,8}$/.test(code)) {
-      setFout("Vul de code uit je e-mail in.");
+    if (!/^\d{6}$/.test(code)) {
+      setFout("Vul de 6-cijferige code uit je e-mail in.");
       return;
     }
 
@@ -94,7 +94,7 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
             type="text"
             inputMode="numeric"
             autoComplete="one-time-code"
-            maxLength={8}
+            maxLength={6}
             value={code}
             onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
             placeholder="123456"
