@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
   title: "Er ging iets mis — Finkje",
@@ -11,6 +13,15 @@ export default async function AuthErrorPage({
   searchParams: Promise<{ error?: string }>;
 }) {
   const params = await searchParams;
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (user) {
+    const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).maybeSingle();
+    if (profile?.role === "werkgever") redirect("/werkgever/dashboard");
+    if (profile?.role === "werkzoekende") redirect("/werkzoekende/dashboard");
+  }
+
   // `error` comes from the URL, so it is attacker-controlled. Render it only
   // when it looks like a Supabase error code, never as free text someone can
   // choose.
