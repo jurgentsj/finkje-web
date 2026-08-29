@@ -152,7 +152,7 @@ export default function SignupForm() {
         email: form.email,
         options: { shouldCreateUser: true,
           emailRedirectTo:
-            process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? `${window.location.origin}/auth/callback`,
+            `${window.location.origin}/auth/callback`,
           data: {
             role: "werkzoekende",
             naam: form.naam,
@@ -175,13 +175,15 @@ export default function SignupForm() {
       });
 
       if (error) {
+        console.error("[v0] Signup OTP failed:", { code: error.code, message: error.message, status: error.status });
         setBezig(false);
-        if (error.message.toLowerCase().includes("rate limit")) {
-          setFout("Te veel pogingen. Probeer het over een paar minuten opnieuw.");
-        } else if (error.message.toLowerCase().includes("password")) {
-          setFout("Kies een sterker wachtwoord.");
+        const message = error.message.toLowerCase();
+        if (message.includes("rate limit") || message.includes("too many requests")) {
+          setFout("Supabase blokkeert tijdelijk nieuwe e-mails. Wacht even en probeer daarna opnieuw.");
+        } else if (message.includes("redirect") || message.includes("not allowed")) {
+          setFout("De aanmeldlink mag nog niet naar deze preview terugkeren. Voeg deze URL toe in Supabase bij URL Configuration.");
         } else {
-          setFout("Aanmelden lukt nu niet. Probeer het nog een keer.");
+          setFout(`Supabase: ${error.message}`);
         }
         return;
       }

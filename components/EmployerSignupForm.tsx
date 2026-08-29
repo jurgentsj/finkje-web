@@ -68,7 +68,7 @@ export default function EmployerSignupForm() {
         email: form.email,
         options: { shouldCreateUser: true,
           emailRedirectTo:
-            process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? `${window.location.origin}/auth/callback`,
+            `${window.location.origin}/auth/callback`,
           data: {
             role: "werkgever",
             naam: form.naam,
@@ -83,15 +83,15 @@ export default function EmployerSignupForm() {
       });
 
       if (error) {
+        console.error("[v0] Employer signup OTP failed:", { code: error.code, message: error.message, status: error.status });
         setBezig(false);
-        if (error.message.toLowerCase().includes("rate limit")) {
-          setFout("Te veel pogingen. Probeer het over een paar minuten opnieuw.");
-        } else if (error.message.toLowerCase().includes("password")) {
-          setFout("Kies een sterker wachtwoord.");
-        } else if (error.message.toLowerCase().includes("registered")) {
-          setFout("Dit e-mailadres is al in gebruik. Log in of gebruik een ander adres.");
+        const message = error.message.toLowerCase();
+        if (message.includes("rate limit") || message.includes("too many requests")) {
+          setFout("Supabase blokkeert tijdelijk nieuwe e-mails. Wacht even en probeer daarna opnieuw.");
+        } else if (message.includes("redirect") || message.includes("not allowed")) {
+          setFout("De aanmeldlink mag nog niet naar deze preview terugkeren. Voeg deze URL toe in Supabase bij URL Configuration.");
         } else {
-          setFout("Registreren lukt nu niet. Probeer het nog een keer.");
+          setFout(`Supabase: ${error.message}`);
         }
         return;
       }
