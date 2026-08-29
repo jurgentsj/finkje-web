@@ -126,7 +126,7 @@ export default function EmployerSignupForm() {
   return (
     <form
       onSubmit={stap === 1 ? handleNext : handleSubmit}
-      className="flex flex-col gap-6.5 rounded-[28px] bg-sand p-8.5"
+      className="flex flex-col gap-6 rounded-[28px] bg-sand p-8 sm:p-10"
     >
       <div className="flex flex-col gap-2 border-b border-black/10 pb-6">
         <div className="flex items-center justify-between gap-4">
@@ -134,7 +134,7 @@ export default function EmployerSignupForm() {
           <span className="text-[13px] text-black/45">Gratis account</span>
         </div>
         <h1 className="m-0 font-display text-[clamp(26px,3.4vw,36px)] leading-tight font-bold tracking-[-0.03em]">
-          {stap === 1 ? "Start met je e-mailadres" : "Vertel iets over je bedrijf"}
+          {stap === 1 ? "Eerst je e-mailadres" : "Je bedrijfsgegevens"}
         </h1>
         <p className="m-0 text-[15px] leading-relaxed text-black/55">
           {stap === 1 ? "Je maakt gratis een account aan. Je ontvangt daarna een eenmalige inloglink." : "Nog twee gegevens en je kunt direct profielen bekijken."}
@@ -262,7 +262,7 @@ export default function EmployerSignupForm() {
           disabled={bezig}
           className="rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-black disabled:opacity-60"
         >
-          {stap === 1 ? "Verder naar bedrijfsgegevens" : bezig ? "Account wordt aangemaakt…" : "Gratis account aanmaken"}
+          {stap === 1 ? "Verder →" : bezig ? "Account wordt aangemaakt…" : "Gratis account aanmaken"}
         </button>
       </div>
       {next && <input type="hidden" name="next" value={next} />}
