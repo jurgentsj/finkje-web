@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
       ? await supabase.auth.exchangeCodeForSession(code)
       : await supabase.auth.verifyOtp({
           token_hash: tokenHash!,
-          type: type === "signup" || type === "invite" || type === "recovery" || type === "email" ? type : "email",
+          type: type === "signup" || type === "invite" || type === "recovery" || type === "magiclink" || type === "email_change" || type === "email" ? type : "magiclink",
         });
 
     if (!error) {
