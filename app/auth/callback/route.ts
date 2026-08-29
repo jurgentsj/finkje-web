@@ -21,7 +21,20 @@ export async function GET(request: NextRequest) {
       if (user) {
         const meta = user.user_metadata ?? {};
         const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).maybeSingle();
-        const role = profile?.role;
+        const role = profile?.role ?? meta.role;
+
+        // Persist the shared profile first; signup metadata is the source for first login.
+        if (role === "werkzoekende" || role === "werkgever") {
+          await supabase.from("profiles").upsert(
+            {
+              id: user.id,
+              role,
+              naam: meta.naam ?? meta.contactpersoon ?? "",
+              email: user.email ?? "",
+            },
+            { onConflict: "id" },
+          );
+        }
 
         // First confirmation after signup: write the role-specific profile
         // that was staged in user_metadata (see SignupForm / EmployerSignupForm).
@@ -52,21 +65,27 @@ export async function GET(request: NextRequest) {
           }
           if (!safeNext) destination = "/werkzoekende/dashboard";
         } else if (role === "werkgever") {
-          const { data: existing } = await supabase
-            .from("employer_profiles")
-            .select("id")
-            .eq("id", user.id)
-            .maybeSingle();
-          if (!existing && meta.bedrijfsnaam && meta.contactpersoon) {
-            await supabase.from("employer_profiles").insert({
-              id: user.id,
-              bedrijfsnaam: meta.bedrijfsnaam,
-              contactpersoon: meta.contactpersoon,
-              sector: meta.sector ?? null,
-              bedrijfsgrootte: meta.bedrijfsgrootte ?? null,
-              website: meta.website ?? null,
-              telefoon: meta.telefoon ?? null,
-            });
+          const profileData = {
+            id: user.id,
+            role: "werkgever",
+            naam: meta.naam ?? meta.contactpersoon ?? "Werkgever",
+            email: user.email ?? "",
+          };
+          await supabase.from("profiles").upsert(profileData, { onConflict: "id" });
+
+          if (meta.bedrijfsnaam && meta.contactpersoon) {
+            await supabase.from("employer_profiles").upsert(
+              {
+                id: user.id,
+                bedrijfsnaam: meta.bedrijfsnaam,
+                contactpersoon: meta.contactpersoon,
+                sector: meta.sector ?? null,
+                bedrijfsgrootte: meta.bedrijfsgrootte ?? null,
+                website: meta.website ?? null,
+                telefoon: meta.telefoon ?? null,
+              },
+              { onConflict: "id" },
+            );
           }
           if (!safeNext) destination = "/werkgever/dashboard";
         }
