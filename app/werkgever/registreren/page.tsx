@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import EmployerSignupForm from "@/components/EmployerSignupForm";
 
 export const metadata: Metadata = {
-  title: "Werkgeversaccount aanmaken — Finkje",
+  title: "Werkgeversaccount aanmaken",
   description: "Maak een werkgeversaccount aan om profielen te bekijken en te reageren.",
 };
 

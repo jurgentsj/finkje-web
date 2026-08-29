@@ -7,7 +7,7 @@ import { hoeHetWerktFaq } from "@/lib/data";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Hoe het werkt — Finkje",
+  title: "Hoe het werkt",
   description: "Wij werken andersom: geen vacatures waar jij op moet reageren, maar bedrijven die reageren op jou.",
 };
 

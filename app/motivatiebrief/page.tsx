@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import VacatureBrief from "@/components/VacatureBrief";
 
 export const metadata: Metadata = {
-  title: "Onze motivatiebrief — Finkje",
+  title: "Onze motivatiebrief",
   description: "Lees waarom Finkje vacatures bewust anders behandelt.",
 };
 

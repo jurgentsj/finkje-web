@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import LoginForm from "@/components/LoginForm";
 
 export const metadata: Metadata = {
-  title: "Inloggen voor werkgevers — Finkje",
+  title: "Inloggen voor werkgevers",
   description: "Log in op je werkgeversaccount bij Finkje.",
 };
 

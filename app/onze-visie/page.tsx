@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Onze visie — Finkje",
+  title: "Onze visie",
   description: "Wij veranderen het ritme. Focus op ambities, interesses en waarden — niet enkel op diploma's of werkervaring.",
 };
 

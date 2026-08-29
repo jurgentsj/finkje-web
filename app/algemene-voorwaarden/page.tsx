@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Algemene Voorwaarden — Finkje",
+  title: "Algemene Voorwaarden",
 };
 
 function H({ children }: { children: React.ReactNode }) {

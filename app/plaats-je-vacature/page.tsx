@@ -3,7 +3,7 @@ import Link from "next/link";
 import VacatureForm from "@/components/VacatureForm";
 
 export const metadata: Metadata = {
-  title: "Plaats je vacature — Finkje",
+  title: "Plaats je vacature",
   description: "Plaats gratis een vacature, bewust niet zichtbaar. Wij gaan binnen 24 uur gericht voor je op zoek.",
 };
 

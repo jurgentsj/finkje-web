@@ -5,7 +5,7 @@ import { headers } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
-  title: "Er ging iets mis — Finkje",
+  title: "Er ging iets mis",
 };
 
 export default async function AuthErrorPage({
