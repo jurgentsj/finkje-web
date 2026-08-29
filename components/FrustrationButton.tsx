@@ -26,7 +26,7 @@ export default function FrustrationButton({
   buttonLabel = "Bel hier aan",
   className = "",
 }: FrustrationButtonProps) {
-  const supabaseRef = useRef(createClient());
+  const supabaseRef = useRef<ReturnType<typeof createClient> | null>(null);
   const [count, setCount] = useState<number | null>(null);
   const [bursts, setBursts] = useState<{ id: number; x: number }[]>([]);
 
@@ -52,7 +52,8 @@ export default function FrustrationButton({
   );
 
   useEffect(() => {
-    const supabase = supabaseRef.current;
+    const supabase = supabaseRef.current ?? createClient();
+    supabaseRef.current = supabase;
     // Guard against React's dev-mode double-invoke of effects (mount → cleanup
     // → mount again on the same instance): if the effect was already cleaned
     // up by the time our async work resolves, skip creating the subscription
@@ -92,7 +93,8 @@ export default function FrustrationButton({
   }, [applyConfirmed]);
 
   useEffect(() => {
-    const supabase = supabaseRef.current;
+    const supabase = supabaseRef.current ?? createClient();
+    supabaseRef.current = supabase;
 
     const interval = setInterval(async () => {
       const amount = unsentRef.current;
