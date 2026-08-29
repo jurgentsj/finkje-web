@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default async function AuthErrorPage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{ error?: string; error_code?: string; error_description?: string }>;
 }) {
   const params = await searchParams;
   const supabase = await createClient();
@@ -26,7 +26,7 @@ export default async function AuthErrorPage({
   // `error` comes from the URL, so it is attacker-controlled. Render it only
   // when it looks like a Supabase error code, never as free text someone can
   // choose.
-  const code = params?.error;
+  const code = params?.error_code ?? params?.error;
   const isErrorCode = typeof code === "string" && /^[a-z0-9_]{1,64}$/.test(code);
 
   return (
