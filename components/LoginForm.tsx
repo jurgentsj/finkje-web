@@ -5,14 +5,14 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 
-export default function LoginForm() {
+export default function LoginForm({ employer = false }: { employer?: boolean }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const next = searchParams.get("next") || "";
   const initialEmail = searchParams.get("email") || "";
   const voornaam = searchParams.get("voornaam") || "";
   const nextParam = searchParams.get("next") || "";
-  const defaultNext = nextParam || (voornaam ? "/werkzoekende/dashboard" : "");
+  const defaultNext = nextParam || (employer ? "/werkgever/dashboard" : voornaam ? "/werkzoekende/dashboard" : "");
 
   const [email, setEmail] = useState(initialEmail);
   const [fout, setFout] = useState("");
@@ -81,15 +81,27 @@ export default function LoginForm() {
       )}
       <div className="flex flex-col-reverse gap-3 border-t border-black/10 pt-6.5 sm:flex-row sm:items-center sm:justify-between">
         <span className="text-[15px] text-black/55">
-          Nog geen account?{" "}
-          <Link href="/aanmelden" className="font-semibold text-accent">
-            Meld je aan
-          </Link>{" "}
-          of{" "}
-          <Link href="/werkgever/registreren" className="font-semibold text-accent">
-            registreer als werkgever
-          </Link>
-          .
+          {employer ? (
+            <>
+              Nog geen werkgeversaccount?{" "}
+              <Link href="/werkgever/registreren" className="font-semibold text-accent">
+                Maak een account aan
+              </Link>
+              .
+            </>
+          ) : (
+            <>
+              Nog geen account?{" "}
+              <Link href="/aanmelden" className="font-semibold text-accent">
+                Meld je aan
+              </Link>{" "}
+              of{" "}
+              <Link href="/werkgever/registreren" className="font-semibold text-accent">
+                registreer als werkgever
+              </Link>
+              .
+            </>
+          )}
         </span>
         <button
           type="submit"
