@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { MapPin } from "lucide-react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { saveLead } from "@/lib/leads";
 import { createClient } from "@/lib/supabase/client";
 import {
@@ -74,6 +75,7 @@ const groteSteden = [
 ];
 
 export default function SignupForm() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const wilFromHero = searchParams.get("wil") || "";
 
@@ -212,9 +214,14 @@ export default function SignupForm() {
         });
       }
 
-      setKlaar(true);
       setFout("");
       setBezig(false);
+      if (data.session) {
+        router.push("/mijn-finkje");
+        router.refresh();
+        return;
+      }
+      setKlaar(true);
     } catch {
       setBezig(false);
       setFout("Opslaan lukt nu niet. Probeer het nog een keer.");
@@ -304,7 +311,7 @@ export default function SignupForm() {
             </label>
             <div className="flex items-center justify-between gap-4">
               <span className="text-sm text-black/50">Kies een stad uit de lijst</span>
-              <button type="button" onClick={() => navigator.geolocation?.getCurrentPosition(() => { setForm((f) => ({ ...f, locatie: "Mijn locatie" })); setLocatieZoekterm("Mijn locatie"); setGeenVoorkeur(false); }, () => setFout("Je locatie kon niet worden opgehaald."))} className="font-semibold text-accent">Mijn locatie</button>
+              <button type="button" onClick={() => navigator.geolocation?.getCurrentPosition(() => { setForm((f) => ({ ...f, locatie: "Mijn locatie" })); setLocatieZoekterm("Mijn locatie"); setGeenVoorkeur(false); }, () => setFout("Je locatie kon niet worden opgehaald."))} className="inline-flex items-center gap-2 font-semibold text-accent"><MapPin aria-hidden="true" className="size-5" strokeWidth={2} />Mijn locatie</button>
             </div>
             <div className="flex flex-wrap gap-2.5">
               {groteSteden.filter((stad) => stad.toLowerCase().includes(locatieZoekterm.toLowerCase())).map((stad) => (
@@ -313,7 +320,7 @@ export default function SignupForm() {
             </div>
             <label className="flex flex-col gap-3 rounded-2xl border border-black/10 bg-white p-5">
               <span className="font-display text-xl font-bold">Maximale reisafstand: {form.reisafstand || "25 km"}</span>
-              <input type="range" min="1" max="50" value={form.reisafstand ? Number.parseInt(form.reisafstand) || 25 : 25} onChange={(e) => setForm((f) => ({ ...f, reisafstand: `${e.target.value} km` }))} className="accent-accent" />
+              <input type="range" min="1" max="50" value={form.reisafstand ? Number.parseInt(form.reisafstand) || 25 : 25} onChange={(e) => setForm((f) => ({ ...f, reisafstand: `${e.target.value} km` }))} className="location-slider h-3 w-full appearance-none rounded-full border border-black/15 bg-transparent accent-accent" />
               <div className="flex justify-between text-sm text-black/50"><span>1 km</span><span>50 km</span></div>
             </label>
           </div>
@@ -336,7 +343,7 @@ export default function SignupForm() {
             </label>
             <label className="flex flex-col gap-3">
               <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
-                Waar loop je tegenaan?
+                Wat zou een werkgever over het hoofd zien als hij alleen naar je cv keek?
               </span>
               <textarea
                 value={form.tegenaan}
@@ -464,6 +471,19 @@ export default function SignupForm() {
 
             <div className="flex flex-col gap-3">
               <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">
+                Opzegtermijn
+              </span>
+              <select value={form.beschikbaarheid} onChange={setField("beschikbaarheid")} className={pillInputClass}>
+                <option value="">Kies…</option>
+                <option value="Per direct">Per direct</option>
+                <option value="Binnen een maand">Binnen een maand</option>
+                <option value="Binnen drie maanden">Binnen drie maanden</option>
+                <option value="Ik kijk rond">Ik kijk rond</option>
+              </select>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">
                 Wat voor dienstverband zoek je?
               </span>
               <div className="grid grid-cols-3 gap-1.5 rounded-full border border-black/15 bg-white p-1.5">
@@ -503,32 +523,7 @@ export default function SignupForm() {
               </div>
             </div>
 
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,190px),1fr))] gap-4.5">
-              <label className="flex min-w-0 flex-col gap-2.5">
-                <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">
-                  Beschikbaarheid
-                </span>
-                <select value={form.beschikbaarheid} onChange={setField("beschikbaarheid")} className={pillInputClass}>
-                  <option value="">Kies…</option>
-                  <option value="Per direct">Per direct</option>
-                  <option value="Binnen een maand">Binnen een maand</option>
-                  <option value="Binnen drie maanden">Binnen drie maanden</option>
-                  <option value="Ik kijk rond">Ik kijk rond</option>
-                </select>
-              </label>
-              <label className="flex flex-col gap-2.5">
-                <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">
-                  Max. reisafstand
-                </span>
-                <select value={form.reisafstand} onChange={setField("reisafstand")} className={pillInputClass}>
-                  <option value="">Kies…</option>
-                  <option value="Tot 10 km">Tot 10 km</option>
-                  <option value="Tot 25 km">Tot 25 km</option>
-                  <option value="Tot 50 km">Tot 50 km</option>
-                  <option value="Maakt me niet uit">Maakt me niet uit</option>
-                </select>
-              </label>
-            </div>
+
           </div>
         )}
 
@@ -568,7 +563,7 @@ export default function SignupForm() {
               />
             </label>
             <label className="flex flex-col gap-2.5">
-              <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">Wachtwoord</span>
+              <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">Kies een wachtwoord voor je account</span>
               <input
                 type="password"
                 value={form.wachtwoord}

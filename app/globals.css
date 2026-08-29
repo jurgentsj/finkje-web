@@ -71,6 +71,24 @@ summary::-webkit-details-marker {
   display: none;
 }
 
+.location-slider::-webkit-slider-runnable-track {
+  height: 0.75rem;
+  border: 1px solid rgb(17 17 17 / 0.15);
+  border-radius: 9999px;
+  background: transparent;
+}
+
+.location-slider::-moz-range-track {
+  height: 0.75rem;
+  border: 1px solid rgb(17 17 17 / 0.15);
+  border-radius: 9999px;
+  background: transparent;
+}
+
+.location-slider::-webkit-slider-thumb {
+  margin-top: -1px;
+}
+
 @media (max-width: 760px) {
   .account-shell {
     grid-template-columns: minmax(0, 1fr) !important;
