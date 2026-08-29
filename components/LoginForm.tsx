@@ -11,21 +11,27 @@ export default function LoginForm() {
   const next = searchParams.get("next") || "";
 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [fout, setFout] = useState("");
   const [bezig, setBezig] = useState(false);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFout("");
-    if (!/.+@.+\..+/.test(email) || !password) {
-      setFout("Vul een geldig e-mailadres en wachtwoord in.");
+    if (!/.+@.+\..+/.test(email)) {
+      setFout("Vul een geldig e-mailadres in.");
       return;
     }
 
     setBezig(true);
     const supabase = createClient();
-    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: {
+        shouldCreateUser: false,
+        emailRedirectTo:
+          process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? `${window.location.origin}/auth/callback`,
+      },
+    });
 
     if (error) {
       setBezig(false);
@@ -39,18 +45,8 @@ export default function LoginForm() {
       return;
     }
 
-    const userId = data.user?.id;
-    if (!userId) {
-      setBezig(false);
-      setFout("Er ging iets mis. Probeer het opnieuw.");
-      return;
-    }
-
-    const { data: profile } = await supabase.from("profiles").select("role").eq("id", userId).maybeSingle();
-
-    const bestemming = next || (profile?.role === "werkgever" ? "/werkgever/dashboard" : "/werkzoekende/dashboard");
-    router.push(bestemming);
-    router.refresh();
+    setBezig(false);
+    setFout("Een eenmalige inloglink is naar je e-mailadres gestuurd. Klik op de link om verder te gaan.");
   };
 
   const inputClass =
@@ -69,17 +65,7 @@ export default function LoginForm() {
           autoComplete="email"
         />
       </label>
-      <label className="flex flex-col gap-2.5">
-        <span className="text-base font-semibold">Wachtwoord</span>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="••••••••"
-          className={inputClass}
-          autoComplete="current-password"
-        />
-      </label>
+      <p className="m-0 text-[15px] leading-relaxed text-black/55">Je ontvangt een eenmalige inloglink per e-mail.</p>
       {fout && <p className="m-0 text-base font-semibold text-[#C42A00]">{fout}</p>}
       <div className="flex flex-col-reverse gap-3 border-t border-black/10 pt-6.5 sm:flex-row sm:items-center sm:justify-between">
         <span className="text-[15px] text-black/55">
@@ -98,7 +84,7 @@ export default function LoginForm() {
           disabled={bezig}
           className="w-full rounded-full bg-accent px-8.5 py-4.5 text-lg font-bold whitespace-nowrap text-white transition-colors hover:bg-black disabled:opacity-60 sm:w-auto"
         >
-          {bezig ? "Bezig…" : "Inloggen →"}
+          {bezig ? "Link versturen…" : "Stuur mij een inloglink →"}
         </button>
       </div>
     </form>

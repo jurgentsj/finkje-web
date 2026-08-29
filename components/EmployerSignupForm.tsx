@@ -51,9 +51,6 @@ export default function EmployerSignupForm() {
     if (!form.naam.trim() || !/.+@.+\..+/.test(form.email)) {
       return setFout("Vul je naam en een geldig e-mailadres in.");
     }
-    if (form.wachtwoord.length < 6) {
-      return setFout("Kies een wachtwoord van minimaal 6 tekens.");
-    }
     setStap(2);
   };
 
@@ -67,10 +64,9 @@ export default function EmployerSignupForm() {
     setBezig(true);
     try {
       const supabase = createClient();
-      const { data, error } = await supabase.auth.signUp({
+      const { error } = await supabase.auth.signInWithOtp({
         email: form.email,
-        password: form.wachtwoord,
-        options: {
+        options: { shouldCreateUser: true,
           emailRedirectTo:
             process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? `${window.location.origin}/auth/callback`,
           data: {
@@ -100,18 +96,6 @@ export default function EmployerSignupForm() {
         return;
       }
 
-      if (data.session && data.user) {
-        await supabase.from("employer_profiles").upsert({
-          id: data.user.id,
-          bedrijfsnaam: form.bedrijfsnaam,
-          contactpersoon: form.contactpersoon,
-          sector: form.sector || null,
-          bedrijfsgrootte: form.bedrijfsgrootte || null,
-          website: form.website || null,
-          telefoon: form.telefoon || null,
-        });
-      }
-
       setKlaar(true);
       setBezig(false);
     } catch {
@@ -127,8 +111,7 @@ export default function EmployerSignupForm() {
           Account aangemaakt
         </h1>
         <p className="m-0 text-[15.5px] leading-relaxed text-black/60">
-          Bevestig je e-mailadres via de link die we je stuurden. Daarna kun je direct inloggen en profielen
-          bekijken.
+          We hebben een eenmalige inloglink naar je e-mailadres gestuurd. Klik op de link om verder te gaan en profielen te bekijken.
         </p>
         <Link
           href="/inloggen"
@@ -171,17 +154,6 @@ export default function EmployerSignupForm() {
               value={form.email}
               onChange={setField("email")}
               placeholder="naam@bedrijf.nl"
-              className="rounded-lg border border-black/15 bg-white px-4 py-3 text-[16px] text-[#111] outline-none focus:border-black"
-            />
-          </label>
-          <label className="flex flex-col gap-2">
-            <span className="text-xs font-semibold tracking-[0.1em] text-black/50 uppercase">Wachtwoord</span>
-            <input
-              type="password"
-              value={form.wachtwoord}
-              onChange={setField("wachtwoord")}
-              placeholder="Minimaal 6 tekens"
-              autoComplete="new-password"
               className="rounded-lg border border-black/15 bg-white px-4 py-3 text-[16px] text-[#111] outline-none focus:border-black"
             />
           </label>

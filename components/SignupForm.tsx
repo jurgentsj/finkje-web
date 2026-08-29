@@ -143,19 +143,14 @@ export default function SignupForm() {
     if (!form.naam.trim() || !/.+@.+\..+/.test(form.email)) {
       return setFout("Vul je naam en een geldig e-mailadres in.");
     }
-    if (form.wachtwoord.length < 6) {
-      return setFout("Kies een wachtwoord van minimaal 6 tekens.");
-    }
-
     setBezig(true);
     try {
       await saveLead("signup", { ...form, overs, omgevingen });
 
       const supabase = createClient();
-      const { data, error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signInWithOtp({
         email: form.email,
-        password: form.wachtwoord,
-        options: {
+        options: { shouldCreateUser: true,
           emailRedirectTo:
             process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? `${window.location.origin}/auth/callback`,
           data: {
@@ -236,8 +231,7 @@ export default function SignupForm() {
           Je staat erop. Welkom bij Finkje.
         </h1>
         <p className="m-0 max-w-[46ch] text-lg leading-relaxed text-white/70">
-          Je account is aangemaakt. Je kunt meteen verder met je profiel en je voorkeuren; we beloven je geen losse
-          bevestigingsmail.
+          Je account is aangemaakt. We hebben een eenmalige inloglink naar je e-mailadres gestuurd. Klik op de link om verder te gaan.
         </p>
         <div className="flex flex-wrap gap-3">
           <Link href="/" className="rounded-full border border-white/30 px-7 py-4 font-semibold text-white transition-colors hover:bg-white/10">
@@ -561,18 +555,6 @@ export default function SignupForm() {
                 placeholder="06 …"
                 className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-[19px] text-[#111] outline-none focus:border-accent"
               />
-            </label>
-            <label className="flex flex-col gap-2.5">
-              <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">Kies een wachtwoord voor je account</span>
-              <input
-                type="password"
-                value={form.wachtwoord}
-                onChange={setField("wachtwoord")}
-                placeholder="Minimaal 6 tekens"
-                autoComplete="new-password"
-                className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-[19px] text-[#111] outline-none focus:border-accent"
-              />
-              <span className="text-sm text-black/50">Hiermee log je later in op je eigen dashboard.</span>
             </label>
             <p className="m-0 max-w-[52ch] text-[15px] leading-relaxed text-black/50">
               Je naam en contactgegevens zijn nooit zichtbaar voor werkgevers, totdat jij beslist om in gesprek te
