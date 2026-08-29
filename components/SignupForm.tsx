@@ -213,8 +213,8 @@ export default function SignupForm() {
 
       setFout("");
       setBezig(false);
-      router.push(`/inloggen?email=${encodeURIComponent(form.email)}&voornaam=${encodeURIComponent(form.naam)}`);
-      router.refresh();
+      setKlaar(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     } catch (error) {
       console.error("[v0] Signup request failed:", error);
@@ -237,8 +237,11 @@ export default function SignupForm() {
           <Link href="/" className="rounded-full border border-white/30 px-7 py-4 font-semibold text-white transition-colors hover:bg-white/10">
             ← Home
           </Link>
-          <Link href="/mijn-finkje" className="rounded-full bg-accent px-7 py-4 font-semibold text-white transition-colors hover:bg-white hover:text-[#111]">
-            Mijn Finkje →
+          <Link
+            href={`/inloggen?email=${encodeURIComponent(form.email)}&voornaam=${encodeURIComponent(form.naam)}`}
+            className="rounded-full bg-accent px-7 py-4 font-semibold text-white transition-colors hover:bg-white hover:text-[#111]"
+          >
+            Bekijk jouw aanmelding →
           </Link>
         </div>
       </div>
