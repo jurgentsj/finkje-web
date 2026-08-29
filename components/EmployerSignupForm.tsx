@@ -109,16 +109,23 @@ export default function EmployerSignupForm() {
 
   if (klaar) {
     return (
-      <div className="flex flex-col gap-4 rounded-2xl border border-black/10 bg-white p-9 text-center sm:p-12">
-        <h1 className="m-0 font-display text-[clamp(26px,3.4vw,36px)] leading-tight font-bold tracking-[-0.03em]">
-          Account aangemaakt
-        </h1>
-        <p className="m-0 text-[15.5px] leading-relaxed text-black/60">
-          We hebben een eenmalige inloglink naar <strong className="font-semibold text-black">{form.email}</strong> gestuurd. Open je inbox en klik op de link om verder te gaan.
-        </p>
+      <div className="flex flex-col gap-6 rounded-[28px] bg-sand p-8 sm:p-10" role="status">
+        <div className="flex flex-col gap-3">
+          <span className="text-base font-semibold text-accent">Gelukt</span>
+          <h2 className="m-0 font-display text-[clamp(26px,3vw,36px)] leading-tight font-bold tracking-[-0.03em]">
+            Check je inbox.
+          </h2>
+          <p className="m-0 text-lg leading-relaxed text-black/60">
+            We hebben een eenmalige loginlink gestuurd naar <strong className="font-semibold text-black">{form.email}</strong>.
+          </p>
+        </div>
+        <div className="flex items-center gap-2 border-t border-black/10 pt-6 text-base font-semibold text-accent">
+          <span className="h-4 w-4 animate-spin rounded-full border-2 border-accent/30 border-t-accent" aria-hidden="true" />
+          De loginlink is onderweg.
+        </div>
         <Link
           href="/voor-werkgevers"
-          className="mx-auto mt-2 rounded-full bg-accent px-7 py-4 text-[16px] font-bold text-white transition-colors hover:bg-black"
+          className="self-start rounded-full bg-accent px-7 py-4 text-[16px] font-bold text-white transition-colors hover:bg-black"
         >
           Terug naar voor werkgevers →
         </Link>
