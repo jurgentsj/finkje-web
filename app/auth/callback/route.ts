@@ -4,22 +4,12 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = request.nextUrl;
   const code = searchParams.get("code");
-  const tokenHash = searchParams.get("token_hash") ?? searchParams.get("token");
-  const tokenType = searchParams.get("type");
   const next = searchParams.get("next");
   const safeNext = next && next.startsWith("/") && !next.startsWith("//") ? next : null;
 
-  if (code || tokenHash) {
+  if (code) {
     const supabase = await createClient();
-    let error;
-    if (code) {
-      error = (await supabase.auth.exchangeCodeForSession(code)).error;
-    } else {
-      error = (await supabase.auth.verifyOtp({
-        token_hash: tokenHash!,
-        type: tokenType === "signup" || tokenType === "invite" || tokenType === "recovery" || tokenType === "magiclink" || tokenType === "email_change" ? tokenType : "magiclink",
-      })).error;
-    }
+    const { error } = await supabase.auth.exchangeCodeForSession(code);
 
     if (!error) {
       const {
