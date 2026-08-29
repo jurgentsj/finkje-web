@@ -38,7 +38,7 @@ function Access({ mode }: { mode: "register" | "employer" | "login" }) {
   const supabase = useMemo(() => createClient(), []);
   const isLogin = mode === "login"; const isEmployer = mode === "employer";
   async function submit(event: FormEvent) { event.preventDefault(); setError(""); if (!email.match(/.+@.+\..+/)) return setError("Vul een geldig e-mailadres in."); if (password.length < 8) return setError("Je wachtwoord heeft minimaal 8 tekens."); if (!isLogin && !name.trim()) return setError("Vul je naam in."); if (isEmployer && !company.trim()) return setError("Vul je bedrijfsnaam in."); setBusy(true);
-    const result = isLogin ? await supabase.auth.signInWithPassword({ email, password }) : await supabase.auth.signUp({ email, password, options: { emailRedirectTo: process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? `${window.location.origin}/auth/callback`, data: { role: isEmployer ? "werkgever" : "werkzoekende", naam: name, bedrijfsnaam: company } } });
+    const result = isLogin ? await supabase.auth.signInWithPassword({ email, password }) : await supabase.auth.signUp({ email, password, options: { emailRedirectTo: `${window.location.origin}/auth/callback`, data: { role: isEmployer ? "werkgever" : "werkzoekende", naam: name, bedrijfsnaam: company } } });
     if (result.error) { setBusy(false); setError(result.error.message.toLowerCase().includes("rate") ? "Te veel pogingen. Probeer het later opnieuw." : isLogin ? "Ongeldig e-mailadres of wachtwoord." : "Aanmelden lukt nu niet. Probeer het nog een keer."); return; }
     if (isLogin) { router.push(result.data.user?.user_metadata?.role === "werkgever" ? "/dashboard" : "/mijn-finkje"); return; } setBusy(false); setSent(true);
   }
