@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import DashboardShell from "@/components/dashboard/DashboardShell";
 import JobseekerProfileForm from "@/components/dashboard/JobseekerProfileForm";
+import { isPreviewDemo } from "@/lib/demo-mode";
 
 export const metadata: Metadata = {
   title: "Mijn dashboard — Finkje",
@@ -16,9 +17,13 @@ export default async function WerkzoekendeDashboardPage() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user) redirect("/inloggen?next=/werkzoekende/dashboard");
+  const demo = isPreviewDemo() && !user;
+  if (!user && !demo) redirect("/inloggen?next=/werkzoekende/dashboard");
+  const demoUserId = "00000000-0000-0000-0000-000000000000";
 
-  const { data: profile } = await supabase.from("profiles").select("naam, email, role").eq("id", user.id).maybeSingle();
+  const { data: profile } = demo
+    ? { data: { naam: "Demo werkzoekende", email: "demo@finkje.nl", role: "werkzoekende" as const } }
+    : await supabase.from("profiles").select("naam, email, role").eq("id", user!.id).maybeSingle();
 
   if (profile?.role !== "werkzoekende") redirect("/werkgever/dashboard");
 
@@ -27,7 +32,7 @@ export default async function WerkzoekendeDashboardPage() {
     .select(
       "droombaan, waarom, sterk, tegenaan, hkleur, dienstverband, beschikbaarheid, locatie, reisafstand, sector, ervaring, telefoon, overs, omgevingen",
     )
-    .eq("id", user.id)
+    .eq("id", user?.id ?? demoUserId)
     .maybeSingle();
 
   return (
@@ -37,10 +42,10 @@ export default async function WerkzoekendeDashboardPage() {
         Hoi {profile?.naam || "daar"}, hier kun je jouw gegevens aanpassen.
       </h1>
       <JobseekerProfileForm
-        userId={user.id}
+        userId={user?.id ?? demoUserId}
         initial={{
           naam: profile?.naam ?? "",
-          email: profile?.email ?? user.email ?? "",
+          email: profile?.email ?? user?.email ?? "",
           droombaan: jobseeker?.droombaan ?? null,
           waarom: jobseeker?.waarom ?? null,
           sterk: jobseeker?.sterk ?? null,

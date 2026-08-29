@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { isPreviewDemo } from "@/lib/demo-mode";
 
 const werkzoekendeOnly = ["/werkzoekende/dashboard", "/mijn-finkje"];
 const werkgeverOnly = ["/werkgever/dashboard", "/dashboard"];
@@ -43,7 +44,7 @@ export async function updateSession(request: NextRequest) {
   const needsJobseeker = startsWithAny(pathname, werkzoekendeOnly);
   const needsEmployer = startsWithAny(pathname, werkgeverOnly) || startsWithAny(pathname, werkgeverMuur);
 
-  if (needsJobseeker || needsEmployer) {
+  if ((needsJobseeker || needsEmployer) && !isPreviewDemo()) {
     if (!user) {
       const url = request.nextUrl.clone();
       if (startsWithAny(pathname, werkgeverMuur)) {

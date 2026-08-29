@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import DashboardShell from "@/components/dashboard/DashboardShell";
 import EmployerProfileForm from "@/components/dashboard/EmployerProfileForm";
+import { isPreviewDemo } from "@/lib/demo-mode";
 
 export const metadata: Metadata = {
   title: "Werkgeversdashboard — Finkje",
@@ -19,16 +20,20 @@ export default async function WerkgeverDashboardPage() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user) redirect("/inloggen?next=/werkgever/dashboard");
+  const demo = isPreviewDemo() && !user;
+  if (!user && !demo) redirect("/inloggen?next=/werkgever/dashboard");
+  const demoUserId = "00000000-0000-0000-0000-000000000000";
 
-  const { data: profile } = await supabase.from("profiles").select("naam, email, role").eq("id", user.id).maybeSingle();
+  const { data: profile } = demo
+    ? { data: { naam: "Demo werkgever", email: "demo@finkje.nl", role: "werkgever" as const } }
+    : await supabase.from("profiles").select("naam, email, role").eq("id", user!.id).maybeSingle();
 
   if (profile?.role !== "werkgever") redirect("/werkzoekende/dashboard");
 
   const { data: employer } = await supabase
     .from("employer_profiles")
     .select("bedrijfsnaam, contactpersoon, sector, bedrijfsgrootte, website, telefoon")
-    .eq("id", user.id)
+    .eq("id", user?.id ?? demoUserId)
     .maybeSingle();
 
   return (
@@ -38,10 +43,10 @@ export default async function WerkgeverDashboardPage() {
         Beheer je bedrijfsgegevens
       </h1>
       <EmployerProfileForm
-        userId={user.id}
+        userId={user?.id ?? demoUserId}
         initial={{
           naam: profile?.naam ?? "",
-          email: profile?.email ?? user.email ?? "",
+          email: profile?.email ?? user?.email ?? "",
           bedrijfsnaam: employer?.bedrijfsnaam ?? "",
           contactpersoon: employer?.contactpersoon ?? "",
           sector: employer?.sector ?? null,
