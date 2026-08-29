@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { saveLead } from "@/lib/leads";
 import { createClient } from "@/lib/supabase/client";
+import { completeAuthProfile } from "@/lib/complete-auth-profile";
 import {
   dienstverbandOpties,
   omgevingOpties,
@@ -88,6 +89,8 @@ export default function SignupForm() {
   const [bezig, setBezig] = useState(false);
   const [locatieZoekterm, setLocatieZoekterm] = useState("");
   const [geenVoorkeur, setGeenVoorkeur] = useState(false);
+  const [wachtOpCode, setWachtOpCode] = useState(false);
+  const [code, setCode] = useState("");
 
   const setField =
     (key: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -150,11 +153,8 @@ export default function SignupForm() {
       const supabase = createClient();
       const { data, error } = await supabase.auth.signInWithOtp({
         email: form.email,
-        options: { shouldCreateUser: true,
-          emailRedirectTo:
-            typeof window !== "undefined" && window.location.hostname.endsWith("finkje.nl")
-              ? `${window.location.origin}/auth/callback`
-              : process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? `${window.location.origin}/auth/callback`,
+        options: {
+          shouldCreateUser: true,
           data: {
             role: "werkzoekende",
             naam: form.naam,
@@ -182,8 +182,6 @@ export default function SignupForm() {
         const message = error.message.toLowerCase();
         if (message.includes("rate limit") || message.includes("too many requests")) {
           setFout("Supabase blokkeert tijdelijk nieuwe e-mails. Wacht even en probeer daarna opnieuw.");
-        } else if (message.includes("redirect") || message.includes("not allowed")) {
-          setFout("De aanmeldlink mag nog niet naar deze preview terugkeren. Voeg deze URL toe in Supabase bij URL Configuration.");
         } else {
           setFout(`Supabase: ${error.message}`);
         }
@@ -191,31 +189,20 @@ export default function SignupForm() {
       }
 
       // If email confirmation is disabled we already have a session — write
-      // the jobseeker profile now. Otherwise the /auth/callback route does
-      // this once the confirmation link is used (see user_metadata above).
+      // the jobseeker profile now. Otherwise the user enters the 6-digit code
+      // we just emailed them (see bevestigCode below).
       if (data.session && data.user) {
-        await supabase.from("jobseeker_profiles").upsert({
-          id: data.user.id,
-          droombaan: form.droombaan,
-          waarom: form.waarom,
-          sterk: form.sterk,
-          tegenaan: form.tegenaan,
-          hkleur: form.hkleur,
-          dienstverband: form.dienstverband,
-          beschikbaarheid: form.beschikbaarheid,
-          locatie: form.locatie,
-          reisafstand: form.reisafstand,
-          sector: form.sector,
-          ervaring: form.ervaring,
-          telefoon: form.telefoon,
-          overs,
-          omgevingen,
-        });
+        await completeAuthProfile(supabase, data.user);
+        setFout("");
+        setBezig(false);
+        setKlaar(true);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
       }
 
       setFout("");
       setBezig(false);
-      setKlaar(true);
+      setWachtOpCode(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     } catch (error) {
@@ -226,6 +213,34 @@ export default function SignupForm() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const bevestigCode = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFout("");
+    if (!/^\d{6}$/.test(code)) {
+      setFout("Vul de 6-cijferige code uit je e-mail in.");
+      return;
+    }
+
+    setBezig(true);
+    const supabase = createClient();
+    const { data, error } = await supabase.auth.verifyOtp({
+      email: form.email,
+      token: code,
+      type: "email",
+    });
+
+    if (error || !data.user) {
+      setBezig(false);
+      setFout("Deze code is onjuist of verlopen. Vraag een nieuwe code aan.");
+      return;
+    }
+
+    await completeAuthProfile(supabase, data.user);
+    setBezig(false);
+    setKlaar(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   if (klaar) {
     return (
       <div className="flex flex-col gap-5.5 rounded-[32px] bg-black p-14 text-white">
@@ -233,20 +248,68 @@ export default function SignupForm() {
           Welkom bij Finkje, {form.naam}!
         </h1>
         <p className="m-0 max-w-[46ch] text-lg leading-relaxed text-white/70">
-          Je account is aangemaakt. We hebben een eenmalige inloglink naar je e-mailadres gestuurd. Klik op de link om verder te gaan.
+          Je account is aangemaakt en je bent ingelogd.
         </p>
         <div className="flex flex-wrap gap-3">
           <Link href="/" className="rounded-full border border-white/30 px-7 py-4 font-semibold text-white transition-colors hover:bg-white/10">
             ← Home
           </Link>
           <Link
-            href={`/inloggen?email=${encodeURIComponent(form.email)}&voornaam=${encodeURIComponent(form.naam)}`}
+            href="/werkzoekende/dashboard"
             className="rounded-full bg-accent px-7 py-4 font-semibold text-white transition-colors hover:bg-white hover:text-[#111]"
           >
-            Bekijk jouw aanmelding →
+            Naar jouw dashboard →
           </Link>
         </div>
       </div>
+    );
+  }
+
+  if (wachtOpCode) {
+    return (
+      <form onSubmit={bevestigCode} className="flex flex-col gap-5.5 rounded-[32px] bg-black p-14 text-white">
+        <span className="text-base font-semibold text-accent">Check je inbox</span>
+        <h1 className="m-0 font-display text-[clamp(30px,5vw,52px)] leading-[0.95] font-extrabold tracking-[-0.05em]">
+          Vul je inlogcode in.
+        </h1>
+        <p className="m-0 max-w-[46ch] text-lg leading-relaxed text-white/70">
+          We hebben een 6-cijferige code gestuurd naar <strong className="font-semibold text-white">{form.email}</strong>.
+        </p>
+        <label className="flex max-w-xs flex-col gap-2.5">
+          <span className="text-base font-semibold">Inlogcode</span>
+          <input
+            type="text"
+            inputMode="numeric"
+            autoComplete="one-time-code"
+            maxLength={6}
+            value={code}
+            onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
+            placeholder="123456"
+            className="rounded-2xl border border-white/20 bg-white/10 px-4.5 py-4 text-center text-2xl tracking-[0.3em] text-white outline-none focus:border-accent"
+          />
+        </label>
+        {fout && <p className="m-0 text-base font-semibold text-[#FF8A6B]">{fout}</p>}
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            onClick={() => {
+              setWachtOpCode(false);
+              setCode("");
+              setFout("");
+            }}
+            className="rounded-full border border-white/30 px-7 py-4 font-semibold text-white transition-colors hover:bg-white/10"
+          >
+            ← Terug
+          </button>
+          <button
+            type="submit"
+            disabled={bezig}
+            className="rounded-full bg-accent px-7 py-4 font-semibold text-white transition-colors hover:bg-white hover:text-[#111] disabled:opacity-60"
+          >
+            {bezig ? "Even geduld…" : "Bevestigen →"}
+          </button>
+        </div>
+      </form>
     );
   }
 

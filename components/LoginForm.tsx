@@ -4,28 +4,25 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { completeAuthProfile } from "@/lib/complete-auth-profile";
 
 export default function LoginForm({ employer = false }: { employer?: boolean }) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const next = searchParams.get("next") || "";
+  const nextParam = searchParams.get("next") || "";
   const initialEmail = searchParams.get("email") || "";
   const voornaam = searchParams.get("voornaam") || "";
-  const nextParam = searchParams.get("next") || "";
   const defaultNext = nextParam || (employer ? "/werkgever/dashboard" : voornaam ? "/werkzoekende/dashboard" : "");
-  const callbackUrl = typeof window !== "undefined" && window.location.hostname.endsWith("finkje.nl")
-    ? `${window.location.origin}/auth/callback`
-    : process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? `${window.location.origin}/auth/callback`;
 
   const [email, setEmail] = useState(initialEmail);
+  const [code, setCode] = useState("");
   const [fout, setFout] = useState("");
-  const [linkVerstuurd, setLinkVerstuurd] = useState(false);
+  const [codeVerstuurd, setCodeVerstuurd] = useState(false);
   const [bezig, setBezig] = useState(false);
 
-  const submit = async (e: React.FormEvent) => {
+  const verstuurCode = async (e: React.FormEvent) => {
     e.preventDefault();
     setFout("");
-    setLinkVerstuurd(false);
     if (!/.+@.+\..+/.test(email)) {
       setFout("Vul een geldig e-mailadres in.");
       return;
@@ -35,17 +32,13 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
     const supabase = createClient();
     const { error } = await supabase.auth.signInWithOtp({
       email,
-      options: {
-        shouldCreateUser: false,
-        emailRedirectTo:
-          `${callbackUrl}${defaultNext ? `?next=${encodeURIComponent(defaultNext)}` : ""}`,
-      },
+      options: { shouldCreateUser: false },
     });
 
+    setBezig(false);
     if (error) {
-      setBezig(false);
       if (error.message.toLowerCase().includes("email not confirmed")) {
-        setFout("Bevestig eerst je e-mailadres via de link die we je gestuurd hebben.");
+        setFout("Bevestig eerst je e-mailadres via de code die we je gestuurd hebben.");
       } else if (error.status === 429) {
         setFout("Te veel pogingen. Probeer het over een paar minuten opnieuw.");
       } else {
@@ -54,35 +47,87 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
       return;
     }
 
-    setBezig(false);
-    setLinkVerstuurd(true);
+    setCodeVerstuurd(true);
   };
 
-  if (linkVerstuurd) {
+  const bevestigCode = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFout("");
+    if (!/^\d{6}$/.test(code)) {
+      setFout("Vul de 6-cijferige code uit je e-mail in.");
+      return;
+    }
+
+    setBezig(true);
+    const supabase = createClient();
+    const { data, error } = await supabase.auth.verifyOtp({
+      email,
+      token: code,
+      type: "email",
+    });
+
+    if (error || !data.user) {
+      setBezig(false);
+      setFout("Deze code is onjuist of verlopen. Vraag een nieuwe code aan.");
+      return;
+    }
+
+    const destination = await completeAuthProfile(supabase, data.user);
+    router.replace(defaultNext || destination);
+  };
+
+  if (codeVerstuurd) {
     return (
-      <div className="flex flex-col gap-6 rounded-[28px] bg-sand p-8 sm:p-10" role="status">
+      <form onSubmit={bevestigCode} className="flex flex-col gap-6 rounded-[28px] bg-sand p-8 sm:p-10">
         <div className="flex flex-col gap-3">
-          <span className="text-base font-semibold text-accent">Gelukt</span>
+          <span className="text-base font-semibold text-accent">Check je inbox</span>
           <h2 className="m-0 font-display text-[clamp(26px,3vw,36px)] leading-tight font-bold tracking-[-0.03em]">
-            Check je inbox.
+            Vul je inlogcode in.
           </h2>
           <p className="m-0 text-lg leading-relaxed text-black/60">
-            We hebben een eenmalige loginlink gestuurd naar <strong className="font-semibold text-black">{email}</strong>.
+            We hebben een 6-cijferige code gestuurd naar <strong className="font-semibold text-black">{email}</strong>.
           </p>
         </div>
-        <div className="flex items-center gap-2 border-t border-black/10 pt-6 text-base font-semibold text-accent">
-          <span className="h-4 w-4 animate-spin rounded-full border-2 border-accent/30 border-t-accent" aria-hidden="true" />
-          De loginlink is onderweg.
+        <label className="flex flex-col gap-2.5">
+          <span className="text-base font-semibold">Inlogcode</span>
+          <input
+            type="text"
+            inputMode="numeric"
+            autoComplete="one-time-code"
+            maxLength={6}
+            value={code}
+            onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
+            placeholder="123456"
+            className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-center text-2xl tracking-[0.3em] text-[#111] outline-none focus:border-accent"
+          />
+        </label>
+        {fout && <p className="m-0 text-base font-semibold text-[#C42A00]">{fout}</p>}
+        <div className="flex flex-col-reverse gap-3 border-t border-black/10 pt-6.5 sm:flex-row sm:items-center sm:justify-between">
+          <button
+            type="button"
+            onClick={() => {
+              setCodeVerstuurd(false);
+              setCode("");
+              setFout("");
+            }}
+            className="self-start text-[15px] font-semibold text-accent underline-offset-4 hover:underline"
+          >
+            Ander e-mailadres gebruiken
+          </button>
+          <button
+            type="submit"
+            disabled={bezig}
+            className="w-full rounded-full bg-accent px-8.5 py-4.5 text-lg font-bold whitespace-nowrap text-white transition-colors hover:bg-black disabled:opacity-60 sm:w-auto"
+          >
+            {bezig ? (
+              <span className="inline-flex items-center gap-2">
+                <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" aria-hidden="true" />
+                Even geduld…
+              </span>
+            ) : "Inloggen →"}
+          </button>
         </div>
-        <div className="border-t border-black/10 pt-6">
-          <p className="m-0 text-[15px] leading-relaxed text-black/55">
-            Klik op de link in de e-mail om direct naar je {employer ? "werkgeversdashboard" : "dashboard"} te gaan.
-          </p>
-        </div>
-        <button type="button" onClick={() => setLinkVerstuurd(false)} className="self-start text-[15px] font-semibold text-accent underline-offset-4 hover:underline">
-          Ander e-mailadres gebruiken
-        </button>
-      </div>
+      </form>
     );
   }
 
@@ -90,7 +135,7 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
     "rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent";
 
   return (
-    <form onSubmit={submit} className="flex flex-col gap-6.5 rounded-[28px] bg-sand p-8.5">
+    <form onSubmit={verstuurCode} className="flex flex-col gap-6.5 rounded-[28px] bg-sand p-8.5">
       <label className="flex flex-col gap-2.5">
         <span className="text-base font-semibold">E-mail</span>
         <input
@@ -102,14 +147,8 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
           autoComplete="email"
         />
       </label>
-      <p className="m-0 text-[15px] leading-relaxed text-black/55">Je ontvangt een eenmalige inloglink per e-mail.</p>
+      <p className="m-0 text-[15px] leading-relaxed text-black/55">Je ontvangt een 6-cijferige inlogcode per e-mail.</p>
       {fout && <p className="m-0 text-base font-semibold text-[#C42A00]">{fout}</p>}
-      {linkVerstuurd && (
-        <p className="m-0 flex items-center gap-2 text-base font-semibold text-accent" role="status">
-          <span className="h-4 w-4 animate-spin rounded-full border-2 border-accent/30 border-t-accent" aria-hidden="true" />
-          Check je mail — je eenmalige inloglink is onderweg.
-        </p>
-      )}
       <div className="flex flex-col-reverse gap-3 border-t border-black/10 pt-6.5 sm:flex-row sm:items-center sm:justify-between">
         <span className="text-[15px] text-black/55">
           {employer ? (
@@ -144,7 +183,7 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
               <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" aria-hidden="true" />
               Even geduld…
             </span>
-          ) : linkVerstuurd ? "Opnieuw sturen" : "Stuur mij een inloglink →"}
+          ) : "Stuur mij een inlogcode →"}
         </button>
       </div>
     </form>
