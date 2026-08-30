@@ -13,11 +13,11 @@ export default function VacatureBrief() {
           Voordat je doorgaat: onze motivatiebrief.
         </h2>
         <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
-          Motivatie zegt alles. Daar zijn wij van overtuigd.
+          Beste werkgever, Motivatie zegt alles. Daar zijn wij van overtuigd.
         </p>
         <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
-          We zijn selectief. Niet iedereen komt zomaar in aanmerking om bij jouw bedrijf op gesprek te gaan. Daarom
-          hebben we bewust drempels gecreëerd die alleen oprecht gemotiveerde mensen nemen.
+          Daarom zijn we selectief. Niet iedereen komt zomaar in aanmerking om bij jouw bedrijf op gesprek te gaan. We
+          hebben bewust drempels gecreëerd die alleen oprecht gemotiveerde mensen nemen.
         </p>
         {!uitgeklapt && (
           <button type="button" onClick={() => setUitgeklapt(true)} className="self-start text-base font-semibold text-[#111] md:hidden">
