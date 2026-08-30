@@ -167,6 +167,12 @@ export const blogs: Blog[] = [
         ],
       },
       {
+        kop: "Welke functies dit in de praktijk zijn",
+        tekst: [
+          "Administratief werk is geen vak, het is een verzamelnaam voor tientallen rollen die weinig met elkaar te maken hebben behalve dat je met gegevens en mensen werkt. Een paar functies waar je zonder diploma serieus kans op maakt:\n\nBaliemedewerker of receptie — je bent het eerste aanspreekpunt, plant afspraken en houdt de agenda van anderen op orde. Werkgevers letten hier vooral op of je rustig blijft als het druk wordt.\n\nAdministratief medewerker backoffice — je verwerkt bestellingen, contracten of dossiers die door anderen zijn aangeleverd. Nauwkeurigheid telt hier zwaarder dan snelheid.\n\nFacturatie en crediteurenadministratie — je zorgt dat facturen kloppen en op tijd de deur uit of betaald worden. Bedrijven vertrouwen dit werk pas toe aan iemand die laat zien dat een verschil van een paar euro hem of haar ook opvalt.\n\nPlanning en logistieke ondersteuning — je houdt roosters, ritten of leveringen bij zodat een team weet waar het aan toe is. Dit werk leunt zwaar op overzicht en communiceren als iets misgaat.\n\nKlantenservice met administratieve taken — je beantwoordt vragen en verwerkt tegelijk de mutaties die daaruit volgen, bijvoorbeeld een adreswijziging of een terugbetaling.\n\nSecretariële ondersteuning — je beheert de agenda en post van een manager of team en bewaakt dat afspraken en deadlines niet verdwijnen tussen de mazen.\n\nDit zijn geen instapbanen zonder toekomst. Wie een van deze rollen een half jaar goed doet, groeit vaak door naar meer verantwoordelijkheid binnen hetzelfde bedrijf, juist omdat die persoon het systeem al kent.",
+        ],
+      },
+      {
         kop: "Wat helpt als je zonder diploma aan de slag wil?",
         tekst: [
           "Zoek naar momenten waarop je al met details en systemen werkte, en wees daar concreet over. Een kassa die je afsloot en die moest kloppen. Een planning die je bijhield voor een team. De administratie van een vereniging. Een webshop of Marktplaats-handeltje van jezelf waarbij je zelf de voorraad en de verzendingen bijhield.",
@@ -175,10 +181,22 @@ export const blogs: Blog[] = [
         ],
       },
       {
+        kop: "Wat kun je verdienen als administratief medewerker zonder diploma?",
+        tekst: [
+          "Precieze bedragen verschillen per branche, regio en het aantal uur dat je werkt, dus zie dit als richting en niet als belofte. Instapfuncties in de administratie starten doorgaans rond het wettelijk minimumloon tot een paar honderd euro daarboven, fulltime. Naarmate je verantwoordelijkheden groeien — bijvoorbeeld van data-invoer naar facturatie, of van receptie naar secretariële ondersteuning — stijgt dat mee, vaak sneller dan je op basis van een opleidingsniveau zou verwachten. De actuele cijfers per functie en regio vind je bij het CBS of in de cao van de sector waarin je solliciteert; vraag daar in een gesprek gerust naar, dat is heel normaal.",
+        ],
+      },
+      {
         kop: "Waar de openingen zitten",
         tekst: [
           'Bij grote organisaties met een strak HR-proces kom je zonder diploma moeilijk door de eerste ronde. Bij kleinere bedrijven, installatiebedrijven, zorginstellingen en gemeentes is de druk op de administratie juist hoog en beslist vaak degene die er zelf mee zit. Daar weegt "kan snel beginnen en wil dit echt" zwaarder dan een papiertje.',
           "Het lastige is dat je die werkgevers via een vacaturesite nauwelijks vindt, want zij zoeken vaak eerst in eigen kring. Bij Finkje zet je één keer neer dat je administratief wil werken en waarom dat bij je past. Wij leggen dat voor aan werkgevers met precies die plek open, en zij nemen contact op. Je hoeft niet langs alle vacaturebanken.",
+        ],
+      },
+      {
+        kop: "Veelgestelde vragen",
+        tekst: [
+          "Heb ik echt geen enkel diploma nodig voor administratief werk?\nVoor de meeste instapfuncties niet. Werkgevers vragen soms wel mbo-niveau als denkrichting, maar toetsen dat zelden hard als je in een gesprek laat zien dat je nauwkeurig en betrouwbaar bent.\n\nWat als ik geen werkervaring heb die op administratie lijkt?\nKijk breder dan een cv. Een kascontrole, een verenigingsboekhouding, een eigen webshop: het telt allemaal mee zolang je concreet kan uitleggen wat je deed en wat er misging.\n\nMoet ik eerst een cursus volgen?\nNiet om te beginnen. De systemen die je gebruikt leer je op de werkvloer, en die verschillen toch per bedrijf. Een cursus wordt pas de moeite waard als je al weet in welke richting je door wil groeien.\n\nKan ik ook administratief werk vinden als ik al een tijd niet heb gewerkt?\nJa. Werkgevers die op deze manier aannemen, kijken naar waarom je nu wél gemotiveerd bent, niet naar het gat op je cv.",
         ],
       },
     ],
@@ -209,10 +227,28 @@ export const blogs: Blog[] = [
         ],
       },
       {
+        kop: "Concrete functies om te kiezen",
+        tekst: [
+          '"Iets op kantoor" bestaat niet als functie, maar dit wel:\n\nKlantenservicemedewerker binnendienst — telefonisch of via mail klanten helpen en tegelijk het bijbehorende dossier bijwerken.\n\nPlanner — roosters, ritten of afspraken indelen zodat een team of chauffeurs weten waar ze aan toe zijn.\n\nInkoopassistent — bestellingen uitzetten, prijzen vergelijken en leveranciers nabellen als iets te laat is.\n\nOfficemanager of teamassistent — de dagelijkse gang van zaken op kantoor draaiende houden, van kantoorspullen bestellen tot vergaderingen inplannen.\n\nMedewerker binnendienst verkoop — offertes opstellen en opvolgen terwijl de buitendienst bij de klant zit.\n\nKies er één, niet vijf. Een werkgever die twijfelt tussen twee kandidaten kiest bijna altijd degene die kan uitleggen waarom deze rol specifiek bij hem of haar past.',
+        ],
+      },
+      {
         kop: "Zo pak je het aan",
         tekst: [
           "Schrijf één keer goed op welke rol je wil, waarom die bij je past en wat je al gedaan hebt dat daarop lijkt. Ook als dat buiten een baan was. Blijf van de neiging af om dat per vacature te herschrijven naar wat er gevraagd wordt, want dan verdwijnt precies het stuk dat je onderscheidt.",
           "Bij Finkje leggen we dat verhaal anoniem voor aan bedrijven die verder kijken dan het cv, en zij nodigen jou uit als het past. Geen eerste selectie op opleidingsniveau, geen stapel afwijzingen, en je gegevens gaan pas naar iemand op het moment dat jij dat wil.",
+        ],
+      },
+      {
+        kop: "Wat een kantoorbaan oplevert",
+        tekst: [
+          "Ook hier geldt: de bedragen verschillen per sector, regio en verantwoordelijkheid, dus zie dit als richting. Instapfuncties op kantoor zitten vaak in dezelfde orde van grootte als administratief werk elders, met net iets meer ruimte naar boven zodra je klantcontact, inkoop of planning zelfstandig aankunt. Vraag in een gesprek gerust naar de salarisrange voor de functie, dat hoort erbij en zegt niets over hoe serieus je wordt genomen.",
+        ],
+      },
+      {
+        kop: "Veelgestelde vragen",
+        tekst: [
+          "Is een kantoorbaan hetzelfde als administratief werk?\nEr is overlap, maar kantoorwerk is breder: het gaat net zo goed over klantcontact, inkoop of planning als over dossiers bijhouden.\n\nHoe laat ik zien dat ik geschikt ben zonder relevante werkervaring?\nDoor één rol te kiezen en concreet te maken wat je al deed dat erop lijkt, ook buiten een baan om. Zie de sectie hierboven.\n\nWordt van mij verwacht dat ik met Excel of een ander systeem kan werken?\nBasisvaardigheden helpen, maar de meeste bedrijven werken met hun eigen systeem, dat leer je toch pas op de werkvloer.",
         ],
       },
     ],
