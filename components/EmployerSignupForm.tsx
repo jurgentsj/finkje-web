@@ -231,11 +231,11 @@ className="flex flex-col gap-5 rounded-[28px] p-5 sm:gap-6 sm:p-10"
         <h1 className="m-0 font-display text-[34px] leading-tight font-normal tracking-[-0.03em]">
           {stap === 1 ? "Creëer je account" : "Je bedrijfsgegevens"}
         </h1>
+        <p className="m-0 text-[16.5px] leading-relaxed text-black/65 sm:hidden">
+          Maak je volgende aanstelling op motivatie. Finkje brengt je in contact met gemotiveerde mensen die weten wat zij willen.
+        </p>
         <p className="m-0 text-[16px] leading-relaxed text-black/55">
           {stap === 1 ? "Maak je account aan. Je ontvangt daarna een inlogcode per e-mail en hebt toegang tot onze Willers." : "Vul je bedrijfsgegevens in om verder te gaan."}
-        </p>
-        <p className="mt-3 m-0 text-[16.5px] leading-relaxed text-black/65 sm:hidden">
-          Maak je volgende aanstelling op motivatie. Finkje brengt je in contact met gemotiveerde mensen die weten wat zij willen.
         </p>
       </div>
 
