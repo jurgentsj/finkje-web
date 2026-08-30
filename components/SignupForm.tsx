@@ -91,6 +91,7 @@ export default function SignupForm() {
   const [geenVoorkeur, setGeenVoorkeur] = useState(false);
   const [wachtOpCode, setWachtOpCode] = useState(false);
   const [code, setCode] = useState("");
+  const [akkoord, setAkkoord] = useState(false);
 
   const setField =
     (key: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -146,6 +147,7 @@ export default function SignupForm() {
     if (!form.naam.trim() || !/.+@.+\..+/.test(form.email)) {
       return setFout("Vul je naam en een geldig e-mailadres in.");
     }
+    if (!akkoord) return setFout("Ga eerst akkoord met de algemene voorwaarden.");
     setBezig(true);
     try {
       await saveLead("signup", { ...form, overs, omgevingen });
@@ -344,6 +346,7 @@ export default function SignupForm() {
       </div>
 
       <form onSubmit={submit} className="flex flex-col gap-8.5 rounded-[28px] bg-sand p-8.5">
+        <p className="m-0 text-sm text-black/55">Heb je al een account en wil je je aanmelding aanpassen? <Link href="/inloggen" className="font-semibold text-accent underline">Log hier in.</Link></p>
         {stap === 1 && (
           <div className="flex flex-col gap-8">
             <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Stap 1 — de Functie</span>
@@ -628,9 +631,13 @@ export default function SignupForm() {
               />
             </label>
             <p className="m-0 max-w-[52ch] text-[15px] leading-relaxed text-black/50">
-              Je naam en contactgegevens zijn nooit zichtbaar voor werkgevers, totdat jij beslist om in gesprek te
-              gaan.
+              Je naam en contactgegevens zijn nooit zichtbaar voor werkgevers, totdat jij beslist om in gesprek te gaan.
             </p>
+            <label className="flex items-start gap-3 text-sm leading-relaxed text-black/70">
+              <input type="checkbox" checked={akkoord} onChange={(e) => setAkkoord(e.target.checked)} className="mt-1 size-4 accent-accent" />
+              <span>Ik ga akkoord met de <Link href="/algemene-voorwaarden" className="font-semibold underline">algemene voorwaarden</Link>.</span>
+            </label>
+            <p className="m-0 text-sm font-semibold text-black/55">Gratis, zonder verplichtingen. We delen je gegevens nooit zonder jouw toestemming.</p>
           </div>
         )}
 

@@ -71,6 +71,7 @@ export default function DashboardShell({
               {isWerkgever ? "Werkgever" : "Welkom"}
             </span>
             <span className="truncate font-display text-lg font-bold tracking-[-0.02em]">{naam || "—"}</span>
+            {!isWerkgever && <span className="mt-3 inline-flex w-fit items-center gap-2 rounded-full bg-accent/10 px-3 py-1.5 text-xs font-semibold text-accent"><span className="size-2 rounded-full bg-accent" />Actief op zoek</span>}
           </div>
           {navItems.map((item) => {
             const active = pathname === item.href;
