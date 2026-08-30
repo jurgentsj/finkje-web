@@ -64,7 +64,7 @@ export default function VoorWerkgeversPage() {
 
       <section className="mx-auto max-w-[1360px] px-4 pt-14 sm:px-6 sm:pt-20">
         <div className="flex flex-col gap-8 border-b border-black/15 pb-7">
-          <h2 className="m-0 font-display text-[45px] leading-[0.96] font-normal tracking-[-0.045em]">
+          <h2 className="m-0 font-display text-[34px] leading-[0.96] font-normal tracking-[-0.045em] sm:text-[45px]">
             Zo werkt het
           </h2>
         </div>
@@ -96,7 +96,7 @@ export default function VoorWerkgeversPage() {
 
       <section className="mx-auto max-w-[1360px] px-4 pt-16 sm:px-6 sm:pt-24">
         <div className="flex flex-col gap-8 border-b border-black/15 pb-7 sm:flex-row sm:items-end sm:justify-between">
-          <h2 className="m-0 max-w-[20ch] font-display text-[45px] leading-[0.96] font-normal tracking-[-0.045em]">
+          <h2 className="m-0 max-w-[20ch] font-display text-[34px] leading-[0.96] font-normal tracking-[-0.045em] sm:text-[45px]">
             Motivatie is uniek, een cv niet
           </h2>
         </div>
