@@ -174,7 +174,7 @@ export default function EmployerSignupForm() {
 
   if (wachtOpCode) {
     return (
-      <form onSubmit={bevestigCode} className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10">
+      <form onSubmit={bevestigCode} className="flex flex-col gap-5 rounded-[28px] p-5 sm:gap-6 sm:p-10">
         <div className="flex flex-col gap-3 border-b border-black/10 pb-6">
           <h1 className="m-0 font-display text-[32px] leading-tight font-normal tracking-[-0.03em]">
             Voer je inlogcode in
@@ -196,7 +196,7 @@ export default function EmployerSignupForm() {
           />
         </label>
         {fout && <p className="m-0 text-[14px] font-medium text-red-600">{fout}</p>}
-        <div className="flex items-center justify-between border-t border-black/10 pt-5">
+        <div className="flex flex-col-reverse items-stretch gap-4 border-t border-black/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
           <button
             type="button"
             onClick={() => {
@@ -223,7 +223,7 @@ export default function EmployerSignupForm() {
   return (
     <form
       onSubmit={stap === 1 ? handleNext : handleSubmit}
-className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10"
+className="flex flex-col gap-5 rounded-[28px] p-5 sm:gap-6 sm:p-10"
     >
       <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
       <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
@@ -320,7 +320,7 @@ className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10"
 
       {fout && <p className="m-0 text-[14px] font-medium text-red-600">{fout}</p>}
 
-      <div className="flex items-center justify-between border-t border-black/10 pt-5">
+      <div className="flex flex-col-reverse items-stretch gap-4 border-t border-black/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
         {stap === 2 ? (
           <button
             type="button"
@@ -337,7 +337,7 @@ className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10"
         <button
           type="submit"
           disabled={bezig}
-          className="rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-black disabled:opacity-60"
+          className="w-full rounded-full bg-accent px-5 py-4 text-[16px] font-semibold text-white transition-colors hover:bg-black disabled:opacity-60 sm:w-auto sm:px-7 sm:text-[17px]"
         >
           {stap === 1 ? "Doorgaan →" : bezig ? "Account wordt aangemaakt…" : "Gratis account aanmaken"}
         </button>

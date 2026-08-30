@@ -18,20 +18,20 @@ const strip = [
 export default function VoorWerkgeversPage() {
   return (
     <>
-      <section className="mx-auto max-w-[1360px] px-6 pt-16">
+      <section className="mx-auto max-w-[1360px] px-4 pt-10 sm:px-6 sm:pt-16">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] items-end gap-12">
           <div>
             <div className="inline-flex rounded-full border border-accent px-4 py-2 text-xs font-semibold tracking-[0.16em] text-accent uppercase">
               Voor werkgevers
             </div>
-            <h1 className="m-0 mt-7 max-w-[16ch] font-display text-[75px] leading-[0.88] font-normal tracking-[-0.05em]">
+            <h1 className="m-0 mt-7 max-w-[16ch] font-display text-[clamp(48px,16vw,75px)] leading-[0.9] font-normal tracking-[-0.05em]">
               Ontdek gemotiveerde mensen die weten wat ze willen.
             </h1>
             <p className="mt-7 max-w-[42ch] text-[20px] leading-snug text-black/62">
               Onze mensen beginnen bij zichzelf en worden niet extern geprikkeld door de voorwaarden op jouw vacature. Zo
               beloven we enorm gedreven mensen, die intrinsiek gemotiveerd zijn.
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 href="/motivatiebrief"
                 className="rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-black"
@@ -62,7 +62,7 @@ export default function VoorWerkgeversPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1360px] px-6 pt-20">
+      <section className="mx-auto max-w-[1360px] px-4 pt-14 sm:px-6 sm:pt-20">
         <h2 className="m-0 mb-2 font-display text-[clamp(28px,4vw,52px)] leading-[0.96] font-normal tracking-[-0.045em]">
           Zo werkt het
         </h2>
@@ -82,7 +82,7 @@ export default function VoorWerkgeversPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1360px] px-6 pt-20">
+      <section className="mx-auto max-w-[1360px] px-4 pt-14 sm:px-6 sm:pt-20">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-4">
           {strip.map((s) => (
             <div key={s.src} className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-black/5">
@@ -92,7 +92,7 @@ export default function VoorWerkgeversPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1360px] px-6 pt-24">
+      <section className="mx-auto max-w-[1360px] px-4 pt-16 sm:px-6 sm:pt-24">
         <div className="flex flex-col gap-8 border-b border-black/15 pb-7 sm:flex-row sm:items-end sm:justify-between">
           <h2 className="m-0 max-w-[20ch] font-display text-[clamp(28px,4vw,52px)] leading-[0.96] font-normal tracking-[-0.045em]">
             Motivatie is uniek, een cv niet
