@@ -12,11 +12,9 @@ export const metadata: Metadata = {
 const navItems = [
   { href: "/werkzoekende/dashboard", label: "Mijn aanmelding" },
   { href: "/werkzoekende/dashboard#droombaan", label: "Droombaan" },
-  { href: "/werkzoekende/dashboard#kern", label: "De kern" },
-  { href: "/werkzoekende/dashboard#werk", label: "Hoe ik werk" },
-  { href: "/werkzoekende/dashboard#eerlijk", label: "Eerlijk beeld" },
-  { href: "/werkzoekende/dashboard#ambitie", label: "Ambitie" },
-  { href: "/werkzoekende/dashboard#beschikbaarheid", label: "Beschikbaarheid" },
+  { href: "/werkzoekende/dashboard#voorkeuren", label: "Voorkeuren" },
+  { href: "/werkzoekende/dashboard#reacties", label: "Reacties" },
+  { href: "/werkzoekende/dashboard#status", label: "Status" },
 ];
 
 export default async function WerkzoekendeDashboardPage() {
@@ -38,7 +36,7 @@ export default async function WerkzoekendeDashboardPage() {
   const { data: jobseeker } = await supabase
     .from("jobseeker_profiles")
     .select(
-      "droombaan, waarom, sterk, tegenaan, hkleur, dienstverband, beschikbaarheid, locatie, reisafstand, sector, ervaring, telefoon, overs, omgevingen, updated_at",
+      "droombaan, waarom, sterk, tegenaan, hkleur, dienstverband, beschikbaarheid, locatie, reisafstand, sector, ervaring, telefoon, overs, omgevingen, status, updated_at",
     )
     .eq("id", user?.id ?? demoUserId)
     .maybeSingle();
@@ -69,9 +67,10 @@ export default async function WerkzoekendeDashboardPage() {
           overs: jobseeker?.overs ?? [],
           omgevingen: jobseeker?.omgevingen ?? [],
           updatedAt: jobseeker?.updated_at ?? null,
+          zoekstatus: jobseeker?.status ?? "Ik ben actief op zoek",
         }}
       />
-      <section className="mt-8 rounded-[28px] bg-white p-7 sm:p-9" aria-labelledby="reacties-heading">
+      <section id="reacties" className="mt-8 rounded-[28px] bg-white p-7 sm:p-9" aria-labelledby="reacties-heading">
         <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Reacties</p>
         <h2 id="reacties-heading" className="mt-3 mb-2 font-display text-2xl font-bold tracking-[-0.03em]">Nog geen reacties</h2>
         <p className="m-0 max-w-[54ch] text-base leading-relaxed text-black/60">Dat kan even duren. Je aanmelding blijft actief tot er een match is. Je hoeft zelf niets te doen.</p>

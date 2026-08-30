@@ -22,6 +22,7 @@ export type JobseekerProfileData = {
   overs: string[];
   omgevingen: string[];
   updatedAt?: string | null;
+  zoekstatus?: string | null;
 };
 
 function toggle(list: string[], value: string) {
@@ -33,6 +34,7 @@ export default function JobseekerProfileForm({ userId, initial }: { userId: stri
   const [status, setStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
   const [bewerken, setBewerken] = useState(false);
   const [bevestigen, setBevestigen] = useState(false);
+  const statusOpties = ["Ik ben actief op zoek", "Ik kijk rond", "Nu even niet"];
   const zesMaanden = form.updatedAt ? new Date(new Date(form.updatedAt).setMonth(new Date(form.updatedAt).getMonth() + 6)) : null;
   const magBewerken = !zesMaanden || zesMaanden <= new Date() || bewerken;
 
@@ -62,6 +64,7 @@ export default function JobseekerProfileForm({ userId, initial }: { userId: stri
       telefoon: form.telefoon,
       overs: form.overs,
       omgevingen: form.omgevingen,
+      status: form.zoekstatus,
       updated_at: new Date().toISOString(),
     });
 
@@ -86,6 +89,13 @@ export default function JobseekerProfileForm({ userId, initial }: { userId: stri
         <p className="mt-2 mb-4 text-sm leading-relaxed text-black/65">Na bevestiging kun je je droombaan en de gekoppelde kernvelden de komende zes maanden niet opnieuw aanpassen.</p>
         <div className="flex flex-wrap gap-3"><button type="button" onClick={() => { setBewerken(true); setBevestigen(false); }} className="rounded-full bg-accent px-5 py-3 font-semibold text-white">Ik begrijp het, doorgaan</button><button type="button" onClick={() => setBevestigen(false)} className="rounded-full border border-black/15 px-5 py-3 font-semibold">Annuleren</button></div>
       </div>}
+      <section id="status" className="rounded-[28px] bg-white p-7 sm:p-9">
+        <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Status</p>
+        <h2 className="mt-3 mb-5 font-display text-2xl font-bold tracking-[-0.03em]">Hoe mogen werkgevers je zien?</h2>
+        <div className="flex flex-wrap gap-2.5">
+          {statusOpties.map((optie) => <button key={optie} type="button" onClick={() => setForm((f) => ({ ...f, zoekstatus: optie }))} className={`rounded-full border px-4 py-2.5 text-sm font-semibold transition-colors ${form.zoekstatus === optie ? "border-accent bg-accent text-white" : "border-black/15 text-black/65 hover:border-black/30"}`}>{optie}</button>)}
+        </div>
+      </section>
       <form onSubmit={submit} className="flex flex-col gap-9" aria-disabled={!magBewerken}>
       <fieldset disabled={!magBewerken} className="flex flex-col gap-9 border-0 p-0">
       <div className="rounded-[28px] bg-white p-7 sm:p-9">
@@ -134,7 +144,7 @@ export default function JobseekerProfileForm({ userId, initial }: { userId: stri
         </div>
       </div>
 
-      <div className="rounded-[28px] bg-white p-7 sm:p-9">
+      <div id="voorkeuren" className="rounded-[28px] bg-white p-7 sm:p-9">
         <h2 className="m-0 mb-6 font-display text-xl font-bold tracking-[-0.02em]">Voorkeuren</h2>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <label className="flex flex-col gap-2">

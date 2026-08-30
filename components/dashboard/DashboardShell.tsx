@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
@@ -21,7 +21,15 @@ export default function DashboardShell({
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [hash, setHash] = useState("");
   const [loggingOut, setLoggingOut] = useState(false);
+
+  useEffect(() => {
+    const syncHash = () => setHash(window.location.hash);
+    syncHash();
+    window.addEventListener("hashchange", syncHash);
+    return () => window.removeEventListener("hashchange", syncHash);
+  }, []);
 
   const isWerkgever = variant === "werkgever";
 
@@ -74,7 +82,8 @@ export default function DashboardShell({
             {!isWerkgever && <span className="mt-3 inline-flex w-fit items-center gap-2 rounded-full bg-accent/10 px-3 py-1.5 text-xs font-semibold text-accent"><span className="size-2 rounded-full bg-accent" />Actief op zoek</span>}
           </div>
           {navItems.map((item) => {
-            const active = pathname === item.href;
+            const [itemPath, itemHash] = item.href.split("#");
+            const active = pathname === itemPath && (itemHash ? hash === `#${itemHash}` : !hash);
             return (
               <Link
                 key={item.href}
