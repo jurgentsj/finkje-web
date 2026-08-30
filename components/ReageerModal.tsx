@@ -19,6 +19,11 @@ export default function ReageerModal({
   sluiten: () => void;
   versturen: (e: React.FormEvent) => void;
 }) {
+  const guardedSubmit = (event: React.FormEvent) => {
+    const honeypot = new FormData(event.currentTarget as HTMLFormElement).get("website_confirmation");
+    if (typeof honeypot === "string" && honeypot.trim()) return;
+    versturen(event);
+  };
   return (
     <div
       className="fixed inset-0 z-[200] flex items-start justify-center overflow-y-auto bg-black/45 p-6"
@@ -61,7 +66,9 @@ export default function ReageerModal({
             </button>
           </div>
         ) : (
-          <form onSubmit={versturen} className="flex flex-col gap-4 border-t border-black/10 pt-5.5">
+          <form onSubmit={guardedSubmit} className="flex flex-col gap-4 border-t border-black/10 pt-5.5">
+            <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
+            <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
             <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-3.5">
               <label className="flex flex-col gap-1.5">
                 <span className="text-[13.5px] font-semibold text-black/65">Jouw naam</span>

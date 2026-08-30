@@ -44,6 +44,8 @@ export default function JobseekerProfileForm({ userId, initial }: { userId: stri
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const honeypot = new FormData(e.currentTarget as HTMLFormElement).get("website_confirmation");
+    if (typeof honeypot === "string" && honeypot.trim()) return;
     setStatus("saving");
     const supabase = createClient();
 
@@ -90,6 +92,8 @@ export default function JobseekerProfileForm({ userId, initial }: { userId: stri
         <div className="flex flex-wrap gap-3"><button type="button" onClick={() => { setBewerken(true); setBevestigen(false); }} className="rounded-full bg-accent px-5 py-3 font-semibold text-white">Ik begrijp het, doorgaan</button><button type="button" onClick={() => setBevestigen(false)} className="rounded-full border border-black/15 px-5 py-3 font-semibold">Annuleren</button></div>
       </div>}
       <form onSubmit={submit} className="flex flex-col gap-9" aria-disabled={!magBewerken}>
+      <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
+      <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       <fieldset disabled={!magBewerken} className="flex flex-col gap-9 border-0 p-0">
       <div className="rounded-[28px] bg-white p-7 sm:p-9">
         <h2 className="m-0 mb-6 font-display text-xl font-bold tracking-[-0.02em]">Jouw gegevens</h2>

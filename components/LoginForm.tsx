@@ -22,6 +22,8 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
 
   const verstuurCode = async (e: React.FormEvent) => {
     e.preventDefault();
+    const honeypot = new FormData(e.currentTarget as HTMLFormElement).get("website_confirmation");
+    if (typeof honeypot === "string" && honeypot.trim()) return;
     setFout("");
     if (!/.+@.+\..+/.test(email)) {
       setFout("Vul een geldig e-mailadres in.");
@@ -52,6 +54,8 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
 
   const bevestigCode = async (e: React.FormEvent) => {
     e.preventDefault();
+    const honeypot = new FormData(e.currentTarget as HTMLFormElement).get("website_confirmation");
+    if (typeof honeypot === "string" && honeypot.trim()) return;
     setFout("");
     if (!/^\d{6}$/.test(code)) {
       setFout("Vul de 6-cijferige code uit je e-mail in.");
@@ -79,6 +83,8 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
   if (codeVerstuurd) {
     return (
       <form onSubmit={bevestigCode} className="flex flex-col gap-6 rounded-[28px] bg-sand p-8 sm:p-10">
+        <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
+        <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
         <div className="flex flex-col gap-3">
           <span className="text-base font-semibold text-accent">Check je inbox</span>
           <h2 className="m-0 font-display text-[clamp(26px,3vw,36px)] leading-tight font-bold tracking-[-0.03em]">
@@ -136,6 +142,8 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
 
   return (
     <form onSubmit={verstuurCode} className="flex flex-col gap-6.5 rounded-[28px] bg-sand p-8.5">
+      <label htmlFor="website_confirmation_login" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
+      <input id="website_confirmation_login" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       <label className="flex flex-col gap-2.5">
         <span className="text-base font-semibold">E-mail</span>
         <input

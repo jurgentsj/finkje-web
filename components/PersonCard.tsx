@@ -52,7 +52,7 @@ export default function PersonCard({ persoon, filterRegio }: { persoon: Persoon;
             <span className="text-[13.5px] leading-relaxed text-white/72">
               Gewoon iets leuks om te laten zien aan een werkgever. Verder niks bijzonders.
             </span>
-            <Link href="/lievelingskleur" className="text-[13.5px] font-semibold text-white underline">
+            <Link href="/lievelingskleur?from=mensen" className="text-[13.5px] font-semibold text-white underline">
               Waarom een lievelingskleur? →
             </Link>
           </div>

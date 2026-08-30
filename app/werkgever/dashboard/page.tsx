@@ -4,6 +4,8 @@ import { createClient } from "@/lib/supabase/server";
 import EmployerDashboard from "@/components/dashboard/EmployerDashboard";
 import { isPreviewDemo } from "@/lib/demo-mode";
 
+type Vacancy = { id: string; titel: string; plaats: string; uren: string; omschrijving: string; status: "Online" | "Op pauze" };
+
 export const metadata: Metadata = {
   title: "Werkgeversdashboard",
 };
@@ -30,6 +32,10 @@ export default async function WerkgeverDashboardPage() {
     .eq("id", user?.id ?? demoUserId)
     .maybeSingle();
 
+  const { data: vacancies = [] } = demo
+    ? { data: [] }
+    : await supabase.from("vacancies").select("id, titel, plaats, uren, omschrijving, status").eq("employer_id", user!.id).order("created_at", { ascending: false });
+
   return <EmployerDashboard initial={{
     id: user?.id ?? demoUserId,
     naam: employer?.contactpersoon ?? profile?.naam ?? "",
@@ -38,5 +44,6 @@ export default async function WerkgeverDashboardPage() {
     plaats: "",
     website: employer?.website ?? "",
     telefoon: employer?.telefoon ?? "",
+    vacancies: vacancies as Vacancy[],
   }} />;
 }

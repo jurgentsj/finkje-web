@@ -460,7 +460,7 @@ export default function SignupForm() {
                   />
                 ))}
               </div>
-              <Link href="/lievelingskleur" className="text-[14.5px] font-semibold">
+              <Link href="/lievelingskleur?from=aanmelden" className="text-[14.5px] font-semibold">
                 Waarom mijn lievelingskleur? →
               </Link>
             </div>

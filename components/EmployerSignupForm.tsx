@@ -49,15 +49,41 @@ export default function EmployerSignupForm() {
     setForm((f) => ({ ...f, [key]: e.target.value }));
   };
 
-  const handleNext = (e: React.FormEvent) => {
+  const handleNext = async (e: React.FormEvent) => {
     e.preventDefault();
     const honeypot = new FormData(e.currentTarget as HTMLFormElement).get("website_confirmation");
     if (typeof honeypot === "string" && honeypot.trim()) return;
     setFout("");
-    if (!form.naam.trim() || !/.+@.+\..+/.test(form.email)) {
-      return setFout("Vul je naam en een geldig e-mailadres in.");
+    if (!/.+@.+\..+/.test(form.email)) {
+      return setFout("Vul een geldig e-mailadres in.");
     }
-    setStap(2);
+
+    setBezig(true);
+    try {
+      const supabase = createClient();
+      const { error } = await supabase.auth.signInWithOtp({
+        email: form.email,
+        options: { shouldCreateUser: true },
+      });
+
+      if (error) {
+        console.error("[v0] Employer signup OTP failed:", { code: error.code, message: error.message, status: error.status });
+        const message = error.message.toLowerCase();
+        setFout(
+          message.includes("rate limit") || message.includes("too many requests")
+            ? "Supabase blokkeert tijdelijk nieuwe e-mails. Wacht even en probeer daarna opnieuw."
+            : "De inlogcode kon niet worden verzonden. Probeer het nog een keer.",
+        );
+        setBezig(false);
+        return;
+      }
+
+      setBezig(false);
+      setWachtOpCode(true);
+    } catch {
+      setBezig(false);
+      setFout("Registreren lukt nu niet. Probeer het nog een keer.");
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -72,44 +98,16 @@ export default function EmployerSignupForm() {
     setBezig(true);
     try {
       const supabase = createClient();
-      const { data, error } = await supabase.auth.signInWithOtp({
-        email: form.email,
-        options: {
-          shouldCreateUser: true,
-          data: {
-            role: "werkgever",
-            naam: form.naam,
-            bedrijfsnaam: form.bedrijfsnaam,
-            contactpersoon: form.contactpersoon,
-            sector: form.sector,
-            bedrijfsgrootte: form.bedrijfsgrootte,
-            website: form.website,
-            telefoon: form.telefoon,
-          },
-        },
-      });
-
-      if (error) {
-        console.error("[v0] Employer signup OTP failed:", { code: error.code, message: error.message, status: error.status });
+      const { data, error } = await supabase.auth.getUser();
+      if (error || !data.user) {
         setBezig(false);
-        const message = error.message.toLowerCase();
-        if (message.includes("rate limit") || message.includes("too many requests")) {
-          setFout("Supabase blokkeert tijdelijk nieuwe e-mails. Wacht even en probeer daarna opnieuw.");
-        } else {
-          setFout(`Supabase: ${error.message}`);
-        }
+        setFout("Je sessie is verlopen. Vraag een nieuwe inlogcode aan.");
         return;
       }
 
-      if (data.session && data.user) {
-        await completeAuthProfile(supabase, data.user);
-        setBezig(false);
-        setKlaar(true);
-        return;
-      }
-
+      await completeAuthProfile(supabase, data.user, "werkgever");
       setBezig(false);
-      setWachtOpCode(true);
+      router.replace("/werkgever/dashboard");
     } catch {
       setBezig(false);
       setFout("Registreren lukt nu niet. Probeer het nog een keer.");
@@ -138,9 +136,20 @@ export default function EmployerSignupForm() {
       return;
     }
 
-    const destination = await completeAuthProfile(supabase, data.user);
+    await supabase.auth.updateUser({
+      data: {
+        role: "werkgever",
+        bedrijfsnaam: form.bedrijfsnaam,
+        contactpersoon: form.contactpersoon,
+        sector: form.sector,
+        bedrijfsgrootte: form.bedrijfsgrootte,
+        website: form.website,
+        telefoon: form.telefoon,
+      },
+    });
+    setWachtOpCode(false);
+    setStap(2);
     setBezig(false);
-    router.replace(next || destination);
   };
 
   if (klaar) {
@@ -165,12 +174,11 @@ export default function EmployerSignupForm() {
 
   if (wachtOpCode) {
     return (
-      <form onSubmit={bevestigCode} className="flex flex-col gap-6 rounded-[28px] bg-sand p-8 sm:p-10">
-        <div className="flex flex-col gap-3">
-          <span className="text-base font-semibold text-accent">Check je inbox</span>
-          <h2 className="m-0 font-display text-[clamp(26px,3vw,36px)] leading-tight font-bold tracking-[-0.03em]">
-            Vul je inlogcode in.
-          </h2>
+      <form onSubmit={bevestigCode} className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10">
+        <div className="flex flex-col gap-3 border-b border-black/10 pb-6">
+          <h1 className="m-0 font-display text-[32px] leading-tight font-normal tracking-[-0.03em]">
+            Voer je inlogcode in
+          </h1>
           <p className="m-0 text-lg leading-relaxed text-black/60">
             We hebben een inlogcode gestuurd naar <strong className="font-semibold text-black">{form.email}</strong>.
           </p>
@@ -184,7 +192,6 @@ export default function EmployerSignupForm() {
             maxLength={6}
             value={code}
             onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
-            placeholder="123456"
             className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-center text-2xl font-bold tracking-[0.3em] text-accent outline-none placeholder:font-normal placeholder:text-black/25 focus:border-accent"
           />
         </label>
@@ -216,58 +223,39 @@ export default function EmployerSignupForm() {
   return (
     <form
       onSubmit={stap === 1 ? handleNext : handleSubmit}
-      className="flex flex-col gap-6 rounded-[28px] bg-sand p-8 sm:p-10"
+className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10"
     >
       <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
       <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       <div className="flex flex-col gap-2 border-b border-black/10 pb-6">
-        <div className="flex items-center justify-between gap-4">
-          <span className="text-[13px] font-semibold text-accent">Stap {stap} van 2</span>
-          <span className="text-[13px] text-black/45">Gratis account</span>
-        </div>
-        <h1 className="m-0 font-display text-[clamp(26px,3.4vw,36px)] leading-tight font-bold tracking-[-0.03em]">
-          {stap === 1 ? "Eerst je e-mailadres" : "Je bedrijfsgegevens"}
+        <h1 className="m-0 font-display text-[34px] leading-tight font-normal tracking-[-0.03em]">
+          {stap === 1 ? "Creëer je account" : "Je bedrijfsgegevens"}
         </h1>
-        <p className="m-0 text-[15px] leading-relaxed text-black/55">
-          {stap === 1 ? "Je maakt gratis een account aan. Je ontvangt daarna een inlogcode per e-mail." : "Nog twee gegevens en je kunt direct profielen bekijken."}
+        <p className="m-0 text-[16px] leading-relaxed text-black/55">
+          {stap === 1 ? "Maak je account aan. Je ontvangt daarna een inlogcode per e-mail." : "Vul je bedrijfsgegevens in om verder te gaan."}
         </p>
       </div>
 
       {stap === 1 ? (
         <div className="flex flex-col gap-5">
           <label className="flex flex-col gap-2">
-            <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Jouw naam</span>
-            <input
-              type="text"
-              value={form.naam}
-              onChange={setField("naam")}
-              placeholder="Voor- en achternaam"
-              className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
-            />
-          </label>
-          <label className="flex flex-col gap-2">
-            <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Zakelijk e-mailadres</span>
+            <span className="text-[12px] font-semibold tracking-[0.12em] text-black/55 uppercase">Zakelijk e-mailadres</span>
             <input
               type="email"
               value={form.email}
               onChange={setField("email")}
-              placeholder="naam@bedrijf.nl"
               className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
             />
           </label>
         </div>
       ) : (
         <div className="flex flex-col gap-5">
-          <p className="m-0 text-[14px] leading-relaxed text-black/50">
-            Nog een paar gegevens, daarna kun je direct profielen bekijken en reageren.
-          </p>
           <label className="flex flex-col gap-2">
             <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Bedrijfsnaam</span>
             <input
               type="text"
               value={form.bedrijfsnaam}
               onChange={setField("bedrijfsnaam")}
-              placeholder="Bedrijfsnaam B.V."
               className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
             />
           </label>
@@ -277,7 +265,7 @@ export default function EmployerSignupForm() {
               type="text"
               value={form.contactpersoon}
               onChange={setField("contactpersoon")}
-              placeholder="Wie is het aanspreekpunt?"
+              
               className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
             />
           </label>
@@ -288,8 +276,7 @@ export default function EmployerSignupForm() {
                 type="text"
                 value={form.sector}
                 onChange={setField("sector")}
-                placeholder="Bijv. Zorg, Bouw, IT"
-                className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
+                  className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
               />
             </label>
             <label className="flex flex-col gap-2">
@@ -315,7 +302,6 @@ export default function EmployerSignupForm() {
                 type="text"
                 value={form.website}
                 onChange={setField("website")}
-                placeholder="www.bedrijf.nl"
                 className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
               />
             </label>
@@ -325,7 +311,6 @@ export default function EmployerSignupForm() {
                 type="text"
                 value={form.telefoon}
                 onChange={setField("telefoon")}
-                placeholder="06-12345678"
                 className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
               />
             </label>
@@ -354,7 +339,7 @@ export default function EmployerSignupForm() {
           disabled={bezig}
           className="rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-black disabled:opacity-60"
         >
-          {stap === 1 ? "Verder →" : bezig ? "Account wordt aangemaakt…" : "Gratis account aanmaken"}
+          {stap === 1 ? "Doorgaan →" : bezig ? "Account wordt aangemaakt…" : "Gratis account aanmaken"}
         </button>
       </div>
       {next && <input type="hidden" name="next" value={next} />}

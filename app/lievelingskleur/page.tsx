@@ -9,9 +9,18 @@ export const metadata: Metadata = {
     "Elke persoon kiest zelf een lievelingskleur. Zo geef je een persoonlijk tintje mee aan je aanmelding.",
 };
 
-export default function LievelingskleurPage() {
+export default async function LievelingskleurPage({ searchParams }: { searchParams: Promise<{ from?: string }> }) {
+  const params = await searchParams;
+  const terugNaar = params.from === "mensen" ? "/mensen" : "/aanmelden";
+
   return (
     <>
+      <div className="mx-auto max-w-[1100px] px-6 pt-8">
+        <Link href={terugNaar} className="inline-flex items-center gap-2 text-[15px] font-semibold text-black/65 transition-colors hover:text-black">
+          <span aria-hidden="true" className="text-xl leading-none">←</span>
+          Terug
+        </Link>
+      </div>
       <section className="mx-auto max-w-[1100px] px-6 pt-18">
         <h1 className="m-0 max-w-[16ch] font-display text-[clamp(28px,4.4vw,58px)] leading-[0.9] font-extrabold tracking-[-0.05em]">
           Maak het persoonlijk.

@@ -35,7 +35,7 @@ export default function MensenExplorer() {
   return (
     <>
       <p className="mt-3.5 text-[16px]">
-        <Link href="/lievelingskleur" className="font-semibold">
+        <Link href="/lievelingskleur?from=mensen" className="font-semibold">
           Wat is dat kleurbolletje bovenaan elke kaart? →
         </Link>
       </p>

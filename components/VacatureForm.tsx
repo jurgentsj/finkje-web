@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { useState } from "react";
 import { saveLead } from "@/lib/leads";
+import { createClient } from "@/lib/supabase/client";
 
 type VacState = {
   titel: string;
   omschrijving: string;
   datum: string;
   bedrijf: string;
+  plaats: string;
   contactpersoon: string;
   email: string;
   akkoord: boolean;
@@ -19,13 +21,14 @@ const empty: VacState = {
   omschrijving: "",
   datum: "",
   bedrijf: "",
+  plaats: "",
   contactpersoon: "",
   email: "",
   akkoord: false,
 };
 
-export default function VacatureForm() {
-  const [vac, setVac] = useState<VacState>(empty);
+export default function VacatureForm({ initial }: { initial?: Partial<Pick<VacState, "bedrijf" | "plaats" | "contactpersoon" | "email">> }) {
+  const [vac, setVac] = useState<VacState>({ ...empty, ...initial });
   const [fout, setFout] = useState("");
   const [verzonden, setVerzonden] = useState(false);
 
@@ -39,12 +42,26 @@ export default function VacatureForm() {
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const honeypot = new FormData(e.currentTarget as HTMLFormElement).get("website_confirmation");
+    if (typeof honeypot === "string" && honeypot.trim()) return;
     if (!vac.titel.trim()) return setFout("Vul een functietitel in.");
     if (!/.+@.+\..+/.test(vac.email)) return setFout("Vul een geldig e-mailadres in.");
     if (!vac.akkoord) return setFout("Ga akkoord met de voorwaarden om te plaatsen.");
     try {
+      const supabase = createClient();
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        const { error } = await supabase.from("vacancies").insert({
+          employer_id: user.id,
+          titel: vac.titel,
+          plaats: vac.plaats || "Onbekend",
+          uren: "Fulltime",
+          omschrijving: vac.omschrijving,
+          status: "Online",
+        });
+        if (error) throw error;
+      }
       await saveLead("vacancy", vac);
-      setVerzonden(true);
       setFout("");
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch {
@@ -94,6 +111,8 @@ export default function VacatureForm() {
 
   return (
     <form onSubmit={submit} className="flex flex-col gap-6.5 rounded-[28px] bg-sand p-8.5">
+      <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
+      <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       <label className="flex flex-col gap-2.5">
         <span className="text-base font-semibold">Functietitel</span>
         <input value={vac.titel} onChange={set("titel")} placeholder="bijv. Interieuradviseur" className={inputClass} />
@@ -117,8 +136,12 @@ export default function VacatureForm() {
           <span className="text-base font-semibold">Bedrijfsnaam</span>
           <input value={vac.bedrijf} onChange={set("bedrijf")} placeholder="Naam van je bedrijf" className={inputClass} />
         </label>
-        <label className="flex flex-col gap-2.5">
-          <span className="text-base font-semibold">Contactpersoon</span>
+      <label className="flex flex-col gap-2.5">
+        <span className="text-base font-semibold">Plaats</span>
+        <input value={vac.plaats} onChange={set("plaats")} placeholder="Plaats van de vacature" className={inputClass} />
+      </label>
+      <label className="flex flex-col gap-2.5">
+        <span className="text-base font-semibold">Contactpersoon</span>
           <input
             value={vac.contactpersoon}
             onChange={set("contactpersoon")}
