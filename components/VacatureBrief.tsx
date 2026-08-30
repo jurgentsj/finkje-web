@@ -13,7 +13,7 @@ export default function VacatureBrief() {
           Voordat je doorgaat: onze motivatiebrief.
         </h2>
         <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
-          Beste werkgever, Motivatie zegt alles. Daar zijn wij van overtuigd.
+          Motivatie zegt alles. Daar zijn wij van overtuigd.
         </p>
         <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
           Daarom zijn we selectief. Niet iedereen komt zomaar in aanmerking om bij jouw bedrijf op gesprek te gaan. We
