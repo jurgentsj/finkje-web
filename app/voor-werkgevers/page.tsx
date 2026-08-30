@@ -36,7 +36,7 @@ export default function VoorWerkgeversPage() {
                 href="/motivatiebrief"
                 className="rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-black"
               >
-                Plaats gratis een vacature →
+                Plaats je eerste vacature →
               </Link>
               <Link
                 href="/werkgever/registreren"
