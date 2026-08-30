@@ -250,9 +250,6 @@ className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10"
         </div>
       ) : (
         <div className="flex flex-col gap-5">
-          <p className="m-0 text-[14px] leading-relaxed text-black/50">
-            Vul de laatste gegevens in om profielen te bekijken en contact op te nemen.
-          </p>
           <label className="flex flex-col gap-2">
             <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Bedrijfsnaam</span>
             <input
