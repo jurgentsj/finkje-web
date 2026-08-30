@@ -228,10 +228,10 @@ className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10"
       <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
       <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       <div className="flex flex-col gap-2 border-b border-black/10 pb-6">
-        <h1 className="m-0 font-display text-[32px] leading-tight font-normal tracking-[-0.03em]">
+        <h1 className="m-0 font-display text-[34px] leading-tight font-normal tracking-[-0.03em]">
           {stap === 1 ? "Creëer je account" : "Je bedrijfsgegevens"}
         </h1>
-        <p className="m-0 text-[15px] leading-relaxed text-black/55">
+        <p className="m-0 text-[17px] leading-relaxed text-black/55">
           {stap === 1 ? "Maak je account aan. Je ontvangt daarna een inlogcode per e-mail." : "Vul je bedrijfsgegevens in om verder te gaan."}
         </p>
       </div>
@@ -239,7 +239,7 @@ className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10"
       {stap === 1 ? (
         <div className="flex flex-col gap-5">
           <label className="flex flex-col gap-2">
-            <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Zakelijk e-mailadres</span>
+            <span className="text-[12px] font-semibold tracking-[0.12em] text-black/55 uppercase">Zakelijk e-mailadres</span>
             <input
               type="email"
               value={form.email}
