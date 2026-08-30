@@ -196,7 +196,7 @@ export default function EmployerSignupForm() {
           />
         </label>
         {fout && <p className="m-0 text-[14px] font-medium text-red-600">{fout}</p>}
-        <div className="flex flex-col-reverse items-stretch gap-4 border-t border-black/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
+<div className="flex flex-col-reverse items-center gap-4 border-t border-black/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
           <button
             type="button"
             onClick={() => {
@@ -232,7 +232,7 @@ className="flex flex-col gap-5 rounded-[28px] p-5 sm:gap-6 sm:p-10"
           {stap === 1 ? "Creëer je account" : "Je bedrijfsgegevens"}
         </h1>
         <p className="m-0 text-[16px] leading-relaxed text-black/55">
-          {stap === 1 ? "Maak je account aan. Je ontvangt daarna een inlogcode per e-mail." : "Vul je bedrijfsgegevens in om verder te gaan."}
+          {stap === 1 ? "Maak je account aan. Je ontvangt daarna een inlogcode per e-mail en hebt toegang tot onze Willers." : "Vul je bedrijfsgegevens in om verder te gaan."}
         </p>
       </div>
 
@@ -320,17 +320,17 @@ className="flex flex-col gap-5 rounded-[28px] p-5 sm:gap-6 sm:p-10"
 
       {fout && <p className="m-0 text-[14px] font-medium text-red-600">{fout}</p>}
 
-      <div className="flex flex-col-reverse items-stretch gap-4 border-t border-black/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col-reverse items-center gap-4 border-t border-black/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
         {stap === 2 ? (
           <button
             type="button"
             onClick={() => setStap(1)}
-            className="text-[14px] font-semibold text-black/50 transition-colors hover:text-black"
+className="w-full text-center text-[14px] font-semibold text-black/50 transition-colors hover:text-black sm:w-auto"
           >
             ← Terug
           </button>
         ) : (
-          <Link href="/account/inloggen-werkgever" className="text-[14px] font-semibold text-black/50 transition-colors hover:text-black">
+          <Link href="/account/inloggen-werkgever" className="w-auto text-center text-[14px] font-semibold text-black/50 transition-colors hover:text-black">
             Al een account?
           </Link>
         )}

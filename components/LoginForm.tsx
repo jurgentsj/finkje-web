@@ -155,14 +155,13 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
           autoComplete="email"
         />
       </label>
-      <p className="m-0 text-[15px] leading-relaxed text-black/55">Je ontvangt een inlogcode per e-mail.</p>
       {fout && <p className="m-0 text-base font-semibold text-[#C42A00]">{fout}</p>}
       <div className="flex flex-col-reverse gap-3 border-t border-black/10 pt-6.5 sm:flex-row sm:items-center sm:justify-between">
         <span className="text-[15px] text-black/55">
           {employer ? (
             <>
               Nog geen werkgeversaccount?{" "}
-              <Link href="/werkgever/registreren" className="font-semibold text-accent">
+              <Link href="/werkgever/registreren" className="font-semibold text-black">
                 Maak een account aan
               </Link>
               .
