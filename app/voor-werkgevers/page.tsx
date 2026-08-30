@@ -78,7 +78,7 @@ export default function VoorWerkgeversPage() {
               <h3 className="col-span-1 m-0 font-display text-[clamp(20px,2.2vw,27px)] leading-tight font-normal tracking-[-0.03em]">
                 {s.titel}
               </h3>
-              <p className="col-span-2 m-0 w-full max-w-none text-[18px] leading-snug text-black/65 sm:col-auto sm:max-w-[56ch]">{s.tekst}</p>
+              <p className="col-span-2 m-0 w-full max-w-none text-[16.5px] leading-snug text-black/65 sm:col-auto sm:max-w-[56ch] sm:text-[18px]">{s.tekst}</p>
             </div>
           ))}
         </div>
