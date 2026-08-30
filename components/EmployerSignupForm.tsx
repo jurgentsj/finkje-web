@@ -54,8 +54,8 @@ export default function EmployerSignupForm() {
     const honeypot = new FormData(e.currentTarget as HTMLFormElement).get("website_confirmation");
     if (typeof honeypot === "string" && honeypot.trim()) return;
     setFout("");
-    if (!form.naam.trim() || !/.+@.+\..+/.test(form.email)) {
-      return setFout("Vul je naam en een geldig e-mailadres in.");
+    if (!/.+@.+\..+/.test(form.email)) {
+      return setFout("Vul een geldig e-mailadres in.");
     }
     setStap(2);
   };
@@ -184,7 +184,6 @@ export default function EmployerSignupForm() {
             maxLength={6}
             value={code}
             onChange={(e) => setCode(e.target.value.replace(/\D/g, ""))}
-            placeholder="123456"
             className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-center text-2xl font-bold tracking-[0.3em] text-accent outline-none placeholder:font-normal placeholder:text-black/25 focus:border-accent"
           />
         </label>
@@ -222,32 +221,21 @@ className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10"
       <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       <div className="flex flex-col gap-2 border-b border-black/10 pb-6">
         <h1 className="m-0 font-display text-[32px] leading-tight font-normal tracking-[-0.03em]">
-          {stap === 1 ? "Creëer je account" : "Uw bedrijfsgegevens"}
+          {stap === 1 ? "Creëer je account" : "Je bedrijfsgegevens"}
         </h1>
         <p className="m-0 text-[15px] leading-relaxed text-black/55">
-          {stap === 1 ? "Maak je account aan. U ontvangt daarna een inlogcode per e-mail." : "Vul uw bedrijfsgegevens in om profielen te bekijken."}
+          {stap === 1 ? "Maak je account aan. Je ontvangt daarna een inlogcode per e-mail." : "Vul je bedrijfsgegevens in om profielen te bekijken."}
         </p>
       </div>
 
       {stap === 1 ? (
         <div className="flex flex-col gap-5">
           <label className="flex flex-col gap-2">
-            <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">NAAM</span>
-            <input
-              type="text"
-              value={form.naam}
-              onChange={setField("naam")}
-              placeholder="Voor- en achternaam"
-              className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
-            />
-          </label>
-          <label className="flex flex-col gap-2">
             <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Zakelijk e-mailadres</span>
             <input
               type="email"
               value={form.email}
               onChange={setField("email")}
-              placeholder="naam@bedrijf.nl"
               className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
             />
           </label>
@@ -263,7 +251,6 @@ className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10"
               type="text"
               value={form.bedrijfsnaam}
               onChange={setField("bedrijfsnaam")}
-              placeholder="Bedrijfsnaam B.V."
               className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
             />
           </label>
@@ -273,7 +260,7 @@ className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10"
               type="text"
               value={form.contactpersoon}
               onChange={setField("contactpersoon")}
-              placeholder="Wie is uw aanspreekpunt?"
+              
               className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
             />
           </label>
@@ -284,8 +271,7 @@ className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10"
                 type="text"
                 value={form.sector}
                 onChange={setField("sector")}
-                placeholder="Bijv. Zorg, Bouw, IT"
-                className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
+                  className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
               />
             </label>
             <label className="flex flex-col gap-2">
@@ -311,7 +297,6 @@ className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10"
                 type="text"
                 value={form.website}
                 onChange={setField("website")}
-                placeholder="www.bedrijf.nl"
                 className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
               />
             </label>
@@ -321,7 +306,6 @@ className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10"
                 type="text"
                 value={form.telefoon}
                 onChange={setField("telefoon")}
-                placeholder="06-12345678"
                 className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
               />
             </label>
