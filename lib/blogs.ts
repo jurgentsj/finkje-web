@@ -40,6 +40,32 @@ export const blogs: Blog[] = [
         ],
       },
       {
+        kop: "In welke sectoren dit kansen oplevert",
+        tekst: [
+          "In de techniek en installatietechniek leer je veel direct op de werkvloer. Werkgevers letten op technisch inzicht, veilig werken en de wil om een vak stap voor stap te leren.",
+          "Logistiek biedt kansen omdat processen en systemen vaak intern worden aangeleerd. Betrouwbaarheid, op tijd komen en zorgvuldig werken wegen zwaar.",
+          "In assisterend werk in de zorg draait veel om aandacht, samenwerken en rustig blijven. De juiste houding en praktijkervaring kunnen daar meer zeggen dan een diploma op papier.",
+          "De horeca werkt veel met mensen die het vak in de praktijk leren. Werkgevers zoeken vooral inzet, tempo en iemand op wie het team tijdens drukte kan rekenen.",
+          "In de detailhandel leer je productkennis en verkoop vaak tijdens het werk. Klantgerichtheid, verzorgd werken en verantwoordelijkheid nemen maken je interessant.",
+          "Ook in de bouw telt wat je op de werkvloer laat zien. Doorzettingsvermogen, veilig werken en bereidheid om nieuwe vaardigheden op te pakken openen daar deuren.",
+        ],
+      },
+      {
+        kop: "Wat je kunt verdienen zonder diploma",
+        tekst: [
+          "Wat je verdient verschilt sterk per sector, regio, leeftijd, aantal uren en ervaring. Voor exacte bedragen kun je de actuele CBS-informatie en de cao-lonen van de sector bekijken.",
+          "Een eerste baan zonder diploma begint vaak aan de onderkant van de schaal. Als je eenmaal binnen bent en zelfstandig meer taken aankunt, kan doorgroeien sneller gaan dan je vooraf denkt. Bespreek in een gesprek welke stappen en loonafspraken bij de functie horen.",
+        ],
+      },
+      {
+        kop: "Veelgestelde vragen",
+        tekst: [
+          "Heb ik later alsnog een mbo-diploma nodig om door te groeien?\nDat hangt af van de functie en de sector. Voor sommige rollen is een diploma vereist; in andere gevallen tellen ervaring, zelfstandigheid en aanvullende trainingen zwaar mee.",
+          "Kan ik zonder diploma een vast contract krijgen?\nJa, dat kan. Een werkgever kijkt vooral naar je inzet, betrouwbaarheid en resultaten tijdens de periode waarin je samenwerkt.",
+          "In welke branches wordt het minst naar diploma's gevraagd?\nVaak in logistiek, horeca, detailhandel, bouw en functies in de techniek waar je intern wordt opgeleid. De precieze eisen verschillen per werkgever.",
+        ],
+      },
+      {
         kop: "Zo kom je binnen",
         tekst: [
           "Wat de mensen die het wel lukt gemeen hebben, is dat iemand hun verhaal eerst hoorde. Via een kennis, een vriend of de buurvrouw. Niet toevallig: in al die gevallen kwam de motivatie voor het cv.",
@@ -314,6 +340,35 @@ export const blogs: Blog[] = [
         ],
       },
       {
+        kop: "Welke banen dit in de praktijk zijn",
+        tekst: [
+          "In de bediening en horeca leer je snel omgaan met mensen, tempo en onverwachte situaties. Een werkgever let vooral op betrouwbaarheid, verzorgd werken en of je op tijd op je werk verschijnt.",
+          "Bij orderpicken en logistiek draait het om tempo, veiligheid en zorgvuldig omgaan met spullen. Daar telt vooral of je doorzet als het werk fysiek wordt en afspraken nakomt.",
+          "In klantenservice of een callcenter help je mensen via telefoon, chat of mail. De werkgever kijkt naar je luistervaardigheid, geduld en vermogen om rustig te blijven.",
+          "In een winkel adviseer je klanten, vul je voorraad aan en houd je de zaak netjes. Betrouwbaarheid en aandacht voor klanten wegen hier zwaarder dan eerdere winkelervaring.",
+          "Bij productiewerk werk je volgens een vast proces en houd je de kwaliteit in de gaten. De werkgever let op nauwkeurigheid, werktempo en de bereidheid om nieuwe handelingen te leren.",
+          "Als bezorger zorg je dat bestellingen op het juiste moment op de juiste plek komen. Op tijd komen, zorgvuldig omgaan met spullen en zelfstandig kunnen werken maken het verschil.",
+        ],
+      },
+      {
+        kop: "Hoe je een gebrek aan ervaring compenseert",
+        tekst: [
+          "Vrijwilligerswerk laat zien dat je afspraken maakt en ze nakomt. Beschrijf kort wat je deed, voor wie en welke verantwoordelijkheid je had.",
+          "Een korte cursus kan helpen als die direct aansluit op het werk dat je wil doen. Kies iets waar je een concreet resultaat van kunt laten zien.",
+          "Een eigen project zegt veel over initiatief. Denk aan een kleine webshop, een klus die je zelf organiseerde of iets dat je van idee tot uitvoering hebt gebracht.",
+          "Ook iets organiseren voor familie of een vereniging telt mee. Een evenement, verhuizing of activiteit vraagt planning, overleg en verantwoordelijkheid.",
+        ],
+      },
+      {
+        kop: "Veelgestelde vragen",
+        tekst: [
+          "Moet ik toch een cv opsturen?\nEen cv kan helpen om je achtergrond overzichtelijk te maken. Zorg vooral dat je voorbeelden van verantwoordelijkheid en inzet erop staan.",
+          "Wat als ik nog nooit betaald werk heb gedaan?\nBegin met wat je wel hebt gedaan. Vrijwilligerswerk, schoolprojecten, mantelzorg en eigen projecten geven genoeg aanknopingspunten voor een gesprek.",
+          "Kan ik zonder ervaring toch om een fatsoenlijk salaris vragen?\nJa. Vraag welke salarisrange bij de functie hoort en bespreek hoe je loon kan meegroeien als je meer verantwoordelijkheid krijgt.",
+          "Hoe overtuig ik een werkgever in een gesprek als ik weinig te vertellen heb?\nKies twee concrete voorbeelden en leg uit wat je deed, wat lastig was en hoe je het hebt aangepakt. Dat zegt meer dan een lange lijst eigenschappen.",
+        ],
+      },
+      {
         kop: "Zorg dat dat verhaal ergens landt",
         tekst: [
           "Dat verhaal helpt je natuurlijk alleen als iemand het leest. Bij een gewone sollicitatie zit het onderaan, achter de eerste selectie op cv, en komt het dus vaak nooit aan.",
@@ -379,6 +434,32 @@ export const blogs: Blog[] = [
           "Wees kort en eerlijk over de periode. Je hoeft er geen medisch dossier bij te leveren en je hoeft je ook niet te verontschuldigen. Eén zin over wat er was en één zin over waarom het nu anders is, is genoeg. Wie er langer over doorpraat, maakt het groter dan het is.",
           "Besteed je energie daarna aan de toekomst. Wat wil je gaan doen, waarom nu wel, en wat heb je in die tussentijd geleerd over wat je zoekt. Veel mensen komen uit zo'n periode met een scherper beeld van wat ze willen dan de gemiddelde sollicitant. Dat is een voordeel, gebruik het.",
           "Wees daarbij ook eerlijk over wat je nodig hebt. Rustig opstarten, vaste uren, een werkgever die het weet: als je dat vooraf benoemt, voorkom je dat het na twee maanden alsnog wringt.",
+        ],
+      },
+      {
+        kop: "Hoe je het gat in je cv benoemt",
+        tekst: [
+          "Door een reorganisatie kwam mijn vorige functie te vervallen. Ik richt me nu op werk waarin ik mijn ervaring en energie opnieuw kan inzetten.",
+          "Ik had een periode met drukke privéomstandigheden. Die situatie is nu stabiel en ik ben klaar voor een volgende stap.",
+          "De afgelopen periode was lastig op de arbeidsmarkt. Ik heb die tijd gebruikt om scherper te krijgen welk werk bij mij past.",
+          "Er staat een periode zonder werk op mijn cv. Dat is kort uitgelegd; ik vertel liever wat ik nu wil doen en waar ik goed in ben.",
+          "Eén zin is genoeg. Daarna gaat het gesprek over de toekomst.",
+        ],
+      },
+      {
+        kop: "Praktische opties om weer te beginnen",
+        tekst: [
+          "Een proefplaatsing kan de eerste stap kleiner maken. Je laat in de praktijk zien wat je kunt en ontdekt tegelijk of het werk bij je past.",
+          "Parttime herinstromen geeft ruimte om ritme en vertrouwen op te bouwen. Vanuit daar kun je het aantal uren uitbreiden als dat goed voelt.",
+          "Uitzendwerk kan een praktische opstap zijn naar een nieuwe werkgever. Je doet ervaring op, leert recente systemen kennen en houdt de drempel laag.",
+        ],
+      },
+      {
+        kop: "Veelgestelde vragen",
+        tekst: [
+          "Moet ik het gat noemen in mijn motivatie?\nDat hoeft alleen als het relevant is voor je verhaal. Houd de uitleg kort en besteed de meeste ruimte aan wat je nu wil doen.",
+          "Telt vrijwilligerswerk mee als werkervaring?\nJa. Het laat zien dat je verantwoordelijkheid neemt, afspraken nakomt en actief blijft. Beschrijf concreet wat je deed.",
+          "Hoe lang mag ik zoeken voordat het raar overkomt bij werkgevers?\nZo lang als nodig is. Een duidelijke uitleg en een concreet plan voor je volgende stap maken meer indruk dan de lengte van de zoekperiode.",
         ],
       },
       {
