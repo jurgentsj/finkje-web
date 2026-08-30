@@ -37,7 +37,7 @@ export default async function PlaatsVacaturePage() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   const { data: employer } = user
-    ? await supabase.from("employer_profiles").select("bedrijfsnaam, contactpersoon, plaats").eq("id", user.id).maybeSingle()
+    ? await supabase.from("employer_profiles").select("bedrijfsnaam, contactpersoon").eq("id", user.id).maybeSingle()
     : { data: null };
 
   return (
@@ -52,7 +52,7 @@ export default async function PlaatsVacaturePage() {
           niemand? Dan blijft je vacature open tot de door jou gekozen sluitingsdatum.
         </p>
 
-        <VacatureForm initial={{ bedrijf: employer?.bedrijfsnaam ?? "", plaats: employer?.plaats ?? "", contactpersoon: employer?.contactpersoon ?? "", email: user?.email ?? "" }} />
+        <VacatureForm initial={{ bedrijf: employer?.bedrijfsnaam ?? "", contactpersoon: employer?.contactpersoon ?? "", email: user?.email ?? "" }} />
 
         <div className="mt-14 grid grid-cols-[repeat(auto-fit,minmax(min(100%,280px),1fr))] items-start gap-10 border-t border-black/10 pt-11">
           {/*
