@@ -7,19 +7,22 @@ import type { SupabaseClient, User } from "@supabase/supabase-js";
  * do for magic links, but runs client-side right after verifyOtp succeeds.
  * Returns the dashboard path the user should land on.
  */
-export async function completeAuthProfile(supabase: SupabaseClient, user: User): Promise<string> {
+export async function completeAuthProfile(
+  supabase: SupabaseClient,
+  user: User,
+  requestedRole?: "werkzoekende" | "werkgever",
+): Promise<string> {
   const meta = user.user_metadata ?? {};
   const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).maybeSingle();
-  // The metadata staged at this signup reflects the role the user just chose
-  // (werkzoekende vs werkgever), so it must take priority over any role
-  // stored on an older profile row for the same account.
-  const role = meta.role ?? profile?.role;
+  // The registration flow passes its role explicitly. Never let an older
+  // profiles row for the same account override the current registration.
+  const role = requestedRole ?? meta.role ?? profile?.role;
 
   if (role !== "werkzoekende" && role !== "werkgever") {
     return "/";
   }
 
-  await supabase.from("profiles").upsert(
+  const { error: profileError } = await supabase.from("profiles").upsert(
     {
       id: user.id,
       role,
@@ -28,6 +31,10 @@ export async function completeAuthProfile(supabase: SupabaseClient, user: User):
     },
     { onConflict: "id" },
   );
+  if (profileError) {
+    console.error("[v0] Failed to save auth profile:", { code: profileError.code, message: profileError.message });
+    throw profileError;
+  }
 
   if (role === "werkzoekende") {
     const { data: existing } = await supabase

@@ -105,7 +105,7 @@ export default function EmployerSignupForm() {
         return;
       }
 
-      await completeAuthProfile(supabase, data.user);
+      await completeAuthProfile(supabase, data.user, "werkgever");
       setBezig(false);
       router.replace("/werkgever/dashboard");
     } catch {
