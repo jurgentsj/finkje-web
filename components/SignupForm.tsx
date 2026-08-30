@@ -346,7 +346,6 @@ export default function SignupForm() {
       </div>
 
       <form onSubmit={submit} className="flex flex-col gap-8.5 rounded-[28px] bg-sand p-8.5">
-        <p className="m-0 text-sm text-black/55">Heb je al een account en wil je je aanmelding aanpassen? <Link href="/inloggen" className="font-semibold text-accent underline">Log hier in.</Link></p>
         {stap === 1 && (
           <div className="flex flex-col gap-8">
             <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Stap 1 — de Functie</span>
@@ -665,6 +664,7 @@ export default function SignupForm() {
           </button>
         </div>
       </form>
+      <p className="mt-5 text-sm text-black/55">Heb je al een account en wil je je aanmelding aanpassen? <Link href="/inloggen" className="font-semibold text-accent underline">Log hier in.</Link></p>
     </div>
   );
 }
