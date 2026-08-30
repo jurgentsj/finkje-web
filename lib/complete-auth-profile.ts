@@ -10,7 +10,10 @@ import type { SupabaseClient, User } from "@supabase/supabase-js";
 export async function completeAuthProfile(supabase: SupabaseClient, user: User): Promise<string> {
   const meta = user.user_metadata ?? {};
   const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).maybeSingle();
-  const role = profile?.role ?? meta.role;
+  // The metadata staged at this signup reflects the role the user just chose
+  // (werkzoekende vs werkgever), so it must take priority over any role
+  // stored on an older profile row for the same account.
+  const role = meta.role ?? profile?.role;
 
   if (role !== "werkzoekende" && role !== "werkgever") {
     return "/";
