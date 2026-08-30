@@ -225,8 +225,8 @@ export default function EmployerSignupForm() {
           <span className="text-[13px] font-semibold text-accent">Stap {stap} van 2</span>
           <span className="text-[13px] text-black/45">Gratis account</span>
         </div>
-        <h1 className="m-0 font-display text-[clamp(26px,3.4vw,36px)] leading-tight font-bold tracking-[-0.03em]">
-          {stap === 1 ? "Uw gegevens" : "Uw bedrijfsgegevens"}
+        <h1 className="m-0 font-display text-[32px] leading-tight font-normal tracking-[-0.03em]">
+          {stap === 1 ? "Creëer uw account" : "Uw bedrijfsgegevens"}
         </h1>
         <p className="m-0 text-[15px] leading-relaxed text-black/55">
           {stap === 1 ? "Maak uw account aan. U ontvangt daarna een inlogcode per e-mail." : "Vul uw bedrijfsgegevens in om profielen te bekijken."}
