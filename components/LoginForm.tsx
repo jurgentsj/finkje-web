@@ -162,7 +162,7 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
           {employer ? (
             <>
               Nog geen werkgeversaccount?{" "}
-              <Link href="/werkgever/registreren" className="font-semibold text-accent">
+              <Link href="/werkgever/registreren" className="font-semibold text-black">
                 Maak een account aan
               </Link>
               .
