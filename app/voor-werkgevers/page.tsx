@@ -94,7 +94,7 @@ export default function VoorWerkgeversPage() {
 
       <section className="mx-auto max-w-[1360px] px-6 pt-24">
         <div className="flex flex-col gap-8 border-b border-black/15 pb-7 sm:flex-row sm:items-end sm:justify-between">
-          <h2 className="m-0 max-w-[20ch] font-display text-[clamp(28px,4vw,52px)] leading-[0.96] font-extrabold tracking-[-0.045em]">
+          <h2 className="m-0 max-w-[20ch] font-display text-[clamp(28px,4vw,52px)] leading-[0.96] font-normal tracking-[-0.045em]">
             Motivatie is uniek, een cv niet
           </h2>
         </div>
@@ -102,7 +102,7 @@ export default function VoorWerkgeversPage() {
           {redenen.map((r) => (
             <div key={r.titel} className="flex flex-col gap-2.5 border-b border-black/10 py-7.5">
               <span className="text-[11px] font-semibold tracking-[0.16em] text-accent uppercase">{r.label}</span>
-              <h3 className="m-0 font-display text-[clamp(19px,2vw,24px)] leading-tight font-bold tracking-[-0.03em]">
+              <h3 className="m-0 font-display text-[clamp(19px,2vw,24px)] leading-tight font-normal tracking-[-0.03em]">
                 {r.titel}
               </h3>
               <p className="m-0 max-w-[40ch] text-[16.5px] leading-snug text-black/62">{r.tekst}</p>
@@ -113,7 +113,7 @@ export default function VoorWerkgeversPage() {
 
       <section className="mx-auto max-w-[1360px] px-6 pt-22">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] items-start gap-8 rounded-3xl bg-accent p-11 text-white">
-          <h3 className="m-0 font-display text-[clamp(26px,3.2vw,42px)] leading-[0.98] font-extrabold tracking-[-0.04em]">
+          <h3 className="m-0 font-display text-[clamp(26px,3.2vw,42px)] leading-[0.98] font-normal tracking-[-0.04em]">
             Niet online, wel bij de juiste mensen.
           </h3>
           <div className="flex flex-col gap-5.5">
@@ -132,7 +132,7 @@ export default function VoorWerkgeversPage() {
       </section>
 
       <section className="mx-auto max-w-[1360px] px-6 pt-22">
-        <h2 className="m-0 mb-8 font-display text-[clamp(28px,4vw,52px)] leading-[0.96] font-extrabold tracking-[-0.045em]">
+        <h2 className="m-0 mb-8 font-display text-[clamp(28px,4vw,52px)] leading-[0.96] font-normal tracking-[-0.045em]">
           Wat werkgevers vragen
         </h2>
         <Faq items={werkgeverFaq} />
