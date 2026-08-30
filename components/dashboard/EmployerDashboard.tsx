@@ -12,21 +12,17 @@ type EmployerInitial = {
   plaats: string;
   website: string;
   telefoon: string;
+  vacancies: Vacancy[];
 };
 
-type Vacancy = { id: number; titel: string; plaats: string; uren: string; omschrijving: string; status: "Online" | "Op pauze" };
-
-const demoVacancies: Vacancy[] = [
-  { id: 1, titel: "Interieuradviseur", plaats: "Eindhoven", uren: "Fulltime", omschrijving: "Je helpt klanten met het kiezen van een interieur dat bij hen past.", status: "Online" },
-  { id: 2, titel: "Medewerker klantenservice", plaats: "Tilburg", uren: "Parttime", omschrijving: "Je bent het eerste aanspreekpunt voor onze klanten.", status: "Op pauze" },
-];
+type Vacancy = { id: string; titel: string; plaats: string; uren: string; omschrijving: string; status: "Online" | "Op pauze" };
 
 export default function EmployerDashboard({ initial }: { initial: EmployerInitial }) {
   const [section, setSection] = useState<"vacatures" | "reacties" | "bedrijf" | "profielen">("vacatures");
   const [form, setForm] = useState(initial);
-  const [vacancies, setVacancies] = useState(demoVacancies);
+  const [vacancies, setVacancies] = useState<Vacancy[]>(initial.vacancies);
   const [vacancy, setVacancy] = useState({ titel: "", plaats: "", uren: "Fulltime", omschrijving: "" });
-  const [editing, setEditing] = useState<number | null>(null);
+  const [editing, setEditing] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
 
   const update = (key: keyof typeof form) => (event: React.ChangeEvent<HTMLInputElement>) => setForm((current) => ({ ...current, [key]: event.target.value }));
@@ -43,17 +39,29 @@ export default function EmployerDashboard({ initial }: { initial: EmployerInitia
     setSaved(true);
   };
 
-  const saveVacancy = (event: React.FormEvent) => {
+  const saveVacancy = async (event: React.FormEvent) => {
     event.preventDefault();
-    if (!vacancy.titel.trim()) return;
-    if (editing) setVacancies((current) => current.map((item) => item.id === editing ? { ...item, ...vacancy } : item));
-    else setVacancies((current) => [...current, { id: Date.now(), ...vacancy, status: "Online" }]);
+    if (!vacancy.titel.trim() || !vacancy.plaats.trim()) return;
+    const supabase = createClient();
+    if (editing) {
+      const { data, error } = await supabase.from("vacancies").update(vacancy).eq("id", editing).eq("employer_id", initial.id).select("id, titel, plaats, uren, omschrijving, status").single();
+      if (!error && data) setVacancies((current) => current.map((item) => item.id === editing ? data as Vacancy : item));
+    } else {
+      const { data, error } = await supabase.from("vacancies").insert({ ...vacancy, employer_id: initial.id }).select("id, titel, plaats, uren, omschrijving, status").single();
+      if (!error && data) setVacancies((current) => [data as Vacancy, ...current]);
+    }
     setVacancy({ titel: "", plaats: "", uren: "Fulltime", omschrijving: "" });
     setEditing(null);
   };
 
   const editVacancy = (item: Vacancy) => { setEditing(item.id); setVacancy({ titel: item.titel, plaats: item.plaats, uren: item.uren, omschrijving: item.omschrijving }); setSection("vacatures"); };
-  const toggleVacancy = (id: number) => setVacancies((current) => current.map((item) => item.id === id ? { ...item, status: item.status === "Online" ? "Op pauze" : "Online" } : item));
+  const toggleVacancy = async (id: string) => {
+    const item = vacancies.find((vacancyItem) => vacancyItem.id === id);
+    if (!item) return;
+    const status = item.status === "Online" ? "Op pauze" : "Online";
+    const { error } = await createClient().from("vacancies").update({ status }).eq("id", id).eq("employer_id", initial.id);
+    if (!error) setVacancies((current) => current.map((vacancyItem) => vacancyItem.id === id ? { ...vacancyItem, status } : vacancyItem));
+  };
 
   const menu = (key: typeof section, label: string, sub = false) => <button type="button" onClick={() => setSection(key)} className={`w-full border-0 border-l-2 bg-transparent py-2.5 text-left text-[15px] font-medium ${sub ? "pl-6" : "pl-3"} ${section === key ? "border-black font-semibold text-[#111]" : "border-transparent text-black/55 hover:text-[#111]"}`}>{label}</button>;
 
