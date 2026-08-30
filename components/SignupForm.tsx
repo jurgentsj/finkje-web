@@ -91,6 +91,7 @@ export default function SignupForm() {
   const [geenVoorkeur, setGeenVoorkeur] = useState(false);
   const [wachtOpCode, setWachtOpCode] = useState(false);
   const [code, setCode] = useState("");
+  const [akkoord, setAkkoord] = useState(false);
 
   const setField =
     (key: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -146,6 +147,7 @@ export default function SignupForm() {
     if (!form.naam.trim() || !/.+@.+\..+/.test(form.email)) {
       return setFout("Vul je naam en een geldig e-mailadres in.");
     }
+    if (!akkoord) return setFout("Ga eerst akkoord met de algemene voorwaarden.");
     setBezig(true);
     try {
       await saveLead("signup", { ...form, overs, omgevingen });
@@ -628,9 +630,13 @@ export default function SignupForm() {
               />
             </label>
             <p className="m-0 max-w-[52ch] text-[15px] leading-relaxed text-black/50">
-              Je naam en contactgegevens zijn nooit zichtbaar voor werkgevers, totdat jij beslist om in gesprek te
-              gaan.
+              Je naam en contactgegevens zijn nooit zichtbaar voor werkgevers, totdat jij beslist om in gesprek te gaan.
             </p>
+            <label className="flex items-start gap-3 text-sm leading-relaxed text-black/70">
+              <input type="checkbox" checked={akkoord} onChange={(e) => setAkkoord(e.target.checked)} className="mt-1 size-4 accent-accent" />
+              <span>Ik ga akkoord met de <Link href="/algemene-voorwaarden" className="font-semibold underline">algemene voorwaarden</Link>.</span>
+            </label>
+            <p className="m-0 text-sm font-semibold text-black/55">Gratis, zonder verplichtingen. We delen je gegevens nooit zonder jouw toestemming.</p>
           </div>
         )}
 
@@ -658,6 +664,9 @@ export default function SignupForm() {
           </button>
         </div>
       </form>
+      <div className="mt-6 flex flex-col gap-2 rounded-2xl border border-accent/20 bg-accent/5 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+        <p className="m-0 text-[15px] text-black/70">Heb je al een account? <Link href="/inloggen" className="font-bold text-accent underline underline-offset-2 transition-colors hover:text-black">Log hier in.</Link></p>
+      </div>
     </div>
   );
 }
