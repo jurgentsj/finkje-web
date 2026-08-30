@@ -226,17 +226,17 @@ export default function EmployerSignupForm() {
           <span className="text-[13px] text-black/45">Gratis account</span>
         </div>
         <h1 className="m-0 font-display text-[clamp(26px,3.4vw,36px)] leading-tight font-bold tracking-[-0.03em]">
-          {stap === 1 ? "Eerst je e-mailadres" : "Je bedrijfsgegevens"}
+          {stap === 1 ? "Uw gegevens" : "Uw bedrijfsgegevens"}
         </h1>
         <p className="m-0 text-[15px] leading-relaxed text-black/55">
-          {stap === 1 ? "Maak een account aan. Je ontvangt daarna een inlogcode per e-mail." : "Nog twee gegevens en je kunt direct profielen bekijken."}
+          {stap === 1 ? "Maak uw account aan. U ontvangt daarna een inlogcode per e-mail." : "Vul uw bedrijfsgegevens in om profielen te bekijken."}
         </p>
       </div>
 
       {stap === 1 ? (
         <div className="flex flex-col gap-5">
           <label className="flex flex-col gap-2">
-            <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Jouw naam</span>
+            <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Uw naam</span>
             <input
               type="text"
               value={form.naam}
@@ -259,7 +259,7 @@ export default function EmployerSignupForm() {
       ) : (
         <div className="flex flex-col gap-5">
           <p className="m-0 text-[14px] leading-relaxed text-black/50">
-            Nog een paar gegevens, daarna kun je direct profielen bekijken en reageren.
+            Vul de laatste gegevens in om profielen te bekijken en contact op te nemen.
           </p>
           <label className="flex flex-col gap-2">
             <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Bedrijfsnaam</span>
@@ -277,7 +277,7 @@ export default function EmployerSignupForm() {
               type="text"
               value={form.contactpersoon}
               onChange={setField("contactpersoon")}
-              placeholder="Wie is het aanspreekpunt?"
+              placeholder="Wie is uw aanspreekpunt?"
               className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent"
             />
           </label>
