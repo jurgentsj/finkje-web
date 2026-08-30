@@ -25,6 +25,8 @@ export default function EmployerProfileForm({ userId, initial }: { userId: strin
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const honeypot = new FormData(e.currentTarget as HTMLFormElement).get("website_confirmation");
+    if (typeof honeypot === "string" && honeypot.trim()) return;
     setStatus("saving");
     const supabase = createClient();
 
@@ -49,6 +51,8 @@ export default function EmployerProfileForm({ userId, initial }: { userId: strin
 
   return (
     <form onSubmit={submit} className="flex flex-col gap-8">
+      <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
+      <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       <div className="rounded-2xl border border-black/10 bg-white p-7 sm:p-8">
         <h2 className="m-0 mb-6 font-display text-lg font-bold tracking-[-0.02em]">Contactgegevens</h2>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">

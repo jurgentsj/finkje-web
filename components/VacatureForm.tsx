@@ -39,6 +39,8 @@ export default function VacatureForm() {
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const honeypot = new FormData(e.currentTarget as HTMLFormElement).get("website_confirmation");
+    if (typeof honeypot === "string" && honeypot.trim()) return;
     if (!vac.titel.trim()) return setFout("Vul een functietitel in.");
     if (!/.+@.+\..+/.test(vac.email)) return setFout("Vul een geldig e-mailadres in.");
     if (!vac.akkoord) return setFout("Ga akkoord met de voorwaarden om te plaatsen.");
@@ -94,6 +96,8 @@ export default function VacatureForm() {
 
   return (
     <form onSubmit={submit} className="flex flex-col gap-6.5 rounded-[28px] bg-sand p-8.5">
+      <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
+      <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       <label className="flex flex-col gap-2.5">
         <span className="text-base font-semibold">Functietitel</span>
         <input value={vac.titel} onChange={set("titel")} placeholder="bijv. Interieuradviseur" className={inputClass} />
