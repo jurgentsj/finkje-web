@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import VacatureForm from "@/components/VacatureForm";
+import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
   title: "Plaats je vacature",
@@ -32,7 +33,13 @@ const tijdlijn = [
   },
 ];
 
-export default function PlaatsVacaturePage() {
+export default async function PlaatsVacaturePage() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  const { data: employer } = user
+    ? await supabase.from("employer_profiles").select("bedrijfsnaam, contactpersoon, plaats").eq("id", user.id).maybeSingle()
+    : { data: null };
+
   return (
     <>
       <section id="vacature-formulier" className="mx-auto max-w-[940px] px-6 pt-20 pb-28">
@@ -45,7 +52,7 @@ export default function PlaatsVacaturePage() {
           niemand? Dan blijft je vacature open tot de door jou gekozen sluitingsdatum.
         </p>
 
-        <VacatureForm />
+        <VacatureForm initial={{ bedrijf: employer?.bedrijfsnaam ?? "", plaats: employer?.plaats ?? "", contactpersoon: employer?.contactpersoon ?? "", email: user?.email ?? "" }} />
 
         <div className="mt-14 grid grid-cols-[repeat(auto-fit,minmax(min(100%,280px),1fr))] items-start gap-10 border-t border-black/10 pt-11">
           {/*
