@@ -14,13 +14,8 @@ export default function WerkgeverRegistrerenPage() {
         <p className="m-0 text-lg font-semibold tracking-[-0.03em] text-foreground sm:text-xl">Finkje</p>
         <div className="max-w-[680px]">
           <p className="mt-8 max-w-[46ch] text-lg leading-relaxed font-semibold text-black sm:text-xl">
-            Finkje brengt u in contact met gemotiveerde mensen die weten wat zij willen. U kijkt verder dan het cv en ontdekt kandidaten die bewust voor uw organisatie kiezen.
+            Maak uw volgende aanstelling op motivatie. Finkje brengt u in contact met gemotiveerde mensen die weten wat zij willen.
           </p>
-          <ul className="mt-10 flex max-w-[560px] flex-col gap-4 text-base leading-relaxed text-black/62 sm:text-lg">
-            <li className="flex gap-3"><span className="mt-3 size-2 shrink-0 rounded-full bg-accent" aria-hidden="true" />Bekijk profielen van gemotiveerde werkzoekenden.</li>
-            <li className="flex gap-3"><span className="mt-3 size-2 shrink-0 rounded-full bg-accent" aria-hidden="true" />Neem contact op wanneer u een passende kandidaat ziet.</li>
-            <li className="flex gap-3"><span className="mt-3 size-2 shrink-0 rounded-full bg-accent" aria-hidden="true" />Maak uw volgende aanstelling op motivatie.</li>
-          </ul>
         </div>
         <p className="m-0 text-sm text-black/45">© 2026 Finkje</p>
       </div>
