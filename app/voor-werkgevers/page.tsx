@@ -24,10 +24,10 @@ export default function VoorWerkgeversPage() {
             <div className="inline-flex rounded-full border border-accent px-4 py-2 text-xs font-semibold tracking-[0.16em] text-accent uppercase">
               Voor werkgevers
             </div>
-            <h1 className="m-0 mt-7 max-w-[16ch] font-display text-[clamp(40px,7.4vw,108px)] leading-[0.88] font-extrabold tracking-[-0.05em]">
+            <h1 className="m-0 mt-7 max-w-[16ch] font-display text-[75px] leading-[0.88] font-extrabold tracking-[-0.05em]">
               Ontdek gemotiveerde mensen die weten wat ze willen.
             </h1>
-            <p className="mt-7 max-w-[42ch] text-[clamp(18px,2.1vw,24px)] leading-snug text-black/62">
+            <p className="mt-7 max-w-[42ch] text-[20px] leading-snug text-black/62">
               Onze mensen beginnen bij zichzelf en worden niet extern geprikkeld door de voorwaarden op jouw vacature. Zo
               beloven we enorm gedreven mensen, die intrinsiek gemotiveerd zijn.
             </p>
