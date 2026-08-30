@@ -16,8 +16,8 @@ export default function VacatureBrief() {
           Motivatie zegt alles. Daar zijn wij van overtuigd.
         </p>
         <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
-          We zijn selectief. Niet iedereen komt zomaar in aanmerking om bij jouw bedrijf op gesprek te gaan. Daarom
-          hebben we bewust drempels gecreëerd die alleen oprecht gemotiveerde mensen nemen.
+          Daarom zijn we selectief. Niet iedereen komt zomaar in aanmerking om bij jouw bedrijf op gesprek te gaan. We
+          hebben bewust drempels gecreëerd die alleen oprecht gemotiveerde mensen nemen.
         </p>
         {!uitgeklapt && (
           <button type="button" onClick={() => setUitgeklapt(true)} className="self-start text-base font-semibold text-[#111] md:hidden">
@@ -32,7 +32,7 @@ export default function VacatureBrief() {
           </p>
           <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
             Wij draaien het om. Onze mensen beschrijven en motiveren hun ideale droombaan. Daarna zoek je zelf tussen
-            onze Willers, of laat je dat aan ons over. Past er nu niemand? Dan blijft de vacature openstaan tot de
+            onze Willers, of laat je dat aan ons over. Past er nu niemand? Dan blijft je vacature openstaan tot de
             einddatum. Zo krijg je mensen die niet proberen te passen, maar het al doen.
           </p>
           <p className="m-0 text-[17.5px] leading-relaxed text-black/78">
