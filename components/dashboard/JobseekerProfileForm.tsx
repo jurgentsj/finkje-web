@@ -77,7 +77,7 @@ export default function JobseekerProfileForm({ userId, initial }: { userId: stri
 
   return (
     <div className="flex flex-col gap-9">
-      <section id="droombaan" className="rounded-[28px] border-2 border-accent bg-accent p-7 text-white sm:p-9">
+      <section id="droombaan" className="scroll-mt-24 rounded-[28px] border-2 border-accent bg-accent p-7 text-white sm:p-9">
         <p className="m-0 text-xs font-semibold tracking-[0.16em] uppercase">Mijn droombaan</p>
         <div className="mt-4 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <h2 className="m-0 font-display text-[clamp(36px,6vw,72px)] leading-[0.9] font-extrabold tracking-[-0.05em]">{form.droombaan || "Nog niet ingevuld"}</h2>
@@ -89,13 +89,6 @@ export default function JobseekerProfileForm({ userId, initial }: { userId: stri
         <p className="mt-2 mb-4 text-sm leading-relaxed text-black/65">Na bevestiging kun je je droombaan en de gekoppelde kernvelden de komende zes maanden niet opnieuw aanpassen.</p>
         <div className="flex flex-wrap gap-3"><button type="button" onClick={() => { setBewerken(true); setBevestigen(false); }} className="rounded-full bg-accent px-5 py-3 font-semibold text-white">Ik begrijp het, doorgaan</button><button type="button" onClick={() => setBevestigen(false)} className="rounded-full border border-black/15 px-5 py-3 font-semibold">Annuleren</button></div>
       </div>}
-      <section id="status" className="rounded-[28px] bg-white p-7 sm:p-9">
-        <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Status</p>
-        <h2 className="mt-3 mb-5 font-display text-2xl font-bold tracking-[-0.03em]">Hoe mogen werkgevers je zien?</h2>
-        <div className="flex flex-wrap gap-2.5">
-          {statusOpties.map((optie) => <button key={optie} type="button" onClick={() => setForm((f) => ({ ...f, zoekstatus: optie }))} className={`rounded-full border px-4 py-2.5 text-sm font-semibold transition-colors ${form.zoekstatus === optie ? "border-accent bg-accent text-white" : "border-black/15 text-black/65 hover:border-black/30"}`}>{optie}</button>)}
-        </div>
-      </section>
       <form onSubmit={submit} className="flex flex-col gap-9" aria-disabled={!magBewerken}>
       <fieldset disabled={!magBewerken} className="flex flex-col gap-9 border-0 p-0">
       <div className="rounded-[28px] bg-white p-7 sm:p-9">
@@ -144,7 +137,7 @@ export default function JobseekerProfileForm({ userId, initial }: { userId: stri
         </div>
       </div>
 
-      <div id="voorkeuren" className="rounded-[28px] bg-white p-7 sm:p-9">
+      <div id="voorkeuren" className="scroll-mt-24 rounded-[28px] bg-white p-7 sm:p-9">
         <h2 className="m-0 mb-6 font-display text-xl font-bold tracking-[-0.02em]">Voorkeuren</h2>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <label className="flex flex-col gap-2">
@@ -243,6 +236,13 @@ export default function JobseekerProfileForm({ userId, initial }: { userId: stri
         </div>
       </div>
 
+      <section id="status" className="scroll-mt-24 rounded-[28px] border border-black/10 bg-white p-7 sm:p-9">
+        <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Status</p>
+        <h2 className="mt-3 mb-5 font-display text-2xl font-bold tracking-[-0.03em]">Hoe mogen werkgevers je zien?</h2>
+        <div className="flex flex-wrap gap-2.5">
+          {statusOpties.map((optie) => <button key={optie} type="button" onClick={() => setForm((f) => ({ ...f, zoekstatus: optie }))} className={`rounded-full border px-4 py-2.5 text-sm font-semibold transition-colors ${form.zoekstatus === optie ? "border-accent bg-accent text-white" : "border-black/15 text-black/65 hover:border-black/30"}`}>{optie}</button>)}
+        </div>
+      </section>
       <div className="flex flex-wrap items-center gap-4">
         <button
           type="submit"

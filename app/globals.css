@@ -25,6 +25,14 @@ body {
   background: #fff;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+[id] {
+  scroll-margin-top: 6rem;
+}
+
 body {
   color: #111;
   font-family: var(--font-body);

@@ -70,7 +70,7 @@ export default async function WerkzoekendeDashboardPage() {
           zoekstatus: jobseeker?.status ?? "Ik ben actief op zoek",
         }}
       />
-      <section id="reacties" className="mt-8 rounded-[28px] bg-white p-7 sm:p-9" aria-labelledby="reacties-heading">
+      <section id="reacties" className="scroll-mt-24 mt-8 rounded-[28px] bg-white p-7 sm:p-9" aria-labelledby="reacties-heading">
         <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Reacties</p>
         <h2 id="reacties-heading" className="mt-3 mb-2 font-display text-2xl font-bold tracking-[-0.03em]">Nog geen reacties</h2>
         <p className="m-0 max-w-[54ch] text-base leading-relaxed text-black/60">Dat kan even duren. Je aanmelding blijft actief tot er een match is. Je hoeft zelf niets te doen.</p>

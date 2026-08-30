@@ -664,7 +664,10 @@ export default function SignupForm() {
           </button>
         </div>
       </form>
-      <p className="mt-5 text-sm text-black/55">Heb je al een account en wil je je aanmelding aanpassen? <Link href="/inloggen" className="font-semibold text-accent underline">Log hier in.</Link></p>
+      <div className="mt-6 flex flex-col gap-2 rounded-2xl border border-accent/20 bg-accent/5 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+        <p className="m-0 text-[15px] text-black/70">Heb je al een account?</p>
+        <Link href="/inloggen" className="inline-flex w-fit rounded-full bg-accent px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-black">Log hier in om je aanmelding aan te passen</Link>
+      </div>
     </div>
   );
 }
