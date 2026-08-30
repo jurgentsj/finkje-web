@@ -49,7 +49,7 @@ export default function EmployerSignupForm() {
     setForm((f) => ({ ...f, [key]: e.target.value }));
   };
 
-  const handleNext = (e: React.FormEvent) => {
+  const handleNext = async (e: React.FormEvent) => {
     e.preventDefault();
     const honeypot = new FormData(e.currentTarget as HTMLFormElement).get("website_confirmation");
     if (typeof honeypot === "string" && honeypot.trim()) return;
@@ -57,7 +57,33 @@ export default function EmployerSignupForm() {
     if (!/.+@.+\..+/.test(form.email)) {
       return setFout("Vul een geldig e-mailadres in.");
     }
-    setStap(2);
+
+    setBezig(true);
+    try {
+      const supabase = createClient();
+      const { error } = await supabase.auth.signInWithOtp({
+        email: form.email,
+        options: { shouldCreateUser: true },
+      });
+
+      if (error) {
+        console.error("[v0] Employer signup OTP failed:", { code: error.code, message: error.message, status: error.status });
+        const message = error.message.toLowerCase();
+        setFout(
+          message.includes("rate limit") || message.includes("too many requests")
+            ? "Supabase blokkeert tijdelijk nieuwe e-mails. Wacht even en probeer daarna opnieuw."
+            : "De inlogcode kon niet worden verzonden. Probeer het nog een keer.",
+        );
+        setBezig(false);
+        return;
+      }
+
+      setBezig(false);
+      setWachtOpCode(true);
+    } catch {
+      setBezig(false);
+      setFout("Registreren lukt nu niet. Probeer het nog een keer.");
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -72,44 +98,16 @@ export default function EmployerSignupForm() {
     setBezig(true);
     try {
       const supabase = createClient();
-      const { data, error } = await supabase.auth.signInWithOtp({
-        email: form.email,
-        options: {
-          shouldCreateUser: true,
-          data: {
-            role: "werkgever",
-            naam: form.naam,
-            bedrijfsnaam: form.bedrijfsnaam,
-            contactpersoon: form.contactpersoon,
-            sector: form.sector,
-            bedrijfsgrootte: form.bedrijfsgrootte,
-            website: form.website,
-            telefoon: form.telefoon,
-          },
-        },
-      });
-
-      if (error) {
-        console.error("[v0] Employer signup OTP failed:", { code: error.code, message: error.message, status: error.status });
+      const { data, error } = await supabase.auth.getUser();
+      if (error || !data.user) {
         setBezig(false);
-        const message = error.message.toLowerCase();
-        if (message.includes("rate limit") || message.includes("too many requests")) {
-          setFout("Supabase blokkeert tijdelijk nieuwe e-mails. Wacht even en probeer daarna opnieuw.");
-        } else {
-          setFout(`Supabase: ${error.message}`);
-        }
+        setFout("Je sessie is verlopen. Vraag een nieuwe inlogcode aan.");
         return;
       }
 
-      if (data.session && data.user) {
-        await completeAuthProfile(supabase, data.user);
-        setBezig(false);
-        setKlaar(true);
-        return;
-      }
-
+      const destination = await completeAuthProfile(supabase, data.user);
       setBezig(false);
-      setWachtOpCode(true);
+      router.replace(next || destination);
     } catch {
       setBezig(false);
       setFout("Registreren lukt nu niet. Probeer het nog een keer.");
@@ -138,9 +136,20 @@ export default function EmployerSignupForm() {
       return;
     }
 
-    const destination = await completeAuthProfile(supabase, data.user);
+    await supabase.auth.updateUser({
+      data: {
+        role: "werkgever",
+        bedrijfsnaam: form.bedrijfsnaam,
+        contactpersoon: form.contactpersoon,
+        sector: form.sector,
+        bedrijfsgrootte: form.bedrijfsgrootte,
+        website: form.website,
+        telefoon: form.telefoon,
+      },
+    });
+    setWachtOpCode(false);
+    setStap(2);
     setBezig(false);
-    router.replace(next || destination);
   };
 
   if (klaar) {
@@ -165,12 +174,11 @@ export default function EmployerSignupForm() {
 
   if (wachtOpCode) {
     return (
-      <form onSubmit={bevestigCode} className="flex flex-col gap-6 rounded-[28px] bg-sand p-8 sm:p-10">
-        <div className="flex flex-col gap-3">
-          <span className="text-base font-semibold text-accent">Check je inbox</span>
-          <h2 className="m-0 font-display text-[clamp(26px,3vw,36px)] leading-tight font-bold tracking-[-0.03em]">
-            Vul je inlogcode in.
-          </h2>
+      <form onSubmit={bevestigCode} className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10">
+        <div className="flex flex-col gap-3 border-b border-black/10 pb-6">
+          <h1 className="m-0 font-display text-[32px] leading-tight font-normal tracking-[-0.03em]">
+            Uw identiteit verifiëren
+          </h1>
           <p className="m-0 text-lg leading-relaxed text-black/60">
             We hebben een inlogcode gestuurd naar <strong className="font-semibold text-black">{form.email}</strong>.
           </p>
@@ -223,11 +231,9 @@ className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10"
         <h1 className="m-0 font-display text-[32px] leading-tight font-normal tracking-[-0.03em]">
           {stap === 1 ? "Creëer je account" : "Je bedrijfsgegevens"}
         </h1>
-        {stap === 1 && (
-          <p className="m-0 text-[15px] leading-relaxed text-black/55">
-            Maak je account aan. Je ontvangt daarna een inlogcode per e-mail.
-          </p>
-        )}
+        <p className="m-0 text-[15px] leading-relaxed text-black/55">
+          {stap === 1 ? "Maak je account aan. Je ontvangt daarna een inlogcode per e-mail." : "Vul je bedrijfsgegevens in om verder te gaan."}
+        </p>
       </div>
 
       {stap === 1 ? (
@@ -336,7 +342,7 @@ className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10"
           disabled={bezig}
           className="rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-black disabled:opacity-60"
         >
-          {stap === 1 ? "Verder →" : bezig ? "Account wordt aangemaakt…" : "Gratis account aanmaken"}
+          {stap === 1 ? "Doorgaan →" : bezig ? "Account wordt aangemaakt…" : "Gratis account aanmaken"}
         </button>
       </div>
       {next && <input type="hidden" name="next" value={next} />}
