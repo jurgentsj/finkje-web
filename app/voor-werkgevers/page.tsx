@@ -25,7 +25,7 @@ export default function VoorWerkgeversPage() {
               Voor werkgevers
             </div>
             <h1 className="m-0 mt-7 max-w-[16ch] font-display text-[clamp(40px,7.4vw,108px)] leading-[0.88] font-extrabold tracking-[-0.05em]">
-              Ontdek mensen die weten wat ze willen
+              Mensen die weten wat ze willen. Omdat motivatie niet te stoppen is.
             </h1>
             <p className="mt-7 max-w-[42ch] text-[clamp(18px,2.1vw,24px)] leading-snug text-black/62">
               Onze mensen beginnen bij zichzelf en worden niet extern geprikkeld door de voorwaarden op jouw vacature. Zo
