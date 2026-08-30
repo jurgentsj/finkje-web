@@ -19,6 +19,8 @@ export default function HeroForm() {
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const honeypot = new FormData(e.currentTarget as HTMLFormElement).get("website_confirmation");
+    if (typeof honeypot === "string" && honeypot.trim()) return;
     const value = wil.trim();
     if (value) {
       try {
@@ -32,6 +34,8 @@ export default function HeroForm() {
 
   return (
     <form onSubmit={submit} className="mt-11 max-w-[900px]">
+      <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
+      <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       <div className="flex flex-col gap-3 rounded-3xl border border-black/10 bg-sand p-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3.5 sm:rounded-full sm:py-2.5 sm:pr-2.5 sm:pl-7">
         <div className="flex min-w-0 items-center gap-2.5 sm:contents">
           <span className="shrink-0 font-display text-xl font-semibold tracking-[-0.02em] whitespace-nowrap sm:text-[clamp(19px,2.4vw,30px)]">

@@ -51,6 +51,8 @@ export default function EmployerSignupForm() {
 
   const handleNext = (e: React.FormEvent) => {
     e.preventDefault();
+    const honeypot = new FormData(e.currentTarget as HTMLFormElement).get("website_confirmation");
+    if (typeof honeypot === "string" && honeypot.trim()) return;
     setFout("");
     if (!form.naam.trim() || !/.+@.+\..+/.test(form.email)) {
       return setFout("Vul je naam en een geldig e-mailadres in.");
@@ -60,6 +62,8 @@ export default function EmployerSignupForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const honeypot = new FormData(e.currentTarget as HTMLFormElement).get("website_confirmation");
+    if (typeof honeypot === "string" && honeypot.trim()) return;
     setFout("");
     if (!form.bedrijfsnaam.trim() || !form.contactpersoon.trim()) {
       return setFout("Bedrijfsnaam en contactpersoon zijn verplicht.");
@@ -214,6 +218,8 @@ export default function EmployerSignupForm() {
       onSubmit={stap === 1 ? handleNext : handleSubmit}
       className="flex flex-col gap-6 rounded-[28px] bg-sand p-8 sm:p-10"
     >
+      <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
+      <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       <div className="flex flex-col gap-2 border-b border-black/10 pb-6">
         <div className="flex items-center justify-between gap-4">
           <span className="text-[13px] font-semibold text-accent">Stap {stap} van 2</span>
