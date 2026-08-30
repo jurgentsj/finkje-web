@@ -102,7 +102,7 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
           />
         </label>
         {fout && <p className="m-0 text-base font-semibold text-[#C42A00]">{fout}</p>}
-        <div className="flex flex-col-reverse gap-3 border-t border-black/10 pt-6.5 sm:flex-row sm:items-center sm:justify-between">
+<div className="flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
           <button
             type="button"
             onClick={() => {
