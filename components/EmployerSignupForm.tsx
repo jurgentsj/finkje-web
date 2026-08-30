@@ -229,7 +229,7 @@ export default function EmployerSignupForm() {
           {stap === 1 ? "Eerst je e-mailadres" : "Je bedrijfsgegevens"}
         </h1>
         <p className="m-0 text-[15px] leading-relaxed text-black/55">
-          {stap === 1 ? "Je maakt gratis een account aan. Je ontvangt daarna een inlogcode per e-mail." : "Nog twee gegevens en je kunt direct profielen bekijken."}
+          {stap === 1 ? "Maak een account aan. Je ontvangt daarna een inlogcode per e-mail." : "Nog twee gegevens en je kunt direct profielen bekijken."}
         </p>
       </div>
 
