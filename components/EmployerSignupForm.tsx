@@ -223,9 +223,11 @@ className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10"
         <h1 className="m-0 font-display text-[32px] leading-tight font-normal tracking-[-0.03em]">
           {stap === 1 ? "Creëer je account" : "Je bedrijfsgegevens"}
         </h1>
-        <p className="m-0 text-[15px] leading-relaxed text-black/55">
-          {stap === 1 ? "Maak je account aan. Je ontvangt daarna een inlogcode per e-mail." : "Vul je bedrijfsgegevens in om profielen te bekijken."}
-        </p>
+        {stap === 1 && (
+          <p className="m-0 text-[15px] leading-relaxed text-black/55">
+            Maak je account aan. Je ontvangt daarna een inlogcode per e-mail.
+          </p>
+        )}
       </div>
 
       {stap === 1 ? (
