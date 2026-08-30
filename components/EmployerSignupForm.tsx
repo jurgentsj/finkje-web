@@ -320,7 +320,7 @@ className="flex flex-col gap-5 rounded-[28px] p-5 sm:gap-6 sm:p-10"
 
       {fout && <p className="m-0 text-[14px] font-medium text-red-600">{fout}</p>}
 
-      <div className="flex flex-col-reverse items-stretch gap-4 border-t border-black/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col-reverse items-center gap-4 border-t border-black/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
         {stap === 2 ? (
           <button
             type="button"
@@ -330,7 +330,7 @@ className="w-full text-center text-[14px] font-semibold text-black/50 transition
             ← Terug
           </button>
         ) : (
-          <Link href="/account/inloggen-werkgever" className="text-[14px] font-semibold text-black/50 transition-colors hover:text-black">
+          <Link href="/account/inloggen-werkgever" className="w-auto text-center text-[14px] font-semibold text-black/50 transition-colors hover:text-black">
             Al een account?
           </Link>
         )}
@@ -342,9 +342,6 @@ className="w-full text-center text-[14px] font-semibold text-black/50 transition
           {stap === 1 ? "Doorgaan →" : bezig ? "Account wordt aangemaakt…" : "Gratis account aanmaken"}
         </button>
       </div>
-      <p className="m-0 text-[16.5px] leading-relaxed font-semibold text-black sm:hidden">
-        Maak je volgende aanstelling op motivatie. Finkje brengt je in contact met gemotiveerde mensen die weten wat zij willen.
-      </p>
       {next && <input type="hidden" name="next" value={next} />}
     </form>
   );
