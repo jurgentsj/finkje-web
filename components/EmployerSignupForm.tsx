@@ -232,7 +232,7 @@ className="flex flex-col gap-5 rounded-[28px] p-5 sm:gap-6 sm:p-10"
           {stap === 1 ? "Creëer je account" : "Je bedrijfsgegevens"}
         </h1>
         <p className="m-0 text-[16px] leading-relaxed text-black/55">
-          {stap === 1 ? "Maak je account aan. Je ontvangt daarna een inlogcode per e-mail." : "Vul je bedrijfsgegevens in om verder te gaan."}
+          {stap === 1 ? "Maak je account aan. Je ontvangt daarna een inlogcode per e-mail en hebt toegang tot onze Willers." : "Vul je bedrijfsgegevens in om verder te gaan."}
         </p>
       </div>
 
