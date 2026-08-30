@@ -222,17 +222,17 @@ className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10"
       <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       <div className="flex flex-col gap-2 border-b border-black/10 pb-6">
         <h1 className="m-0 font-display text-[32px] leading-tight font-normal tracking-[-0.03em]">
-          {stap === 1 ? "Creëer uw account" : "Uw bedrijfsgegevens"}
+          {stap === 1 ? "Creëer je account" : "Uw bedrijfsgegevens"}
         </h1>
         <p className="m-0 text-[15px] leading-relaxed text-black/55">
-          {stap === 1 ? "Maak uw account aan. U ontvangt daarna een inlogcode per e-mail." : "Vul uw bedrijfsgegevens in om profielen te bekijken."}
+          {stap === 1 ? "Maak je account aan. U ontvangt daarna een inlogcode per e-mail." : "Vul uw bedrijfsgegevens in om profielen te bekijken."}
         </p>
       </div>
 
       {stap === 1 ? (
         <div className="flex flex-col gap-5">
           <label className="flex flex-col gap-2">
-            <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">Uw naam</span>
+            <span className="text-[11px] font-semibold tracking-[0.12em] text-black/55 uppercase">NAAM</span>
             <input
               type="text"
               value={form.naam}
