@@ -221,10 +221,6 @@ export default function EmployerSignupForm() {
       <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
       <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       <div className="flex flex-col gap-2 border-b border-black/10 pb-6">
-        <div className="flex items-center justify-between gap-4">
-          <span className="text-[13px] font-semibold text-accent">Stap {stap} van 2</span>
-          <span className="text-[13px] text-black/45">Gratis account</span>
-        </div>
         <h1 className="m-0 font-display text-[32px] leading-tight font-normal tracking-[-0.03em]">
           {stap === 1 ? "Creëer uw account" : "Uw bedrijfsgegevens"}
         </h1>
