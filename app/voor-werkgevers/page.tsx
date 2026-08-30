@@ -73,10 +73,10 @@ export default function VoorWerkgeversPage() {
               className="grid grid-cols-[40px_minmax(0,1fr)] items-start gap-x-4 gap-y-2 border-b border-black/10 py-6.5 sm:grid-cols-[64px_minmax(180px,300px)_1fr] sm:items-baseline sm:gap-6"
             >
               <span className="font-display text-xl font-bold text-accent">{s.nr}</span>
-              <h3 className="col-span-1 m-0 font-display text-[clamp(20px,2.2vw,27px)] leading-tight font-bold tracking-[-0.03em]">
+              <h3 className="col-span-1 m-0 font-display text-[clamp(20px,2.2vw,27px)] leading-tight font-normal tracking-[-0.03em]">
                 {s.titel}
               </h3>
-              <p className="col-span-2 m-0 w-full max-w-none text-[17px] leading-snug text-black/65 sm:col-auto sm:max-w-[56ch]">{s.tekst}</p>
+              <p className="col-span-2 m-0 w-full max-w-none text-[18px] leading-snug text-black/65 sm:col-auto sm:max-w-[56ch]">{s.tekst}</p>
             </div>
           ))}
         </div>
