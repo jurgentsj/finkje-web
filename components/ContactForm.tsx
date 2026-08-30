@@ -12,6 +12,8 @@ export default function ContactForm() {
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const honeypot = new FormData(e.currentTarget as HTMLFormElement).get("website_confirmation");
+    if (typeof honeypot === "string" && honeypot.trim()) return;
     try {
       await saveLead("contact", form);
       setVerzonden(true);
@@ -22,6 +24,8 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={submit} className="rounded-[28px] bg-sand p-8.5">
+      <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
+      <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       {verzonden ? (
         <div className="flex flex-col gap-3.5">
           <p className="m-0 font-display text-[32px] font-extrabold tracking-[-0.04em] text-accent">
