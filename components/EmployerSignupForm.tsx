@@ -105,9 +105,9 @@ export default function EmployerSignupForm() {
         return;
       }
 
-      const destination = await completeAuthProfile(supabase, data.user);
+      await completeAuthProfile(supabase, data.user);
       setBezig(false);
-      router.replace(next || destination);
+      router.replace("/werkgever/dashboard");
     } catch {
       setBezig(false);
       setFout("Registreren lukt nu niet. Probeer het nog een keer.");
