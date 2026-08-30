@@ -19,7 +19,7 @@ export default function VoorWerkgeversPage() {
   return (
     <>
       <section className="mx-auto max-w-[1360px] px-4 pt-10 sm:px-6 sm:pt-16">
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] items-end gap-12">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] items-start gap-12 lg:items-center">
           <div>
             <div className="inline-flex rounded-full border border-accent px-4 py-2 text-xs font-semibold tracking-[0.16em] text-accent uppercase">
               Voor werkgevers
@@ -63,9 +63,11 @@ export default function VoorWerkgeversPage() {
       </section>
 
       <section className="mx-auto max-w-[1360px] px-4 pt-14 sm:px-6 sm:pt-20">
-        <h2 className="m-0 mb-2 font-display text-[clamp(28px,4vw,52px)] leading-[0.96] font-normal tracking-[-0.045em]">
-          Zo werkt het
-        </h2>
+        <div className="flex flex-col gap-8 border-b border-black/15 pb-7">
+          <h2 className="m-0 font-display text-[clamp(28px,4vw,52px)] leading-[0.96] font-normal tracking-[-0.045em]">
+            Zo werkt het
+          </h2>
+        </div>
         <div className="flex flex-col">
           {werkgeverStappen.map((s) => (
             <div
