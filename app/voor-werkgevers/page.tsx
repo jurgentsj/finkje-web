@@ -63,9 +63,11 @@ export default function VoorWerkgeversPage() {
       </section>
 
       <section className="mx-auto max-w-[1360px] px-4 pt-14 sm:px-6 sm:pt-20">
-        <h2 className="m-0 mb-2 font-display text-[clamp(28px,4vw,52px)] leading-[0.96] font-normal tracking-[-0.045em]">
-          Zo werkt het
-        </h2>
+        <div className="flex flex-col gap-8 border-b border-black/15 pb-7">
+          <h2 className="m-0 font-display text-[clamp(28px,4vw,52px)] leading-[0.96] font-normal tracking-[-0.045em]">
+            Zo werkt het
+          </h2>
+        </div>
         <div className="flex flex-col">
           {werkgeverStappen.map((s) => (
             <div
