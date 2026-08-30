@@ -216,7 +216,7 @@ export default function EmployerSignupForm() {
   return (
     <form
       onSubmit={stap === 1 ? handleNext : handleSubmit}
-      className="flex flex-col gap-6 rounded-[28px] bg-sand p-8 sm:p-10"
+className="flex flex-col gap-6 rounded-[28px] p-8 sm:p-10"
     >
       <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
       <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
