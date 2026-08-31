@@ -45,12 +45,12 @@ export default function HeroForm() {
             value={wil}
             onChange={(e) => setWil(e.target.value)}
             placeholder={phrases[phraseIdx]}
-            className="min-w-0 flex-1 border-0 bg-transparent py-2 font-display text-xl font-bold tracking-[-0.02em] text-accent outline-none sm:min-w-[180px] sm:py-2.5 sm:text-[clamp(19px,2.4vw,30px)]"
+            className="min-w-0 flex-1 border-0 bg-transparent py-2 font-display text-[21px] font-semibold tracking-[-0.02em] text-accent outline-none placeholder:text-accent/80 sm:min-w-[180px] sm:py-2.5 sm:text-[clamp(19px,2.1vw,27px)]"
           />
         </div>
         <button
           type="submit"
-          className="flex w-full shrink-0 items-center justify-center gap-2.5 rounded-full bg-accent px-7 py-3.5 text-[21px] font-semibold text-white transition-colors hover:bg-black sm:w-auto sm:py-4 sm:text-[21px]"
+          className="flex w-full shrink-0 items-center justify-center gap-2.5 rounded-full bg-accent px-7 py-3.5 text-[21px] font-semibold text-white transition-colors hover:bg-black sm:w-auto sm:py-4 sm:text-[clamp(19px,2vw,26px)]"
         >
           Zet me erop <span className="text-xl">→</span>
         </button>

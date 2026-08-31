@@ -360,7 +360,7 @@ export default function SignupForm() {
                 value={form.droombaan}
                 onChange={setField("droombaan")}
                 placeholder="bv. meubelmaker"
-                className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 font-display text-[clamp(20px,2.6vw,30px)] font-bold tracking-[-0.03em] text-accent outline-none focus:border-accent"
+                className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 font-display text-[clamp(22px,2.6vw,30px)] font-semibold tracking-[-0.03em] text-accent outline-none placeholder:text-accent/55 focus:border-accent"
               />
             </label>
           </div>
