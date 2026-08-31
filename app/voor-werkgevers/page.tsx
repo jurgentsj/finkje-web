@@ -134,7 +134,7 @@ export default function VoorWerkgeversPage() {
       </section>
 
       <section className="mx-auto max-w-[1360px] px-6 pt-22">
-        <h2 className="m-0 mb-8 font-display text-[clamp(28px,4vw,52px)] leading-[0.96] font-normal tracking-[-0.045em]">
+        <h2 className="m-0 mb-8 font-display text-[clamp(28px,4vw,52px)] leading-[0.96] font-medium tracking-[-0.045em]">
           Wat werkgevers vragen
         </h2>
         <Faq items={werkgeverFaq} />
