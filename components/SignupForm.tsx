@@ -331,11 +331,11 @@ export default function SignupForm() {
 
   return (
     <div>
-      <h1 className="m-0 font-display text-[clamp(36px,7vw,96px)] leading-[0.9] font-extrabold tracking-[-0.05em]">
+      <h1 className="m-0 font-display text-[clamp(36px,7vw,88px)] leading-[0.9] font-extrabold tracking-[-0.081em]">
         Wat is je droombaan?
       </h1>
       <p className="mt-6 mb-10 max-w-[56ch] text-lg leading-snug text-black/62">
-        In zeven stappen naar jouw droombaan. Kies zorgvuldig en voel dat jouw hart er sneller van gaat kloppen.
+        Kies zorgvuldig en voel dat jouw hart er sneller van gaat kloppen.
       </p>
 
       <div className="mb-10 flex gap-2">
@@ -352,7 +352,6 @@ export default function SignupForm() {
   <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
   {stap === 1 && (
           <div className="flex flex-col gap-8">
-            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Stap 1 — de Functie</span>
             <label className="flex flex-col gap-3">
               <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
                 Wat wil je graag doen?
