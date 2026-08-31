@@ -21,7 +21,7 @@ export default function Faq({ items }: { items: Item[] }) {
             <button
               type="button"
               onClick={() => setOpen(isOpen ? -1 : i)}
-              className="flex w-full items-center justify-between gap-6 px-7 py-6 text-left font-display text-[clamp(19px,2.2vw,25px)] font-normal tracking-[-0.03em] text-[#111]"
+              className="flex w-full items-center justify-between gap-6 px-7 py-6 text-left font-display text-[26px] font-medium tracking-[-0.03em] text-[#111]"
             >
               <span
                 className={
