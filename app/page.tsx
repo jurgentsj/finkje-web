@@ -85,7 +85,7 @@ export default async function HomePage({
       {/* 3 steps */}
       <section className="mx-auto max-w-[1360px] px-6 py-18">
         <h2 className="m-0 mb-14 max-w-[40ch] font-display text-[clamp(32px,5vw,70px)] leading-[0.96] font-semibold tracking-[-0.081em]">
-          In drie stappen naar jouw droombaan.
+          In drie stappen naar jouw droombaan
         </h2>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-4">
           {stapData.map((s, i) => {
