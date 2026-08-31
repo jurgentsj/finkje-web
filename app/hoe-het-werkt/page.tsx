@@ -74,7 +74,7 @@ export default function HoeHetWerktPage() {
       <section className="mx-auto max-w-[1360px] px-6 pt-24">
         <div className="flex flex-col gap-9 rounded-[32px] bg-sand p-8 sm:p-16">
           <div className="flex flex-col gap-4.5">
-            <h2 className="m-0 max-w-[18ch] font-display text-[clamp(32px,5.4vw,62px)] leading-[0.94] font-medium tracking-[-0.045em]">
+            <h2 className="m-0 max-w-[18ch] font-display text-[clamp(32px,5.4vw,56px)] leading-[0.94] font-medium tracking-[-0.045em]">
               Geen vacatures, waarom?
             </h2>
             <p className="m-0 max-w-[42ch] text-[clamp(17px,1.9vw,20px)] leading-snug text-black/68">
