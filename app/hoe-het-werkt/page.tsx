@@ -39,7 +39,7 @@ export default function HoeHetWerktPage() {
           Onze werkwijze.
         </h1>
         <div className="mt-9 grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] items-end gap-8 border-t border-black/10 pt-8">
-          <p className="m-0 max-w-[40ch] text-[clamp(18px,2vw,23px)] leading-snug text-black/64">
+          <p className="m-0 max-w-[40ch] text-[clamp(18px,2vw,21px)] leading-snug text-black/64">
             Finkje draait solliciteren om: je motivatie staat centraal. Enthousiaste werkgevers reageren op jou. 
           </p>
           <div className="justify-self-start">
