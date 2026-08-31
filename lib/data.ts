@@ -1607,15 +1607,15 @@ export const hoeHetWerktFaq = [
 export const werkgeverStappen = [
   {
     nr: "01",
-    titel: "Blader zelf door profielen",
+    titel: "Blader zelf, of laat ons zoeken",
     tekst:
-      "Vrij te bekijken, ook als je geen vacature plaatst.",
+      "Bekijk zelf profielen van mensen die weten wat ze willen. Liever dat wij meekijken? Geef aan waar je naar op zoek bent, dan zoeken wij met je mee.",
   },
   {
     nr: "02",
     titel: "Plaats je vacature",
     tekst:
-      "Meldt zich iemand aan die goed aansluit, dan laten we het je weten.",
+      "Meldt zich iemand die goed aansluit, dan laten we het je weten.\n",
   },
   {
     nr: "03",
