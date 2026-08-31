@@ -18,13 +18,13 @@ const strip = [
 export default function VoorWerkgeversPage() {
   return (
     <>
-      <section className="mx-auto max-w-[1360px] px-4 pt-10 sm:px-6 sm:pt-16">
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] items-start gap-12 lg:items-center">
+      <section className="mx-auto w-full max-w-[1360px] overflow-hidden px-4 pt-10 sm:px-6 sm:pt-16">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] items-start gap-10 lg:items-center lg:gap-12">
           <div>
-            <h1 className="m-0 mt-7 max-w-[16ch] font-display text-[73px] leading-[0.9] font-semibold tracking-[-0.071em]">
+            <h1 className="m-0 mt-7 max-w-[14ch] font-display text-[clamp(42px,12vw,73px)] leading-[0.9] font-semibold tracking-[-0.071em] sm:max-w-[16ch]">
               Ontdek gemotiveerde mensen die weten wat ze willen
             </h1>
-            <p className="mt-7 max-w-[42ch] text-[16px] leading-snug text-black/62 sm:text-[20px]">
+            <p className="mt-7 max-w-[42ch] text-[18px] leading-snug text-black/62 sm:text-[20px]">
               Onze mensen beginnen bij zichzelf en worden niet extern geprikkeld door de voorwaarden op jouw vacature.
             </p>
             <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
