@@ -134,7 +134,7 @@ export default function HoeHetWerktPage() {
                   <span className="text-[13px] font-semibold text-accent">Rotterdam · per direct</span>
                 </div>
                 <div className="border-b border-black/10 px-7 pb-6.5">
-                  <span className="block font-display text-[clamp(32px,3.6vw,46px)] leading-[0.94] font-extrabold tracking-[-0.04em]">
+                  <span className="block font-display text-[clamp(32px,3.6vw,41px)] leading-[0.94] font-medium tracking-[-0.04em]">
                     Junior developer
                   </span>
                 </div>
