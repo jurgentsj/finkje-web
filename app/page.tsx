@@ -117,7 +117,7 @@ export default async function HomePage({
               <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">
                 De voordelen van Finkje
               </p>
-              <h2 className="m-0 max-w-[16ch] font-display text-[clamp(34px,5.2vw,76px)] leading-[0.92] font-extrabold tracking-[-0.05em]">
+              <h2 className="m-0 max-w-[16ch] font-display text-[clamp(34px,5.2vw,76px)] leading-[0.92] font-semibold tracking-[-0.05em]">
                 Solliciteren zoals het moet zijn.
               </h2>
               <p className="m-0 max-w-[40ch] text-[clamp(17px,1.9vw,21px)] leading-snug text-black/68">
@@ -165,8 +165,7 @@ export default async function HomePage({
       {/* Quote */}
       <section className="bg-black text-white">
         <div className="mx-auto max-w-[1360px] px-6 py-26">
-          <p className="m-0 mb-6 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Wat wij geloven</p>
-          <h2 className="m-0 max-w-[30ch] font-display text-[clamp(38px,6.6vw,104px)] leading-[0.9] font-extrabold tracking-[-0.05em]">
+          <h2 className="m-0 max-w-[30ch] font-display text-[clamp(38px,6.6vw,93px)] leading-[0.9] font-semibold tracking-[-0.05em]">
             Jouw droom is het beste cv dat je ooit gemaakt hebt.
           </h2>
           <Link
