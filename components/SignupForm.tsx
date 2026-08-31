@@ -344,7 +344,6 @@ export default function SignupForm() {
     <div>
       <div className="mb-10 flex items-center justify-between border-b border-black/10 pb-4 text-sm font-semibold text-black/50">
         <span>Stap {stap} van 7</span>
-        <span className="text-accent">Finkje</span>
       </div>
 
       <h1 className="m-0 max-w-[12ch] font-display text-[clamp(42px,7vw,76px)] leading-[0.92] font-semibold tracking-[-0.06em]">
