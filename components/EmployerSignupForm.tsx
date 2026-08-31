@@ -176,7 +176,7 @@ export default function EmployerSignupForm() {
     return (
       <form onSubmit={bevestigCode} className="flex flex-col gap-5 rounded-[28px] p-5 sm:gap-6 sm:p-10">
         <div className="flex flex-col gap-3 border-b border-black/10 pb-6">
-          <h1 className="m-0 font-display text-[32px] leading-tight font-normal tracking-[-0.03em]">
+          <h1 className="m-0 font-display text-[32px] leading-tight font-medium tracking-[-0.03em]">
             Voer je inlogcode in
           </h1>
           <p className="m-0 text-lg leading-relaxed text-black/60">
