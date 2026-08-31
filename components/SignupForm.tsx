@@ -633,13 +633,12 @@ export default function SignupForm() {
               />
             </label>
             <p className="m-0 max-w-[52ch] text-[15px] leading-relaxed text-black/50">
-              Je naam en contactgegevens zijn nooit zichtbaar voor werkgevers, totdat jij beslist om in gesprek te gaan.
+              We delen je gegevens alleen als jij daar toestemming voor geeft.
             </p>
             <label className="flex items-start gap-3 text-sm leading-relaxed text-black/70">
               <input type="checkbox" checked={akkoord} onChange={(e) => setAkkoord(e.target.checked)} className="mt-1 size-4 accent-accent" />
               <span>Ik ga akkoord met de <Link href="/algemene-voorwaarden" className="font-semibold underline">algemene voorwaarden</Link>.</span>
             </label>
-            <p className="m-0 text-sm font-semibold text-black/55">Gratis, zonder verplichtingen. We delen je gegevens nooit zonder jouw toestemming.</p>
           </div>
         )}
 
