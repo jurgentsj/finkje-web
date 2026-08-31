@@ -59,22 +59,21 @@ export default function VoorWerkgeversPage() {
       </section>
 
       <section className="mx-auto max-w-[1360px] px-4 pt-14 sm:px-6 sm:pt-20">
-        <div className="flex flex-col gap-8 border-b border-black/15 pb-7">
+        <div className="flex flex-col gap-8 pb-7">
           <h2 className="m-0 font-display text-[34px] leading-[0.96] font-medium tracking-[-0.045em] sm:text-[52px]">
             Zo werkt het
           </h2>
         </div>
-        <div className="flex flex-col">
+        <div className="relative ml-2 border-l border-black/15 pl-8 sm:ml-8 sm:pl-12">
           {werkgeverStappen.map((s) => (
-            <div
-              key={s.nr}
-              className="grid grid-cols-[40px_minmax(0,1fr)] items-start gap-x-4 gap-y-2 border-b border-black/10 py-6.5 sm:grid-cols-[64px_minmax(180px,300px)_1fr] sm:items-baseline sm:gap-6"
-            >
-              <span className="font-display text-xl font-bold text-accent">{s.nr}</span>
-              <h3 className="col-span-1 m-0 font-display text-[clamp(20px,2.2vw,30px)] leading-tight font-medium tracking-[-0.03em]">
+            <div key={s.nr} className="relative flex flex-col gap-3 border-b border-black/10 py-7 first:pt-2 last:border-b-0">
+              <span className="absolute -left-[calc(2rem+1px)] top-7 flex size-7 items-center justify-center rounded-full bg-accent font-display text-sm font-semibold text-white sm:-left-[calc(3rem+1px)] sm:size-8 sm:top-8">
+                {s.nr}
+              </span>
+              <h3 className="m-0 max-w-[22ch] font-display text-[clamp(24px,3vw,38px)] leading-tight font-medium tracking-[-0.04em]">
                 {s.titel}
               </h3>
-              <p className="col-span-2 m-0 w-full max-w-none text-[16.5px] leading-snug text-black/65 sm:col-auto sm:max-w-[56ch] sm:text-[18px]">{s.tekst}</p>
+              <p className="m-0 max-w-[56ch] text-[16.5px] leading-relaxed text-black/65 sm:text-[18px]">{s.tekst}</p>
             </div>
           ))}
         </div>
