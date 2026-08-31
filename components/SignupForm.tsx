@@ -335,7 +335,7 @@ export default function SignupForm() {
     2: { title: "Waar wil je werken?", description: "Kies de plek die goed voelt en waar jij graag aan de slag wilt." },
     3: { title: "Waar ben je goed in?", description: "Vertel wat jou sterk maakt, ook als het niet op je cv staat." },
     4: { title: "Welke kleur past bij jou?", description: "Kies wat goed voelt. Er is geen goed of fout." },
-    5: { title: "Wat voor werk past bij jou?", description: "Kies de omgeving waarin jij het beste tot je recht komt." },
+    5: { title: "Wat voor omgeving past bij jou?", description: "Kies de omgeving waarin jij het beste tot je recht komt." },
     6: { title: "Wanneer wil je beginnen?", description: "Geef aan wanneer en in welke vorm je graag wilt werken." },
     7: { title: "Hoe bereiken we je?", description: "Laat je gegevens achter, dan houden we contact." },
   }[stap as 1 | 2 | 3 | 4 | 5 | 6 | 7];
