@@ -339,7 +339,7 @@ export default function SignupForm() {
       <h1 className="m-0 max-w-[12ch] font-display text-[clamp(42px,7vw,76px)] leading-[0.92] font-semibold tracking-[-0.06em]">
         Wat is je droombaan?
       </h1>
-      <p className="mt-5 mb-12 max-w-[48ch] text-lg leading-relaxed text-black/60">
+      <p className="mt-5 mb-6 max-w-[48ch] text-lg leading-relaxed text-black/60">
         Kies zorgvuldig en voel dat jouw hart er sneller van gaat kloppen.
       </p>
 
