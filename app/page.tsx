@@ -117,7 +117,7 @@ export default async function HomePage({
               <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">
                 De voordelen van Finkje
               </p>
-              <h2 className="m-0 max-w-[16ch] font-display text-[clamp(34px,5.2vw,76px)] leading-[0.92] font-semibold tracking-[-0.054em]">
+              <h2 className="m-0 max-w-[16ch] font-display text-[clamp(34px,5.2vw,71px)] leading-[0.92] font-semibold tracking-[-0.054em]">
                 Solliciteren zoals het moet zijn.
               </h2>
               <p className="m-0 max-w-[40ch] text-[clamp(17px,1.9vw,21px)] leading-snug text-black/68">
