@@ -132,7 +132,7 @@ export default function Carousel() {
                 className={`object-cover ${f.src.includes("finkje-rail-6") ? "scale-[1.08] translate-x-[-1%] translate-y-[2%]" : ""}`}
               />
             </div>
-            <figcaption className="mt-3 text-[15px] text-black/60">
+            <figcaption className="mt-3 text-[16px] text-black/60">
               &ldquo;{f.wil}&rdquo;
               <br />
               <br />

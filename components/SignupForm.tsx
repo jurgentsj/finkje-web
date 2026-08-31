@@ -92,6 +92,7 @@ export default function SignupForm() {
   const [wachtOpCode, setWachtOpCode] = useState(false);
   const [code, setCode] = useState("");
   const [akkoord, setAkkoord] = useState(false);
+  const [toonKleurInfo, setToonKleurInfo] = useState(false);
 
   const setField =
     (key: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -321,47 +322,48 @@ export default function SignupForm() {
   }
 
   const inputClass =
-    "rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent";
+    "rounded-2xl border border-black/15 bg-white px-5 py-4 text-lg text-[#111] outline-none transition-colors focus:border-accent";
   const pillInputClass =
-    "rounded-full border border-black/15 bg-white px-5 py-4 text-[17px] text-[#111] outline-none focus:border-accent";
+    "rounded-xl border border-black/15 bg-white px-5 py-4 text-[17px] text-[#111] outline-none transition-colors focus:border-accent";
   const chipClass = (active: boolean) =>
     `rounded-full border px-5 py-3 text-[17px] font-medium transition-colors ${
       active ? "border-accent bg-accent text-white" : "border-black/15 bg-white text-[#111]"
     }`;
 
+  const stepCopy = {
+    1: { title: "Wat is je droombaan?", description: "Kies zorgvuldig en voel dat jouw hart er sneller van gaat kloppen." },
+    2: { title: "Waar wil je werken?", description: "Kies de plek die goed voelt en waar jij graag aan de slag wilt." },
+    3: { title: "Waar ben je goed in?", description: "Vertel wat jou sterk maakt, ook als het niet op je cv staat." },
+    4: { title: "Welke kleur past bij jou?", description: "Kies wat goed voelt. Er is geen goed of fout." },
+    5: { title: "Wat voor omgeving past bij jou?", description: "Kies de omgeving waarin jij het beste tot je recht komt." },
+    6: { title: "Wanneer wil je beginnen?", description: "Geef aan wanneer en in welke vorm je graag wilt werken." },
+    7: { title: "Hoe kunnen we je bereiken?", description: "Nog één stap en we kunnen voor je aan de slag!" },
+  }[stap as 1 | 2 | 3 | 4 | 5 | 6 | 7];
+
   return (
     <div>
-      <h1 className="m-0 font-display text-[clamp(36px,7vw,96px)] leading-[0.9] font-extrabold tracking-[-0.05em]">
-        Wat is je droombaan?
-      </h1>
-      <p className="mt-6 mb-10 max-w-[56ch] text-lg leading-snug text-black/62">
-        In zeven stappen naar jouw droombaan. Kies zorgvuldig en voel dat jouw hart er sneller van gaat kloppen.
-      </p>
-
-      <div className="mb-10 flex gap-2">
-        {[1, 2, 3, 4, 5, 6, 7].map((n) => (
-          <span
-            key={n}
-            className={`h-[5px] flex-1 rounded-full transition-colors ${n <= stap ? "bg-accent" : "bg-black/10"}`}
-          />
-        ))}
+      <div className="mb-10 flex items-center justify-between border-b border-black/10 pb-4 text-sm font-semibold text-black/50">
+        <span>Stap {stap} van 7</span>
       </div>
 
-<form onSubmit={submit} className="flex flex-col gap-8.5 rounded-[28px] bg-sand p-8.5">
+      <h1 className="m-0 max-w-[12ch] font-display text-[clamp(42px,7vw,76px)] leading-[0.92] font-semibold tracking-[-0.06em]">
+        {stepCopy.title}
+      </h1>
+      <p className="mt-5 mb-6 max-w-[48ch] text-lg leading-relaxed text-black/60">
+        {stepCopy.description}
+      </p>
+
+<form onSubmit={submit} className="flex flex-col gap-10 pt-2 sm:gap-12 sm:pt-4">
   <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
   <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
   {stap === 1 && (
           <div className="flex flex-col gap-8">
-            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Stap 1 — de Functie</span>
             <label className="flex flex-col gap-3">
-              <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
-                Wat wil je graag doen?
-              </span>
               <input
                 value={form.droombaan}
                 onChange={setField("droombaan")}
                 placeholder="bv. meubelmaker"
-                className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 font-display text-[clamp(20px,2.6vw,30px)] font-bold tracking-[-0.03em] text-accent outline-none focus:border-accent"
+                className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 font-display text-[clamp(28px,3.5vw,40px)] font-semibold leading-tight tracking-[-0.03em] text-accent outline-none placeholder:text-accent/55 focus:border-accent"
               />
             </label>
           </div>
@@ -369,11 +371,7 @@ export default function SignupForm() {
 
         {stap === 2 && (
           <div className="flex flex-col gap-7">
-            <div className="flex flex-col gap-2">
-              <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Stap 2 — Jouw plek</span>
-              <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">Goede keuze! Waar wil je het liefst aan de slag?</span>
-            </div>
-            <button type="button" onClick={() => { setGeenVoorkeur(true); setForm((f) => ({ ...f, locatie: "Maakt mij niet uit" })); setFout(""); }} className={`rounded-2xl border px-5 py-4 text-left text-[17px] font-semibold transition-colors ${geenVoorkeur ? "border-accent bg-accent text-white" : "border-black/15 bg-white text-[#111]"}`}>
+            <button type="button" onClick={() => { const next = !geenVoorkeur; setGeenVoorkeur(next); setForm((f) => ({ ...f, locatie: next ? "Maakt mij niet uit" : "" })); setFout(""); }} className={`rounded-2xl border px-5 py-4 text-left text-[17px] font-semibold transition-colors ${geenVoorkeur ? "border-accent bg-accent text-white" : "border-black/15 bg-white text-[#111]"}`}>
               Het maakt mij niet uit, ik wil vooral deze baan
             </button>
             <label className="flex flex-col gap-3">
@@ -382,14 +380,14 @@ export default function SignupForm() {
             </label>
             <div className="flex items-center justify-between gap-4">
               <span className="text-sm text-black/50">Kies een stad uit de lijst</span>
-              <button type="button" onClick={() => navigator.geolocation?.getCurrentPosition(() => { setForm((f) => ({ ...f, locatie: "Mijn locatie" })); setLocatieZoekterm("Mijn locatie"); setGeenVoorkeur(false); }, () => setFout("Je locatie kon niet worden opgehaald."))} className="inline-flex items-center gap-2 font-semibold text-accent"><MapPin aria-hidden="true" className="size-5" strokeWidth={2} />Mijn locatie</button>
+              <button type="button" onClick={() => navigator.geolocation?.getCurrentPosition(async ({ coords }) => { try { const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${coords.latitude}&lon=${coords.longitude}&zoom=10&addressdetails=1`); const data = await response.json(); const city = data.address?.city || data.address?.town || data.address?.village || data.address?.municipality || "Onbekende locatie"; setForm((f) => ({ ...f, locatie: city })); setLocatieZoekterm(city); setGeenVoorkeur(false); } catch { setFout("Je locatie kon niet worden bepaald."); } }, () => setFout("Je locatie kon niet worden opgehaald."))} className="inline-flex items-center gap-2 font-semibold text-accent"><MapPin aria-hidden="true" className="size-5" strokeWidth={2} />Mijn locatie</button>
             </div>
             <div className="flex flex-wrap gap-2.5">
               {groteSteden.filter((stad) => stad.toLowerCase().includes(locatieZoekterm.toLowerCase())).map((stad) => (
-                <button key={stad} type="button" onClick={() => { setForm((f) => ({ ...f, locatie: stad })); setLocatieZoekterm(stad); setGeenVoorkeur(false); setFout(""); }} className={chipClass(form.locatie === stad)}>{stad}</button>
+                <button key={stad} type="button" onClick={() => { setForm((f) => ({ ...f, locatie: f.locatie === stad ? "" : stad })); setLocatieZoekterm(stad); setGeenVoorkeur(false); setFout(""); }} className={chipClass(form.locatie === stad)}>{stad}</button>
               ))}
             </div>
-            <label className="flex flex-col gap-3 rounded-2xl border border-black/10 bg-white p-5">
+            <label className={`flex flex-col gap-3 rounded-2xl border border-black/10 bg-white p-5 transition-opacity ${geenVoorkeur ? "pointer-events-none opacity-35 blur-[3px]" : ""}`}>
               <span className="font-display text-xl font-bold">Maximale reisafstand: {form.reisafstand || "25 km"}</span>
               <input type="range" min="1" max="50" value={form.reisafstand ? Number.parseInt(form.reisafstand) || 25 : 25} onChange={(e) => setForm((f) => ({ ...f, reisafstand: `${e.target.value} km` }))} style={{ background: `linear-gradient(to right, var(--accent) 0%, var(--accent) ${((form.reisafstand ? Number.parseInt(form.reisafstand) || 25 : 25) - 1) / 49 * 100}%, transparent ${((form.reisafstand ? Number.parseInt(form.reisafstand) || 25 : 25) - 1) / 49 * 100}%, transparent 100%)` }} className="location-slider h-3 w-full appearance-none rounded-full border border-black/15 bg-transparent accent-accent" />
               <div className="flex justify-between text-sm text-black/50"><span>1 km</span><span>50 km</span></div>
@@ -399,11 +397,7 @@ export default function SignupForm() {
 
         {stap === 3 && (
           <div className="flex flex-col gap-8">
-            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Stap 3 — OVER JOU</span>
             <label className="flex flex-col gap-3">
-              <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
-                Waar ben je sterk in?
-              </span>
               <textarea
                 value={form.sterk}
                 onChange={setField("sterk")}
@@ -413,7 +407,7 @@ export default function SignupForm() {
               />
             </label>
             <label className="flex flex-col gap-3">
-              <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
+              <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-semibold tracking-[-0.04em]">
                 Wat zou een werkgever over het hoofd zien als hij alleen naar je cv keek?
               </span>
               <textarea
@@ -431,16 +425,6 @@ export default function SignupForm() {
         {stap === 4 && (
           <div className="flex flex-col gap-7.5">
             <div className="flex flex-col gap-2.5">
-              <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">
-                Stap 3 — Persoonlijk tintje
-              </span>
-              <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
-                Kies je lievelingskleur
-              </span>
-              <span className="max-w-[56ch] text-[16.5px] leading-snug text-black/60">
-                Ja, serieus. Er is geen goed of fout. Kies wat het beste bij je past en denk er niet te lang over
-                na.
-              </span>
             </div>
 
             <div className="flex flex-col gap-3">
@@ -460,9 +444,19 @@ export default function SignupForm() {
                   />
                 ))}
               </div>
-              <Link href="/lievelingskleur?from=aanmelden" className="text-[14.5px] font-semibold">
-                Waarom mijn lievelingskleur? →
-              </Link>
+              <button
+                type="button"
+                onClick={() => setToonKleurInfo((open) => !open)}
+                className="self-start text-left text-[14.5px] font-semibold underline underline-offset-4"
+                aria-expanded={toonKleurInfo}
+              >
+                Waarom mijn lievelingskleur? {toonKleurInfo ? "↑" : "→"}
+              </button>
+              {toonKleurInfo && (
+                <div className="max-w-[48ch] rounded-xl border border-black/10 bg-white px-4 py-3 text-sm leading-relaxed text-black/65">
+                  Solliciteren moet weer leuk worden. Waar we kunnen proberen we daarom altijd net even anders te zijn. Het vragen naar je favoriete kleur past in dat rijtje.
+                </div>
+              )}
             </div>
 
             <div className="flex flex-col gap-2.5">
@@ -482,10 +476,6 @@ export default function SignupForm() {
 
         {stap === 5 && (
           <div className="flex flex-col gap-9">
-            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">
-              Stap 5 — Jouw ideale werkomgeving
-            </span>
-
             <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-4.5">
               <label className="flex min-w-0 flex-col gap-2.5">
                 <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">Sectorvoorkeur</span>
@@ -536,10 +526,6 @@ export default function SignupForm() {
 
         {stap === 6 && (
           <div className="flex flex-col gap-9">
-            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">
-              Stap 6 — Wanneer en waar
-            </span>
-
             <div className="flex flex-col gap-3">
               <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">
                 Opzegtermijn
@@ -600,15 +586,11 @@ export default function SignupForm() {
 
         {stap === 7 && (
           <div className="flex flex-col gap-6.5">
-            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">
-              Stap 7 — Hoe bereiken we je?
-            </span>
             <label className="flex flex-col gap-2.5">
               <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">Naam</span>
               <input
                 value={form.naam}
                 onChange={setField("naam")}
-                placeholder="Je naam"
                 className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-[19px] text-[#111] outline-none focus:border-accent"
               />
             </label>
@@ -618,7 +600,6 @@ export default function SignupForm() {
                 type="email"
                 value={form.email}
                 onChange={setField("email")}
-                placeholder="jij@voorbeeld.nl"
                 className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-[19px] text-[#111] outline-none focus:border-accent"
               />
             </label>
@@ -629,24 +610,22 @@ export default function SignupForm() {
               <input
                 value={form.telefoon}
                 onChange={setField("telefoon")}
-                placeholder="06 …"
                 className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-[19px] text-[#111] outline-none focus:border-accent"
               />
             </label>
             <p className="m-0 max-w-[52ch] text-[15px] leading-relaxed text-black/50">
-              Je naam en contactgegevens zijn nooit zichtbaar voor werkgevers, totdat jij beslist om in gesprek te gaan.
+              We delen je gegevens alleen als jij daar toestemming voor geeft.
             </p>
             <label className="flex items-start gap-3 text-sm leading-relaxed text-black/70">
               <input type="checkbox" checked={akkoord} onChange={(e) => setAkkoord(e.target.checked)} className="mt-1 size-4 accent-accent" />
               <span>Ik ga akkoord met de <Link href="/algemene-voorwaarden" className="font-semibold underline">algemene voorwaarden</Link>.</span>
             </label>
-            <p className="m-0 text-sm font-semibold text-black/55">Gratis, zonder verplichtingen. We delen je gegevens nooit zonder jouw toestemming.</p>
           </div>
         )}
 
         {fout && <p className="m-0 text-base font-semibold text-[#C42A00]">{fout}</p>}
 
-        <div className="flex flex-col-reverse gap-3 border-t border-black/10 pt-6.5 sm:flex-row sm:items-center">
+        <div className="flex flex-col-reverse gap-4 pt-2 sm:flex-row sm:items-center">
           {stap > 1 && (
             <button
               type="button"
@@ -662,7 +641,7 @@ export default function SignupForm() {
           <button
             type="submit"
             disabled={bezig}
-            className="w-full rounded-full bg-accent px-8.5 py-4 text-base font-bold whitespace-nowrap text-white transition-colors hover:bg-black disabled:opacity-60 sm:ml-auto sm:w-auto sm:py-4.5 sm:text-lg"
+            className="w-full rounded-full bg-accent px-8 py-4 text-base font-semibold whitespace-nowrap text-white transition-colors hover:bg-black disabled:opacity-60 sm:ml-auto sm:w-auto sm:py-4.5 sm:text-lg"
           >
             {stap === 7 ? (bezig ? "Bezig…" : "Zet me erop →") : "Verder →"}
           </button>

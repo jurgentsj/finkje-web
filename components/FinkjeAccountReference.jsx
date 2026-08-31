@@ -9,8 +9,8 @@ const ACCENT = "#FF5A00";
 const INK = "#111111";
 const ZAND = "#F6F5F2";
 const LIJN = "rgba(17,17,17,0.14)";
-const FONT = "'Instrument Sans', system-ui, -apple-system, sans-serif";
-const DISPLAY = "'Bricolage Grotesque', " + FONT;
+const FONT = "'Inter', system-ui, -apple-system, sans-serif";
+const DISPLAY = "'Montserrat', " + FONT;
 
 const veld = {
   background: "#fff",
@@ -567,7 +567,7 @@ export default function FinkjeAccount() {
 
   return (
     <div style={{ fontFamily: FONT, background: "#fff", color: INK, minHeight: "100vh" }}>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" />
 
       <header style={{ borderBottom: "1px solid rgba(17,17,17,0.1)", background: "rgba(255,255,255,0.94)", position: "sticky", top: 0, zIndex: 20 }}>
         <div style={{ maxWidth: 1180, margin: "0 auto", padding: "16px 24px", display: "flex", alignItems: "center", gap: 16 }}>

@@ -21,9 +21,19 @@ export default function Faq({ items }: { items: Item[] }) {
             <button
               type="button"
               onClick={() => setOpen(isOpen ? -1 : i)}
-              className="flex w-full items-center justify-between gap-6 px-7 py-6 text-left font-display text-[clamp(19px,2.2vw,25px)] font-normal tracking-[-0.03em] text-[#111]"
+              className="flex w-full items-center justify-between gap-6 px-7 py-6 text-left font-display text-[30px] font-medium tracking-[-0.045em] text-[#111]"
             >
-              <span>{q.vraag}</span>
+              <span
+                className={
+                  q.vraag === "Zie ik namen en cv’s?" ||
+                  q.vraag === "Waarom komt mijn vacature niet online?" ||
+                  q.vraag === "Werkt dit ook voor ervaren functies?"
+                    ? "font-medium"
+                    : undefined
+                }
+              >
+                {q.vraag}
+              </span>
               <span
                 className={`shrink-0 text-[28px] leading-none text-accent transition-transform duration-200 ${
                   isOpen ? "rotate-45" : ""

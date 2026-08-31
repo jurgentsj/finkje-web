@@ -10,10 +10,10 @@ export default function OnzeVisiePage() {
   return (
     <>
       <section className="mx-auto max-w-[1100px] px-6 pt-20">
-        <h1 className="m-0 font-display text-[clamp(42px,8vw,118px)] leading-[0.9] font-extrabold tracking-[-0.05em]">
-          Wij veranderen het ritme.
+        <h1 className="m-0 font-display text-[clamp(42px,8vw,70px)] leading-[0.9] font-medium tracking-[-0.071em]">
+          De visie achter Finkje.
         </h1>
-        <p className="mt-8 max-w-[42ch] text-[clamp(18px,2.1vw,25px)] leading-snug text-black/64">
+        <p className="mt-8 max-w-[42ch] text-[clamp(18px,2.1vw,22px)] leading-snug text-black/64">
           Door te kijken naar de wil en wat iemand motiveert, bouwen we aan een arbeidsmarkt die eerlijker,
           inclusiever en persoonlijker is. Focus op ambities, interesses en waarden — niet enkel op diploma&apos;s
           of werkervaring.

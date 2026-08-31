@@ -35,14 +35,11 @@ export default function HoeHetWerktPage() {
   return (
     <>
       <section className="mx-auto max-w-[1360px] px-6 pt-18">
-        <p className="m-0 mb-6.5 text-xs font-semibold tracking-[0.16em] text-accent uppercase">
-          Voor wie wil weten
-        </p>
-        <h1 className="m-0 max-w-[13ch] font-display text-[clamp(46px,9.5vw,150px)] leading-[0.86] font-extrabold tracking-[-0.055em]">
-          Hoe het werkt.
+        <h1 className="m-0 max-w-[13ch] font-display text-[89px] leading-[0.9] font-medium tracking-[-0.071em]">
+          Ons proces in stappen.
         </h1>
         <div className="mt-9 grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] items-end gap-8 border-t border-black/10 pt-8">
-          <p className="m-0 max-w-[40ch] text-[clamp(18px,2vw,23px)] leading-snug text-black/64">
+          <p className="m-0 max-w-[40ch] text-[clamp(18px,2vw,21px)] leading-snug text-black/64">
             Finkje draait solliciteren om: je motivatie staat centraal. Enthousiaste werkgevers reageren op jou. 
           </p>
           <div className="justify-self-start">
@@ -64,7 +61,7 @@ export default function HoeHetWerktPage() {
                 {s.nr}
               </span>
               <div className="flex flex-col gap-2">
-                <span className="font-display text-[clamp(24px,3vw,34px)] leading-tight font-bold tracking-[-0.035em]">
+                <span className="font-display text-[clamp(24px,3vw,34px)] leading-tight font-medium tracking-[-0.035em]">
                   {s.titel}
                 </span>
                 <span className="max-w-[48ch] text-[17.5px] leading-snug text-black/66">{s.tekst}</span>
@@ -77,10 +74,10 @@ export default function HoeHetWerktPage() {
       <section className="mx-auto max-w-[1360px] px-6 pt-24">
         <div className="flex flex-col gap-9 rounded-[32px] bg-sand p-8 sm:p-16">
           <div className="flex flex-col gap-4.5">
-            <h2 className="m-0 max-w-[18ch] font-display text-[clamp(32px,5.4vw,78px)] leading-[0.94] font-extrabold tracking-[-0.045em]">
+            <h2 className="m-0 max-w-[18ch] font-display text-[clamp(32px,5.4vw,49px)] leading-[0.94] font-medium tracking-[-0.045em]">
               Geen vacatures, waarom?
             </h2>
-            <p className="m-0 max-w-[42ch] text-[clamp(17px,1.9vw,22px)] leading-snug text-black/68">
+            <p className="m-0 max-w-[42ch] text-[clamp(17px,1.9vw,20px)] leading-snug text-black/68">
               Een vacature vraagt jou om je aan te passen. Wij draaien de boel om. Of de om boel.
             </p>
           </div>
@@ -116,9 +113,8 @@ export default function HoeHetWerktPage() {
           <div className="border-t border-black/15 pt-9">
             <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] items-center gap-10">
               <div className="flex flex-col gap-5">
-                <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Je AANMELDING</p>
-                <h2 className="m-0 max-w-[16ch] font-display text-[clamp(30px,4.4vw,56px)] leading-[0.96] font-extrabold tracking-[-0.045em]">
-                  Zo ziet jouw profiel eruit.
+                <h2 className="m-0 max-w-[16ch] font-display text-[clamp(30px,4.4vw,47px)] leading-[0.96] font-medium tracking-[-0.045em]">
+                  Zo ziet jouw profiel eruit
                 </h2>
                 <p className="m-0 max-w-[38ch] text-[17.5px] leading-relaxed text-black/66">
                   Jouw motivatie in beeld voor onze werkgevers. Naam en contactgegevens delen we als jíj op gesprek
@@ -133,11 +129,10 @@ export default function HoeHetWerktPage() {
               </div>
               <div className="w-full max-w-[460px] overflow-hidden rounded-3xl border border-black/10 bg-white">
                 <div className="flex items-baseline justify-between gap-4 px-7 pt-6 pb-5.5">
-                  <span className="text-xs font-semibold tracking-[0.16em] text-black/45 uppercase">Wil worden</span>
                   <span className="text-[13px] font-semibold text-accent">Rotterdam · per direct</span>
                 </div>
                 <div className="border-b border-black/10 px-7 pb-6.5">
-                  <span className="block font-display text-[clamp(32px,3.6vw,46px)] leading-[0.94] font-extrabold tracking-[-0.04em]">
+                  <span className="block font-display text-[clamp(32px,3.6vw,41px)] leading-[0.94] font-medium tracking-[-0.04em]">
                     Junior developer
                   </span>
                 </div>
@@ -190,7 +185,7 @@ export default function HoeHetWerktPage() {
       </section>
 
       <section className="mx-auto flex max-w-[1360px] flex-col items-center gap-9 px-6 pt-24 pb-30 text-center">
-        <h2 className="m-0 font-display text-[clamp(40px,9vw,140px)] leading-[0.88] font-extrabold tracking-[-0.05em]">
+        <h2 className="m-0 font-display text-[clamp(40px,9vw,65px)] leading-[0.88] font-extrabold tracking-[-0.05em]">
           Wat voor baan wil <br className="sm:hidden" /><span className="text-accent">jíj</span>?
         </h2>
         <Link

@@ -30,16 +30,21 @@ export default async function HomePage({
       <AuthRedirect />
       {/* Hero */}
       <section className="finkje-hero-critical relative mx-auto w-full max-w-[1360px] px-6 pt-[46px]">
-        <div className="flex flex-wrap items-end gap-10">
-          <div className="min-w-0 flex-[3_1_420px]">
-            <h1 className="m-0 mt-7 font-display text-[clamp(48px,10vw,148px)] leading-[0.88] font-extrabold tracking-[-0.045em] text-[#111]">
-              Haal je droombaan binnen met je motivatie
-            </h1>
-            <p className="mt-8 max-w-[46ch] text-[clamp(18px,2.1vw,24px)] leading-snug text-black/62">
-              Want waar een wil is, is een weg.
-            </p>
+        <div className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,3fr)_minmax(280px,420px)]">
+          <div className="flex min-w-0 flex-col items-start">
+            <div>
+              <h1 className="m-0 mt-7 font-display text-[clamp(48px,9.82vw,108px)] leading-[0.88] font-bold tracking-[-0.091em] text-[#111]">
+                Haal je droombaan binnen met je motivatie
+              </h1>
+              <p className="mt-10 max-w-[46ch] text-[23px] leading-snug tracking-[-0.013em] text-black/62">
+                Want waar een wil is, is een weg.
+              </p>
+            </div>
+            <div className="mt-auto w-full pt-10 lg:pt-[50px]">
+              <HeroForm />
+            </div>
           </div>
-          <figure className="relative m-0 min-w-0 flex-[1_1_280px] max-w-[420px]">
+          <figure className="relative m-0 min-w-0 max-w-[420px]">
             <figcaption className="pointer-events-none absolute bottom-4 left-4 z-10 rounded-full bg-white px-4.5 py-2.5 text-[17px] font-semibold text-[#111]">
               &ldquo;Motivatie is mijn cv&rdquo;
             </figcaption>
@@ -55,8 +60,6 @@ export default async function HomePage({
             </div>
           </figure>
         </div>
-
-        <HeroForm />
       </section>
 
       {/* Marquee */}
@@ -84,7 +87,7 @@ export default async function HomePage({
 
       {/* 3 steps */}
       <section className="mx-auto max-w-[1360px] px-6 py-18">
-        <h2 className="m-0 mb-14 max-w-[40ch] font-display text-[clamp(32px,5vw,70px)] leading-[0.96] font-extrabold tracking-[-0.04em]">
+        <h2 className="m-0 mb-14 max-w-[40ch] font-display text-[clamp(32px,5vw,63px)] leading-[0.96] font-bold tracking-[-0.081em]">
           In drie stappen naar jouw droombaan.
         </h2>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-4">
@@ -102,7 +105,7 @@ export default async function HomePage({
                 <div className="mt-auto flex flex-col gap-3">
                   <h3 className="m-0 font-display text-[26px] leading-tight font-bold tracking-[-0.03em]">{s.titel}</h3>
                 </div>
-                <p className={`m-0 text-[17px] leading-snug ${styles.sub}`}>{s.tekst}</p>
+                <p className={`m-0 text-[18px] leading-snug ${styles.sub}`}>{s.tekst}</p>
               </div>
             );
           })}
@@ -117,10 +120,10 @@ export default async function HomePage({
               <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">
                 De voordelen van Finkje
               </p>
-              <h2 className="m-0 max-w-[16ch] font-display text-[clamp(34px,5.2vw,76px)] leading-[0.92] font-extrabold tracking-[-0.05em]">
-                Solliciteren zoals het moet zijn.
+              <h2 className="m-0 max-w-[16ch] font-display text-[clamp(34px,5.2vw,58px)] leading-[0.92] font-bold tracking-[-0.083em]">
+                Solliciteren zoals het zou moeten zijn
               </h2>
-              <p className="m-0 max-w-[40ch] text-[clamp(17px,1.9vw,21px)] leading-snug text-black/68">
+              <p className="m-0 max-w-[40ch] text-[clamp(17px,1.9vw,21px)] leading-snug tracking-[-0.013em] text-black/68">
                 Scannen, zoeken, kijken, schrijven. Solliciteren is een fulltime baan geworden. Gelukkig hebben wij
                 daar de oplossing voor.
               </p>
@@ -135,13 +138,13 @@ export default async function HomePage({
               />
             </div>
           </div>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {voordelen.map((v) => (
-              <div key={v.titel} className="flex flex-col gap-2 rounded-[20px] bg-white px-7 pt-7 pb-7.5">
-                <span className="font-display text-[21px] leading-tight font-bold tracking-[-0.025em]">
+              <div key={v.titel} className="flex min-h-full flex-col gap-3 rounded-[20px] bg-white px-6 py-6 sm:px-7 sm:py-7">
+                <span className="font-display text-[clamp(21px,2.4vw,23px)] leading-tight font-semibold tracking-[-0.025em]">
                   {v.titel}
                 </span>
-                <span className="text-base leading-snug text-black/62">{v.tekst}</span>
+                <span className="text-[clamp(17px,1.6vw,18px)] leading-relaxed tracking-[-0.013em] text-black/62">{v.tekst}</span>
               </div>
             ))}
           </div>
@@ -165,8 +168,7 @@ export default async function HomePage({
       {/* Quote */}
       <section className="bg-black text-white">
         <div className="mx-auto max-w-[1360px] px-6 py-26">
-          <p className="m-0 mb-6 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Wat wij geloven</p>
-          <h2 className="m-0 max-w-[30ch] font-display text-[clamp(38px,6.6vw,104px)] leading-[0.9] font-extrabold tracking-[-0.05em]">
+          <h2 className="m-0 max-w-[30ch] font-display text-[clamp(38px,6.6vw,64px)] leading-[0.9] font-semibold tracking-[-0.05em]">
             Jouw droom is het beste cv dat je ooit gemaakt hebt.
           </h2>
           <Link
@@ -181,11 +183,11 @@ export default async function HomePage({
       {/* Orange CTA */}
       <section className="mx-auto max-w-[1360px] px-6 py-24">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] items-start gap-8 rounded-3xl bg-accent p-6 text-white sm:p-11">
-          <h3 className="m-0 max-w-[16ch] font-display text-[clamp(26px,3.2vw,42px)] leading-[0.98] font-extrabold tracking-[-0.04em]">
+          <h3 className="m-0 max-w-[16ch] font-display text-[clamp(26px,3.2vw,53px)] leading-[0.98] font-extrabold tracking-[-0.04em]">
             Niet plaatsen, aanpakken.
           </h3>
           <div className="flex flex-col gap-5.5">
-            <p className="m-0 max-w-[34ch] text-lg leading-snug text-white/92">
+            <p className="m-0 max-w-[34ch] text-[20px] leading-snug text-white/92">
               We plaatsen je vacature niet online maar gaan er daadwerkelijk mee aan de slag. We leggen de baan
               direct voor aan gemotiveerde mensen. Én bieden jou de mogelijkheid om zelf op zoek te gaan.
             </p>
@@ -201,12 +203,12 @@ export default async function HomePage({
 
       {/* Closing */}
       <section className="mx-auto flex max-w-[1360px] flex-col items-center gap-9 px-6 pb-30 text-center">
-        <h2 className="m-0 font-display text-[clamp(40px,9vw,140px)] leading-[0.88] font-extrabold tracking-[-0.05em]">
+        <h2 className="m-0 font-display text-[clamp(40px,9vw,66px)] leading-[0.88] font-black tracking-[-0.05em]">
           Wat voor baan wil <br className="sm:hidden" /><span className="text-accent">jíj</span>?
         </h2>
         <Link
           href="/aanmelden"
-          className="rounded-full bg-accent px-11 py-5.5 text-[clamp(18px,2vw,23px)] font-bold text-white transition-colors hover:bg-black"
+          className="rounded-full bg-accent px-11 py-5.5 text-[clamp(18px,2vw,20px)] font-bold text-white transition-colors hover:bg-black"
         >
           Aanmelden →
         </Link>
