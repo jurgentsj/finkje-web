@@ -51,10 +51,10 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
         ← Alle artikelen
       </Link>
       <p className="mt-7.5 mb-4 text-[11px] font-semibold tracking-[0.16em] text-accent uppercase">{blog.tag}</p>
-      <h1 className="m-0 font-display text-[clamp(34px,5.6vw,68px)] leading-[0.94] font-extrabold tracking-[-0.05em]">
+      <h1 className="m-0 font-display text-[clamp(52px,7vw,89px)] leading-[0.9] font-medium tracking-[-0.071em]">
         {blog.titel}
       </h1>
-      <p className="mt-6 text-[clamp(18px,2.1vw,23px)] leading-snug text-black/64">{blog.lead}</p>
+      <p className="mt-7 max-w-[40ch] text-[clamp(18px,2vw,21px)] leading-snug text-black/64">{blog.lead}</p>
       <p className="mt-5 text-sm text-black/42">{blog.datum}</p>
 
       <div className="relative mt-11 aspect-video w-full overflow-hidden rounded-3xl bg-black/5">
