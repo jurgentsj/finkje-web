@@ -53,7 +53,7 @@ export default function Header() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="rounded-full px-3.5 py-2.5 text-black/65 transition-colors hover:bg-black/5 hover:text-black"
+                className="rounded-full px-3.5 py-2.5 text-[16px] text-black/65 transition-colors hover:bg-black/5 hover:text-black"
               >
                 {l.label}
               </Link>
@@ -71,14 +71,14 @@ export default function Header() {
                   <span aria-hidden="true" className="h-5 w-px bg-black/15" />
                   <Link
                     href="/inloggen"
-                    className="rounded-full px-3.5 py-2.5 text-black/65 transition-colors hover:bg-black/5 hover:text-black"
+                    className="rounded-full px-3.5 py-2.5 text-[16px] text-black/65 transition-colors hover:bg-black/5 hover:text-black"
                   >
                     Inloggen
                   </Link>
                 </div>
                 <Link
                   href="/aanmelden"
-                  className="ml-2 rounded-full bg-accent px-[22px] py-3 font-semibold text-white transition-colors hover:bg-black"
+                  className="ml-2 rounded-full bg-accent px-[22px] py-3 text-[16px] font-semibold text-white transition-colors hover:bg-black"
                 >
                   Aanmelden
                 </Link>
