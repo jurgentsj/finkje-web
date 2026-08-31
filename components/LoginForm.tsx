@@ -141,7 +141,7 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
     "rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent";
 
   return (
-    <form onSubmit={verstuurCode} className="flex flex-col gap-6.5 rounded-[28px] bg-sand p-8.5">
+    <form onSubmit={verstuurCode} className="flex flex-col gap-6.5 rounded-[28px] p-8.5">
       <label htmlFor="website_confirmation_login" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
       <input id="website_confirmation_login" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       <label className="flex flex-col gap-2.5">
