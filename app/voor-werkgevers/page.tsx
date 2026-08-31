@@ -65,7 +65,7 @@ export default function VoorWerkgeversPage() {
           </h2>
         </div>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4 sm:gap-6">
-          {werkgeverStappen.slice(0, 4).map((s, index) => (
+          {werkgeverStappen.slice(0, 4).filter((_, index) => index !== 2).map((s, index) => (
             <article key={s.nr} className="flex min-h-[320px] flex-col gap-8 rounded-[32px] bg-black/[0.035] p-8 sm:min-h-[360px] sm:p-12">
               <span className="flex size-12 items-center justify-center rounded-full border-2 border-black/80 font-display text-xl font-medium text-black/85">
                 {index + 1}
