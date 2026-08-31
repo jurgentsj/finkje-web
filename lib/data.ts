@@ -1475,7 +1475,7 @@ export const voordelen = [
   },
   {
     titel: "Begin met een ja",
-    tekst: "Elke afwijzing is een teleurstelling. Als je überhaupt al een bericht kreeg. Daarom reageren bedrijven op jou.",
+    tekst: "Elke afwijzing is een teleurstelling. Als je überhaupt al een bericht kreeg.",
   },
   {
     titel: "Jouw besluit, jouw voorwaarden",
