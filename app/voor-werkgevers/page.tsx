@@ -34,13 +34,13 @@ export default function VoorWerkgeversPage() {
             <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 href="/motivatiebrief"
-                className="rounded-full bg-accent px-7 py-4 text-[17px] font-semibold text-white transition-colors hover:bg-black"
+                className="rounded-full bg-accent px-7 py-4 text-[18px] font-semibold text-white transition-colors hover:bg-black"
               >
                 Plaats je eerste vacature →
               </Link>
               <Link
                 href="/werkgever/registreren"
-                className="rounded-full border border-black/20 px-7 py-4 text-[17px] font-semibold text-[#111] transition-colors hover:border-black hover:bg-black/5"
+                className="rounded-full border border-black/20 px-7 py-4 text-[18px] font-semibold text-[#111] transition-colors hover:border-black hover:bg-black/5"
               >
                 Bekijk de profielen
               </Link>
