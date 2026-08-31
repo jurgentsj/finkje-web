@@ -118,7 +118,7 @@ export default async function HomePage({
                 De voordelen van Finkje
               </p>
               <h2 className="m-0 max-w-[16ch] font-display text-[clamp(34px,5.2vw,73px)] leading-[0.92] font-semibold tracking-[-0.054em]">
-                Solliciteren zoals het moet zijn.
+                Solliciteren zoals het zou moeten zijn
               </h2>
               <p className="m-0 max-w-[40ch] text-[clamp(17px,1.9vw,21px)] leading-snug text-black/68">
                 Scannen, zoeken, kijken, schrijven. Solliciteren is een fulltime baan geworden. Gelukkig hebben wij
