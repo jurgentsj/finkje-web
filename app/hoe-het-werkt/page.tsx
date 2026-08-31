@@ -17,12 +17,12 @@ const stappen = [
     nr: "01",
     titel: "Meld je aan",
     tekst:
-      "In zes korte stappen brengen we je motivatie en voorkeuren in kaart.",
+      "In een aantal korte stappen brengen we je motivatie en voorkeuren in kaart.",
   },
   {
     nr: "02",
     titel: "Een werkgever reageert",
-    tekst: "Wil een werkgever je uitnodigen voor een gesprek? We nemen contact met je op en leggen de vacature aan je voor.",
+    tekst: "Heeft een werkgever een vacature open met wat jij zoekt? We nemen contact met je op.",
   },
   {
     nr: "03",
@@ -140,7 +140,7 @@ export default function HoeHetWerktPage() {
               </div>
               <div className="w-full max-w-[460px] overflow-hidden rounded-3xl border border-black/10 bg-white">
                 <div className="flex items-baseline justify-between gap-4 px-7 pt-6 pb-5.5">
-                  <span className="text-[13px] font-semibold text-accent">Rotterdam · per direct</span>
+                  <span className="text-[13px] font-semibold text-accent">Rotterdam · actief op zoek</span>
                 </div>
                 <div className="border-b border-black/10 px-7 pb-6.5">
                   <span className="block font-display text-[clamp(32px,3.6vw,41px)] leading-[0.94] font-medium tracking-[-0.04em]">
@@ -152,7 +152,7 @@ export default function HoeHetWerktPage() {
                     ["Dienstverband", "Fulltime"],
                     ["Reisafstand", "Tot 50 km"],
                     ["Werkomgeving", "Startup of MKB"],
-                    ["Heeft ervoor over", "Verhuizen, omscholen"],
+                    ["Heeft ervoor over", "Avonduren, omscholen"],
                   ].map(([label, waarde]) => (
                     <div key={label} className="flex flex-col gap-0.5">
                       <span className="text-[11px] font-semibold tracking-[0.14em] text-black/45 uppercase">

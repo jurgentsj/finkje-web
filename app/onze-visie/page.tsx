@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Onze visie",
-  description: "Wij veranderen het ritme. Focus op ambities, interesses en waarden — niet enkel op diploma's of werkervaring.",
+  description: "Wij veranderen het ritme. Focus op ambities, interesses en waarden, niet enkel op diploma's of werkervaring.",
 };
 
 export default function OnzeVisiePage() {
@@ -15,7 +15,7 @@ export default function OnzeVisiePage() {
         </h1>
         <p className="mt-8 max-w-[42ch] text-[clamp(18px,2.1vw,22px)] leading-snug text-black/64">
           Door te kijken naar de wil en wat iemand motiveert, bouwen we aan een arbeidsmarkt die eerlijker,
-          inclusiever en persoonlijker is. Focus op ambities, interesses en waarden — niet enkel op diploma&apos;s
+          inclusiever en persoonlijker is. Focus op ambities, interesses en waarden, niet enkel op diploma&apos;s
           of werkervaring.
         </p>
       </section>
@@ -37,7 +37,7 @@ export default function OnzeVisiePage() {
           <p className="m-0 font-display text-[clamp(28px,4.4vw,58px)] leading-[0.96] font-extrabold tracking-[-0.045em]">
             &ldquo;Zie hier de rituele dans. Wij? Veranderen het ritme.&rdquo;
           </p>
-          <footer className="mt-6 text-[15px] font-semibold text-white/60">— Finkje, cadanscoach</footer>
+          <footer className="mt-6 text-[15px] font-semibold text-white/60">Finkje, cadanscoach</footer>
         </blockquote>
         <p className="mt-10 max-w-[62ch] text-lg leading-relaxed text-black/74">
           Door de focus te leggen op de wil om te werken, passie voor het vak en de motivatie hoeft niemand zich

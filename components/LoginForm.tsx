@@ -141,7 +141,7 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
     "rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent";
 
   return (
-    <form onSubmit={verstuurCode} className="flex flex-col gap-6.5 rounded-[28px] bg-sand p-8.5">
+    <form onSubmit={verstuurCode} className="mt-10 flex w-full min-w-0 flex-col gap-8 rounded-[28px] p-0">
       <label htmlFor="website_confirmation_login" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
       <input id="website_confirmation_login" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       <label className="flex flex-col gap-2.5">
@@ -156,7 +156,7 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
         />
       </label>
       {fout && <p className="m-0 text-base font-semibold text-[#C42A00]">{fout}</p>}
-      <div className="flex flex-col-reverse gap-3 border-t border-black/10 pt-6.5 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col-reverse gap-5 border-t border-black/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
         <span className="text-[15px] text-black/55">
           {employer ? (
             <>

@@ -18,7 +18,7 @@ export default function WerkgeverRegistrerenPage() {
         </div>
         <p className="m-0 hidden text-sm text-black/45 sm:block">© 2026 Finkje</p>
       </div>
-      <div className="w-full max-w-[620px] lg:justify-self-end">
+      <div className="w-full max-w-[440px] lg:justify-self-end">
         <Suspense fallback={null}>
           <EmployerSignupForm />
         </Suspense>

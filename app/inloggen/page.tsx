@@ -9,12 +9,11 @@ export const metadata: Metadata = {
 
 export default function InloggenPage() {
   return (
-    <section className="mx-auto max-w-[640px] px-6 pt-14 pb-28 sm:pt-20">
-      <p className="m-0 mb-6 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Inloggen</p>
-      <h1 className="m-0 font-display text-[clamp(36px,7vw,64px)] leading-[0.94] font-extrabold tracking-[-0.05em]">
+    <section className="mx-auto w-full max-w-[640px] px-5 pt-14 pb-28 sm:px-6 sm:pt-20">
+      <h1 className="m-0 text-left font-display text-[47px] leading-[0.94] font-medium tracking-[-0.05em]">
         Welkom terug.
       </h1>
-      <p className="mt-6 mb-10 max-w-[46ch] text-lg leading-snug text-black/62">
+      <p className="mt-6 mb-0 max-w-[46ch] text-left text-lg leading-snug text-black/62">
         Log in met je e-mailadres via een eenmalige inlogcode.
       </p>
       <Suspense>
