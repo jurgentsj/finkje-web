@@ -113,7 +113,6 @@ export default function HoeHetWerktPage() {
           <div className="border-t border-black/15 pt-9">
             <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] items-center gap-10">
               <div className="flex flex-col gap-5">
-                <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Je AANMELDING</p>
                 <h2 className="m-0 max-w-[16ch] font-display text-[clamp(30px,4.4vw,52px)] leading-[0.96] font-medium tracking-[-0.045em]">
                   Zo ziet jouw profiel eruit
                 </h2>
@@ -130,7 +129,6 @@ export default function HoeHetWerktPage() {
               </div>
               <div className="w-full max-w-[460px] overflow-hidden rounded-3xl border border-black/10 bg-white">
                 <div className="flex items-baseline justify-between gap-4 px-7 pt-6 pb-5.5">
-                  <span className="text-xs font-semibold tracking-[0.16em] text-black/45 uppercase">Wil worden</span>
                   <span className="text-[13px] font-semibold text-accent">Rotterdam · per direct</span>
                 </div>
                 <div className="border-b border-black/10 px-7 pb-6.5">
