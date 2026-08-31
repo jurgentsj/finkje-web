@@ -45,7 +45,7 @@ export default function HeroForm() {
             value={wil}
             onChange={(e) => setWil(e.target.value)}
             placeholder={phrases[phraseIdx]}
-            className="min-w-0 flex-1 border-0 bg-transparent py-2 font-display text-[21px] font-semibold tracking-[-0.02em] text-accent outline-none placeholder:text-accent/80 sm:min-w-[180px] sm:py-2.5 sm:text-[clamp(19px,2.1vw,27px)]"
+            className="min-w-0 flex-1 border-0 bg-transparent py-2 font-display text-[22px] font-semibold tracking-[-0.02em] text-accent outline-none placeholder:text-accent/80 sm:min-w-[180px] sm:py-2.5 sm:text-[clamp(20px,2.1vw,27px)]"
           />
         </div>
         <button
