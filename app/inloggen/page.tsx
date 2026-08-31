@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 export default function InloggenPage() {
   return (
     <section className="mx-auto max-w-[640px] px-6 pt-14 pb-28 sm:pt-20">
-      <h1 className="m-0 font-display text-[47px] leading-[0.94] font-medium tracking-[-0.05em]">
+      <h1 className="m-0 text-right font-display text-[47px] leading-[0.94] font-medium tracking-[-0.05em]">
         Welkom terug.
       </h1>
-      <p className="mt-6 mb-0 max-w-[46ch] text-lg leading-snug text-black/62">
+      <p className="mt-6 mb-0 max-w-[46ch] text-right text-lg leading-snug text-black/62">
         Log in met je e-mailadres via een eenmalige inlogcode.
       </p>
       <Suspense>
