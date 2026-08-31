@@ -74,7 +74,7 @@ export default function HoeHetWerktPage() {
       <section className="mx-auto max-w-[1360px] px-6 pt-24">
         <div className="flex flex-col gap-9 rounded-[32px] bg-sand p-8 sm:p-16">
           <div className="flex flex-col gap-4.5">
-            <h2 className="m-0 max-w-[18ch] font-display text-[clamp(32px,5.4vw,52px)] leading-[0.94] font-medium tracking-[-0.045em]">
+            <h2 className="m-0 max-w-[18ch] font-display text-[clamp(32px,5.4vw,49px)] leading-[0.94] font-medium tracking-[-0.045em]">
               Geen vacatures, waarom?
             </h2>
             <p className="m-0 max-w-[42ch] text-[clamp(17px,1.9vw,20px)] leading-snug text-black/68">
@@ -113,7 +113,7 @@ export default function HoeHetWerktPage() {
           <div className="border-t border-black/15 pt-9">
             <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] items-center gap-10">
               <div className="flex flex-col gap-5">
-                <h2 className="m-0 max-w-[16ch] font-display text-[clamp(30px,4.4vw,50px)] leading-[0.96] font-medium tracking-[-0.045em]">
+                <h2 className="m-0 max-w-[16ch] font-display text-[clamp(30px,4.4vw,47px)] leading-[0.96] font-medium tracking-[-0.045em]">
                   Zo ziet jouw profiel eruit
                 </h2>
                 <p className="m-0 max-w-[38ch] text-[17.5px] leading-relaxed text-black/66">
