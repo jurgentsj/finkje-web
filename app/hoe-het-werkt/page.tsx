@@ -61,7 +61,7 @@ export default function HoeHetWerktPage() {
                 {s.nr}
               </span>
               <div className="flex flex-col gap-2">
-                <span className="font-display text-[clamp(24px,3vw,34px)] leading-tight font-bold tracking-[-0.035em]">
+                <span className="font-display text-[clamp(24px,3vw,34px)] leading-tight font-medium tracking-[-0.035em]">
                   {s.titel}
                 </span>
                 <span className="max-w-[48ch] text-[17.5px] leading-snug text-black/66">{s.tekst}</span>
