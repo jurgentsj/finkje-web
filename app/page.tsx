@@ -36,7 +36,7 @@ export default async function HomePage({
               <h1 className="m-0 mt-7 font-display text-[clamp(48px,9.82vw,108px)] leading-[0.88] font-bold tracking-[-0.072em] text-[#111]">
                 Haal je droombaan binnen met je motivatie
               </h1>
-              <p className="mt-[26px] max-w-[46ch] text-[23px] leading-snug tracking-[-0.013em] text-black/62">
+              <p className="mt-[37px] max-w-[46ch] text-[23px] leading-snug tracking-[-0.013em] text-black/62">
                 Want waar een wil is, is een weg.
               </p>
             </div>
