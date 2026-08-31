@@ -12,7 +12,7 @@ export default function MensenPage() {
     <>
       <section className="mx-auto max-w-[1360px] px-6 pt-18 pb-10">
         <p className="m-0 mb-6 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Mensen</p>
-        <h1 className="m-0 max-w-[20ch] font-display text-[clamp(38px,7vw,104px)] leading-[0.9] font-extrabold tracking-[-0.05em]">
+        <h1 className="m-0 max-w-[20ch] font-display text-[clamp(52px,7vw,89px)] leading-[0.9] font-medium tracking-[-0.05em]">
           Onze mensen
         </h1>
         <p className="mt-7 max-w-[46ch] text-[clamp(17px,1.9vw,22px)] leading-snug text-black/64">

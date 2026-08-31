@@ -13,7 +13,7 @@ export default function ContactPage() {
     <>
       <section className="mx-auto grid max-w-[1200px] grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] items-start gap-14 px-6 pt-20">
         <div>
-          <h1 className="m-0 font-display text-[79px] leading-[0.9] font-medium tracking-[-0.071em]">
+          <h1 className="m-0 font-display text-[clamp(52px,7vw,89px)] leading-[0.9] font-medium tracking-[-0.071em]">
             Even praten over wat je wil.
           </h1>
           <p className="mt-7 max-w-[40ch] text-[20px] leading-relaxed text-black/64">
