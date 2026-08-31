@@ -64,17 +64,19 @@ export default function VoorWerkgeversPage() {
             Zo werkt het
           </h2>
         </div>
-        <div className="relative ml-2 border-l border-black/15 pl-8 sm:ml-8 sm:pl-12">
-          {werkgeverStappen.map((s) => (
-            <div key={s.nr} className="relative flex flex-col gap-3 border-b border-black/10 py-7 first:pt-2 last:border-b-0">
-              <span className="absolute -left-[calc(2rem+1px)] top-7 flex size-7 items-center justify-center rounded-full bg-accent font-display text-sm font-semibold text-white sm:-left-[calc(3rem+1px)] sm:size-8 sm:top-8">
-                {s.nr}
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4 sm:gap-6">
+          {werkgeverStappen.slice(0, 4).map((s, index) => (
+            <article key={s.nr} className="flex min-h-[320px] flex-col gap-8 rounded-[32px] bg-black/[0.035] p-8 sm:min-h-[360px] sm:p-12">
+              <span className="flex size-12 items-center justify-center rounded-full border-2 border-black/80 font-display text-xl font-medium text-black/85">
+                {index + 1}
               </span>
-              <h3 className="m-0 max-w-[22ch] font-display text-[clamp(24px,3vw,38px)] leading-tight font-medium tracking-[-0.04em]">
-                {s.titel}
-              </h3>
-              <p className="m-0 max-w-[56ch] text-[16.5px] leading-relaxed text-black/65 sm:text-[18px]">{s.tekst}</p>
-            </div>
+              <div className="flex flex-col gap-5">
+                <h3 className="m-0 max-w-[18ch] font-display text-[clamp(24px,2.8vw,38px)] leading-[1.02] font-medium tracking-[-0.04em]">
+                  {s.titel}
+                </h3>
+                <p className="m-0 max-w-[34ch] text-[16.5px] leading-relaxed text-black/60 sm:text-[18px]">{s.tekst}</p>
+              </div>
+            </article>
           ))}
         </div>
       </section>
