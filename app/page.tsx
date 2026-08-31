@@ -30,16 +30,21 @@ export default async function HomePage({
       <AuthRedirect />
       {/* Hero */}
       <section className="finkje-hero-critical relative mx-auto w-full max-w-[1360px] px-6 pt-[46px]">
-        <div className="flex flex-wrap items-end gap-10">
-          <div className="min-w-0 flex-[3_1_420px]">
-            <h1 className="m-0 mt-7 font-display text-[clamp(48px,9.82vw,108px)] leading-[0.88] font-bold tracking-[-0.105em] text-[#111]">
-              Haal je droombaan binnen met je motivatie
-            </h1>
-            <p className="mt-8 max-w-[46ch] text-[28px] leading-snug text-black/62">
-              Want waar een wil is, is een weg.
-            </p>
+        <div className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,3fr)_minmax(280px,420px)]">
+          <div className="flex min-w-0 flex-col items-start">
+            <div>
+              <h1 className="m-0 mt-7 font-display text-[clamp(48px,9.82vw,108px)] leading-[0.88] font-bold tracking-[-0.105em] text-[#111]">
+                Haal je droombaan binnen met je motivatie
+              </h1>
+              <p className="mt-8 max-w-[46ch] text-[28px] leading-snug text-black/62">
+                Want waar een wil is, is een weg.
+              </p>
+            </div>
+            <div className="mt-auto w-full pt-10 lg:pt-16">
+              <HeroForm />
+            </div>
           </div>
-          <figure className="relative m-0 min-w-0 flex-[1_1_280px] max-w-[420px]">
+          <figure className="relative m-0 min-w-0 max-w-[420px]">
             <figcaption className="pointer-events-none absolute bottom-4 left-4 z-10 rounded-full bg-white px-4.5 py-2.5 text-[17px] font-semibold text-[#111]">
               &ldquo;Motivatie is mijn cv&rdquo;
             </figcaption>
@@ -55,8 +60,6 @@ export default async function HomePage({
             </div>
           </figure>
         </div>
-
-        <HeroForm />
       </section>
 
       {/* Marquee */}
