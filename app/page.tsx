@@ -165,8 +165,8 @@ export default async function HomePage({
       {/* Quote */}
       <section className="bg-black text-white">
         <div className="mx-auto max-w-[1360px] px-6 py-26">
-          <h2 className="m-0 max-w-[30ch] font-display text-[clamp(38px,6.6vw,93px)] leading-[0.9] font-semibold tracking-[-0.05em]">
-            Jouw droom is het beste cv dat je ooit gemaakt hebt.
+          <h2 className="m-0 max-w-[30ch] font-display text-[clamp(38px,6.6vw,64px)] leading-[0.9] font-semibold tracking-[-0.05em]">
+            Jouw droom is het beste cvdat je ooit gemaakt hebt.
           </h2>
           <Link
             href="/onze-visie"
