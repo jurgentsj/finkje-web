@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 
@@ -24,6 +25,13 @@ export default function EmployerDashboard({ initial }: { initial: EmployerInitia
   const [vacancy, setVacancy] = useState({ titel: "", plaats: "", uren: "Fulltime", omschrijving: "" });
   const [editing, setEditing] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
+  const router = useRouter();
+
+  const uitloggen = async () => {
+    await createClient().auth.signOut();
+    router.replace("/");
+    router.refresh();
+  };
 
   const update = (key: keyof typeof form) => (event: React.ChangeEvent<HTMLInputElement>) => setForm((current) => ({ ...current, [key]: event.target.value }));
   const updateVacancy = (key: keyof typeof vacancy) => (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => setVacancy((current) => ({ ...current, [key]: event.target.value }));
@@ -73,7 +81,7 @@ export default function EmployerDashboard({ initial }: { initial: EmployerInitia
         <div className="flex flex-col">{menu("vacatures", `Vacatures (${vacancies.length})`)}{menu("reacties", "Mijn reacties (0)", true)}{menu("bedrijf", "Bedrijfsinfo", true)}</div>
         <div className="my-5 border-t border-black/10" />
         {menu("profielen", "Profielen bekijken")}
-        <button type="button" onClick={() => createClient().auth.signOut()} className="mt-auto border-0 bg-transparent px-3 py-2 text-left text-[14.5px] text-black/42">Uitloggen</button>
+        <button type="button" onClick={uitloggen} className="mt-2 border-0 bg-transparent px-3 py-2 text-left text-[14.5px] text-black/42 transition-colors hover:text-black">Uitloggen</button>
       </aside>
       <main className="min-w-0 max-w-[920px] flex-1">
         {section === "vacatures" && <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-2"><Link href="/motivatiebrief" className="rounded-2xl bg-[#FF5A00] p-6 text-white transition-colors hover:bg-black"><span className="block text-[12px] font-bold tracking-[0.13em] uppercase">Nieuwe vacature</span><span className="mt-2 block font-display text-[24px] font-bold tracking-[-0.03em]">Vacature plaatsen →</span><span className="mt-2 block text-[14px] text-white/75">Start via onze motivatiebrief.</span></Link><Link href="/mensen" className="rounded-2xl border border-black/12 bg-white p-6 transition-colors hover:border-black/30"><span className="block text-[12px] font-bold tracking-[0.13em] text-black/45 uppercase">Ontdek talent</span><span className="mt-2 block font-display text-[24px] font-bold tracking-[-0.03em]">Bekijk profielen →</span><span className="mt-2 block text-[14px] text-black/55">Vind mensen die bij je bedrijf passen.</span></Link></div>}
