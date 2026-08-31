@@ -353,7 +353,7 @@ export default function SignupForm() {
   {stap === 1 && (
           <div className="flex flex-col gap-8">
             <label className="flex flex-col gap-3">
-              <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-medium tracking-[-0.035em]">
+              <span className="font-display text-[clamp(22px,3vw,35px)] leading-tight font-medium tracking-[-0.035em]">
                 Wat wil je graag doen?
               </span>
               <input
