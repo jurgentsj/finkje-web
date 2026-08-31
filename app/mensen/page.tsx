@@ -15,7 +15,7 @@ export default function MensenPage() {
         <h1 className="m-0 max-w-[20ch] font-display text-[clamp(52px,7vw,89px)] leading-[0.9] font-medium tracking-[-0.05em]">
           Onze mensen
         </h1>
-        <p className="mt-7 max-w-[46ch] text-[clamp(17px,1.9vw,22px)] leading-snug text-black/64">
+        <p className="mt-7 max-w-[46ch] text-[clamp(18px,2vw,21px)] leading-snug text-black/64">
           Onze helden. Erop gebrand om te doen wat ze leuk vinden.
         </p>
 

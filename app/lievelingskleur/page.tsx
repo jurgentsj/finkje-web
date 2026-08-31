@@ -25,7 +25,7 @@ export default async function LievelingskleurPage({ searchParams }: { searchPara
         <h1 className="m-0 max-w-[16ch] font-display text-[clamp(52px,7vw,89px)] leading-[0.9] font-medium tracking-[-0.05em]">
           Maak het persoonlijk.
         </h1>
-        <p className="mt-7.5 max-w-[48ch] text-[clamp(17px,2vw,23px)] leading-snug text-black/64">
+        <p className="mt-7.5 max-w-[48ch] text-[clamp(18px,2vw,21px)] leading-snug text-black/64">
           Solliciteren moet weer leuk worden. Waar we kunnen proberen we daarom altijd net even anders te zijn. Het
           vragen naar je favoriete kleur past in dat rijtje. 
         </p>
