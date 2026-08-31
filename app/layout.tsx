@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&family=Syne:wght@600;700;800&display=swap"
           rel="stylesheet"
         />
-        <style>{`\n          .finkje-hero-critical { display: block; width: 100%; max-width: 1360px; margin: 0 auto; padding: 46px 24px 0; }\n          .finkje-hero-critical h1 { margin: 28px 0 0; max-width: 100%; font-family: Montserrat, sans-serif; font-size: clamp(48px, 9.82vw, 114px); line-height: .88; font-weight: 600; letter-spacing: -.1em; }\n          @media (min-width: 768px) { .finkje-hero-critical h1 { max-width: 100%; } }\n        `}</style>
+        <style>{`\n          .finkje-hero-critical { display: block; width: 100%; max-width: 1360px; margin: 0 auto; padding: 46px 24px 0; }\n        `}</style>
       </head>
       <body className="flex min-h-screen flex-col font-body text-[#111]">
         <script
