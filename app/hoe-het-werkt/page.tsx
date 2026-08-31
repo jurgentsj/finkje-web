@@ -35,7 +35,7 @@ export default function HoeHetWerktPage() {
   return (
     <>
       <section className="mx-auto max-w-[1360px] px-6 pt-18">
-        <h1 className="m-0 max-w-[13ch] font-display text-[clamp(46px,7.1vw,70px)] leading-[0.86] font-medium tracking-[-0.077em]">
+        <h1 className="m-0 max-w-[13ch] font-display text-[clamp(42px,8vw,70px)] leading-[0.9] font-medium tracking-[-0.071em]">
           Hoe werkt het?
         </h1>
         <div className="mt-9 grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] items-end gap-8 border-t border-black/10 pt-8">
