@@ -17,10 +17,10 @@ export default function BlogIndexPage() {
     <>
       <section className="mx-auto max-w-[1240px] px-6 pt-20">
         <p className="m-0 mb-5.5 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Blog</p>
-        <h1 className="m-0 font-display text-[clamp(42px,8vw,112px)] leading-[0.9] font-extrabold tracking-[-0.05em]">
+        <h1 className="m-0 font-display text-[clamp(52px,7vw,89px)] leading-[0.9] font-medium tracking-[-0.071em]">
           Stof tot nadenken. 0 jaar leeservaring vereist.
         </h1>
-        <p className="mt-7.5 max-w-[44ch] text-[clamp(18px,2.1vw,24px)] leading-snug text-black/64">
+        <p className="mt-7 max-w-[40ch] text-[clamp(18px,2vw,21px)] leading-snug text-black/64">
           Wij schrijven wel eens over motivatie. Check het hieronder.
         </p>
       </section>
