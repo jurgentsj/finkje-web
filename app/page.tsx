@@ -32,7 +32,7 @@ export default async function HomePage({
       <section className="finkje-hero-critical relative mx-auto w-full max-w-[1360px] px-6 pt-[46px]">
         <div className="flex flex-wrap items-end gap-10">
           <div className="min-w-0 flex-[3_1_420px]">
-            <h1 className="m-0 mt-7 font-display text-[clamp(48px,10vw,148px)] leading-[0.88] font-extrabold tracking-[-0.045em] text-[#111]">
+            <h1 className="m-0 mt-7 font-display text-[clamp(48px,9.82vw,111px)] leading-[0.88] font-extrabold tracking-[-0.045em] text-[#111]">
               Haal je droombaan binnen met je motivatie
             </h1>
             <p className="mt-8 max-w-[46ch] text-[clamp(18px,2.1vw,24px)] leading-snug text-black/62">
