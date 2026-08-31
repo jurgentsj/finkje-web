@@ -138,10 +138,10 @@ export default async function HomePage({
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {voordelen.map((v) => (
               <div key={v.titel} className="flex min-h-full flex-col gap-3 rounded-[20px] bg-white px-6 py-6 sm:px-7 sm:py-7">
-                <span className="font-display text-[clamp(21px,2.4vw,30px)] leading-tight font-medium tracking-[-0.025em]">
+                <span className="font-display text-[clamp(21px,2.4vw,23px)] leading-tight font-semibold tracking-[-0.025em]">
                   {v.titel}
                 </span>
-                <span className="text-[clamp(17px,1.6vw,19px)] leading-relaxed text-black/62">{v.tekst}</span>
+                <span className="text-[clamp(17px,1.6vw,18px)] leading-relaxed text-black/62">{v.tekst}</span>
               </div>
             ))}
           </div>
