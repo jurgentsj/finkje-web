@@ -329,6 +329,16 @@ export default function SignupForm() {
       active ? "border-accent bg-accent text-white" : "border-black/15 bg-white text-[#111]"
     }`;
 
+  const stepCopy = {
+    1: { title: "Wat is je droombaan?", description: "Kies zorgvuldig en voel dat jouw hart er sneller van gaat kloppen." },
+    2: { title: "Waar wil je werken?", description: "Kies de plek die goed voelt en waar jij graag aan de slag wilt." },
+    3: { title: "Waar ben je goed in?", description: "Vertel wat jou sterk maakt, ook als het niet op je cv staat." },
+    4: { title: "Welke kleur past bij jou?", description: "Kies wat goed voelt. Er is geen goed of fout." },
+    5: { title: "Wat voor werk past bij jou?", description: "Kies de omgeving waarin jij het beste tot je recht komt." },
+    6: { title: "Wanneer wil je beginnen?", description: "Geef aan wanneer en in welke vorm je graag wilt werken." },
+    7: { title: "Hoe bereiken we je?", description: "Laat je gegevens achter, dan houden we contact." },
+  }[stap as 1 | 2 | 3 | 4 | 5 | 6 | 7];
+
   return (
     <div>
       <div className="mb-10 flex items-center justify-between border-b border-black/10 pb-4 text-sm font-semibold text-black/50">
@@ -337,10 +347,10 @@ export default function SignupForm() {
       </div>
 
       <h1 className="m-0 max-w-[12ch] font-display text-[clamp(42px,7vw,76px)] leading-[0.92] font-semibold tracking-[-0.06em]">
-        Wat is je droombaan?
+        {stepCopy.title}
       </h1>
       <p className="mt-5 mb-6 max-w-[48ch] text-lg leading-relaxed text-black/60">
-        Kies zorgvuldig en voel dat jouw hart er sneller van gaat kloppen.
+        {stepCopy.description}
       </p>
 
 <form onSubmit={submit} className="flex flex-col gap-10 border-t border-black/10 pt-8 sm:gap-12 sm:pt-10">
@@ -365,7 +375,6 @@ export default function SignupForm() {
         {stap === 2 && (
           <div className="flex flex-col gap-7">
             <div className="flex flex-col gap-2">
-              <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Stap 2 — Jouw plek</span>
               <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">Goede keuze! Waar wil je het liefst aan de slag?</span>
             </div>
             <button type="button" onClick={() => { setGeenVoorkeur(true); setForm((f) => ({ ...f, locatie: "Maakt mij niet uit" })); setFout(""); }} className={`rounded-2xl border px-5 py-4 text-left text-[17px] font-semibold transition-colors ${geenVoorkeur ? "border-accent bg-accent text-white" : "border-black/15 bg-white text-[#111]"}`}>
@@ -394,7 +403,6 @@ export default function SignupForm() {
 
         {stap === 3 && (
           <div className="flex flex-col gap-8">
-            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">Stap 3 — OVER JOU</span>
             <label className="flex flex-col gap-3">
               <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
                 Waar ben je sterk in?
@@ -426,9 +434,6 @@ export default function SignupForm() {
         {stap === 4 && (
           <div className="flex flex-col gap-7.5">
             <div className="flex flex-col gap-2.5">
-              <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">
-                Stap 3 — Persoonlijk tintje
-              </span>
               <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
                 Kies je lievelingskleur
               </span>
@@ -477,10 +482,6 @@ export default function SignupForm() {
 
         {stap === 5 && (
           <div className="flex flex-col gap-9">
-            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">
-              Stap 5 — Jouw ideale werkomgeving
-            </span>
-
             <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-4.5">
               <label className="flex min-w-0 flex-col gap-2.5">
                 <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">Sectorvoorkeur</span>
@@ -531,10 +532,6 @@ export default function SignupForm() {
 
         {stap === 6 && (
           <div className="flex flex-col gap-9">
-            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">
-              Stap 6 — Wanneer en waar
-            </span>
-
             <div className="flex flex-col gap-3">
               <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">
                 Opzegtermijn
@@ -595,9 +592,6 @@ export default function SignupForm() {
 
         {stap === 7 && (
           <div className="flex flex-col gap-6.5">
-            <span className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">
-              Stap 7 — Hoe bereiken we je?
-            </span>
             <label className="flex flex-col gap-2.5">
               <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">Naam</span>
               <input
