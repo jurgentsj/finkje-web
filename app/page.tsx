@@ -180,7 +180,7 @@ export default async function HomePage({
       {/* Orange CTA */}
       <section className="mx-auto max-w-[1360px] px-6 py-24">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] items-start gap-8 rounded-3xl bg-accent p-6 text-white sm:p-11">
-          <h3 className="m-0 max-w-[16ch] font-display text-[clamp(26px,3.2vw,42px)] leading-[0.98] font-extrabold tracking-[-0.04em]">
+          <h3 className="m-0 max-w-[16ch] font-display text-[clamp(26px,3.2vw,53px)] leading-[0.98] font-extrabold tracking-[-0.04em]">
             Niet plaatsen, aanpakken.
           </h3>
           <div className="flex flex-col gap-5.5">
@@ -200,7 +200,7 @@ export default async function HomePage({
 
       {/* Closing */}
       <section className="mx-auto flex max-w-[1360px] flex-col items-center gap-9 px-6 pb-30 text-center">
-        <h2 className="m-0 font-display text-[clamp(40px,9vw,101px)] leading-[0.88] font-black tracking-[-0.05em]">
+        <h2 className="m-0 font-display text-[clamp(40px,9vw,66px)] leading-[0.88] font-black tracking-[-0.05em]">
           Wat voor baan wil <br className="sm:hidden" /><span className="text-accent">jíj</span>?
         </h2>
         <Link
