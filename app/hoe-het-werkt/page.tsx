@@ -77,7 +77,7 @@ export default function HoeHetWerktPage() {
             <h2 className="m-0 max-w-[18ch] font-display text-[clamp(32px,5.4vw,62px)] leading-[0.94] font-medium tracking-[-0.045em]">
               Geen vacatures, waarom?
             </h2>
-            <p className="m-0 max-w-[42ch] text-[clamp(17px,1.9vw,22px)] leading-snug text-black/68">
+            <p className="m-0 max-w-[42ch] text-[clamp(17px,1.9vw,20px)] leading-snug text-black/68">
               Een vacature vraagt jou om je aan te passen. Wij draaien de boel om. Of de om boel.
             </p>
           </div>
