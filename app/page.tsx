@@ -141,7 +141,7 @@ export default async function HomePage({
                 <span className="font-display text-[21px] leading-tight font-bold tracking-[-0.025em]">
                   {v.titel}
                 </span>
-                <span className="text-base leading-snug text-black/62">{v.tekst}</span>
+                <span className="text-[18px] leading-snug text-black/62">{v.tekst}</span>
               </div>
             ))}
           </div>
