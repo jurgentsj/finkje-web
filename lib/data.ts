@@ -1609,13 +1609,13 @@ export const werkgeverStappen = [
     nr: "01",
     titel: "Blader zelf door profielen",
     tekst:
-      "Onze mensen vertellen eerlijk wat ze zoeken, waar ze goed in zijn en waar ze tegenaan lopen. Vrij te bekijken, ook als je geen vacature plaatst.",
+      "Vrij te bekijken, ook als je geen vacature plaatst.",
   },
   {
     nr: "02",
     titel: "Plaats je vacature",
     tekst:
-      "Zit er nu niemand tussen? Dan houden we je vacature actief tot de sluitingsdatum. Meldt zich iemand aan die goed aansluit, dan laten we het je weten.",
+      "Meldt zich iemand aan die goed aansluit, dan laten we het je weten.",
   },
   {
     nr: "03",
@@ -1626,7 +1626,7 @@ export const werkgeverStappen = [
     nr: "04",
     titel: "Jij voert het gesprek",
     tekst:
-      "Wil je kennismaken? Dan leggen we je vacature voor aan de werkzoekende. Is er wederzijdse interesse? Finkje stapt ertussenuit en het vervolg is aan jullie.",
+      "Wil je kennismaken? Finkje stapt ertussenuit en het vervolg is aan jullie.",
   },
 ];
 
