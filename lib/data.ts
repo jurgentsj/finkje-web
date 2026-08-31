@@ -1617,7 +1617,7 @@ export const werkgeverStappen = [
     nr: "02",
     titel: "Plaats je vacature",
     tekst:
-      "Meldt zich iemand die goed aansluit, dan laten we het je weten.\n",
+      "Zit er nu niemand tussen? Plaats heel eenvoudig je vacature. Meldt zich iemand die goed aansluit, dan laten we het je weten.\n",
   },
   {
     nr: "03",
