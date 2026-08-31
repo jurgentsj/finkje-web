@@ -33,7 +33,7 @@ export default async function HomePage({
         <div className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,3fr)_minmax(280px,420px)]">
           <div className="flex min-w-0 flex-col items-start">
             <div>
-              <h1 className="m-0 mt-7 font-display text-[clamp(48px,9.82vw,108px)] leading-[0.88] font-bold tracking-[-0.075em] text-[#111]">
+              <h1 className="m-0 mt-7 font-display text-[clamp(48px,9.82vw,108px)] leading-[0.88] font-semibold tracking-[-0.076em] text-[#111]">
                 Haal je droombaan binnen met je motivatie
               </h1>
               <p className="mt-[37px] max-w-[46ch] text-[18px] leading-snug tracking-[-0.013em] text-black/62 sm:text-[23px]">
