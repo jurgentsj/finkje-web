@@ -116,7 +116,7 @@ export default function Carousel() {
         className="finkje-rail flex items-start gap-4 overflow-x-auto overflow-y-hidden pb-2"
         style={{ scrollSnapType: "x mandatory" }}
       >
-        {items.map((f) => (
+        {items.map((f, index) => (
           <figure
             key={f.key}
             aria-hidden={f.setIdx !== 1}
@@ -132,7 +132,7 @@ export default function Carousel() {
                 className={`object-cover ${f.src.includes("finkje-rail-6") ? "scale-[1.08] translate-x-[-1%] translate-y-[2%]" : ""}`}
               />
             </div>
-            <figcaption className="mt-3 text-[15px] text-black/60">
+            <figcaption className={`mt-3 ${index >= 6 && index <= 9 ? "text-[16px]" : "text-[15px]"} text-black/60`}>
               &ldquo;{f.wil}&rdquo;
               <br />
               <br />
