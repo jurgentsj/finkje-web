@@ -115,7 +115,7 @@ export default function VoorWerkgeversPage() {
 
       <section className="mx-auto max-w-[1360px] px-6 pt-22">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] items-start gap-8 rounded-3xl bg-accent p-11 text-white">
-          <h3 className="m-0 font-display text-[clamp(26px,3.2vw,42px)] leading-[0.98] font-normal tracking-[-0.04em]">
+          <h3 className="m-0 font-display text-[clamp(28px,3.2vw,42px)] leading-[0.98] font-bold tracking-[-0.04em]">
             Niet online, wel bij de juiste mensen.
           </h3>
           <div className="flex flex-col gap-5.5">
