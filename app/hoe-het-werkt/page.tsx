@@ -39,7 +39,7 @@ export default function HoeHetWerktPage() {
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,360px),1fr))] items-center gap-10 lg:gap-18">
           <div className="relative min-h-[420px] overflow-hidden rounded-[32px] sm:min-h-[560px]">
             <Image
-              src="/images/finkje-wg-1.webp"
+              src="/images/process-hero-colleagues.png"
               alt="Een enthousiaste werkzoeker in de wereld van Finkje"
               fill
               priority
