@@ -17,12 +17,12 @@ const stappen = [
     nr: "01",
     titel: "Meld je aan",
     tekst:
-      "In zes korte stappen brengen we je motivatie en voorkeuren in kaart.",
+      "In een aantal korte stappen brengen we je motivatie en voorkeuren in kaart.",
   },
   {
     nr: "02",
     titel: "Een werkgever reageert",
-    tekst: "Wil een werkgever je uitnodigen voor een gesprek? We nemen contact met je op en leggen de vacature aan je voor.",
+    tekst: "Heeft een werkgever een vacature open met wat jij zoekt? We nemen contact met je op.",
   },
   {
     nr: "03",
