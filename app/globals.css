@@ -52,19 +52,19 @@ h4 {
   letter-spacing: -0.06em;
 }
 
-input,
-textarea,
-select,
-button {
-  font: inherit;
-}
-
 button,
 a {
   -webkit-tap-highlight-color: transparent;
 }
 
 @layer base {
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+  }
+
   a {
     color: var(--accent);
     text-decoration: none;
