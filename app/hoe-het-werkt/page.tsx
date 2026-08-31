@@ -185,7 +185,7 @@ export default function HoeHetWerktPage() {
       </section>
 
       <section className="mx-auto flex max-w-[1360px] flex-col items-center gap-9 px-6 pt-24 pb-30 text-center">
-        <h2 className="m-0 font-display text-[clamp(40px,9vw,140px)] leading-[0.88] font-extrabold tracking-[-0.05em]">
+        <h2 className="m-0 font-display text-[clamp(40px,9vw,102px)] leading-[0.88] font-extrabold tracking-[-0.05em]">
           Wat voor baan wil <br className="sm:hidden" /><span className="text-accent">jíj</span>?
         </h2>
         <Link
