@@ -21,11 +21,8 @@ export default function VoorWerkgeversPage() {
       <section className="mx-auto max-w-[1360px] px-4 pt-10 sm:px-6 sm:pt-16">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] items-start gap-12 lg:items-center">
           <div>
-            <div className="inline-flex rounded-full border border-accent px-4 py-2 text-xs font-semibold tracking-[0.16em] text-accent uppercase">
-              Voor werkgevers
-            </div>
-            <h1 className="m-0 mt-7 max-w-[16ch] font-display text-[clamp(38px,11vw,65px)] leading-[0.92] font-medium tracking-[-0.05em]">
-              Ontdek gemotiveerde mensen die weten wat ze willen.
+            <h1 className="m-0 mt-7 max-w-[16ch] font-display text-[clamp(38px,11vw,68px)] leading-[0.92] font-medium tracking-[-0.05em]">
+              Ontdek gemotiveerde mensen die weten wat ze willen
             </h1>
             <p className="mt-7 max-w-[42ch] text-[18px] leading-snug text-black/62 sm:text-[20px]">
               Onze mensen beginnen bij zichzelf en worden niet extern geprikkeld door de voorwaarden op jouw vacature. Zo
