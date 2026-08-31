@@ -84,7 +84,7 @@ export default async function HomePage({
 
       {/* 3 steps */}
       <section className="mx-auto max-w-[1360px] px-6 py-18">
-        <h2 className="m-0 mb-14 max-w-[40ch] font-display text-[clamp(32px,5vw,70px)] leading-[0.96] font-medium tracking-[-0.079em]">
+        <h2 className="m-0 mb-14 max-w-[40ch] font-display text-[clamp(32px,5vw,70px)] leading-[0.96] font-medium tracking-[-0.081em]">
           In drie stappen naar jouw droombaan.
         </h2>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-4">
@@ -117,7 +117,7 @@ export default async function HomePage({
               <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">
                 De voordelen van Finkje
               </p>
-              <h2 className="m-0 max-w-[16ch] font-display text-[clamp(34px,5.2vw,76px)] leading-[0.92] font-semibold tracking-[-0.05em]">
+              <h2 className="m-0 max-w-[16ch] font-display text-[clamp(34px,5.2vw,76px)] leading-[0.92] font-semibold tracking-[-0.054em]">
                 Solliciteren zoals het moet zijn.
               </h2>
               <p className="m-0 max-w-[40ch] text-[clamp(17px,1.9vw,21px)] leading-snug text-black/68">
