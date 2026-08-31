@@ -92,6 +92,7 @@ export default function SignupForm() {
   const [wachtOpCode, setWachtOpCode] = useState(false);
   const [code, setCode] = useState("");
   const [akkoord, setAkkoord] = useState(false);
+  const [toonKleurInfo, setToonKleurInfo] = useState(false);
 
   const setField =
     (key: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -407,6 +408,9 @@ export default function SignupForm() {
               />
             </label>
             <label className="flex flex-col gap-3">
+              <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-semibold tracking-[-0.04em]">
+                Wat zou een werkgever over het hoofd zien als hij alleen naar je cv keek?
+              </span>
               <textarea
                 value={form.tegenaan}
                 onChange={setField("tegenaan")}
@@ -441,9 +445,19 @@ export default function SignupForm() {
                   />
                 ))}
               </div>
-              <Link href="/lievelingskleur?from=aanmelden" className="text-[14.5px] font-semibold">
-                Waarom mijn lievelingskleur? →
-              </Link>
+              <button
+                type="button"
+                onClick={() => setToonKleurInfo((open) => !open)}
+                className="self-start text-left text-[14.5px] font-semibold underline underline-offset-4"
+                aria-expanded={toonKleurInfo}
+              >
+                Waarom mijn lievelingskleur? {toonKleurInfo ? "↑" : "→"}
+              </button>
+              {toonKleurInfo && (
+                <div className="max-w-[48ch] rounded-xl border border-black/10 bg-white px-4 py-3 text-sm leading-relaxed text-black/65">
+                  Je lievelingskleur geeft ons een klein persoonlijk detail mee, zodat we beter kunnen laten zien wie jij bent.
+                </div>
+              )}
             </div>
 
             <div className="flex flex-col gap-2.5">
