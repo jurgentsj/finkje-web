@@ -337,7 +337,7 @@ export default function SignupForm() {
     4: { title: "Welke kleur past bij jou?", description: "Kies wat goed voelt. Er is geen goed of fout." },
     5: { title: "Wat voor omgeving past bij jou?", description: "Kies de omgeving waarin jij het beste tot je recht komt." },
     6: { title: "Wanneer wil je beginnen?", description: "Geef aan wanneer en in welke vorm je graag wilt werken." },
-    7: { title: "Hoe kunnen we je bereiken?", description: "Laat je gegevens achter, dan houden we contact." },
+    7: { title: "Hoe kunnen we je bereiken?", description: "Nog één stap en we kunnen voor je aan de slag!" },
   }[stap as 1 | 2 | 3 | 4 | 5 | 6 | 7];
 
   return (
