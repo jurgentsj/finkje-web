@@ -102,7 +102,7 @@ export default async function HomePage({
                 <div className="mt-auto flex flex-col gap-3">
                   <h3 className="m-0 font-display text-[26px] leading-tight font-bold tracking-[-0.03em]">{s.titel}</h3>
                 </div>
-                <p className={`m-0 text-[17px] leading-snug ${styles.sub}`}>{s.tekst}</p>
+                <p className={`m-0 text-[18px] leading-snug ${styles.sub}`}>{s.tekst}</p>
               </div>
             );
           })}
