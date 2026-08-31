@@ -353,15 +353,12 @@ export default function SignupForm() {
         {stepCopy.description}
       </p>
 
-<form onSubmit={submit} className="flex flex-col gap-10 border-t border-black/10 pt-8 sm:gap-12 sm:pt-10">
+<form onSubmit={submit} className="flex flex-col gap-10 pt-2 sm:gap-12 sm:pt-4">
   <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
   <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
   {stap === 1 && (
           <div className="flex flex-col gap-8">
             <label className="flex flex-col gap-3">
-              <span className="font-display text-[clamp(36px,5vw,52px)] leading-tight font-semibold tracking-[-0.06em] text-[#111]">
-                Wat wil je graag doen?
-              </span>
               <input
                 value={form.droombaan}
                 onChange={setField("droombaan")}
@@ -374,9 +371,6 @@ export default function SignupForm() {
 
         {stap === 2 && (
           <div className="flex flex-col gap-7">
-            <div className="flex flex-col gap-2">
-              <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">Goede keuze! Waar wil je het liefst aan de slag?</span>
-            </div>
             <button type="button" onClick={() => { setGeenVoorkeur(true); setForm((f) => ({ ...f, locatie: "Maakt mij niet uit" })); setFout(""); }} className={`rounded-2xl border px-5 py-4 text-left text-[17px] font-semibold transition-colors ${geenVoorkeur ? "border-accent bg-accent text-white" : "border-black/15 bg-white text-[#111]"}`}>
               Het maakt mij niet uit, ik wil vooral deze baan
             </button>
@@ -404,9 +398,6 @@ export default function SignupForm() {
         {stap === 3 && (
           <div className="flex flex-col gap-8">
             <label className="flex flex-col gap-3">
-              <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
-                Waar ben je sterk in?
-              </span>
               <textarea
                 value={form.sterk}
                 onChange={setField("sterk")}
@@ -416,9 +407,6 @@ export default function SignupForm() {
               />
             </label>
             <label className="flex flex-col gap-3">
-              <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
-                Wat zou een werkgever over het hoofd zien als hij alleen naar je cv keek?
-              </span>
               <textarea
                 value={form.tegenaan}
                 onChange={setField("tegenaan")}
@@ -434,13 +422,6 @@ export default function SignupForm() {
         {stap === 4 && (
           <div className="flex flex-col gap-7.5">
             <div className="flex flex-col gap-2.5">
-              <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
-                Kies je lievelingskleur
-              </span>
-              <span className="max-w-[56ch] text-[16.5px] leading-snug text-black/60">
-                Ja, serieus. Er is geen goed of fout. Kies wat het beste bij je past en denk er niet te lang over
-                na.
-              </span>
             </div>
 
             <div className="flex flex-col gap-3">
