@@ -41,7 +41,7 @@ export default async function HomePage({
           </div>
           <figure className="relative m-0 min-w-0 flex-[1_1_280px] max-w-[420px]">
             <figcaption className="pointer-events-none absolute bottom-4 left-4 z-10 rounded-full bg-white px-4.5 py-2.5 text-[17px] font-semibold text-[#111]">
-              &ldquo;Ik wil mijn passie achterna&rdquo;
+              &ldquo;Motivatie is mijn cv&rdquo;
             </figcaption>
             <div className="relative aspect-[2/3] w-full overflow-hidden rounded-[40px] bg-black/5">
               <Image
