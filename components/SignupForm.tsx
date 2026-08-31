@@ -347,13 +347,13 @@ export default function SignupForm() {
         ))}
       </div>
 
-<form onSubmit={submit} className="flex flex-col gap-8.5 rounded-[28px] bg-sand p-8.5">
+<form onSubmit={submit} className="flex flex-col gap-8 rounded-[32px] border border-black/5 bg-sand p-6 shadow-[0_18px_50px_rgba(17,17,17,0.06)] sm:p-10">
   <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
   <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
   {stap === 1 && (
           <div className="flex flex-col gap-8">
             <label className="flex flex-col gap-3">
-              <span className="font-display text-[clamp(22px,3vw,35px)] leading-tight font-medium tracking-[-0.035em]">
+              <span className="font-display text-[clamp(22px,3vw,35px)] leading-tight font-medium tracking-[-0.06em]">
                 Wat wil je graag doen?
               </span>
               <input
