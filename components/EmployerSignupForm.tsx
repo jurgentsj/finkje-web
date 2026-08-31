@@ -223,7 +223,7 @@ export default function EmployerSignupForm() {
   return (
 <form
       onSubmit={stap === 1 ? handleNext : handleSubmit}
-      className="flex flex-col gap-6 sm:gap-8"
+      className="flex w-full max-w-[620px] flex-col gap-6 sm:gap-8"
 
     >
       <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
