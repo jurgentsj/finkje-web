@@ -1620,13 +1620,13 @@ export const werkgeverStappen = [
   {
     nr: "03",
     titel: "Wij stellen iemand voor",
-    tekst: "Past iemand bij jouw vacature, dan stellen we die persoon aan je voor.",
+    tekst: "Of nodig zelf iemand uit.",
   },
   {
     nr: "04",
     titel: "Jij voert het gesprek",
     tekst:
-      "Wil je kennismaken? Finkje stapt ertussenuit en het vervolg is aan jullie.",
+      "Wil je kennismaken? We leggen je vacature voor aan de werkzoekende. Finkje stapt ertussenuit en het vervolg is aan jullie.",
   },
 ];
 
