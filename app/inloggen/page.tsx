@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function InloggenPage() {
   return (
-    <section className="mx-auto max-w-[640px] px-6 pt-14 pb-28 sm:pt-20">
+    <section className="mx-auto w-full max-w-[640px] px-4 pt-14 pb-28 sm:px-6 sm:pt-20">
       <h1 className="m-0 text-left font-display text-[47px] leading-[0.94] font-medium tracking-[-0.05em]">
         Welkom terug.
       </h1>
