@@ -228,7 +228,7 @@ className="flex flex-col gap-5 rounded-[28px] p-5 sm:gap-6 sm:p-10"
       <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
       <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       <div className="flex flex-col gap-2 border-b border-black/10 pb-6">
-        <h1 className="m-0 font-display text-[34px] leading-tight font-normal tracking-[-0.03em]">
+        <h1 className="m-0 font-display text-[34px] leading-tight font-medium tracking-[-0.03em]">
           {stap === 1 ? "Creëer je account" : "Je bedrijfsgegevens"}
         </h1>
         <p className="m-0 text-[16px] leading-relaxed text-black/55">
