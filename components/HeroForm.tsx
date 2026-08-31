@@ -38,7 +38,7 @@ export default function HeroForm() {
       <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       <div className="flex flex-col gap-3 rounded-3xl border border-black/10 bg-sand p-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3.5 sm:rounded-full sm:py-2.5 sm:pr-2.5 sm:pl-7">
         <div className="flex min-w-0 items-center gap-2.5 sm:contents">
-          <span className="shrink-0 font-display text-xl font-semibold tracking-[-0.02em] whitespace-nowrap sm:text-[clamp(19px,2.4vw,30px)]">
+          <span className="shrink-0 font-display text-[27px] font-semibold leading-tight tracking-[-0.02em] whitespace-nowrap sm:text-[clamp(24px,2.4vw,30px)]">
             Ik wil
           </span>
           <input
@@ -50,7 +50,7 @@ export default function HeroForm() {
         </div>
         <button
           type="submit"
-          className="flex w-full shrink-0 items-center justify-center gap-2.5 rounded-full bg-accent px-7 py-3.5 text-[18px] font-semibold text-white transition-colors hover:bg-black sm:w-auto sm:py-4 sm:text-[18px]"
+          className="flex w-full shrink-0 items-center justify-center gap-2.5 rounded-full bg-accent px-7 py-3.5 text-[24px] font-semibold leading-tight text-white transition-colors hover:bg-black sm:w-auto sm:py-4 sm:text-[clamp(20px,2vw,24px)]"
         >
           Zet me erop <span className="text-xl">→</span>
         </button>
