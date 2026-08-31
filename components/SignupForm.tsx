@@ -321,9 +321,9 @@ export default function SignupForm() {
   }
 
   const inputClass =
-    "rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-lg text-[#111] outline-none focus:border-accent";
+    "rounded-xl border border-black/15 bg-white px-5 py-4 text-lg text-[#111] outline-none transition-colors focus:border-accent";
   const pillInputClass =
-    "rounded-full border border-black/15 bg-white px-5 py-4 text-[17px] text-[#111] outline-none focus:border-accent";
+    "rounded-xl border border-black/15 bg-white px-5 py-4 text-[17px] text-[#111] outline-none transition-colors focus:border-accent";
   const chipClass = (active: boolean) =>
     `rounded-full border px-5 py-3 text-[17px] font-medium transition-colors ${
       active ? "border-accent bg-accent text-white" : "border-black/15 bg-white text-[#111]"
@@ -331,23 +331,19 @@ export default function SignupForm() {
 
   return (
     <div>
-      <h1 className="m-0 font-display text-[clamp(36px,7vw,64px)] leading-[0.9] font-semibold tracking-[-0.054em]">
+      <div className="mb-10 flex items-center justify-between border-b border-black/10 pb-4 text-sm font-semibold text-black/50">
+        <span>Stap {stap} van 7</span>
+        <span className="text-accent">Finkje</span>
+      </div>
+
+      <h1 className="m-0 max-w-[12ch] font-display text-[clamp(42px,7vw,76px)] leading-[0.92] font-semibold tracking-[-0.06em]">
         Wat is je droombaan?
       </h1>
-      <p className="mt-6 mb-10 max-w-[56ch] text-[20px] leading-snug text-black/62">
+      <p className="mt-5 mb-12 max-w-[48ch] text-lg leading-relaxed text-black/60">
         Kies zorgvuldig en voel dat jouw hart er sneller van gaat kloppen.
       </p>
 
-      <div className="mb-10 flex gap-2">
-        {[1, 2, 3, 4, 5, 6, 7].map((n) => (
-          <span
-            key={n}
-            className={`h-[5px] flex-1 rounded-full transition-colors ${n <= stap ? "bg-accent" : "bg-black/10"}`}
-          />
-        ))}
-      </div>
-
-<form onSubmit={submit} className="flex flex-col gap-8 rounded-[32px] border border-black/5 bg-sand p-6 shadow-[0_18px_50px_rgba(17,17,17,0.06)] sm:p-10">
+<form onSubmit={submit} className="flex flex-col gap-10 border-t border-black/10 pt-8 sm:gap-12 sm:pt-10">
   <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
   <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
   {stap === 1 && (
@@ -644,7 +640,7 @@ export default function SignupForm() {
 
         {fout && <p className="m-0 text-base font-semibold text-[#C42A00]">{fout}</p>}
 
-        <div className="flex flex-col-reverse gap-3 border-t border-black/10 pt-6.5 sm:flex-row sm:items-center">
+        <div className="flex flex-col-reverse gap-4 pt-2 sm:flex-row sm:items-center">
           {stap > 1 && (
             <button
               type="button"
@@ -660,7 +656,7 @@ export default function SignupForm() {
           <button
             type="submit"
             disabled={bezig}
-            className="w-full rounded-full bg-accent px-8.5 py-4 text-base font-bold whitespace-nowrap text-white transition-colors hover:bg-black disabled:opacity-60 sm:ml-auto sm:w-auto sm:py-4.5 sm:text-lg"
+            className="w-full rounded-full bg-accent px-8 py-4 text-base font-semibold whitespace-nowrap text-white transition-colors hover:bg-black disabled:opacity-60 sm:ml-auto sm:w-auto sm:py-4.5 sm:text-lg"
           >
             {stap === 7 ? (bezig ? "Bezig…" : "Zet me erop →") : "Verder →"}
           </button>
