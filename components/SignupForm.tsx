@@ -331,7 +331,7 @@ export default function SignupForm() {
 
   return (
     <div>
-      <h1 className="m-0 font-display text-[clamp(36px,7vw,64px)] leading-[0.9] font-medium tracking-[-0.092em]">
+      <h1 className="m-0 font-display text-[clamp(36px,7vw,64px)] leading-[0.9] font-semibold tracking-[-0.054em]">
         Wat is je droombaan?
       </h1>
       <p className="mt-6 mb-10 max-w-[56ch] text-[20px] leading-snug text-black/62">
@@ -353,7 +353,7 @@ export default function SignupForm() {
   {stap === 1 && (
           <div className="flex flex-col gap-8">
             <label className="flex flex-col gap-3">
-              <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-bold tracking-[-0.035em]">
+              <span className="font-display text-[clamp(22px,3vw,36px)] leading-tight font-medium tracking-[-0.035em]">
                 Wat wil je graag doen?
               </span>
               <input
