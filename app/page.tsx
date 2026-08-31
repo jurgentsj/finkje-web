@@ -135,13 +135,13 @@ export default async function HomePage({
               />
             </div>
           </div>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {voordelen.map((v) => (
-              <div key={v.titel} className="flex flex-col gap-2 rounded-[20px] bg-white px-7 pt-7 pb-7.5">
-                <span className="font-display text-[21px] leading-tight font-bold tracking-[-0.025em]">
+              <div key={v.titel} className="flex min-h-full flex-col gap-3 rounded-[20px] bg-white px-6 py-6 sm:px-7 sm:py-7">
+                <span className="font-display text-[clamp(21px,2.4vw,30px)] leading-tight font-medium tracking-[-0.025em]">
                   {v.titel}
                 </span>
-                <span className="text-[18px] leading-snug text-black/62">{v.tekst}</span>
+                <span className="text-[clamp(17px,1.6vw,19px)] leading-relaxed text-black/62">{v.tekst}</span>
               </div>
             ))}
           </div>
