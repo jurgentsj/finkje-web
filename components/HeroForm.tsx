@@ -38,19 +38,19 @@ export default function HeroForm() {
       <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
       <div className="flex flex-col gap-3 rounded-3xl border border-black/10 bg-sand p-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3.5 sm:rounded-full sm:py-2.5 sm:pr-2.5 sm:pl-7">
         <div className="flex min-w-0 items-center gap-2.5 sm:contents">
-          <span className="shrink-0 font-display text-[27px] font-semibold leading-tight tracking-[-0.02em] whitespace-nowrap sm:text-[clamp(24px,2.4vw,30px)]">
+          <span className="shrink-0 font-display text-[23px] font-semibold leading-tight tracking-[-0.02em] whitespace-nowrap sm:text-[clamp(24px,2.4vw,30px)]">
             Ik wil
           </span>
           <input
             value={wil}
             onChange={(e) => setWil(e.target.value)}
             placeholder={phrases[phraseIdx]}
-            className="min-w-0 flex-1 border-0 bg-transparent py-2 font-display text-[28px] font-semibold leading-tight tracking-[-0.02em] text-accent outline-none placeholder:text-accent/80 sm:min-w-[180px] sm:py-2.5 sm:text-[clamp(24px,2.4vw,30px)]"
+            className="min-w-0 flex-1 border-0 bg-transparent py-2 font-display text-[23px] font-semibold leading-tight tracking-[-0.02em] text-accent outline-none placeholder:text-accent/80 sm:min-w-[180px] sm:py-2.5 sm:text-[clamp(24px,2.4vw,30px)]"
           />
         </div>
         <button
           type="submit"
-          className="flex w-full shrink-0 items-center justify-center gap-2.5 rounded-full bg-accent px-7 py-3.5 text-[18px] font-medium leading-tight text-white transition-colors hover:bg-black sm:w-auto sm:py-4 sm:text-[18px]"
+          className="flex w-full shrink-0 items-center justify-center gap-2.5 rounded-full bg-accent px-6 py-3 text-[16px] font-medium leading-tight text-white transition-colors hover:bg-black sm:w-auto sm:py-4 sm:text-[18px]"
         >
           Zet me erop <span className="text-xl">→</span>
         </button>

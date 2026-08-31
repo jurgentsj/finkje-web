@@ -24,7 +24,7 @@ export default function VoorWerkgeversPage() {
             <h1 className="m-0 mt-7 max-w-[16ch] font-display text-[73px] leading-[0.9] font-semibold tracking-[-0.071em]">
               Ontdek gemotiveerde mensen die weten wat ze willen
             </h1>
-            <p className="mt-7 max-w-[42ch] text-[18px] leading-snug text-black/62 sm:text-[20px]">
+            <p className="mt-7 max-w-[42ch] text-[16px] leading-snug text-black/62 sm:text-[20px]">
               Onze mensen beginnen bij zichzelf en worden niet extern geprikkeld door de voorwaarden op jouw vacature.
             </p>
             <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap">
