@@ -50,7 +50,7 @@ export default function HeroForm() {
         </div>
         <button
           type="submit"
-          className="flex w-full shrink-0 items-center justify-center gap-2.5 rounded-full bg-accent px-7 py-3.5 text-[24px] font-semibold leading-tight text-white transition-colors hover:bg-black sm:w-auto sm:py-4 sm:text-[clamp(20px,2vw,24px)]"
+          className="flex w-full shrink-0 items-center justify-center gap-2.5 rounded-full bg-accent px-7 py-3.5 text-[18px] font-medium leading-tight text-white transition-colors hover:bg-black sm:w-auto sm:py-4 sm:text-[18px]"
         >
           Zet me erop <span className="text-xl">→</span>
         </button>
