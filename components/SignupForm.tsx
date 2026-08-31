@@ -331,7 +331,7 @@ export default function SignupForm() {
 
   return (
     <div>
-      <h1 className="m-0 font-display text-[clamp(36px,7vw,88px)] leading-[0.9] font-extrabold tracking-[-0.081em]">
+      <h1 className="m-0 font-display text-[clamp(36px,7vw,71px)] leading-[0.9] font-medium tracking-[-0.092em]">
         Wat is je droombaan?
       </h1>
       <p className="mt-6 mb-10 max-w-[56ch] text-lg leading-snug text-black/62">
