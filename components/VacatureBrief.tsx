@@ -9,7 +9,7 @@ export default function VacatureBrief() {
   return (
     <>
       <div className="flex flex-col gap-5 rounded-3xl bg-sand p-7 sm:p-11">
-        <h2 className="m-0 font-display text-[clamp(24px,3vw,34px)] leading-none font-extrabold tracking-[-0.04em]">
+        <h2 className="m-0 font-display text-[42px] leading-none font-medium tracking-[-0.051em]">
           Voordat je doorgaat: onze motivatiebrief.
         </h2>
         <p className="m-0 text-[17.5px] leading-relaxed text-black/78">

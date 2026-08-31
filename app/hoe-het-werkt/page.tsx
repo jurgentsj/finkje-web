@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Faq from "@/components/Faq";
 import FrustrationButton from "@/components/FrustrationButton";
@@ -35,14 +36,24 @@ export default function HoeHetWerktPage() {
   return (
     <>
       <section className="mx-auto max-w-[1360px] px-6 pt-18">
-        <h1 className="m-0 max-w-[13ch] font-display text-[89px] leading-[0.9] font-medium tracking-[-0.071em]">
-          Ons proces in stappen.
-        </h1>
-        <div className="mt-9 grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] items-end gap-8 border-t border-black/10 pt-8">
-          <p className="m-0 max-w-[40ch] text-[clamp(18px,2vw,21px)] leading-snug text-black/64">
-            Finkje draait solliciteren om: je motivatie staat centraal. Enthousiaste werkgevers reageren op jou. 
-          </p>
-          <div className="justify-self-start">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,360px),1fr))] items-center gap-10 lg:gap-18">
+          <div className="relative min-h-[420px] overflow-hidden rounded-[32px] sm:min-h-[560px]">
+            <Image
+              src="/images/process-hero-colleagues.png"
+              alt="Een enthousiaste werkzoeker in de wereld van Finkje"
+              fill
+              priority
+              className="object-cover"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+            />
+          </div>
+          <div className="flex flex-col items-start gap-8">
+            <h1 className="m-0 max-w-[13ch] font-display text-[clamp(52px,7vw,89px)] leading-[0.9] font-medium tracking-[-0.071em]">
+              Ons proces in stappen.
+            </h1>
+            <p className="m-0 max-w-[40ch] text-[clamp(18px,2vw,21px)] leading-snug text-black/64">
+              Finkje draait solliciteren om: je motivatie staat centraal. Enthousiaste werkgevers reageren op jou.
+            </p>
             <Link
               href="/aanmelden"
               className="rounded-full bg-accent px-8 py-4.5 text-[18px] font-bold text-white transition-colors hover:bg-black"
