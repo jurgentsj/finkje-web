@@ -24,7 +24,7 @@ export default function VoorWerkgeversPage() {
             <div className="inline-flex rounded-full border border-accent px-4 py-2 text-xs font-semibold tracking-[0.16em] text-accent uppercase">
               Voor werkgevers
             </div>
-            <h1 className="m-0 mt-7 max-w-[16ch] font-display text-[clamp(38px,11vw,70px)] leading-[0.92] font-semibold tracking-[-0.05em]">
+            <h1 className="m-0 mt-7 max-w-[16ch] font-display text-[clamp(38px,11vw,65px)] leading-[0.92] font-medium tracking-[-0.05em]">
               Ontdek gemotiveerde mensen die weten wat ze willen.
             </h1>
             <p className="mt-7 max-w-[42ch] text-[18px] leading-snug text-black/62 sm:text-[20px]">
