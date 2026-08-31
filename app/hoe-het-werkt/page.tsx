@@ -114,8 +114,8 @@ export default function HoeHetWerktPage() {
             <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] items-center gap-10">
               <div className="flex flex-col gap-5">
                 <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Je AANMELDING</p>
-                <h2 className="m-0 max-w-[16ch] font-display text-[clamp(30px,4.4vw,56px)] leading-[0.96] font-extrabold tracking-[-0.045em]">
-                  Zo ziet jouw profiel eruit.
+                <h2 className="m-0 max-w-[16ch] font-display text-[clamp(30px,4.4vw,52px)] leading-[0.96] font-medium tracking-[-0.045em]">
+                  Zo ziet jouw profiel eruit
                 </h2>
                 <p className="m-0 max-w-[38ch] text-[17.5px] leading-relaxed text-black/66">
                   Jouw motivatie in beeld voor onze werkgevers. Naam en contactgegevens delen we als jíj op gesprek
