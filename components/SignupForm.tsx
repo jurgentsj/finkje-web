@@ -322,7 +322,7 @@ export default function SignupForm() {
   }
 
   const inputClass =
-    "rounded-xl border border-black/15 bg-white px-5 py-4 text-lg text-[#111] outline-none transition-colors focus:border-accent";
+    "rounded-2xl border border-black/15 bg-white px-5 py-4 text-lg text-[#111] outline-none transition-colors focus:border-accent";
   const pillInputClass =
     "rounded-xl border border-black/15 bg-white px-5 py-4 text-[17px] text-[#111] outline-none transition-colors focus:border-accent";
   const chipClass = (active: boolean) =>
@@ -371,20 +371,20 @@ export default function SignupForm() {
 
         {stap === 2 && (
           <div className="flex flex-col gap-7">
-            <button type="button" onClick={() => { setGeenVoorkeur(true); setForm((f) => ({ ...f, locatie: "Maakt mij niet uit" })); setFout(""); }} className={`rounded-2xl border px-5 py-4 text-left text-[17px] font-semibold transition-colors ${geenVoorkeur ? "border-accent bg-accent text-white" : "border-black/15 bg-white text-[#111]"}`}>
+            <button type="button" onClick={() => { const next = !geenVoorkeur; setGeenVoorkeur(next); setForm((f) => ({ ...f, locatie: next ? "Maakt mij niet uit" : "" })); setFout(""); }} className={`rounded-2xl border px-5 py-4 text-left text-[17px] font-semibold transition-colors ${geenVoorkeur ? "border-accent bg-accent text-white" : "border-black/15 bg-white text-[#111]"}`}>
               Het maakt mij niet uit, ik wil vooral deze baan
             </button>
-            <label className={`flex flex-col gap-3 transition-opacity ${geenVoorkeur ? "pointer-events-none opacity-35 blur-[3px]" : ""}`}>
+            <label className="flex flex-col gap-3">
               <span className="text-xs font-semibold tracking-[0.14em] text-black/50 uppercase">Zoek een stad</span>
               <input value={locatieZoekterm} onChange={(e) => { setLocatieZoekterm(e.target.value); setGeenVoorkeur(false); }} placeholder="Zoek een stad…" className={inputClass} />
             </label>
-            <div className={`flex items-center justify-between gap-4 transition-opacity ${geenVoorkeur ? "pointer-events-none opacity-35 blur-[3px]" : ""}`}>
+            <div className="flex items-center justify-between gap-4">
               <span className="text-sm text-black/50">Kies een stad uit de lijst</span>
               <button type="button" onClick={() => navigator.geolocation?.getCurrentPosition(async ({ coords }) => { try { const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${coords.latitude}&lon=${coords.longitude}&zoom=10&addressdetails=1`); const data = await response.json(); const city = data.address?.city || data.address?.town || data.address?.village || data.address?.municipality || "Onbekende locatie"; setForm((f) => ({ ...f, locatie: city })); setLocatieZoekterm(city); setGeenVoorkeur(false); } catch { setFout("Je locatie kon niet worden bepaald."); } }, () => setFout("Je locatie kon niet worden opgehaald."))} className="inline-flex items-center gap-2 font-semibold text-accent"><MapPin aria-hidden="true" className="size-5" strokeWidth={2} />Mijn locatie</button>
             </div>
             <div className="flex flex-wrap gap-2.5">
               {groteSteden.filter((stad) => stad.toLowerCase().includes(locatieZoekterm.toLowerCase())).map((stad) => (
-                <button key={stad} type="button" onClick={() => { setForm((f) => ({ ...f, locatie: stad })); setLocatieZoekterm(stad); setGeenVoorkeur(false); setFout(""); }} className={chipClass(form.locatie === stad)}>{stad}</button>
+                <button key={stad} type="button" onClick={() => { setForm((f) => ({ ...f, locatie: f.locatie === stad ? "" : stad })); setLocatieZoekterm(stad); setGeenVoorkeur(false); setFout(""); }} className={chipClass(form.locatie === stad)}>{stad}</button>
               ))}
             </div>
             <label className={`flex flex-col gap-3 rounded-2xl border border-black/10 bg-white p-5 transition-opacity ${geenVoorkeur ? "pointer-events-none opacity-35 blur-[3px]" : ""}`}>
@@ -454,7 +454,7 @@ export default function SignupForm() {
               </button>
               {toonKleurInfo && (
                 <div className="max-w-[48ch] rounded-xl border border-black/10 bg-white px-4 py-3 text-sm leading-relaxed text-black/65">
-                  Je lievelingskleur geeft ons een klein persoonlijk detail mee, zodat we beter kunnen laten zien wie jij bent.
+                  Solliciteren moet weer leuk worden. Waar we kunnen proberen we daarom altijd net even anders te zijn. Het vragen naar je favoriete kleur past in dat rijtje.
                 </div>
               )}
             </div>
@@ -591,7 +591,6 @@ export default function SignupForm() {
               <input
                 value={form.naam}
                 onChange={setField("naam")}
-                placeholder="Je naam"
                 className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-[19px] text-[#111] outline-none focus:border-accent"
               />
             </label>
@@ -601,7 +600,6 @@ export default function SignupForm() {
                 type="email"
                 value={form.email}
                 onChange={setField("email")}
-                placeholder="jij@voorbeeld.nl"
                 className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-[19px] text-[#111] outline-none focus:border-accent"
               />
             </label>
@@ -612,7 +610,6 @@ export default function SignupForm() {
               <input
                 value={form.telefoon}
                 onChange={setField("telefoon")}
-                placeholder="06 …"
                 className="rounded-2xl border border-black/15 bg-white px-4.5 py-4 text-[19px] text-[#111] outline-none focus:border-accent"
               />
             </label>

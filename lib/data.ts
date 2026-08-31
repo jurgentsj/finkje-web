@@ -1430,6 +1430,8 @@ export const sectorFilterOpties = [
 export type HandKleur = { naam: string; hex: string; toon: string };
 export const handKleuren: HandKleur[] = [
   { naam: "Finkje-oranje", hex: "#FF5A00", toon: "aanstekelijk, in beweging" },
+  { naam: "Roze", hex: "#E66A9A", toon: "open, warm en creatief" },
+  { naam: "Geel", hex: "#F2C94C", toon: "optimistisch, energiek en helder" },
   { naam: "Appeltjesgroen", hex: "#1E7A52", toon: "rustig, groeiend" },
   { naam: "Azuurblauw", hex: "#1B4DE4", toon: "helder, doordacht" },
   { naam: "Bordeauxrood", hex: "#A32020", toon: "stevig, vasthoudend" },
