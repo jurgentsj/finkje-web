@@ -184,7 +184,7 @@ export default async function HomePage({
             Niet plaatsen, aanpakken.
           </h3>
           <div className="flex flex-col gap-5.5">
-            <p className="m-0 max-w-[34ch] text-lg leading-snug text-white/92">
+            <p className="m-0 max-w-[34ch] text-[20px] leading-snug text-white/92">
               We plaatsen je vacature niet online maar gaan er daadwerkelijk mee aan de slag. We leggen de baan
               direct voor aan gemotiveerde mensen. Én bieden jou de mogelijkheid om zelf op zoek te gaan.
             </p>
