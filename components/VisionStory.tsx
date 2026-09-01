@@ -45,8 +45,8 @@ const chapters = [
   },
 ];
 
-const backgrounds = ["bg-white", "bg-accent", "bg-black", "bg-accent", "bg-white", "bg-accent", "bg-black"];
-const foregrounds = ["text-black", "text-white", "text-white", "text-white", "text-black", "text-white", "text-white"];
+const backgrounds = ["bg-white", "bg-accent", "bg-black", "bg-white", "bg-accent", "bg-accent", "bg-black"];
+const foregrounds = ["text-black", "text-white", "text-white", "text-black", "text-white", "text-white", "text-white"];
 
 export function VisionStory() {
   return (
@@ -54,11 +54,11 @@ export function VisionStory() {
       {chapters.map((chapter, index) => {
         const isLight = index === 0 || index === 4;
         return (
-          <article key={chapter.title} className={`relative min-h-[720px] px-6 py-20 ${backgrounds[index]} ${foregrounds[index]} sm:min-h-screen sm:px-14 sm:py-24`}>
+          <article key={chapter.title} className={`relative min-h-[760px] border-t-4 border-accent px-6 py-24 ${backgrounds[index]} ${foregrounds[index]} sm:min-h-screen sm:px-14 sm:py-32`}>
             <div className={`absolute top-0 bottom-0 left-10 w-px sm:left-14 ${isLight ? "bg-accent" : "bg-white/80"}`} aria-hidden="true" />
-            <div className={`absolute top-1/2 left-[calc(2.5rem-8px)] h-4 w-4 -translate-y-1/2 rounded-full border-2 sm:left-[calc(3.5rem-8px)] ${isLight ? "border-accent bg-white" : "border-white bg-accent"}`} aria-hidden="true" />
-            <div className="mx-auto grid min-h-[620px] max-w-[1240px] grid-cols-1 gap-16 pl-12 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] sm:gap-20 sm:pl-20">
-              <h2 className="m-0 max-w-[8ch] self-start font-display text-[clamp(48px,7vw,96px)] leading-[0.92] font-medium tracking-[-0.065em]">{chapter.title}</h2>
+            <div className={`absolute top-1/2 left-[calc(2.5rem-8px)] h-7 w-7 -translate-y-1/2 rounded-full border-2 sm:left-[calc(3.5rem-8px)] ${isLight ? "border-accent bg-white" : "border-white bg-accent"}`} aria-hidden="true" />
+            <div className="mx-auto grid min-h-[650px] max-w-[1240px] grid-cols-1 gap-20 pl-12 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] sm:gap-24 sm:pl-20">
+              <h2 className="m-0 max-w-[8ch] self-start pt-20 font-display text-[clamp(48px,7vw,96px)] leading-[0.92] font-medium tracking-[-0.065em] sm:pt-24">{chapter.title}</h2>
               <div className="flex flex-col justify-between gap-16">
                 <div className="max-w-[38ch] space-y-8 pt-1">
                   <p className="m-0 font-display text-[clamp(19px,2vw,24px)] leading-[1.35] font-medium">{chapter.body}</p>
