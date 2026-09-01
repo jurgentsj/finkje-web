@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function OnzeVisiePage() {
   return (
     <>
-      <section className="mx-auto max-w-[1100px] px-6 pt-20 pb-24">
+      <section className="mx-auto max-w-[1100px] px-6 pt-20 pb-0">
         <h1 className="m-0 max-w-[12ch] font-display text-[clamp(52px,7vw,89px)] leading-[0.9] font-medium tracking-[-0.071em]">
           De visie achter Finkje.
         </h1>
