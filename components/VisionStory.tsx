@@ -55,8 +55,7 @@ const chapters = [
     title: "Willen zal worden",
     paragraphs: [
       "Hoe minder vastligt wat iemand over tien jaar doet, hoe belangrijker het wordt dat iemand weet waar hij of zij naartoe wil.",
-      "De vijfdaagse werkweek is geen vast gegeven meer, die ene functie voor dertig jaar ook niet, en een opleiding bepaalt steeds minder wat iemand de rest van zijn leven doet. Functies ontstaan, veranderen en verdwijnen.",
-      "Wij geloven daarom niet dat de toekomst van werk alleen gaat over nieuwe functies, technieken of arbeidsvoorwaarden. De toekomst gaat over mensen: over wat zij belangrijk vinden en waar zij voor willen gaan.",
+      "De vijfdaagse werkweek is geen vast gegeven meer, die ene functie voor dertig jaar ook niet, en een opleiding bepaalt steeds minder wat iemand de rest van zijn leven doet. Functies ontstaan, veranderen en verdwijnen. Wij geloven daarom niet dat de toekomst van werk alleen gaat over nieuwe functies, technieken of arbeidsvoorwaarden. De toekomst gaat over mensen: over wat zij belangrijk vinden en waar zij voor willen gaan.",
     ],
     close: "Willen zal worden. De toekomst zal bestaan uit willen.",
   },
