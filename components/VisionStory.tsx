@@ -72,38 +72,60 @@ const chapters = [
 const backgrounds = ["bg-white", "bg-accent", "bg-black", "bg-white", "bg-accent", "bg-accent", "bg-black"];
 const foregrounds = ["text-black", "text-white", "text-white", "text-black", "text-white", "text-white", "text-white"];
 
+// Each chapter gets its own hand-tuned, asymmetric flight path so the line
+// never repeats the same rhythm twice — like an actual bird finding its way.
+const flightPaths = [
+  { d: "M38,0 C71,9 14,19 52,31 C83,42 9,53 46,66 C64,77 22,89 58,100", bird: { x: 52, y: 31 }, rotate: -22 },
+  { d: "M62,0 C21,11 79,17 33,29 C6,41 74,50 41,63 C13,74 66,85 47,100", bird: { x: 33, y: 29 }, rotate: 18 },
+  { d: "M27,0 C66,13 11,21 61,33 C93,45 17,59 49,71 C71,83 20,92 42,100", bird: { x: 61, y: 33 }, rotate: -28 },
+  { d: "M58,0 C17,10 84,16 37,27 C8,39 71,52 26,64 C57,76 15,87 53,100", bird: { x: 37, y: 27 }, rotate: 16 },
+  { d: "M31,0 C74,8 16,20 57,32 C88,43 19,56 44,67 C69,79 24,90 56,100", bird: { x: 57, y: 32 }, rotate: -19 },
+  { d: "M69,0 C19,9 81,22 35,31 C4,43 76,53 39,64 C11,76 63,88 45,100", bird: { x: 35, y: 31 }, rotate: 24 },
+  { d: "M43,0 C81,11 8,20 55,33 C86,45 13,58 51,68 C73,81 21,90 60,100", bird: { x: 55, y: 33 }, rotate: -16 },
+];
+
 export function VisionStory() {
   const [active, setActive] = useState(0);
   return (
     <section aria-label="De visie van Finkje" className="overflow-hidden">
       {chapters.map((chapter, index) => {
         const isLight = index === 0 || index === 3;
+        const path = flightPaths[index];
+        const isActive = active === index;
         return (
           <article key={chapter.title} className={`relative min-h-[820px] border-t-4 border-accent px-6 py-28 ${backgrounds[index]} ${foregrounds[index]} sm:min-h-screen sm:px-14 sm:py-40`}>
-            <svg
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              className="pointer-events-none absolute top-0 bottom-0 left-4 h-full w-20 sm:left-8 sm:w-28"
-              aria-hidden="true"
-            >
-              <path
-                d="M50,0 C88,14 12,28 50,42 C88,56 12,70 50,84 C68,90 50,96 50,100"
-                fill="none"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                className={isLight ? "stroke-accent" : "stroke-white/80"}
-                vectorEffect="non-scaling-stroke"
-              />
-            </svg>
-            <button
-              type="button"
-              aria-label={`Ga naar ${chapter.title}`}
-              onClick={() => setActive(index)}
-              className={`absolute top-1/2 left-4 z-10 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full sm:left-8 ${isLight ? "bg-white" : "bg-black"} ${active === index ? "ring-4 ring-accent/30" : ""}`}
-            >
-              <Bird className="h-6 w-6 text-accent" strokeWidth={2} aria-hidden="true" />
-            </button>
-            <div className="mx-auto grid min-h-[700px] max-w-[1440px] grid-cols-1 gap-20 pl-20 sm:grid-cols-[minmax(0,0.95fr)_minmax(0,1.25fr)] sm:gap-36 sm:pl-32">
+            <div className="pointer-events-none absolute top-0 bottom-0 left-4 h-full w-24 sm:left-8 sm:w-32">
+              <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="h-full w-full" aria-hidden="true">
+                <path
+                  d={path.d}
+                  fill="none"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  className={isLight ? "stroke-accent/70" : "stroke-white/60"}
+                  vectorEffect="non-scaling-stroke"
+                />
+              </svg>
+              <button
+                type="button"
+                aria-label={`Ga naar ${chapter.title}`}
+                onClick={() => setActive(index)}
+                className="absolute z-10 flex h-12 w-12 items-center justify-center rounded-full sm:h-16 sm:w-16"
+                style={{
+                  left: `${path.bird.x}%`,
+                  top: `${path.bird.y}%`,
+                  "--glide-rotate": `${path.rotate}deg`,
+                  animation: "finkje-glide 3.4s ease-in-out infinite",
+                  animationDelay: `${index * 0.4}s`,
+                } as React.CSSProperties}
+              >
+                <Bird
+                  className={`h-8 w-8 sm:h-10 sm:w-10 ${isActive ? "text-accent" : isLight ? "text-accent/80" : "text-white/90"}`}
+                  strokeWidth={1.75}
+                  aria-hidden="true"
+                />
+              </button>
+            </div>
+            <div className="mx-auto grid min-h-[700px] max-w-[1440px] grid-cols-1 gap-20 pl-24 sm:grid-cols-[minmax(0,0.95fr)_minmax(0,1.25fr)] sm:gap-36 sm:pl-40">
               <div className="flex flex-col justify-between gap-16">
                 <h2 className="m-0 max-w-[8ch] self-start pt-20 font-display text-[clamp(48px,7vw,96px)] leading-[0.92] font-medium tracking-[-0.065em] sm:pt-24">{chapter.title}</h2>
                 <p className="m-0 max-w-[34ch] font-display text-[clamp(19px,2vw,24px)] leading-[1.25] font-medium">→ {chapter.close}</p>

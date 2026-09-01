@@ -139,6 +139,15 @@ summary::-webkit-details-marker {
   }
 }
 
+@keyframes finkje-glide {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(var(--glide-rotate, 0deg)) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(var(--glide-rotate, 0deg)) translateY(-8px);
+  }
+}
+
 @keyframes frustration-float {
   from {
     transform: translate(calc(-50% + var(--frustration-x, 0px)), 0);
