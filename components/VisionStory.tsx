@@ -51,30 +51,28 @@ export function VisionStory() {
   const [active, setActive] = useState(0);
   const chapter = chapters[active];
 
-  return (
-    <section className="bg-white px-6 py-28 text-black sm:py-40" aria-label="De visie van Finkje">
-      <div className="mx-auto max-w-[1360px]">
-        <div className="relative mb-24 overflow-x-auto pb-5 scrollbar-none sm:mb-32">
-          <div className="absolute top-5 left-5 right-5 h-px bg-black/20" aria-hidden="true" />
-          <div className="relative flex min-w-[920px] justify-between gap-8 px-5">
-            {chapters.map((item, index) => (
-              <button key={item.title} type="button" onClick={() => setActive(index)} className="group flex w-[140px] shrink-0 flex-col items-center text-center" aria-pressed={active === index}>
-                <span className={`z-10 mb-5 h-3 w-3 rounded-full border-2 bg-white transition-all ${active === index ? "border-accent bg-accent ring-4 ring-white" : "border-black/35 group-hover:border-black"}`} />
-                <span className={`font-display text-[17px] leading-[1.05] font-medium tracking-[-0.03em] transition-colors ${active === index ? "text-black" : "text-black/45 group-hover:text-black/75"}`}>{item.title}</span>
-              </button>
-            ))}
-          </div>
-        </div>
+  const isOrange = active % 2 === 1;
 
-        <div className="grid min-h-[420px] grid-cols-1 items-start gap-12 border-t border-transparent pt-0 sm:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)] sm:gap-24 sm:pt-16">
-          <div>
-            <h2 className="m-0 max-w-[11ch] font-display text-[clamp(48px,7vw,96px)] leading-[0.9] font-medium tracking-[-0.06em] text-black">{chapter.title}</h2>
-          </div>
-          <div className="max-w-[38ch]">
-            <p className="m-0 text-[clamp(18px,2vw,21px)] leading-snug text-black/64">{chapter.body}</p>
-            <p className="mt-10 font-display text-[clamp(25px,3vw,38px)] leading-tight font-medium tracking-[-0.04em] text-black">{chapter.close}</p>
-          </div>
+  return (
+    <section className={`relative overflow-hidden px-6 py-16 text-[color:var(--vision-ink)] transition-colors duration-500 sm:px-12 sm:py-20 ${isOrange ? "bg-accent" : "bg-black"}`} aria-label="De visie van Finkje" style={{ "--vision-ink": isOrange ? "#ffffff" : "#ffffff", "--vision-muted": isOrange ? "rgba(255,255,255,0.72)" : "rgba(255,255,255,0.68)", "--vision-line": isOrange ? "rgba(255,255,255,0.82)" : "#ff5a00", "--vision-bg": isOrange ? "#ff5a00" : "#0b0b0b" } as React.CSSProperties}>
+      <div className="absolute top-0 bottom-0 left-10 w-px bg-[color:var(--vision-line)] sm:left-14" aria-hidden="true" />
+      <div className="absolute top-[40%] left-[calc(2.5rem-6px)] h-3 w-3 rounded-full border border-[color:var(--vision-line)] bg-[color:var(--vision-bg)] sm:left-[calc(3.5rem-6px)]" aria-hidden="true" />
+      <div className="mx-auto grid min-h-[620px] max-w-[1240px] grid-cols-1 gap-16 pl-12 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] sm:gap-20 sm:pl-20">
+        <div className="flex items-start">
+          <h2 className="m-0 max-w-[8ch] font-display text-[clamp(48px,7vw,92px)] leading-[0.94] font-medium tracking-[-0.065em] text-[color:var(--vision-ink)]">{chapter.title}</h2>
         </div>
+        <div className="flex flex-col justify-between gap-16">
+          <div className="max-w-[38ch] space-y-7 pt-1">
+            <p className="m-0 font-display text-[clamp(18px,2vw,22px)] leading-[1.35] font-medium text-[color:var(--vision-ink)]">{chapter.body}</p>
+            <p className="m-0 text-[clamp(17px,1.8vw,20px)] leading-relaxed text-[color:var(--vision-muted)]">{chapter.subtitle}</p>
+          </div>
+          <p className="m-0 max-w-[34ch] font-display text-[clamp(18px,2vw,23px)] leading-[1.25] font-medium text-[color:var(--vision-ink)]">→ {chapter.close}</p>
+        </div>
+      </div>
+      <div className="mx-auto mt-12 flex max-w-[1240px] gap-3 pl-12 sm:pl-20" role="tablist" aria-label="Visiehoofdstukken">
+        {chapters.map((item, index) => (
+          <button key={item.title} type="button" onClick={() => setActive(index)} className={`h-1.5 flex-1 transition-opacity ${active === index ? "bg-[color:var(--vision-ink)] opacity-100" : "bg-[color:var(--vision-ink)] opacity-25 hover:opacity-60"}`} aria-label={`Ga naar ${item.title}`} aria-pressed={active === index} />
+        ))}
       </div>
     </section>
   );
