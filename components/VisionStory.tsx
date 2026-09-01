@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 const chapters = [
   {
-    title: "Zo is het nu",
+    title: "De visie achter Finkje.",
     paragraphs: [
       "Er wordt gezocht, geschreven, geselecteerd, aangepast en geprobeerd. It’s the circle of work. Maar één vraag wordt opvallend weinig gesteld: wat wil iemand eigenlijk?",
       "“Het arbeidstekort groeit, de werkloosheid stijgt en het aantal vacatures daalt. Deze sector heeft moeite met het vinden van personeel en persoon X heeft al meer dan honderd keer gesolliciteerd; zonder succes.” Iedereen kan de artikelen inmiddels al dromen. Bedrijven zoeken naar een manier om personeel aan te trekken: hogere salarissen, prachtige ‘werken bij ons’-video’s, pingpongtafels, een 14e maand. Aan de andere kant stuurt iemand een spontane mail. Geen respons. Daarna elke dag een willekeurige baan in de inbox. Wat je wil doet niet ter zake.",
