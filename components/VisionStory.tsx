@@ -39,8 +39,7 @@ const chapters = [
     title: "De komst van AI",
     paragraphs: [
       "Terwijl we druk bezig zijn met de vraag welk werk technologie straks kan doen, is er nog een andere vraag: welk werk willen mensen straks nog doen?",
-      "De eerste tools notuleerden gesprekken. Daarna luisterden ze mee en kwamen ze zelf met voorstellen. Inmiddels zijn er tools die het sollicitatiegesprek voor je voeren, en tools die andere tools moeten herkennen.",
-      "Nu wordt AI vooral toegepast op wat mogelijk is. Dat zal veranderen: de vraag wordt waar mensen zelf geen zin meer in hebben. En om dat te weten, moeten we eerst weten waar mensen nog altijd wél zin in hebben.",
+      "De eerste tools notuleerden gesprekken. Daarna luisterden ze mee en kwamen ze zelf met voorstellen. Inmiddels zijn er tools die het sollicitatiegesprek voor je voeren, en tools die andere tools moeten herkennen. Nu wordt AI vooral toegepast op wat mogelijk is. Dat zal veranderen: de vraag wordt waar mensen zelf geen zin meer in hebben. En om dat te weten, moeten we eerst weten waar mensen nog altijd wél zin in hebben.",
     ],
     close: "Tijd om de vraag om te draaien. Welk werk willen we juist níet kwijt?",
   },
