@@ -83,13 +83,13 @@ export function VisionStory() {
             <button type="button" aria-label={`Ga naar ${chapter.title}`} onClick={() => setActive(index)} className={`absolute top-1/2 left-[calc(2.5rem-8px)] z-10 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full border-0 sm:left-[calc(3.5rem-8px)] ${isLight ? "bg-white" : "bg-black"} ${active === index ? "ring-4 ring-accent/30" : ""}`}>
               <svg viewBox="0 0 32 32" className={`h-8 w-8 ${isLight ? "text-accent" : "text-accent"}`} aria-hidden="true"><path fill="currentColor" d="M4 18c4-1 6-4 8-8 2 3 5 4 8 4l7 4-7 2c-2 1-4 3-5 6-1-4-3-6-6-7l-5-1Zm13-8 5-4-2 6-3-2Z" /></svg>
             </button>
-            <div className="mx-auto grid min-h-[650px] max-w-[1240px] grid-cols-1 gap-20 pl-12 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] sm:gap-24 sm:pl-20">
+            <div className="mx-auto grid min-h-[650px] max-w-[1440px] grid-cols-1 gap-16 pl-12 sm:grid-cols-[minmax(0,0.95fr)_minmax(0,1.25fr)] sm:gap-28 sm:pl-20">
               <div className="flex flex-col justify-between">
                 <h2 className="m-0 max-w-[8ch] self-start pt-20 font-display text-[clamp(48px,7vw,96px)] leading-[0.92] font-medium tracking-[-0.065em] sm:pt-24">{chapter.title}</h2>
                 <p className="m-0 max-w-[34ch] pt-20 font-display text-[clamp(19px,2vw,24px)] leading-[1.25] font-medium sm:pt-24">→ {chapter.close}</p>
               </div>
-              <div className="max-w-[38ch] space-y-8 pt-1">
-                {chapter.paragraphs.map((paragraph, paragraphIndex) => <p key={paragraph} className={`m-0 text-[clamp(17px,1.8vw,22px)] leading-[1.55] ${paragraphIndex === 0 ? "font-medium" : "text-current/65"}`}>{paragraph}</p>)}
+              <div className="max-w-[52ch] space-y-8 pt-1">
+                {chapter.paragraphs.map((paragraph, paragraphIndex) => <p key={paragraph} className={`m-0 ${paragraphIndex === 0 ? "max-w-[48ch] font-sans text-[clamp(20px,2.1vw,29px)] leading-[1.42] font-semibold tracking-[-0.02em]" : "text-current/65 font-sans text-[clamp(16px,1.5vw,21px)] leading-[1.62]"}`}>{paragraph}</p>)}
               </div>
             </div>
           </article>
