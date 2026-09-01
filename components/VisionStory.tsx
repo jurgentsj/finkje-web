@@ -71,7 +71,7 @@ export function VisionStory() {
             <h2 className="m-0 max-w-[11ch] font-display text-[clamp(48px,7vw,96px)] leading-[0.9] font-medium tracking-[-0.06em] text-black">{chapter.title}</h2>
           </div>
           <div className="max-w-[38ch]">
-            <p className="m-0 text-[19px] leading-relaxed text-black/65 sm:text-[21px]">{chapter.body}</p>
+            <p className="m-0 text-[clamp(18px,2vw,21px)] leading-snug text-black/64">{chapter.body}</p>
             <p className="mt-10 font-display text-[clamp(25px,3vw,38px)] leading-tight font-medium tracking-[-0.04em] text-black">{chapter.close}</p>
           </div>
         </div>
