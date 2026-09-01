@@ -31,8 +31,7 @@ const chapters = [
     title: "Het cv kijkt achteruit",
     paragraphs: [
       "We proberen de toekomst van iemand nog altijd te voorspellen aan de hand van het verleden. Een verleden zonder toelichting. Een verleden zonder toekomst.",
-      "Een cv kan uitstekend vertellen waar iemand is geweest. Welke opleiding iemand volgde, waar iemand heeft gewerkt en hoe lang.",
-      "Maar datzelfde cv is veel minder goed in voorspellen waar iemand naartoe wil. Waar op het cv staat iemands droom? Waar staan de dingen die minder goed gingen? Alle opgedane levenservaring?",
+      "Een cv kan uitstekend vertellen waar iemand is geweest. Welke opleiding iemand volgde, waar iemand heeft gewerkt en hoe lang. Maar datzelfde cv is veel minder goed in voorspellen waar iemand naartoe wil. Waar op het cv staat iemands droom? Waar staan de dingen die minder goed gingen? Alle opgedane levenservaring?",
     ],
     close: "Tijd om vooruit te kijken.",
   },
@@ -204,7 +203,7 @@ export function VisionStory() {
                 <p className="m-0 max-w-[34ch] font-display text-[clamp(19px,2vw,24px)] leading-[1.25] font-medium">→ {chapter.close}</p>
               </div>
               <div className="flex max-w-[52ch] flex-col gap-10 pt-1 sm:gap-14 sm:pl-8">
-                {chapter.paragraphs.map((paragraph, paragraphIndex) => <p key={paragraph} className={`m-0 ${paragraphIndex === 0 ? `max-w-[48ch] font-sans text-[clamp(20px,2.1vw,29px)] leading-[1.42] ${index === 0 ? "font-medium" : "font-semibold"} tracking-[-0.02em]` : `${index === 0 ? "text-black" : index <= 2 ? "text-white" : "text-current/65"} font-sans text-[clamp(16px,1.5vw,21px)] leading-[1.62]`}`}>{paragraph}</p>)}
+                {chapter.paragraphs.map((paragraph, paragraphIndex) => <p key={paragraph} className={`m-0 ${paragraphIndex === 0 ? `max-w-[48ch] font-sans text-[clamp(20px,2.1vw,29px)] leading-[1.42] ${index === 0 ? "font-medium" : "font-semibold"} tracking-[-0.02em]` : `${index === 0 || index === 3 ? "text-black" : index <= 2 ? "text-white" : "text-current/65"} font-sans text-[clamp(16px,1.5vw,21px)] leading-[1.62]`}`}>{paragraph}</p>)}
               </div>
             </div>
           </article>
