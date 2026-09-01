@@ -40,7 +40,7 @@ export default async function HomePage({
                 Want waar een wil is, is een weg.
               </p>
             </div>
-            <div className="mt-auto w-full pt-10 lg:pt-[67px]">
+            <div className="mt-auto w-full pt-10 lg:pt-[57px]">
               <HeroForm />
             </div>
           </div>
