@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 const chapters = [
   {
     title: "Zo is het nu",
@@ -46,23 +48,32 @@ const chapters = [
 ];
 
 export function VisionStory() {
+  const [active, setActive] = useState(0);
+  const chapter = chapters[active];
+
   return (
     <section className="bg-white px-6 py-28 text-black sm:py-40" aria-label="De visie van Finkje">
       <div className="mx-auto max-w-[1360px]">
-        <div className="grid grid-cols-1 gap-20 sm:grid-cols-2 sm:gap-x-24 sm:gap-y-32 lg:grid-cols-3 lg:gap-x-28 lg:gap-y-40">
-          {chapters.map((chapter, index) => (
-            <article key={chapter.title} className="flex min-h-[260px] flex-col justify-between">
-              <h2 className="m-0 max-w-[10ch] font-display text-[clamp(38px,5vw,68px)] leading-[0.92] font-medium tracking-[-0.05em] text-black">
-                {chapter.title}
-              </h2>
-              <div className="mt-10 max-w-[34ch]">
-                <p className="m-0 text-[18px] leading-relaxed text-black/65 sm:text-[20px]">{chapter.body}</p>
-                <p className="mt-8 font-display text-[clamp(22px,2.5vw,30px)] leading-tight font-medium tracking-[-0.03em] text-black">
-                  {chapter.close}
-                </p>
-              </div>
-            </article>
-          ))}
+        <div className="relative mb-24 overflow-x-auto pb-5 scrollbar-none sm:mb-32">
+          <div className="absolute top-5 left-5 right-5 h-px bg-black/20" aria-hidden="true" />
+          <div className="relative flex min-w-[920px] justify-between gap-8 px-5">
+            {chapters.map((item, index) => (
+              <button key={item.title} type="button" onClick={() => setActive(index)} className="group flex w-[140px] shrink-0 flex-col items-center text-center" aria-pressed={active === index}>
+                <span className={`z-10 mb-5 h-3 w-3 rounded-full border-2 bg-white transition-all ${active === index ? "border-accent bg-accent ring-4 ring-white" : "border-black/35 group-hover:border-black"}`} />
+                <span className={`font-display text-[17px] leading-[1.05] font-medium tracking-[-0.03em] transition-colors ${active === index ? "text-black" : "text-black/45 group-hover:text-black/75"}`}>{item.title}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid min-h-[420px] grid-cols-1 items-start gap-12 border-t border-black/10 pt-12 sm:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)] sm:gap-24 sm:pt-16">
+          <div>
+            <h2 className="m-0 max-w-[11ch] font-display text-[clamp(48px,7vw,96px)] leading-[0.9] font-medium tracking-[-0.06em] text-black">{chapter.title}</h2>
+          </div>
+          <div className="max-w-[38ch]">
+            <p className="m-0 text-[19px] leading-relaxed text-black/65 sm:text-[21px]">{chapter.body}</p>
+            <p className="mt-10 font-display text-[clamp(25px,3vw,38px)] leading-tight font-medium tracking-[-0.04em] text-black">{chapter.close}</p>
+          </div>
         </div>
       </div>
     </section>
