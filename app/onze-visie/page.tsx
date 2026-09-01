@@ -24,7 +24,6 @@ export default function OnzeVisiePage() {
 
       <section className="bg-black px-6 py-24 text-white sm:py-32">
         <div className="mx-auto max-w-[1100px]">
-          <p className="mb-8 text-xs font-semibold tracking-[0.16em] text-accent uppercase">/ Waar we naartoe gaan</p>
           <p className="m-0 max-w-[18ch] font-display text-[clamp(36px,5vw,68px)] leading-[0.94] font-medium tracking-[-0.05em]">
             Jouw droom is het beste cv dat je ooit gemaakt hebt.
           </p>
