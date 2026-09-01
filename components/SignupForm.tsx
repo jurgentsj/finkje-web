@@ -197,7 +197,28 @@ export default function SignupForm() {
       // the jobseeker profile now. Otherwise the user enters the 6-digit code
       // we just emailed them (see bevestigCode below).
       if (data.session && data.user) {
-        await completeAuthProfile(supabase, data.user, "werkzoekende");
+        const { data: refreshed, error: metadataError } = await supabase.auth.updateUser({
+          data: {
+            role: "werkzoekende",
+            naam: form.naam,
+            droombaan: form.droombaan,
+            waarom: form.waarom,
+            sterk: form.sterk,
+            tegenaan: form.tegenaan,
+            hkleur: form.hkleur,
+            dienstverband: form.dienstverband,
+            beschikbaarheid: form.beschikbaarheid,
+            locatie: form.locatie,
+            reisafstand: form.reisafstand,
+            sector: form.sector,
+            ervaring: form.ervaring,
+            telefoon: form.telefoon,
+            overs,
+            omgevingen,
+          },
+        });
+        if (metadataError) throw metadataError;
+        await completeAuthProfile(supabase, refreshed.user, "werkzoekende");
         setFout("");
         setBezig(false);
         setKlaar(true);
@@ -241,7 +262,28 @@ export default function SignupForm() {
     }
 
     try {
-      await completeAuthProfile(supabase, data.user, "werkzoekende");
+      const { data: refreshed, error: metadataError } = await supabase.auth.updateUser({
+        data: {
+          role: "werkzoekende",
+          naam: form.naam,
+          droombaan: form.droombaan,
+          waarom: form.waarom,
+          sterk: form.sterk,
+          tegenaan: form.tegenaan,
+          hkleur: form.hkleur,
+          dienstverband: form.dienstverband,
+          beschikbaarheid: form.beschikbaarheid,
+          locatie: form.locatie,
+          reisafstand: form.reisafstand,
+          sector: form.sector,
+          ervaring: form.ervaring,
+          telefoon: form.telefoon,
+          overs,
+          omgevingen,
+        },
+      });
+      if (metadataError) throw metadataError;
+      await completeAuthProfile(supabase, refreshed.user, "werkzoekende");
     } catch (profileError) {
       console.error("[v0] Profile handoff failed after OTP:", profileError);
       setBezig(false);
