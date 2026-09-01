@@ -139,6 +139,25 @@ summary::-webkit-details-marker {
   }
 }
 
+.will-fly {
+  animation: will-fly 1.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes will-fly {
+  0% { transform: translate(-50%, 120vh) rotate(-18deg); }
+  45% { transform: translate(-20%, 4vh) rotate(8deg); }
+  100% { transform: translate(180%, -12vh) rotate(18deg); }
+}
+
+@keyframes finkje-glide {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(var(--glide-rotate, 0deg)) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(var(--glide-rotate, 0deg)) translateY(-8px);
+  }
+}
+
 @keyframes frustration-float {
   from {
     transform: translate(calc(-50% + var(--frustration-x, 0px)), 0);
