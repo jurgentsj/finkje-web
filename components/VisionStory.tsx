@@ -66,7 +66,7 @@ export function VisionStory() {
           </div>
         </div>
 
-        <div className="grid min-h-[420px] grid-cols-1 items-start gap-12 border-t border-transparent pt-12 sm:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)] sm:gap-24 sm:pt-16">
+        <div className="grid min-h-[420px] grid-cols-1 items-start gap-12 border-t border-transparent pt-0 sm:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)] sm:gap-24 sm:pt-16">
           <div>
             <h2 className="m-0 max-w-[11ch] font-display text-[clamp(48px,7vw,96px)] leading-[0.9] font-medium tracking-[-0.06em] text-black">{chapter.title}</h2>
           </div>
