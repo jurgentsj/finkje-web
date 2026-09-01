@@ -206,7 +206,7 @@ export function VisionStory() {
                 <h2 className="m-0 max-w-[8ch] self-start pt-20 font-display text-[clamp(48px,7vw,96px)] leading-[0.92] font-medium tracking-[-0.065em] sm:pt-24">{chapter.title}</h2>
                 <p className="m-0 max-w-[34ch] font-display text-[clamp(19px,2vw,24px)] leading-[1.25] font-medium">→ {chapter.close}</p>
               </div>
-              <div className="max-w-[52ch] space-y-10 pt-1">
+              <div className="flex max-w-[52ch] flex-col gap-10 pt-1 sm:gap-14 sm:pl-8">
                 {chapter.paragraphs.map((paragraph, paragraphIndex) => <p key={paragraph} className={`m-0 ${paragraphIndex === 0 ? "max-w-[48ch] font-sans text-[clamp(20px,2.1vw,29px)] leading-[1.42] font-semibold tracking-[-0.02em]" : "text-current/65 font-sans text-[clamp(16px,1.5vw,21px)] leading-[1.62]"}`}>{paragraph}</p>)}
               </div>
             </div>
