@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Bird } from "lucide-react";
 
 const chapters = [
   {
@@ -78,17 +79,36 @@ export function VisionStory() {
       {chapters.map((chapter, index) => {
         const isLight = index === 0 || index === 3;
         return (
-          <article key={chapter.title} className={`relative min-h-[760px] border-t-4 border-accent px-6 py-24 ${backgrounds[index]} ${foregrounds[index]} sm:min-h-screen sm:px-14 sm:py-32`}>
-            <div className={`absolute top-0 bottom-0 left-10 w-px sm:left-14 ${isLight ? "bg-accent" : "bg-white/80"}`} aria-hidden="true" />
-            <button type="button" aria-label={`Ga naar ${chapter.title}`} onClick={() => setActive(index)} className={`absolute top-1/2 left-[calc(2.5rem-8px)] z-10 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full border-0 sm:left-[calc(3.5rem-8px)] ${isLight ? "bg-white" : "bg-black"} ${active === index ? "ring-4 ring-accent/30" : ""}`}>
-              <svg viewBox="0 0 32 32" className={`h-8 w-8 ${isLight ? "text-accent" : "text-accent"}`} aria-hidden="true"><path fill="currentColor" d="M4 18c4-1 6-4 8-8 2 3 5 4 8 4l7 4-7 2c-2 1-4 3-5 6-1-4-3-6-6-7l-5-1Zm13-8 5-4-2 6-3-2Z" /></svg>
+          <article key={chapter.title} className={`relative min-h-[820px] border-t-4 border-accent px-6 py-28 ${backgrounds[index]} ${foregrounds[index]} sm:min-h-screen sm:px-14 sm:py-40`}>
+            <svg
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+              className="pointer-events-none absolute top-0 bottom-0 left-4 h-full w-20 sm:left-8 sm:w-28"
+              aria-hidden="true"
+            >
+              <path
+                d="M50,0 C88,14 12,28 50,42 C88,56 12,70 50,84 C68,90 50,96 50,100"
+                fill="none"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                className={isLight ? "stroke-accent" : "stroke-white/80"}
+                vectorEffect="non-scaling-stroke"
+              />
+            </svg>
+            <button
+              type="button"
+              aria-label={`Ga naar ${chapter.title}`}
+              onClick={() => setActive(index)}
+              className={`absolute top-1/2 left-4 z-10 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full sm:left-8 ${isLight ? "bg-white" : "bg-black"} ${active === index ? "ring-4 ring-accent/30" : ""}`}
+            >
+              <Bird className="h-6 w-6 text-accent" strokeWidth={2} aria-hidden="true" />
             </button>
-            <div className="mx-auto grid min-h-[650px] max-w-[1440px] grid-cols-1 gap-16 pl-12 sm:grid-cols-[minmax(0,0.95fr)_minmax(0,1.25fr)] sm:gap-28 sm:pl-20">
-              <div className="flex flex-col justify-between">
+            <div className="mx-auto grid min-h-[700px] max-w-[1440px] grid-cols-1 gap-20 pl-20 sm:grid-cols-[minmax(0,0.95fr)_minmax(0,1.25fr)] sm:gap-36 sm:pl-32">
+              <div className="flex flex-col justify-between gap-16">
                 <h2 className="m-0 max-w-[8ch] self-start pt-20 font-display text-[clamp(48px,7vw,96px)] leading-[0.92] font-medium tracking-[-0.065em] sm:pt-24">{chapter.title}</h2>
-                <p className="m-0 max-w-[34ch] pt-20 font-display text-[clamp(19px,2vw,24px)] leading-[1.25] font-medium sm:pt-24">→ {chapter.close}</p>
+                <p className="m-0 max-w-[34ch] font-display text-[clamp(19px,2vw,24px)] leading-[1.25] font-medium">→ {chapter.close}</p>
               </div>
-              <div className="max-w-[52ch] space-y-8 pt-1">
+              <div className="max-w-[52ch] space-y-10 pt-1">
                 {chapter.paragraphs.map((paragraph, paragraphIndex) => <p key={paragraph} className={`m-0 ${paragraphIndex === 0 ? "max-w-[48ch] font-sans text-[clamp(20px,2.1vw,29px)] leading-[1.42] font-semibold tracking-[-0.02em]" : "text-current/65 font-sans text-[clamp(16px,1.5vw,21px)] leading-[1.62]"}`}>{paragraph}</p>)}
               </div>
             </div>
