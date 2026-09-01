@@ -82,7 +82,7 @@ export function WillersMap() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(255,255,255,0.48),transparent_55%)]" aria-hidden="true" />
             <ComposableMap projection="geoMercator" projectionConfig={{ center: [5.4, 52.2], scale: 7300 }} className="absolute inset-0 h-full w-full">
               <Geographies geography={geoUrl}>
-                {({ geographies }) => geographies.filter((geo) => geo.id === "528").map((geo) => <Geography key={geo.rsmKey} geography={geo} fill="#fffaf6" stroke="#eeb18d" strokeWidth={0.65} style={{ default: { outline: "none" }, hover: { fill: "#fffaf6", outline: "none" }, pressed: { outline: "none" } }} />)}
+                {({ geographies }) => geographies.filter((geo: { id?: string | number; rsmKey: string }) => String(geo.id) === "528").map((geo: { id?: string | number; rsmKey: string }) => <Geography key={geo.rsmKey} geography={geo} fill="#fffaf6" stroke="#eeb18d" strokeWidth={0.65} style={{ default: { outline: "none" }, hover: { fill: "#fffaf6", outline: "none" }, pressed: { outline: "none" } }} />)}
               </Geographies>
               {filtered.map((willer) => <Marker key={willer.id} coordinates={willer.coordinates} onClick={() => setSelected(willer)} className="cursor-pointer outline-none"><circle r={Math.max(11, Math.min(25, willer.count + 8))} fill="#ff5a00" fillOpacity="0.92" stroke="#fffaf6" strokeWidth="2.5" /><circle r={Math.max(17, Math.min(34, willer.count + 14))} fill="none" stroke="#ff5a00" strokeOpacity="0.16" strokeWidth="1" /><text textAnchor="middle" y="4" style={{ fontFamily: "Inter, sans-serif", fontSize: 9, fontWeight: 700, fill: "white", pointerEvents: "none" }}>{willer.count}</text></Marker>)}
             </ComposableMap>
