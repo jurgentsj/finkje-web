@@ -40,7 +40,7 @@ export default async function HomePage({
                 Want waar een wil is, is een weg.
               </p>
             </div>
-            <div className="mt-auto w-full pt-10 lg:pt-[57px]">
+            <div className="mt-auto w-full pt-10 lg:pt-[62px]">
               <HeroForm />
             </div>
           </div>
@@ -144,7 +144,7 @@ export default async function HomePage({
                 <span className="font-display text-[clamp(21px,2.4vw,23px)] leading-tight font-semibold tracking-[-0.025em]">
                   {v.titel}
                 </span>
-                <span className="text-[clamp(17px,1.6vw,18px)] leading-relaxed tracking-[-0.013em] text-black/62">{v.tekst}</span>
+                <span className="text-[17px] leading-relaxed tracking-[-0.013em] text-black/62">{v.tekst}</span>
               </div>
             ))}
           </div>
