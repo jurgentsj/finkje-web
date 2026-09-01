@@ -23,8 +23,7 @@ const chapters = [
     title: "Interesse wint aan terrein",
     paragraphs: [
       "De zoektocht naar werk begint zelden met de vraag waar iemands hart sneller van gaat kloppen. We vragen wat iemand heeft gestudeerd, waar iemand heeft gewerkt, hoeveel jaar ervaring iemand heeft.",
-      "Inmiddels is duidelijk geworden dat het helpt om kinderen te volgen in hun zelfgekozen interesse. Volg een jong mens en je komt er snel genoeg achter waar het hart sneller van gaat kloppen.",
-      "De keuzes die je vanaf de basisschool maakt blijken meer dan eens bepalend voor je hele carrière, terwijl je er vaak pas ná die keuzes achter komt waar je gelukkig van wordt.",
+      "Inmiddels is duidelijk geworden dat het helpt om kinderen te volgen in hun zelfgekozen interesse. Volg een jong mens en je komt er snel genoeg achter waar het hart sneller van gaat kloppen. De keuzes die je vanaf de basisschool maakt blijken meer dan eens bepalend voor je hele carrière, terwijl je er vaak pas ná die keuzes achter komt waar je gelukkig van wordt.",
     ],
     close: "Tijd voor de werkvloer. Tijd voor wat het hart sneller doet kloppen.",
   },
