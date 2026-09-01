@@ -80,14 +80,16 @@ export function VisionStory() {
         return (
           <article key={chapter.title} className={`relative min-h-[760px] border-t-4 border-accent px-6 py-24 ${backgrounds[index]} ${foregrounds[index]} sm:min-h-screen sm:px-14 sm:py-32`}>
             <div className={`absolute top-0 bottom-0 left-10 w-px sm:left-14 ${isLight ? "bg-accent" : "bg-white/80"}`} aria-hidden="true" />
-            <button type="button" aria-label={`Ga naar ${chapter.title}`} onClick={() => setActive(index)} className={`absolute top-1/2 left-[calc(2.5rem-8px)] h-7 w-7 -translate-y-1/2 rounded-full border-2 sm:left-[calc(3.5rem-8px)] ${isLight ? "border-accent bg-white" : "border-white bg-accent"} ${active === index ? "ring-4 ring-accent/30" : ""}`} />
+            <button type="button" aria-label={`Ga naar ${chapter.title}`} onClick={() => setActive(index)} className={`absolute top-1/2 left-[calc(2.5rem-8px)] z-10 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full border-0 sm:left-[calc(3.5rem-8px)] ${isLight ? "bg-white" : "bg-black"} ${active === index ? "ring-4 ring-accent/30" : ""}`}>
+              <svg viewBox="0 0 32 32" className={`h-8 w-8 ${isLight ? "text-accent" : "text-accent"}`} aria-hidden="true"><path fill="currentColor" d="M4 18c4-1 6-4 8-8 2 3 5 4 8 4l7 4-7 2c-2 1-4 3-5 6-1-4-3-6-6-7l-5-1Zm13-8 5-4-2 6-3-2Z" /></svg>
+            </button>
             <div className="mx-auto grid min-h-[650px] max-w-[1240px] grid-cols-1 gap-20 pl-12 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] sm:gap-24 sm:pl-20">
-              <h2 className="m-0 max-w-[8ch] self-start pt-20 font-display text-[clamp(48px,7vw,96px)] leading-[0.92] font-medium tracking-[-0.065em] sm:pt-24">{chapter.title}</h2>
-              <div className="flex flex-col justify-between gap-16">
-                <div className="max-w-[38ch] space-y-8 pt-1">
-                  {chapter.paragraphs.map((paragraph) => <p key={paragraph} className="m-0 text-[clamp(17px,1.8vw,22px)] leading-relaxed">{paragraph}</p>)}
-                </div>
-                <p className="m-0 max-w-[34ch] font-display text-[clamp(19px,2vw,24px)] leading-[1.25] font-medium">→ {chapter.close}</p>
+              <div className="flex flex-col justify-between">
+                <h2 className="m-0 max-w-[8ch] self-start pt-20 font-display text-[clamp(48px,7vw,96px)] leading-[0.92] font-medium tracking-[-0.065em] sm:pt-24">{chapter.title}</h2>
+                <p className="m-0 max-w-[34ch] pt-20 font-display text-[clamp(19px,2vw,24px)] leading-[1.25] font-medium sm:pt-24">→ {chapter.close}</p>
+              </div>
+              <div className="max-w-[38ch] space-y-8 pt-1">
+                {chapter.paragraphs.map((paragraph, paragraphIndex) => <p key={paragraph} className={`m-0 text-[clamp(17px,1.8vw,22px)] leading-relaxed ${paragraphIndex === 0 ? "font-medium" : "opacity-70"}`}>{paragraph}</p>)}
               </div>
             </div>
           </article>
