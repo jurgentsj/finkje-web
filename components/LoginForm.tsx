@@ -82,7 +82,7 @@ export default function LoginForm({ employer = false }: { employer?: boolean }) 
 
   if (codeVerstuurd) {
     return (
-      <form onSubmit={bevestigCode} className="flex flex-col gap-6 rounded-[28px] bg-sand p-8 sm:p-10">
+      <form onSubmit={bevestigCode} className="flex flex-col gap-6 rounded-[28px] bg-transparent p-8 sm:p-10">
         <label htmlFor="website_confirmation" className="absolute -left-[9999px] h-px w-px overflow-hidden">Website</label>
         <input id="website_confirmation" name="website_confirmation" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-px w-px opacity-0" />
         <div className="flex flex-col gap-3">
