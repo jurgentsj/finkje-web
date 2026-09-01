@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { Bird } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const chapters = [
   {
@@ -69,63 +68,140 @@ const chapters = [
   },
 ];
 
-const backgrounds = ["bg-white", "bg-accent", "bg-black", "bg-white", "bg-accent", "bg-accent", "bg-black"];
-const foregrounds = ["text-black", "text-white", "text-white", "text-black", "text-white", "text-white", "text-white"];
-
-// Each chapter gets its own hand-tuned, asymmetric flight path so the line
-// never repeats the same rhythm twice — like an actual bird finding its way.
-const flightPaths = [
-  { d: "M38,0 C71,9 14,19 52,31 C83,42 9,53 46,66 C64,77 22,89 58,100", bird: { x: 52, y: 31 }, rotate: -22 },
-  { d: "M62,0 C21,11 79,17 33,29 C6,41 74,50 41,63 C13,74 66,85 47,100", bird: { x: 33, y: 29 }, rotate: 18 },
-  { d: "M27,0 C66,13 11,21 61,33 C93,45 17,59 49,71 C71,83 20,92 42,100", bird: { x: 61, y: 33 }, rotate: -28 },
-  { d: "M58,0 C17,10 84,16 37,27 C8,39 71,52 26,64 C57,76 15,87 53,100", bird: { x: 37, y: 27 }, rotate: 16 },
-  { d: "M31,0 C74,8 16,20 57,32 C88,43 19,56 44,67 C69,79 24,90 56,100", bird: { x: 57, y: 32 }, rotate: -19 },
-  { d: "M69,0 C19,9 81,22 35,31 C4,43 76,53 39,64 C11,76 63,88 45,100", bird: { x: 35, y: 31 }, rotate: 24 },
-  { d: "M43,0 C81,11 8,20 55,33 C86,45 13,58 51,68 C73,81 21,90 60,100", bird: { x: 55, y: 33 }, rotate: -16 },
+const palettes = [
+  { bg: "bg-white", text: "text-black", bgHex: "#ffffff", line: "#FF5A00", bird: "#FF5A00" },
+  { bg: "bg-accent", text: "text-white", bgHex: "#FF5A00", line: "#ffffff", bird: "#ffffff" },
+  { bg: "bg-black", text: "text-white", bgHex: "#0E0E0E", line: "#FF5A00", bird: "#FF5A00" },
 ];
 
+// Anchor x-positions (in a 0-120 viewBox) that each chapter's flight path
+// swings between. Uneven, non-repeating values keep every curve looking
+// like a real, hand-flown path rather than a mirrored/generated pattern.
+const anchors = [24, 92, 16, 84, 30, 96, 20, 88];
+
+function buildFlightPath(index: number) {
+  const from = anchors[index];
+  const to = anchors[index + 1];
+  const bow = to > from ? -34 : 34;
+  return `M ${from} -40 C ${from + bow} 260 ${to - bow} 760 ${to} 1060`;
+}
+
+type BirdState = { index: number; x: number; y: number; rotation: number };
+
 export function VisionStory() {
-  const [active, setActive] = useState(0);
+  const sectionRefs = useRef<(HTMLElement | null)[]>([]);
+  const pathRefs = useRef<(SVGPathElement | null)[]>([]);
+  const samplesRef = useRef<{ x: number; y: number }[][]>([]);
+  const stateRef = useRef<BirdState>({ index: 0, x: anchors[0], y: 0, rotation: 90 });
+  const [bird, setBird] = useState<BirdState>(stateRef.current);
+
+  useEffect(() => {
+    pathRefs.current.forEach((path, i) => {
+      if (!path) return;
+      const length = path.getTotalLength();
+      const samples: { x: number; y: number }[] = [];
+      for (let s = 0; s <= 240; s++) samples.push(path.getPointAtLength((length * s) / 240));
+      samplesRef.current[i] = samples;
+    });
+
+    let raf = 0;
+    const update = () => {
+      const mid = window.innerHeight * 0.42;
+      let index = 0;
+      let local = 0;
+      sectionRefs.current.forEach((section, i) => {
+        if (!section) return;
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= mid) {
+          index = i;
+          local = Math.min(1, Math.max(0, (mid - rect.top) / Math.max(1, rect.height)));
+        }
+      });
+
+      const samples = samplesRef.current[index];
+      if (samples?.length) {
+        const frame = Math.round(local * (samples.length - 1));
+        const point = samples[frame];
+        const ahead = samples[Math.min(samples.length - 1, frame + 6)];
+        const angle = (Math.atan2(ahead.y - point.y, (ahead.x - point.x) * 10) * 180) / Math.PI;
+        const next: BirdState = {
+          index,
+          x: Math.min(94, Math.max(6, (point.x / 120) * 100)),
+          y: (point.y / 1000) * 100,
+          rotation: Math.max(40, Math.min(120, angle)),
+        };
+        const prev = stateRef.current;
+        if (
+          next.index !== prev.index ||
+          Math.abs(next.x - prev.x) > 0.05 ||
+          Math.abs(next.y - prev.y) > 0.05 ||
+          Math.abs(next.rotation - prev.rotation) > 0.3
+        ) {
+          stateRef.current = next;
+          setBird(next);
+        }
+      }
+      raf = requestAnimationFrame(update);
+    };
+    raf = requestAnimationFrame(update);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
   return (
     <section aria-label="De visie van Finkje" className="overflow-hidden">
       {chapters.map((chapter, index) => {
-        const isLight = index === 0 || index === 3;
-        const path = flightPaths[index];
-        const isActive = active === index;
+        const palette = palettes[index % 3];
+        const isActive = bird.index === index;
         return (
-          <article key={chapter.title} className={`relative min-h-[820px] border-t-4 border-accent px-6 py-28 ${backgrounds[index]} ${foregrounds[index]} sm:min-h-screen sm:px-14 sm:py-40`}>
-            <div className="pointer-events-none absolute top-0 bottom-0 left-4 h-full w-24 sm:left-8 sm:w-32">
-              <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="h-full w-full" aria-hidden="true">
+          <article
+            key={chapter.title}
+            ref={(el) => {
+              sectionRefs.current[index] = el;
+            }}
+            className={`relative min-h-[820px] border-t-4 border-accent px-6 py-28 ${palette.bg} ${palette.text} sm:min-h-screen sm:px-14 sm:py-40`}
+          >
+            <div className="pointer-events-none absolute top-0 bottom-0 left-2 h-full w-28 overflow-visible sm:left-6 sm:w-44">
+              <svg viewBox="0 0 120 1000" preserveAspectRatio="none" className="h-full w-full overflow-visible" aria-hidden="true">
                 <path
-                  d={path.d}
+                  ref={(el) => {
+                    pathRefs.current[index] = el;
+                  }}
+                  d={buildFlightPath(index)}
                   fill="none"
-                  strokeWidth="2"
+                  stroke={palette.line}
+                  strokeOpacity={0.4}
+                  strokeWidth={1.25}
+                  strokeDasharray="1 5"
                   strokeLinecap="round"
-                  className={isLight ? "stroke-accent/70" : "stroke-white/60"}
                   vectorEffect="non-scaling-stroke"
                 />
               </svg>
-              <button
-                type="button"
-                aria-label={`Ga naar ${chapter.title}`}
-                onClick={() => setActive(index)}
-                className="absolute z-10 flex h-12 w-12 items-center justify-center rounded-full sm:h-16 sm:w-16"
-                style={{
-                  left: `${path.bird.x}%`,
-                  top: `${path.bird.y}%`,
-                  "--glide-rotate": `${path.rotate}deg`,
-                  animation: "finkje-glide 3.4s ease-in-out infinite",
-                  animationDelay: `${index * 0.4}s`,
-                } as React.CSSProperties}
-              >
-                <Bird
-                  className={`h-8 w-8 sm:h-10 sm:w-10 ${isActive ? "text-accent" : isLight ? "text-accent/80" : "text-white/90"}`}
-                  strokeWidth={1.75}
-                  aria-hidden="true"
-                />
-              </button>
+              {isActive && (
+                <div
+                  className="absolute"
+                  style={{
+                    left: `${bird.x}%`,
+                    top: `${bird.y}%`,
+                    transform: `translate(-50%, -50%) rotate(${bird.rotation}deg)`,
+                  }}
+                >
+                  <svg width="72" height="46" viewBox="-24 -18 48 30" className="block overflow-visible drop-shadow-sm">
+                    <path d="M -22 -2 L -12 0.5 L -12 7.5 Z" fill={palette.bird} />
+                    <path
+                      d="M -14 -1 C -14 -6.6 -8.6 -10 -2 -10 C 2.4 -10 5.8 -8 8 -5.6 L 16.5 -4.4 L 9.4 0 C 8.4 4.4 3.8 7.6 -2 7.6 C -8.6 7.6 -14 4.4 -14 -1 Z"
+                      fill={palette.bird}
+                    />
+                    <path
+                      d="M -9 -3.8 C -4.8 -10.8 2 -13.4 6.2 -12 C 3.4 -5.8 -2.2 -1.4 -7.4 -0.6 Z"
+                      fill={palette.bird}
+                      stroke={palette.bgHex}
+                      strokeWidth={1.8}
+                    />
+                  </svg>
+                </div>
+              )}
             </div>
-            <div className="mx-auto grid min-h-[700px] max-w-[1440px] grid-cols-1 gap-20 pl-24 sm:grid-cols-[minmax(0,0.95fr)_minmax(0,1.25fr)] sm:gap-36 sm:pl-40">
+            <div className="mx-auto grid min-h-[700px] max-w-[1440px] grid-cols-1 gap-20 pl-28 sm:grid-cols-[minmax(0,0.95fr)_minmax(0,1.25fr)] sm:gap-36 sm:pl-52">
               <div className="flex flex-col justify-between gap-16">
                 <h2 className="m-0 max-w-[8ch] self-start pt-20 font-display text-[clamp(48px,7vw,96px)] leading-[0.92] font-medium tracking-[-0.065em] sm:pt-24">{chapter.title}</h2>
                 <p className="m-0 max-w-[34ch] font-display text-[clamp(19px,2vw,24px)] leading-[1.25] font-medium">→ {chapter.close}</p>
