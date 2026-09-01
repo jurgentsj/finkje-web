@@ -35,7 +35,7 @@ export default function VoorWerkgeversPage() {
                 Plaats je eerste vacature →
               </Link>
               <Link
-                href="/wat-nederland-wil"
+                href="/werkgever/registreren"
                 className="rounded-full border border-black/20 px-7 py-4 text-[18px] font-semibold text-[#111] transition-colors hover:border-black hover:bg-black/5"
               >
                 Bekijk de profielen
