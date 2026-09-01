@@ -197,7 +197,7 @@ export default function SignupForm() {
       // the jobseeker profile now. Otherwise the user enters the 6-digit code
       // we just emailed them (see bevestigCode below).
       if (data.session && data.user) {
-        await completeAuthProfile(supabase, data.user);
+        await completeAuthProfile(supabase, data.user, "werkzoekende");
         setFout("");
         setBezig(false);
         setKlaar(true);
@@ -240,7 +240,14 @@ export default function SignupForm() {
       return;
     }
 
-    await completeAuthProfile(supabase, data.user);
+    try {
+      await completeAuthProfile(supabase, data.user, "werkzoekende");
+    } catch (profileError) {
+      console.error("[v0] Profile handoff failed after OTP:", profileError);
+      setBezig(false);
+      setFout("Je account is bevestigd, maar je aanmelding kon nog niet worden opgeslagen. Probeer het opnieuw.");
+      return;
+    }
     setBezig(false);
     setKlaar(true);
     window.scrollTo({ top: 0, behavior: "smooth" });

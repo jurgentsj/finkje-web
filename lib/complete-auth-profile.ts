@@ -37,13 +37,8 @@ export async function completeAuthProfile(
   }
 
   if (role === "werkzoekende") {
-    const { data: existing } = await supabase
-      .from("jobseeker_profiles")
-      .select("id")
-      .eq("id", user.id)
-      .maybeSingle();
-    if (!existing) {
-      await supabase.from("jobseeker_profiles").insert({
+    const { error: jobseekerError } = await supabase.from("jobseeker_profiles").upsert(
+      {
         id: user.id,
         droombaan: meta.droombaan ?? null,
         waarom: meta.waarom ?? null,
@@ -59,7 +54,12 @@ export async function completeAuthProfile(
         telefoon: meta.telefoon ?? null,
         overs: meta.overs ?? [],
         omgevingen: meta.omgevingen ?? [],
-      });
+      },
+      { onConflict: "id" },
+    );
+    if (jobseekerError) {
+      console.error("[v0] Failed to save jobseeker profile:", { code: jobseekerError.code, message: jobseekerError.message });
+      throw jobseekerError;
     }
     return "/werkzoekende/dashboard";
   }
