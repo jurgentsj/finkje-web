@@ -19,14 +19,15 @@ export function VisionStory() {
     <section className="overflow-hidden bg-sand px-6 py-24 text-black sm:py-32" aria-label="De visie van Finkje">
       <div className="mx-auto max-w-[1360px]">
         <p className="mb-8 text-xs font-semibold tracking-[0.16em] text-accent uppercase">/ Een lijn van gedachten</p>
-        <div className="relative mb-20 min-h-[210px] py-10 sm:mb-24">
-          <div className="absolute top-[132px] left-[-5vw] h-px w-[110vw] bg-black/25" aria-hidden="true" />
-          <div className="absolute top-[124px] left-[calc(7.14%*var(--active))] z-10 h-4 w-4 -translate-x-1/2 rotate-45 bg-accent transition-all duration-700" style={{ "--active": active } as React.CSSProperties} aria-hidden="true" />
-          <div className="relative grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-4 lg:grid-cols-7 lg:gap-x-8">
+        <div className="relative mb-20 py-10 sm:mb-24">
+          <div className="absolute right-0 bottom-0 left-0 h-px bg-black/20" aria-hidden="true" />
+          <div className="absolute bottom-[-5px] left-[calc(7.14%*var(--active))] z-10 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-accent ring-4 ring-sand transition-all duration-700" style={{ "--active": active } as React.CSSProperties} aria-hidden="true" />
+          <div className="relative grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-8 lg:grid-cols-7 lg:gap-6">
             {chapters.map((item, index) => (
-              <button key={item.title} type="button" onClick={() => setActive(index)} className={`text-left transition-opacity ${active === index ? "opacity-100" : "opacity-45 hover:opacity-75"}`} aria-pressed={active === index}>
-                <span className="block max-w-[15ch] font-display text-[clamp(20px,2.2vw,30px)] leading-[0.95] font-semibold tracking-[-0.045em]">{item.title}</span>
-                <span className="mt-2 block max-w-[18ch] text-sm leading-snug text-black/60">{item.subtitle}</span>
+              <button key={item.title} type="button" onClick={() => setActive(index)} className={`border-b-2 pb-7 text-left transition-opacity ${active === index ? "border-accent opacity-100" : "border-transparent opacity-55 hover:opacity-85"}`} aria-pressed={active === index}>
+                <span className="mb-3 block text-xs font-semibold tracking-[0.12em] text-black/45">0{index + 1}</span>
+                <span className="block max-w-[15ch] font-display text-[clamp(22px,2.2vw,30px)] leading-[0.98] font-semibold tracking-[-0.045em] text-black">{item.title}</span>
+                <span className="mt-3 block max-w-[20ch] text-[15px] leading-snug text-black/65">{item.subtitle}</span>
               </button>
             ))}
           </div>
