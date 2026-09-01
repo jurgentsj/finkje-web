@@ -84,6 +84,14 @@ summary::-webkit-details-marker {
   display: none;
 }
 
+.scrollbar-none {
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 @keyframes finkje-marquee {
   from {
     transform: translateX(0);
