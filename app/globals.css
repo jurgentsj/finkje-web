@@ -139,6 +139,10 @@ summary::-webkit-details-marker {
   }
 }
 
+.will-fly {
+  animation: will-fly 1.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
 @keyframes will-fly {
   0% { transform: translate(-50%, 120vh) rotate(-18deg); }
   45% { transform: translate(-20%, 4vh) rotate(8deg); }
