@@ -89,7 +89,7 @@ export function VisionStory() {
                 <p className="m-0 max-w-[34ch] pt-20 font-display text-[clamp(19px,2vw,24px)] leading-[1.25] font-medium sm:pt-24">→ {chapter.close}</p>
               </div>
               <div className="max-w-[38ch] space-y-8 pt-1">
-                {chapter.paragraphs.map((paragraph, paragraphIndex) => <p key={paragraph} className={`m-0 text-[clamp(17px,1.8vw,22px)] leading-relaxed ${paragraphIndex === 0 ? "font-medium" : "opacity-70"}`}>{paragraph}</p>)}
+                {chapter.paragraphs.map((paragraph, paragraphIndex) => <p key={paragraph} className={`m-0 text-[clamp(17px,1.8vw,22px)] leading-[1.55] ${paragraphIndex === 0 ? "font-medium" : "text-current/65"}`}>{paragraph}</p>)}
               </div>
             </div>
           </article>
