@@ -15,8 +15,7 @@ const chapters = [
     title: "Mensen zijn veranderd",
     paragraphs: [
       "Twee partijen met hetzelfde belang vechten gek genoeg om elkaars aandacht. En allebei zijn ze gedwongen zichzelf nét even anders voor te doen om überhaupt in beeld te komen.",
-      "Het adagium van onze grootouders dat ‘leuk werk een luxe is’, begint voor velen steeds minder aantrekkelijk te klinken. Mensen zijn meer en meer bezig met de vraag waarom ze doen wat ze doen.",
-      "Niet slechts op zoek naar ‘een’ werkgever, maar naar een bedrijf dat past bij hoe zij naar de wereld kijken. Bedrijven zijn daarom steeds meer bezig met cultuur, waarden en samenwerking: niet alleen wat ze doen, maar waar ze voor staan en met wie.",
+      "Het adagium van onze grootouders dat ‘leuk werk een luxe is’, begint voor velen steeds minder aantrekkelijk te klinken. Mensen zijn meer en meer bezig met de vraag waarom ze doen wat ze doen. Niet slechts op zoek naar ‘een’ werkgever, maar naar een bedrijf dat past bij hoe zij naar de wereld kijken. Bedrijven zijn daarom steeds meer bezig met cultuur, waarden en samenwerking: niet alleen wat ze doen, maar waar ze voor staan en met wie.",
     ],
     close: "Tijd voor een systeem dat recht doet aan onze nieuwe belevingswereld.",
   },
@@ -206,7 +205,7 @@ export function VisionStory() {
                 <p className="m-0 max-w-[34ch] font-display text-[clamp(19px,2vw,24px)] leading-[1.25] font-medium">→ {chapter.close}</p>
               </div>
               <div className="flex max-w-[52ch] flex-col gap-10 pt-1 sm:gap-14 sm:pl-8">
-                {chapter.paragraphs.map((paragraph, paragraphIndex) => <p key={paragraph} className={`m-0 ${paragraphIndex === 0 ? `max-w-[48ch] font-sans text-[clamp(20px,2.1vw,29px)] leading-[1.42] ${index === 0 ? "font-medium" : "font-semibold"} tracking-[-0.02em]` : `${index === 0 ? "text-black" : "text-current/65"} font-sans text-[clamp(16px,1.5vw,21px)] leading-[1.62]`}`}>{paragraph}</p>)}
+                {chapter.paragraphs.map((paragraph, paragraphIndex) => <p key={paragraph} className={`m-0 ${paragraphIndex === 0 ? `max-w-[48ch] font-sans text-[clamp(20px,2.1vw,29px)] leading-[1.42] ${index === 0 ? "font-medium" : "font-semibold"} tracking-[-0.02em]` : `${index === 0 || index === 1 ? "text-white" : "text-current/65"} font-sans text-[clamp(16px,1.5vw,21px)] leading-[1.62]`}`}>{paragraph}</p>)}
               </div>
             </div>
           </article>
