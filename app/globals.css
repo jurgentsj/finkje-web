@@ -6,6 +6,7 @@
 
 @theme inline {
   --color-accent: var(--accent);
+  --color-accent-foreground: #fff;
   --color-sand: #f6f5f2;
   --font-display: "Montserrat", sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
