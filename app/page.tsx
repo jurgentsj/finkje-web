@@ -182,7 +182,7 @@ export default async function HomePage({
 
       {/* Orange CTA */}
       <section className="mx-auto max-w-[1360px] px-6 py-24">
-        <div className="grid grid-cols-1 items-start gap-8 rounded-3xl bg-accent p-6 text-white sm:p-11 md:grid-cols-2">
+        <div className="grid grid-cols-1 items-start gap-8 rounded-3xl bg-accent p-6 text-white sm:p-11 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
           <h3 className="m-0 max-w-[16ch] font-display text-[clamp(26px,3.2vw,53px)] leading-[0.98] font-extrabold tracking-[-0.04em]">
             Niet plaatsen, aanpakken.
           </h3>
