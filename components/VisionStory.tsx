@@ -194,7 +194,7 @@ export function VisionStory() {
                 </div>
               )}
             </div>
-            <div className="mx-auto grid min-h-[700px] max-w-[1440px] grid-cols-1 gap-20 pl-28 sm:grid-cols-[minmax(0,0.95fr)_minmax(0,1.25fr)] sm:gap-36 sm:pl-52">
+            <div className="mx-auto grid min-h-[700px] max-w-[1440px] grid-cols-1 gap-10 pl-28 sm:grid-cols-[minmax(0,0.95fr)_minmax(0,1.25fr)] sm:gap-16 sm:pl-52">
               <div className="flex flex-col justify-between gap-16">
                 <h2 className="m-0 max-w-[8ch] self-start pt-0 font-display text-[clamp(48px,7vw,96px)] leading-[0.92] font-medium tracking-[-0.065em]">{chapter.title}</h2>
               </div>
