@@ -203,7 +203,7 @@ export default async function HomePage({
 
       {/* Closing */}
       <section className="mx-auto flex max-w-[1360px] flex-col items-center gap-9 px-6 pb-30 text-center">
-        <h2 className="m-0 font-display text-[clamp(40px,9vw,66px)] leading-[0.88] font-black tracking-[-0.05em]">
+        <h2 className="m-0 font-display text-[clamp(40px,9vw,66px)] leading-[0.88] font-semibold tracking-[-0.05em]">
           Wat voor baan wil <br className="sm:hidden" /><span className="text-accent">jíj</span>?
         </h2>
         <Link
