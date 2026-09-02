@@ -144,7 +144,7 @@ export default async function HomePage({
                 <span className="font-display text-[clamp(21px,2.4vw,23px)] leading-tight font-semibold tracking-[-0.025em]">
                   {v.titel}
                 </span>
-                <span className="text-[17px] leading-relaxed tracking-[-0.013em] text-black/62">{v.tekst}</span>
+                <span className="text-[17px] leading-relaxed tracking-[-0.013em] text-black/62 md:text-[16px]">{v.tekst}</span>
               </div>
             ))}
           </div>
@@ -182,7 +182,7 @@ export default async function HomePage({
 
       {/* Orange CTA */}
       <section className="mx-auto max-w-[1360px] px-6 py-24">
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] items-start gap-8 rounded-3xl bg-accent p-6 text-white sm:p-11">
+        <div className="grid grid-cols-1 items-start gap-8 rounded-3xl bg-accent p-6 text-white sm:p-11 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
           <h3 className="m-0 max-w-[16ch] font-display text-[clamp(26px,3.2vw,53px)] leading-[0.98] font-extrabold tracking-[-0.04em]">
             Niet plaatsen, aanpakken.
           </h3>
@@ -203,7 +203,7 @@ export default async function HomePage({
 
       {/* Closing */}
       <section className="mx-auto flex max-w-[1360px] flex-col items-center gap-9 px-6 pb-30 text-center">
-        <h2 className="m-0 font-display text-[clamp(40px,9vw,66px)] leading-[0.88] font-black tracking-[-0.05em]">
+        <h2 className="m-0 font-display text-[clamp(40px,9vw,66px)] leading-[0.88] font-semibold tracking-[-0.05em]">
           Wat voor baan wil <br className="sm:hidden" /><span className="text-accent">jíj</span>?
         </h2>
         <Link

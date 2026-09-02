@@ -7,7 +7,7 @@ const chapters = [
     title: "De visie achter Finkje.",
     paragraphs: [
       "Er wordt gezocht, geschreven, geselecteerd, aangepast en geprobeerd. It’s the circle of work. Maar één vraag wordt opvallend weinig gesteld: wat wil iemand eigenlijk?",
-      "“Het arbeidstekort groeit, de werkloosheid stijgt en het aantal vacatures daalt. Deze sector heeft moeite met het vinden van personeel en persoon X heeft al meer dan honderd keer gesolliciteerd; zonder succes.” Iedereen kan de artikelen inmiddels al dromen. Bedrijven zoeken naar een manier om personeel aan te trekken: hogere salarissen, prachtige ‘werken bij ons’-video’s, pingpongtafels, een 14e maand. Aan de andere kant stuurt iemand een spontane mail. Geen respons. Daarna elke dag een willekeurige baan in de inbox. Wat je wil doet niet ter zake.",
+      "“Het arbeidstekort groeit, de werkloosheid stijgt en het aantal vacatures daalt. Deze sector heeft moeite met het vinden van personeel en persoon X heeft al meer dan honderd keer gesolliciteerd; zonder succes.” Iedereen kan de artikelen inmiddels al dromen..\nBedrijven zoeken naar een manier om personeel aan te trekken. Hogere salarissen, prachtig gemaakte ‘werken bij ons’-video’s, pingpongtafels, extra vakantiedagen, een 14e maand of elke dinsdag een vrijmibo.\nSectorbreed vecht men voor meer scholing, grote campagnes, desnoods ingrijpen van de overheid.\nAan de andere kant is iemand op zoek naar werk. Het begint met een spontane mail. Geen respons. Omdat je hebt gezocht op het woord ‘werk’, krijg je de rest van de maand elke dag een nieuwe baan aangeboden. Totaal willekeurig. Wat jij wil doet niet of nauwelijks ter zake. \nNa verloop van tijd toch maar weer eens proberen. Dan maar eens dat cv finetunen. Wacht, die vriendin zit in een zakelijke omgeving, zij weet vast wat ik op moet schrijven. Of ik laat dat familielid eens meekijken. Wat kwaliteiten toevoegen, gaten dichten en een paar extra activiteiten vermelden kan geen kwaad.\nOp gesprek stevig onderhandelen over alle voorwaarden. Eerlijk? Je begrijpt er niks van maar ach, wat heb je te verliezen, het is toch een instapfunctie die toevallig voorbij kwam. En tenslotte niet jouw droombaan. \nBedrijven krijgen zo een nieuwe uitdaging. Is dit wel echt de kandidaat die we online tegenkwamen? En hoe kom ik er nou achter of deze persoon lang bij ons gaat blijven? \nAan beide kanten gebeurt ontzettend veel. Er wordt gezocht, geschreven, geselecteerd, aangepast en geprobeerd. It’s the circle of work. Maar één vraag wordt opvallend weinig gesteld: wat wil iemand eigenlijk?",
     ],
     close: "Tijd om andere vragen te gaan stellen.",
   },
@@ -15,7 +15,7 @@ const chapters = [
     title: "Mensen zijn veranderd",
     paragraphs: [
       "Twee partijen met hetzelfde belang vechten gek genoeg om elkaars aandacht. En allebei zijn ze gedwongen zichzelf nét even anders voor te doen om überhaupt in beeld te komen.",
-      "Het adagium van onze grootouders dat ‘leuk werk een luxe is’, begint voor velen steeds minder aantrekkelijk te klinken. Mensen zijn meer en meer bezig met de vraag waarom ze doen wat ze doen. Niet slechts op zoek naar ‘een’ werkgever, maar naar een bedrijf dat past bij hoe zij naar de wereld kijken. Bedrijven zijn daarom steeds meer bezig met cultuur, waarden en samenwerking: niet alleen wat ze doen, maar waar ze voor staan en met wie.",
+      "In een wereld waar sociale media ons van een overvloed aan vergelijkingsmateriaal voorzien, onze aandachtsspanne verkorten en alle berichtgeving soms het uiterste van ons als mens vraagt, nemen zingeving, spiritualiteit en zelfkennis een vlucht naar voren. Niet geheel ontoevallig.\nHet adagium van onze grootouders dat ‘leuk werk een luxe is’, begint voor velen steeds minder aantrekkelijk te klinken. \nMensen zijn meer en meer bezig met de vraag waarom ze doen wat ze doen en wat het leven hen te bieden heeft. Niet slechts op zoek naar ‘een’ werkgever, maar naar een bedrijf dat past bij hoe zij naar de wereld kijken.\nEn dat heeft een alsmaar groter wordend effect op werk.\n“Een baan met zingeving, betekenisvol werk of het verschil maken.\" Het zijn termen die je bij steeds meer vacatures tegenkomt. Niet gek, het is de markt die reageert op de behoefte.\nBedrijven zijn daarom steeds meer bezig met cultuur, waarden en goede onderlinge samenwerking. Met de vraag hoe ze bijdragen aan een betere wereld, met welke boodschap ze klanten écht weten te raken en hoe ze het bedrijf doorgeven aan de volgende generatie. \nSteeds vaker gaat het dus niet alleen om wat een organisatie doet, maar ook om waar ze voor staat en met wie ze dat wil doen. Niet slechts op zoek naar iemand die het werk kan uitvoeren, maar naar iemand die bij het bedrijf past. \nTwee partijen met uiteindelijk hetzelfde belang, vechten gek genoeg om elkaars aandacht. En allebei zijn ze gedwongen zichzelf nét even anders voor te doen om überhaupt in beeld te komen.\n",
     ],
     close: "Tijd voor een systeem dat recht doet aan onze nieuwe belevingswereld.",
   },
@@ -23,7 +23,7 @@ const chapters = [
     title: "Interesse wint aan terrein",
     paragraphs: [
       "De zoektocht naar werk begint zelden met de vraag waar iemands hart sneller van gaat kloppen. We vragen wat iemand heeft gestudeerd, waar iemand heeft gewerkt, hoeveel jaar ervaring iemand heeft.",
-      "Inmiddels is duidelijk geworden dat het helpt om kinderen te volgen in hun zelfgekozen interesse. Volg een jong mens en je komt er snel genoeg achter waar het hart sneller van gaat kloppen. De keuzes die je vanaf de basisschool maakt blijken meer dan eens bepalend voor je hele carrière, terwijl je er vaak pas ná die keuzes achter komt waar je gelukkig van wordt.",
+      "Evenwijdig aan deze ontwikkeling loopt een opleidingssysteem. Een systeem dat zichzelf evenwel aan het heruitvinden is.\nInmiddels is duidelijk geworden dat het helpt om jongere kinderen te volgen in hun zelfgekozen interesse. Volg een jong mens en je komt er snel genoeg achter waar het hart sneller van gaat kloppen. \nInteresse krijgt daarmee steeds vaker een rol in hoe iemand leert en zich ontwikkelt. \nWat is jouw droombaan? Waar word je gelukkig van? Je hebt de vraag misschien weleens gekregen. Vaak als je jong bent. De keuzes die je vanaf de basisschool maakt blijken meer dan eens bepalend voor de rest van jouw carrière, terwijl je er vaak pas ná deze keuzes achter komt waar je gelukkig van wordt.\nMisschien kwam ergens onderweg juist iets heel anders voorbij. Een vak, bedrijf, beroep, hobby of persoon waarvan je dacht: dát is het! \nEn toch begint de zoektocht naar werk daarna meestal niet met de vraag waar iemands hart sneller van gaat kloppen.\nWe vragen wat iemand heeft gestudeerd.\nWaar iemand heeft gewerkt.\nHoeveel jaar ervaring iemand heeft.\nOp steeds meer plekken leren we interesse serieus te nemen.\n",
     ],
     close: "Tijd voor de werkvloer. Tijd voor wat het hart sneller doet kloppen.",
   },
@@ -31,7 +31,7 @@ const chapters = [
     title: "Het cv kijkt achteruit",
     paragraphs: [
       "We proberen de toekomst van iemand nog altijd te voorspellen aan de hand van het verleden. Een verleden zonder toelichting. Een verleden zonder toekomst.",
-      "Een cv kan uitstekend vertellen waar iemand is geweest. Welke opleiding iemand volgde, waar iemand heeft gewerkt en hoe lang. Maar datzelfde cv is veel minder goed in voorspellen waar iemand naartoe wil. Waar op het cv staat iemands droom? Waar staan de dingen die minder goed gingen? Alle opgedane levenservaring?",
+      "Terwijl mensen vooruit willen\nIs een cv dat vol staat met ‘hoe het plaatje klopt’ nog wel een goede graadmeter van geschiktheid?\nEen cv kan uitstekend vertellen waar iemand is geweest. Welke opleiding iemand volgde, waar iemand heeft gewerkt en hoe lang.\nMaar datzelfde cv is veel minder goed in voorspellen waar iemand naartoe wil. Waar op het cv staat iemands droom? Waar staan alle dingen die minder goed gingen? Alle opgedane levenservaring?\nBij de één staat er genoeg op papier, maar lukt het toch niet om binnen te komen. Bij de ander is juist wat er niet op papier staat de reden waarom een nieuwe richting moeilijk wordt.\nWe proberen de toekomst van iemand daarmee nog altijd te voorspellen aan de hand van het verleden.\nEen verleden zonder toelichting.\nEen verleden zonder toekomst.\nEen verleden dat niets zegt over waar iemand naartoe wil.",
     ],
     close: "Tijd om vooruit te kijken.",
   },
@@ -39,7 +39,7 @@ const chapters = [
     title: "De komst van AI",
     paragraphs: [
       "Terwijl we druk bezig zijn met de vraag welk werk technologie straks kan doen, is er nog een andere vraag: welk werk willen mensen straks nog doen?",
-      "De eerste tools notuleerden gesprekken. Daarna luisterden ze mee en kwamen ze zelf met voorstellen. Inmiddels zijn er tools die het sollicitatiegesprek voor je voeren, en tools die andere tools moeten herkennen. Nu wordt AI vooral toegepast op wat mogelijk is. Dat zal veranderen: de vraag wordt waar mensen zelf geen zin meer in hebben. En om dat te weten, moeten we eerst weten waar mensen nog altijd wél zin in hebben.",
+      "Als bedrijf krijg je de ene magische toepassing na de andere aangeboden. Van tools die processen versnellen tot systemen die steeds meer werk uit handen nemen. De eerste tools notuleerden gesprekken. Daarna luisterden ze actief mee en kwamen ze zelf met voorstellen. Inmiddels zijn er zelfs tools die het sollicitatiegesprek voor je voeren.\nTools die andere tools herkennen. Software die moet ontdekken of een sollicitatiebrief met AI is geschreven. Werkgevers die, geconfronteerd met AI-brieven, zelf AI inzetten om zich daartegen te weren. De ene toepassing roept zo bijna automatisch de volgende op.\nEn dan zijn er nog de banen zelf. Welke banen kunnen worden overgenomen, en door wat? Welke zullen verdwijnen, welke veranderen en welke blijven? En hoe verhoudt die ontwikkeling zich eigenlijk tot wat mensen zelf willen? Want terwijl we druk bezig zijn met de vraag welk werk technologie straks kan doen, is er nog een andere vraag: welk werk willen mensen straks nog doen?\nAls werkzoekende zoek je je wezenloos. Gebruik je een cv-tool, laat je automatisch mails versturen of gooi je toch die vacaturetekst in AI om er vervolgens ook maar meteen je sollicitatiebrief mee te laten schrijven?\nOp dit moment wordt AI vooral toegepast op wat mogelijk is.\nVolgens Finkje zal dat binnen afzienbare tijd veranderen. Dan wordt de vraag niet alleen meer: wat kán worden overgenomen? Maar vooral: waar hebben mensen zelf geen zin meer in?\nEn om te weten waar mensen geen zin meer in hebben, moeten we eerst weten waar mensen nog altijd wél zin in hebben.\n",
     ],
     close: "Tijd om de vraag om te draaien. Welk werk willen we juist níet kwijt?",
   },
@@ -47,7 +47,7 @@ const chapters = [
     title: "Een nieuwe schaarste",
     paragraphs: [
       "Er ontstaat een nieuwe schaarste: mensen die iets willen. Wil, iemands intrinsieke motivatie, is misschien wel het meest onderbelichte vinkje tijdens een sollicitatie.",
-      "Lange tijd draaide schaarste op de arbeidsmarkt vooral om kunnen. Wie heeft de juiste opleiding? Genoeg ervaring? Wie beheerst een bepaalde techniek? Maar kennis wordt toegankelijker, technologie ondersteunt steeds meer en functies veranderen soms sneller dan opleidingen kunnen volgen. Niet als laatste vraag onderaan een formulier dus, maar als belangrijkste uitgangspunt.",
+      "Lange tijd draaide schaarste op de arbeidsmarkt vooral om kunnen.\nWie heeft de juiste opleiding? Wie heeft genoeg ervaring? Wie beheerst een bepaalde techniek?\nMaar kennis wordt toegankelijker. Werkzaamheden veranderen sneller. Technologie kan steeds meer ondersteunen en functies veranderen soms sneller dan opleidingen kunnen volgen.\nDaarmee ontstaat langzaam een nieuwe schaarste: mensen die iets willen.\nEn juist dat is misschien wel het meest onderbelichte vinkje tijdens een sollicitatie.\nWil.\nIemands intrinsieke motivatie.\nNiet als laatste vraag onderaan een sollicitatieformulier. Niet als ‘nice to know’ tijdens het gesprek. Maar als belangrijkste uitgangspunt.\nWant als kunnen steeds makkelijker te ondersteunen, aan te leren of aan te vullen is, wordt willen alleen maar belangrijker.\n",
     ],
     close: "Tijd voor de toekomst. Tijd voor Willers.",
   },
@@ -55,7 +55,7 @@ const chapters = [
     title: "Willen zal worden",
     paragraphs: [
       "Hoe minder vastligt wat iemand over tien jaar doet, hoe belangrijker het wordt dat iemand weet waar hij of zij naartoe wil.",
-      "De vijfdaagse werkweek is geen vast gegeven meer, die ene functie voor dertig jaar ook niet, en een opleiding bepaalt steeds minder wat iemand de rest van zijn leven doet. Functies ontstaan, veranderen en verdwijnen. Wij geloven daarom niet dat de toekomst van werk alleen gaat over nieuwe functies, technieken of arbeidsvoorwaarden. De toekomst gaat over mensen: over wat zij belangrijk vinden en waar zij voor willen gaan.",
+      "De vijfdaagse werkweek is geen vast gegeven meer, die ene functie voor dertig jaar lang bij dezelfde werkgever ook niet meer en een opleiding bepaalt steeds minder wat iemand de rest van zijn leven zal doen.\nFuncties ontstaan, functies veranderen en functies verdwijnen.\nMensen zullen vaker voor hun dromen gaan, opnieuw moeten kiezen.\nBedrijven zullen zich vaker opnieuw moeten afvragen welk werk zij nodig hebben, wie dat werk moet doen en waarom iemand juist bij hen zou willen werken.\nHoe minder vastligt wat iemand over tien jaar doet, hoe belangrijker het wordt dat iemand weet waar hij of zij naartoe wil.\nWij geloven daarom niet dat de toekomst van werk alleen zal gaan over nieuwe functies, nieuwe technieken of nieuwe arbeidsvoorwaarden.\nDe toekomst zal gaan over mensen.\nOver wat zij belangrijk vinden.\nWaar zij goed in willen worden.\nWaar zij hun tijd aan willen besteden.\nWaar zij voor willen gaan.\nDe toekomst zal bestaan uit willen.\n",
     ],
     close: "Willen zal worden. De toekomst zal bestaan uit willen.",
   },
@@ -194,13 +194,13 @@ export function VisionStory() {
                 </div>
               )}
             </div>
-            <div className="mx-auto grid min-h-[700px] max-w-[1440px] grid-cols-1 gap-20 pl-28 sm:grid-cols-[minmax(0,0.95fr)_minmax(0,1.25fr)] sm:gap-36 sm:pl-52">
+            <div className="mx-auto grid min-h-[700px] max-w-[1440px] grid-cols-1 gap-10 pl-28 sm:grid-cols-[minmax(0,0.95fr)_minmax(0,1.25fr)] sm:gap-16 sm:pl-52">
               <div className="flex flex-col justify-between gap-16">
                 <h2 className="m-0 max-w-[8ch] self-start pt-0 font-display text-[clamp(48px,7vw,96px)] leading-[0.92] font-medium tracking-[-0.065em]">{chapter.title}</h2>
-                <p className="m-0 max-w-[34ch] font-display text-[clamp(19px,2vw,24px)] leading-[1.25] font-medium">→ {chapter.close}</p>
               </div>
-              <div className="flex max-w-[52ch] flex-col gap-10 pt-1 sm:gap-14 sm:pl-8">
+              <div className="col-span-full flex w-full max-w-none flex-col gap-10 pt-1 sm:gap-14">
                 {chapter.paragraphs.map((paragraph, paragraphIndex) => <p key={paragraph} className={`m-0 ${paragraphIndex === 0 ? `max-w-[48ch] font-sans text-[clamp(20px,2.1vw,29px)] leading-[1.42] ${index === 0 ? "font-medium" : "font-semibold"} tracking-[-0.02em]` : `${index === 0 || index === 3 || index === 6 ? "text-black" : index <= 2 || index >= 4 ? "text-white" : "text-current/65"} ${index === 4 ? "bg-transparent" : ""} font-sans text-[clamp(16px,1.5vw,21px)] leading-[1.62]`}`}>{paragraph}</p>)}
+                <p className="m-0 max-w-[34ch] font-display text-[clamp(19px,2vw,24px)] leading-[1.25] font-medium">→ {chapter.close}</p>
               </div>
             </div>
           </article>
