@@ -180,7 +180,7 @@ export default function HoeHetWerktPage() {
             <h2 className="m-0 max-w-[12ch] font-display text-[clamp(30px,4.4vw,60px)] leading-[0.94] font-extrabold tracking-[-0.05em]">
               Vragen over het proces
             </h2>
-            <p className="m-0 max-w-[32ch] text-[17px] leading-relaxed text-black/60">
+            <p className="m-0 max-w-[32ch] text-[17px] leading-relaxed text-black/60 md:text-[16px]">
               Staat je vraag er niet bij?{" "}
               <Link href="/contact" className="font-semibold text-accent">
                 Stel hem gerust.

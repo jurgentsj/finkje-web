@@ -21,7 +21,7 @@ export default function Faq({ items }: { items: Item[] }) {
             <button
               type="button"
               onClick={() => setOpen(isOpen ? -1 : i)}
-              className="flex w-full items-center justify-between gap-6 px-7 py-6 text-left font-display text-[30px] font-medium tracking-[-0.045em] text-[#111]"
+              className="flex w-full items-center justify-between gap-6 px-7 py-6 text-left font-display text-[26px] font-medium tracking-[-0.045em] text-[#111]"
             >
               <span
                 className={
@@ -43,7 +43,7 @@ export default function Faq({ items }: { items: Item[] }) {
               </span>
             </button>
             {isOpen && (
-              <p className="m-0 max-w-[66ch] px-7 pb-7 text-[17px] leading-relaxed text-black/70">
+              <p className="m-0 max-w-[66ch] px-7 pb-7 text-[17.5px] leading-relaxed text-black/70">
                 {q.antwoord}
               </p>
             )}
