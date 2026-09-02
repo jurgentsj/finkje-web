@@ -144,7 +144,7 @@ export default async function HomePage({
                 <span className="font-display text-[clamp(21px,2.4vw,23px)] leading-tight font-semibold tracking-[-0.025em]">
                   {v.titel}
                 </span>
-                <span className="text-[17px] leading-relaxed tracking-[-0.013em] text-black/62">{v.tekst}</span>
+                <span className="text-[17px] leading-relaxed tracking-[-0.013em] text-black/62 md:text-[16px]">{v.tekst}</span>
               </div>
             ))}
           </div>

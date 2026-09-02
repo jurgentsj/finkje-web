@@ -43,7 +43,7 @@ export default function Faq({ items }: { items: Item[] }) {
               </span>
             </button>
             {isOpen && (
-              <p className="m-0 max-w-[66ch] px-7 pb-7 text-[17.5px] leading-relaxed text-black/70">
+              <p className="m-0 max-w-[66ch] px-7 pb-7 text-[16px] leading-relaxed text-black/70">
                 {q.antwoord}
               </p>
             )}
