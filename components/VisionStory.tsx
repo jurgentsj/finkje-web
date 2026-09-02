@@ -199,7 +199,7 @@ export function VisionStory() {
                 <h2 className="m-0 max-w-[8ch] self-start pt-0 font-display text-[clamp(48px,7vw,96px)] leading-[0.92] font-medium tracking-[-0.065em]">{chapter.title}</h2>
               </div>
               <div className="col-span-full flex w-full max-w-none flex-col gap-10 pt-1 sm:gap-14">
-                {chapter.paragraphs.flatMap((paragraph) => paragraph.split(/\n+/)).map((subtext, subtextIndex) => <p key={`${subtext}-${subtextIndex}`} className={`m-0 ${subtextIndex === 0 ? "max-w-[48ch] font-sans text-[clamp(20px,2.1vw,29px)] leading-[1.42]" : "font-sans text-[clamp(16px,1.5vw,21px)] leading-[1.62]"} ${subtextIndex === 0 ? (index === 0 ? "font-medium" : "font-semibold") : index === 0 || index === 3 || index === 6 ? "text-black" : index <= 2 || index >= 4 ? "text-white" : "text-current/65"} ${index === 4 && subtextIndex !== 0 ? "bg-transparent" : ""}`}>{subtext}</p>)}
+                {chapter.paragraphs.flatMap((paragraph) => paragraph.split(/\n+/)).map((subtext, subtextIndex) => <p key={`${subtext}-${subtextIndex}`} className={`m-0 ${index === 0 ? "mb-6" : ""} ${subtextIndex === 0 ? "max-w-[48ch] font-sans text-[clamp(20px,2.1vw,29px)] leading-[1.42]" : "font-sans text-[clamp(16px,1.5vw,21px)] leading-[1.62]"} ${subtextIndex === 0 ? (index === 0 ? "font-medium" : "font-semibold") : index === 0 || index === 3 || index === 6 ? "text-black" : index <= 2 || index >= 4 ? "text-white" : "text-current/65"} ${index === 4 && subtextIndex !== 0 ? "bg-transparent" : ""}`}>{subtext}</p>)}
                 <p className="m-0 max-w-[34ch] font-display text-[clamp(19px,2vw,24px)] leading-[1.25] font-medium">→ {chapter.close}</p>
               </div>
             </div>
