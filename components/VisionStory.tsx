@@ -47,7 +47,7 @@ const chapters = [
     title: "Een nieuwe schaarste",
     paragraphs: [
       "Er ontstaat een nieuwe schaarste: mensen die iets willen. Wil, iemands intrinsieke motivatie, is misschien wel het meest onderbelichte vinkje tijdens een sollicitatie.",
-      "Lange tijd draaide schaarste op de arbeidsmarkt vooral om kunnen. Wie heeft de juiste opleiding? Genoeg ervaring? Wie beheerst een bepaalde techniek? Maar kennis wordt toegankelijker, technologie ondersteunt steeds meer en functies veranderen soms sneller dan opleidingen kunnen volgen. Niet als laatste vraag onderaan een formulier dus, maar als belangrijkste uitgangspunt.",
+      "Lange tijd draaide schaarste op de arbeidsmarkt vooral om kunnen.\nWie heeft de juiste opleiding? Wie heeft genoeg ervaring? Wie beheerst een bepaalde techniek?\nMaar kennis wordt toegankelijker. Werkzaamheden veranderen sneller. Technologie kan steeds meer ondersteunen en functies veranderen soms sneller dan opleidingen kunnen volgen.\nDaarmee ontstaat langzaam een nieuwe schaarste: mensen die iets willen.\nEn juist dat is misschien wel het meest onderbelichte vinkje tijdens een sollicitatie.\nWil.\nIemands intrinsieke motivatie.\nNiet als laatste vraag onderaan een sollicitatieformulier. Niet als ‘nice to know’ tijdens het gesprek. Maar als belangrijkste uitgangspunt.\nWant als kunnen steeds makkelijker te ondersteunen, aan te leren of aan te vullen is, wordt willen alleen maar belangrijker.\n",
     ],
     close: "Tijd voor de toekomst. Tijd voor Willers.",
   },
