@@ -5,6 +5,7 @@ import EmployerSignupForm from "@/components/EmployerSignupForm";
 export const metadata: Metadata = {
   title: "Werkgeversaccount aanmaken",
   description: "Maak een werkgeversaccount aan om profielen te bekijken en te reageren.",
+  robots: { index: false, follow: false },
 };
 
 export default function WerkgeverRegistrerenPage() {

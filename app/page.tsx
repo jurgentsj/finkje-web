@@ -85,30 +85,44 @@ export default async function HomePage({
         <Carousel />
       </section>
 
-      {/* 3 steps */}
-      <section className="mx-auto max-w-[1360px] px-6 py-18">
-        <h2 className="m-0 mb-14 max-w-[40ch] font-display text-[clamp(32px,5vw,63px)] leading-[0.96] font-bold tracking-[-0.081em]">
-          In drie stappen naar jouw droombaan.
-        </h2>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-4">
-          {stapData.map((s, i) => {
-            const styles = [
-              { bg: "bg-accent", fg: "text-white", sub: "text-white/90" },
-              { bg: "bg-black", fg: "text-white", sub: "text-white/65" },
-              { bg: "bg-white border border-black/15", fg: "text-[#111]", sub: "text-black/65" },
-            ][i];
-            return (
-              <div key={s.nr} className={`flex min-h-[320px] flex-col gap-6 rounded-[26px] p-8 ${styles.bg} ${styles.fg}`}>
-                <span className="font-display text-[clamp(56px,7vw,100px)] leading-[0.8] font-extrabold tracking-[-0.06em]">
-                  {s.nr}
+      {/* Probleemstelling */}
+      <section className="mx-auto max-w-[1360px] px-6 pb-24">
+        <div className="flex flex-col gap-10 rounded-[32px] bg-black p-8 text-white sm:p-16">
+          <div className="flex flex-col gap-4.5">
+            <h2 className="m-0 max-w-[22ch] font-display text-[clamp(34px,5.2vw,58px)] leading-[0.92] font-bold tracking-[-0.083em]">
+              Solliciteren voelt als tegen een dichte deur praten.
+            </h2>
+            <p className="m-0 max-w-[46ch] text-[clamp(17px,1.9vw,21px)] leading-snug tracking-[-0.013em] text-white/68">
+              Je stuurt tientallen brieven, past je cv iedere keer weer aan en hoort vervolgens... niets. Herkenbaar?
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {[
+              {
+                titel: "Vacatures speuren, elke dag opnieuw",
+                tekst: "Je scrolt langs honderden vacatures en moet zelf nog bedenken of je er wel bij past.",
+              },
+              {
+                titel: "Je cv moet toevallig ‘matchen’",
+                tekst: "Wat jij kunt staat niet altijd op papier, dus een systeem ziet je vaak niet eens.",
+              },
+              {
+                titel: "Afwijzing zonder reden",
+                tekst: "Als je überhaupt al een reactie krijgt, is het meestal een standaardmailtje.",
+              },
+              {
+                titel: "Zodra je ‘ja’ zegt, verlies je grip",
+                tekst: "Salaris, uren, inhoud: bedrijven bepalen, jij tekent.",
+              },
+            ].map((p) => (
+              <div key={p.titel} className="flex min-h-full flex-col gap-3 rounded-[20px] bg-white/8 px-6 py-6 sm:px-7 sm:py-7">
+                <span className="font-display text-[clamp(21px,2.4vw,23px)] leading-tight font-semibold tracking-[-0.025em]">
+                  {p.titel}
                 </span>
-                <div className="mt-auto flex flex-col gap-3">
-                  <h3 className="m-0 font-display text-[26px] leading-tight font-bold tracking-[-0.03em]">{s.titel}</h3>
-                </div>
-                <p className={`m-0 text-[18px] leading-snug ${styles.sub}`}>{s.tekst}</p>
+                <span className="text-[17px] leading-relaxed tracking-[-0.013em] text-white/65 md:text-[16px]">{p.tekst}</span>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </section>
 
@@ -162,6 +176,33 @@ export default async function HomePage({
               Hoe het werkt
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Hoe het werkt */}
+      <section className="mx-auto max-w-[1360px] px-6 py-18">
+        <h2 className="m-0 mb-14 max-w-[40ch] font-display text-[clamp(32px,5vw,63px)] leading-[0.96] font-bold tracking-[-0.081em]">
+          In drie stappen naar jouw droombaan.
+        </h2>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-4">
+          {stapData.map((s, i) => {
+            const styles = [
+              { bg: "bg-accent", fg: "text-white", sub: "text-white/90" },
+              { bg: "bg-black", fg: "text-white", sub: "text-white/65" },
+              { bg: "bg-white border border-black/15", fg: "text-[#111]", sub: "text-black/65" },
+            ][i];
+            return (
+              <div key={s.nr} className={`flex min-h-[320px] flex-col gap-6 rounded-[26px] p-8 ${styles.bg} ${styles.fg}`}>
+                <span className="font-display text-[clamp(56px,7vw,100px)] leading-[0.8] font-extrabold tracking-[-0.06em]">
+                  {s.nr}
+                </span>
+                <div className="mt-auto flex flex-col gap-3">
+                  <h3 className="m-0 font-display text-[26px] leading-tight font-bold tracking-[-0.03em]">{s.titel}</h3>
+                </div>
+                <p className={`m-0 text-[18px] leading-snug ${styles.sub}`}>{s.tekst}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 

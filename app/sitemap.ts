@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { blogs } from "@/lib/blogs";
 
-const baseUrl = "https://finkje.nl";
+const baseUrl = "https://www.finkje.nl";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
@@ -15,8 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
     "/privacybeleid",
     "/algemene-voorwaarden",
-    "/aanmelden",
-    "/inloggen",
+
   ];
 
   return [
