@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import HeroForm from "@/components/HeroForm";
 import AuthRedirect from "@/components/AuthRedirect";
 import Carousel from "@/components/Carousel";
+import BenefitsCarousel from "@/components/BenefitsCarousel";
 import { stapData, voordelen } from "@/lib/data";
 
 export default async function HomePage({
@@ -152,16 +153,7 @@ export default async function HomePage({
               />
             </div>
           </div>
-          <div className="grid auto-cols-[88%] grid-flow-col gap-px overflow-x-auto rounded-2xl border border-black/8 bg-black/8 snap-x snap-mandatory sm:grid-flow-row sm:grid-cols-2 sm:overflow-hidden xl:grid-cols-4">
-            {voordelen.map((v) => (
-              <div key={v.titel} className="flex min-h-full snap-start flex-col gap-3 bg-white px-6 py-7 sm:px-7">
-                <span className="font-display text-[20px] leading-tight font-semibold tracking-[-0.02em] text-[#111]">
-                  {v.titel}
-                </span>
-                <span className="text-[16px] leading-relaxed text-black/55">{v.tekst}</span>
-              </div>
-            ))}
-          </div>
+          <BenefitsCarousel voordelen={voordelen} />
         </div>
       </section>
 
