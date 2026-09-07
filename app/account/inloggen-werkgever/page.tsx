@@ -5,6 +5,7 @@ import LoginForm from "@/components/LoginForm";
 export const metadata: Metadata = {
   title: "Inloggen voor werkgevers",
   description: "Log in op je werkgeversaccount bij Finkje.",
+  robots: { index: false, follow: false },
 };
 
 export default function WerkgeversLoginPage() {

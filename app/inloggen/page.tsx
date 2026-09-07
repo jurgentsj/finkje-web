@@ -5,6 +5,7 @@ import LoginForm from "@/components/LoginForm";
 export const metadata: Metadata = {
   title: "Inloggen",
   description: "Log in op je Finkje-account.",
+  robots: { index: false, follow: false },
 };
 
 export default function InloggenPage() {

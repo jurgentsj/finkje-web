@@ -15,7 +15,6 @@ export const metadata: Metadata = {
   },
   description:
     "Vind werk zonder vacatures. Finkje legt je droombaan voor aan werkgevers die contact opnemen met jou.",
-  alternates: { canonical: "/" },
   icons: { icon: "/thumbnail.png" },
   openGraph: {
     type: "website",
