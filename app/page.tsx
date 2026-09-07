@@ -87,7 +87,7 @@ export default async function HomePage({
 
       {/* Waarom Finkje */}
       <section className="mx-auto max-w-[1360px] px-6 pb-24">
-        <div className="flex flex-col gap-12 rounded-[32px] border border-black/8 bg-white p-8 sm:p-14 lg:p-16">
+        <div className="flex flex-col gap-12 rounded-[32px] bg-white p-8 sm:p-14 lg:p-16">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center lg:gap-16">
             <div className="flex flex-col gap-4.5">
               <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">
