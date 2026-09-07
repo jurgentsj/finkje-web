@@ -87,41 +87,44 @@ export default async function HomePage({
 
       {/* Probleemstelling */}
       <section className="mx-auto max-w-[1360px] px-6 pb-24">
-        <div className="flex flex-col gap-10 rounded-[32px] bg-black p-8 text-white sm:p-16">
-          <div className="flex flex-col gap-4.5">
-            <h2 className="m-0 max-w-[22ch] font-display text-[clamp(34px,5.2vw,58px)] leading-[0.92] font-bold tracking-[-0.083em]">
-              Solliciteren voelt als tegen een dichte deur praten.
-            </h2>
-            <p className="m-0 max-w-[46ch] text-[clamp(17px,1.9vw,21px)] leading-snug tracking-[-0.013em] text-white/68">
-              Je stuurt tientallen brieven, past je cv iedere keer weer aan en hoort vervolgens... niets. Herkenbaar?
-            </p>
-          </div>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {[
-              {
-                titel: "Vacatures speuren, elke dag opnieuw",
-                tekst: "Je scrolt langs honderden vacatures en moet zelf nog bedenken of je er wel bij past.",
-              },
-              {
-                titel: "Je cv moet toevallig ‘matchen’",
-                tekst: "Wat jij kunt staat niet altijd op papier, dus een systeem ziet je vaak niet eens.",
-              },
-              {
-                titel: "Afwijzing zonder reden",
-                tekst: "Als je überhaupt al een reactie krijgt, is het meestal een standaardmailtje.",
-              },
-              {
-                titel: "Zodra je ‘ja’ zegt, verlies je grip",
-                tekst: "Salaris, uren, inhoud: bedrijven bepalen, jij tekent.",
-              },
-            ].map((p) => (
-              <div key={p.titel} className="flex min-h-full flex-col gap-3 rounded-[20px] bg-white/8 px-6 py-6 sm:px-7 sm:py-7">
-                <span className="font-display text-[clamp(21px,2.4vw,23px)] leading-tight font-semibold tracking-[-0.025em]">
-                  {p.titel}
-                </span>
-                <span className="text-[17px] leading-relaxed tracking-[-0.013em] text-white/65 md:text-[16px]">{p.tekst}</span>
-              </div>
-            ))}
+        <div className="relative overflow-hidden rounded-[36px] bg-sand px-6 py-8 sm:px-12 sm:py-12 lg:px-16 lg:py-14">
+          <div className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full bg-accent sm:h-72 sm:w-72" />
+          <div className="pointer-events-none absolute bottom-[-5rem] left-[34%] h-40 w-40 rotate-12 rounded-[32px] bg-black sm:h-52 sm:w-52" />
+          <div className="relative grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)] lg:items-start lg:gap-16">
+            <div className="flex flex-col gap-5">
+              <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Herkenbaar?</p>
+              <h2 className="m-0 max-w-[15ch] font-display text-[clamp(40px,6vw,78px)] leading-[0.9] font-bold tracking-[-0.085em] text-[#111]">
+                Solliciteren voelt als tegen een dichte deur praten.
+              </h2>
+              <p className="m-0 max-w-[38ch] text-[clamp(17px,1.9vw,21px)] leading-relaxed tracking-[-0.013em] text-black/65">
+                Je stuurt tientallen brieven, past je cv iedere keer weer aan en hoort vervolgens... niets.
+              </p>
+            </div>
+            <div className="relative grid gap-3 pt-2 sm:grid-cols-2 lg:pt-16">
+              {[
+                {
+                  titel: "Vacatures speuren, elke dag opnieuw",
+                  tekst: "Je scrolt langs honderden vacatures en moet zelf nog bedenken of je er wel bij past.",
+                },
+                {
+                  titel: "Je cv moet toevallig ‘matchen’",
+                  tekst: "Wat jij kunt staat niet altijd op papier, dus een systeem ziet je vaak niet eens.",
+                },
+                {
+                  titel: "Afwijzing zonder reden",
+                  tekst: "Als je überhaupt al een reactie krijgt, is het meestal een standaardmailtje.",
+                },
+                {
+                  titel: "Zodra je ‘ja’ zegt, verlies je grip",
+                  tekst: "Salaris, uren, inhoud: bedrijven bepalen, jij tekent.",
+                },
+              ].map((p, i) => (
+                <div key={p.titel} className={`flex min-h-[168px] flex-col gap-3 rounded-[24px] px-5 py-5 sm:px-6 sm:py-6 ${i === 0 ? "bg-black text-white" : i === 1 ? "bg-accent text-white" : "bg-white/75 text-[#111]"}`}>
+                  <span className="font-display text-[clamp(20px,2.4vw,23px)] leading-tight font-semibold tracking-[-0.025em]">{p.titel}</span>
+                  <span className={`text-[16px] leading-relaxed ${i < 2 ? "text-white/75" : "text-black/62"}`}>{p.tekst}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
