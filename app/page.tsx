@@ -87,7 +87,8 @@ export default async function HomePage({
 
       {/* Hoe het werkt */}
       <section className="mx-auto max-w-[1360px] px-6 pt-0 pb-18">
-        <h2 className="m-0 mb-14 max-w-[16ch] font-display text-[clamp(32px,4.6vw,50px)] leading-[0.98] font-bold tracking-[-0.04em] text-[#111] text-balance">
+        <p className="m-0 mb-4 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Hoe het werkt</p>
+        <h2 className="m-0 mb-14 max-w-[16ch] font-display text-[clamp(38px,6vw,78px)] leading-[0.94] font-bold tracking-[-0.06em] text-[#111] text-balance">
           In drie stappen naar jouw droombaan.
         </h2>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-4">
@@ -105,7 +106,7 @@ export default async function HomePage({
                 <div className="mt-auto flex flex-col gap-3">
                   <h3 className="m-0 font-display text-[26px] leading-tight font-bold tracking-[-0.03em]">{s.titel}</h3>
                 </div>
-                <p className={`m-0 text-[18px] leading-snug ${styles.sub}`}>{s.tekst}</p>
+                <p className={`m-0 text-[16px] leading-relaxed ${styles.sub}`}>{s.tekst}</p>
               </div>
             );
           })}
@@ -120,10 +121,10 @@ export default async function HomePage({
               <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">
                 De voordelen van Finkje
               </p>
-              <h2 className="m-0 max-w-[16ch] font-display text-[clamp(32px,4.6vw,50px)] leading-[0.98] font-bold tracking-[-0.04em] text-[#111] text-balance">
+              <h2 className="m-0 max-w-[16ch] font-display text-[clamp(38px,6vw,78px)] leading-[0.94] font-bold tracking-[-0.06em] text-[#111] text-balance">
                 Solliciteren zoals het zou moeten zijn
               </h2>
-              <p className="m-0 max-w-[42ch] text-[17px] leading-relaxed text-black/55">
+              <p className="m-0 max-w-[42ch] text-[16px] leading-relaxed text-black/55">
                 Scannen, zoeken, kijken, schrijven. Solliciteren is een fulltime baan geworden. Gelukkig hebben wij
                 daar de oplossing voor.
               </p>
@@ -158,7 +159,7 @@ export default async function HomePage({
                 <span className="font-display text-[18px] leading-tight font-semibold tracking-[-0.02em] text-[#111]">
                   {v.titel}
                 </span>
-                <span className="text-[15px] leading-relaxed text-black/55">{v.tekst}</span>
+                <span className="text-[16px] leading-relaxed text-black/55">{v.tekst}</span>
               </div>
             ))}
           </div>
