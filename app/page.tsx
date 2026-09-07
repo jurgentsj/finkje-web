@@ -88,7 +88,10 @@ export default async function HomePage({
       {/* Probleemstelling */}
       <section className="mx-auto max-w-[1360px] px-6 pb-24">
         <div className="relative overflow-hidden rounded-[36px] bg-sand px-6 py-8 sm:px-12 sm:py-12 lg:px-16 lg:py-14">
-          <div className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full bg-accent sm:h-72 sm:w-72" />
+          <div className="pointer-events-none absolute -right-4 -top-4 hidden h-64 w-44 rounded-t-[7rem] border-[14px] border-accent bg-black shadow-[12px_12px_0_0_rgba(17,17,17,0.12)] sm:block lg:right-12 lg:top-10 lg:h-72 lg:w-48">
+            <div className="absolute right-5 top-1/2 h-4 w-4 -translate-y-1/2 rounded-full bg-accent" />
+            <div className="absolute inset-x-5 bottom-5 h-px bg-white/20" />
+          </div>
           <div className="pointer-events-none absolute bottom-[-5rem] left-[34%] h-40 w-40 rotate-12 rounded-[32px] bg-black sm:h-52 sm:w-52" />
           <div className="relative grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)] lg:items-start lg:gap-16">
             <div className="flex flex-col gap-5">
