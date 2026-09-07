@@ -29,7 +29,7 @@ export default async function HomePage({
     <>
       <AuthRedirect />
       {/* Hero */}
-      <section className="finkje-hero-critical relative mx-auto w-full max-w-[1360px] px-6 pt-[46px]">
+      <section className="finkje-hero-critical relative mx-auto w-full max-w-[1360px] px-6 pt-8 sm:pt-12">
         <div className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,3fr)_minmax(280px,420px)]">
           <div className="flex min-w-0 flex-col items-start">
             <div>
