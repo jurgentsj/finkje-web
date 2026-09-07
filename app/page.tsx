@@ -87,8 +87,8 @@ export default async function HomePage({
 
       {/* Hoe het werkt */}
       <section className="mx-auto max-w-[1360px] px-6 pt-18 pb-18">
-        <h2 className="m-0 mb-14 max-w-[16ch] font-display text-[clamp(34px,5vw,62px)] leading-[0.96] font-bold tracking-[-0.05em] text-[#111] text-balance">
-          In drie stappen naar jouw droombaan.
+        <h2 className="m-0 mb-14 max-w-[16ch] font-display text-[74px] leading-[0.96] font-bold tracking-[-0.05em] text-[#111] text-balance">
+          In drie stappen naar jouw droombaan
         </h2>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-4">
           {stapData.map((s, i) => {
