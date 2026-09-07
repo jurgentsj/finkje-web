@@ -85,6 +85,33 @@ export default async function HomePage({
         <Carousel />
       </section>
 
+      {/* Hoe het werkt */}
+      <section className="mx-auto max-w-[1360px] px-6 pt-0 pb-18">
+        <h2 className="m-0 mb-14 max-w-[16ch] font-display text-[clamp(32px,4.6vw,50px)] leading-[0.98] font-bold tracking-[-0.04em] text-[#111] text-balance">
+          In drie stappen naar jouw droombaan.
+        </h2>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-4">
+          {stapData.map((s, i) => {
+            const styles = [
+              { bg: "bg-accent", fg: "text-white", sub: "text-white/90" },
+              { bg: "bg-black", fg: "text-white", sub: "text-white/65" },
+              { bg: "bg-white border border-black/15", fg: "text-[#111]", sub: "text-black/65" },
+            ][i];
+            return (
+              <div key={s.nr} className={`flex min-h-[320px] flex-col gap-6 rounded-[26px] p-8 ${styles.bg} ${styles.fg}`}>
+                <span className="font-display text-[clamp(56px,7vw,100px)] leading-[0.8] font-extrabold tracking-[-0.06em]">
+                  {s.nr}
+                </span>
+                <div className="mt-auto flex flex-col gap-3">
+                  <h3 className="m-0 font-display text-[26px] leading-tight font-bold tracking-[-0.03em]">{s.titel}</h3>
+                </div>
+                <p className={`m-0 text-[18px] leading-snug ${styles.sub}`}>{s.tekst}</p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
       {/* Waarom Finkje */}
       <section className="mx-auto max-w-[1360px] px-6 pb-24">
         <div className="flex flex-col gap-12 rounded-[32px] bg-white p-8 sm:p-14 lg:p-16">
@@ -135,33 +162,6 @@ export default async function HomePage({
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Hoe het werkt */}
-      <section className="mx-auto max-w-[1360px] px-6 pt-0 pb-18">
-        <h2 className="m-0 mb-14 max-w-[40ch] font-display text-[clamp(32px,5vw,63px)] leading-[0.96] font-bold tracking-[-0.081em]">
-          In drie stappen naar jouw droombaan.
-        </h2>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-4">
-          {stapData.map((s, i) => {
-            const styles = [
-              { bg: "bg-accent", fg: "text-white", sub: "text-white/90" },
-              { bg: "bg-black", fg: "text-white", sub: "text-white/65" },
-              { bg: "bg-white border border-black/15", fg: "text-[#111]", sub: "text-black/65" },
-            ][i];
-            return (
-              <div key={s.nr} className={`flex min-h-[320px] flex-col gap-6 rounded-[26px] p-8 ${styles.bg} ${styles.fg}`}>
-                <span className="font-display text-[clamp(56px,7vw,100px)] leading-[0.8] font-extrabold tracking-[-0.06em]">
-                  {s.nr}
-                </span>
-                <div className="mt-auto flex flex-col gap-3">
-                  <h3 className="m-0 font-display text-[26px] leading-tight font-bold tracking-[-0.03em]">{s.titel}</h3>
-                </div>
-                <p className={`m-0 text-[18px] leading-snug ${styles.sub}`}>{s.tekst}</p>
-              </div>
-            );
-          })}
         </div>
       </section>
 
