@@ -87,7 +87,6 @@ export default async function HomePage({
 
       {/* Hoe het werkt */}
       <section className="mx-auto max-w-[1360px] px-6 pt-0 pb-18">
-        <p className="m-0 mb-4 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Hoe het werkt</p>
         <h2 className="m-0 mb-14 max-w-[16ch] font-display text-[clamp(38px,6vw,78px)] leading-[0.94] font-bold tracking-[-0.06em] text-[#111] text-balance">
           In drie stappen naar jouw droombaan.
         </h2>
@@ -124,7 +123,7 @@ export default async function HomePage({
               <h2 className="m-0 max-w-[16ch] font-display text-[clamp(38px,6vw,78px)] leading-[0.94] font-bold tracking-[-0.06em] text-[#111] text-balance">
                 Solliciteren zoals het zou moeten zijn
               </h2>
-              <p className="m-0 max-w-[42ch] text-[16px] leading-relaxed text-black/55">
+              <p className="m-0 max-w-[42ch] text-[20px] leading-relaxed text-black/55">
                 Scannen, zoeken, kijken, schrijven. Solliciteren is een fulltime baan geworden. Gelukkig hebben wij
                 daar de oplossing voor.
               </p>
@@ -156,7 +155,7 @@ export default async function HomePage({
           <div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-black/8 bg-black/8 sm:grid-cols-2 xl:grid-cols-4">
             {voordelen.map((v) => (
               <div key={v.titel} className="flex min-h-full flex-col gap-3 bg-white px-6 py-7 sm:px-7">
-                <span className="font-display text-[18px] leading-tight font-semibold tracking-[-0.02em] text-[#111]">
+                <span className="font-display text-[20px] leading-tight font-semibold tracking-[-0.02em] text-[#111]">
                   {v.titel}
                 </span>
                 <span className="text-[16px] leading-relaxed text-black/55">{v.tekst}</span>
