@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import HeroForm from "@/components/HeroForm";
 import AuthRedirect from "@/components/AuthRedirect";
 import Carousel from "@/components/Carousel";
+import BenefitsCarousel from "@/components/BenefitsCarousel";
 import { stapData, voordelen } from "@/lib/data";
 
 export default async function HomePage({
@@ -29,7 +30,7 @@ export default async function HomePage({
     <>
       <AuthRedirect />
       {/* Hero */}
-      <section className="finkje-hero-critical relative mx-auto w-full max-w-[1360px] px-6 pt-[46px]">
+      <section className="finkje-hero-critical relative mx-auto w-full max-w-[1360px] px-6 pt-8 sm:pt-12">
         <div className="grid items-stretch gap-10 lg:grid-cols-[minmax(0,3fr)_minmax(280px,420px)]">
           <div className="flex min-w-0 flex-col items-start">
             <div>
@@ -85,104 +86,10 @@ export default async function HomePage({
         <Carousel />
       </section>
 
-      {/* Probleemstelling */}
-      <section className="mx-auto max-w-[1360px] px-6 pb-24">
-        <div className="flex flex-col gap-10 rounded-[32px] bg-black p-8 text-white sm:p-16">
-          <div className="flex flex-col gap-4.5">
-            <h2 className="m-0 max-w-[22ch] font-display text-[clamp(34px,5.2vw,58px)] leading-[0.92] font-bold tracking-[-0.083em]">
-              Solliciteren voelt als tegen een dichte deur praten.
-            </h2>
-            <p className="m-0 max-w-[46ch] text-[clamp(17px,1.9vw,21px)] leading-snug tracking-[-0.013em] text-white/68">
-              Je stuurt tientallen brieven, past je cv iedere keer weer aan en hoort vervolgens... niets. Herkenbaar?
-            </p>
-          </div>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {[
-              {
-                titel: "Vacatures speuren, elke dag opnieuw",
-                tekst: "Je scrolt langs honderden vacatures en moet zelf nog bedenken of je er wel bij past.",
-              },
-              {
-                titel: "Je cv moet toevallig ‘matchen’",
-                tekst: "Wat jij kunt staat niet altijd op papier, dus een systeem ziet je vaak niet eens.",
-              },
-              {
-                titel: "Afwijzing zonder reden",
-                tekst: "Als je überhaupt al een reactie krijgt, is het meestal een standaardmailtje.",
-              },
-              {
-                titel: "Zodra je ‘ja’ zegt, verlies je grip",
-                tekst: "Salaris, uren, inhoud: bedrijven bepalen, jij tekent.",
-              },
-            ].map((p) => (
-              <div key={p.titel} className="flex min-h-full flex-col gap-3 rounded-[20px] bg-white/8 px-6 py-6 sm:px-7 sm:py-7">
-                <span className="font-display text-[clamp(21px,2.4vw,23px)] leading-tight font-semibold tracking-[-0.025em]">
-                  {p.titel}
-                </span>
-                <span className="text-[17px] leading-relaxed tracking-[-0.013em] text-white/65 md:text-[16px]">{p.tekst}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Waarom Finkje */}
-      <section className="mx-auto max-w-[1360px] px-6 pb-24">
-        <div className="flex flex-col gap-10 rounded-[32px] bg-sand p-8 sm:p-16">
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] items-center gap-10">
-            <div className="flex flex-col gap-4.5">
-              <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">
-                De voordelen van Finkje
-              </p>
-              <h2 className="m-0 max-w-[16ch] font-display text-[clamp(34px,5.2vw,58px)] leading-[0.92] font-bold tracking-[-0.083em]">
-                Solliciteren zoals het zou moeten zijn
-              </h2>
-              <p className="m-0 max-w-[40ch] text-[clamp(17px,1.9vw,21px)] leading-snug tracking-[-0.013em] text-black/68">
-                Scannen, zoeken, kijken, schrijven. Solliciteren is een fulltime baan geworden. Gelukkig hebben wij
-                daar de oplossing voor.
-              </p>
-            </div>
-            <div className="relative aspect-[5/4] w-full overflow-hidden rounded-3xl bg-black/5">
-              <Image
-                src="/images/finkje-waarom.webp"
-                alt="Iemand die net goed nieuws kreeg"
-                fill
-                sizes="500px"
-                className="object-cover"
-              />
-            </div>
-          </div>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {voordelen.map((v) => (
-              <div key={v.titel} className="flex min-h-full flex-col gap-3 rounded-[20px] bg-white px-6 py-6 sm:px-7 sm:py-7">
-                <span className="font-display text-[clamp(21px,2.4vw,23px)] leading-tight font-semibold tracking-[-0.025em]">
-                  {v.titel}
-                </span>
-                <span className="text-[17px] leading-relaxed tracking-[-0.013em] text-black/62 md:text-[16px]">{v.tekst}</span>
-              </div>
-            ))}
-          </div>
-          <div className="flex flex-wrap items-center gap-3.5">
-            <Link
-              href="/aanmelden"
-              className="rounded-full bg-accent px-8.5 py-4.5 text-lg font-bold text-white transition-colors hover:bg-black"
-            >
-              Meld je aan →
-            </Link>
-            <Link
-              href="/hoe-het-werkt"
-              className="rounded-full border border-black/15 px-5.5 py-4.5 text-[17px] font-semibold text-[#111] transition-colors hover:bg-black/5"
-            >
-              Hoe het werkt
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Hoe het werkt */}
-      <section className="mx-auto max-w-[1360px] px-6 py-18">
-        <h2 className="m-0 mb-14 max-w-[40ch] font-display text-[clamp(32px,5vw,63px)] leading-[0.96] font-bold tracking-[-0.081em]">
-          In drie stappen naar jouw droombaan.
+      <section className="mx-auto max-w-[1360px] px-6 pt-18 pb-18">
+        <h2 className="m-0 mb-14 max-w-[16ch] font-display text-[clamp(40px,12vw,74px)] leading-[0.94] font-bold tracking-[-0.05em] text-[#111] text-balance">
+          In drie stappen naar jouw droombaan
         </h2>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-4">
           {stapData.map((s, i) => {
@@ -199,10 +106,54 @@ export default async function HomePage({
                 <div className="mt-auto flex flex-col gap-3">
                   <h3 className="m-0 font-display text-[26px] leading-tight font-bold tracking-[-0.03em]">{s.titel}</h3>
                 </div>
-                <p className={`m-0 text-[18px] leading-snug ${styles.sub}`}>{s.tekst}</p>
+                <p className={`m-0 text-[16px] leading-relaxed ${styles.sub}`}>{s.tekst}</p>
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* Waarom Finkje */}
+      <section className="mx-auto max-w-[1360px] px-6 pb-24">
+        <div className="flex flex-col gap-12 rounded-[32px] bg-white p-8 sm:p-14 lg:p-16">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center lg:gap-16">
+            <div className="flex flex-col gap-4.5">
+              <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">
+                De voordelen van Finkje
+              </p>
+              <h2 className="m-0 max-w-[16ch] font-display text-[clamp(40px,12vw,74px)] leading-[0.94] font-bold tracking-[-0.05em] text-[#111] text-balance">
+                Solliciteren zoals het zou moeten zijn
+              </h2>
+              <p className="m-0 max-w-[42ch] text-[20px] leading-relaxed text-black/55">
+                Scannen, zoeken, kijken, schrijven. Solliciteren is een fulltime baan geworden. Gelukkig hebben wij
+                daar de oplossing voor.
+              </p>
+              <div className="mt-2 flex flex-wrap items-center gap-3.5">
+                <Link
+                  href="/aanmelden"
+                  className="rounded-full bg-accent px-7 py-3.5 text-[15px] font-bold text-white transition-colors hover:bg-black"
+                >
+                  Meld je aan →
+                </Link>
+                <Link
+                  href="/hoe-het-werkt"
+                  className="rounded-full border border-black/15 px-6 py-3.5 text-[15px] font-semibold text-[#111] transition-colors hover:bg-black/5"
+                >
+                  Hoe het werkt
+                </Link>
+              </div>
+            </div>
+            <div className="relative aspect-[5/4] w-full overflow-hidden rounded-2xl bg-black/5">
+              <Image
+                src="/images/finkje-waarom.webp"
+                alt="Iemand die net goed nieuws kreeg"
+                fill
+                sizes="500px"
+                className="object-cover"
+              />
+            </div>
+          </div>
+          <BenefitsCarousel voordelen={voordelen} />
         </div>
       </section>
 
@@ -224,7 +175,7 @@ export default async function HomePage({
       {/* Orange CTA */}
       <section className="mx-auto max-w-[1360px] px-6 py-24">
         <div className="grid grid-cols-1 items-start gap-8 rounded-3xl bg-accent p-6 text-white sm:p-11 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-          <h3 className="m-0 max-w-[16ch] font-display text-[clamp(26px,3.2vw,53px)] leading-[0.98] font-extrabold tracking-[-0.04em]">
+          <h3 className="m-0 max-w-[16ch] font-display text-[clamp(32px,8vw,53px)] leading-[0.98] font-extrabold tracking-[-0.04em]">
             Niet plaatsen, aanpakken.
           </h3>
           <div className="flex flex-col gap-5.5">
@@ -245,7 +196,7 @@ export default async function HomePage({
       {/* Closing */}
       <section className="mx-auto flex max-w-[1360px] flex-col items-center gap-9 px-6 pb-30 text-center">
         <h2 className="m-0 font-display text-[clamp(40px,9vw,66px)] leading-[0.88] font-semibold tracking-[-0.05em]">
-          Wat voor baan wil <br className="sm:hidden" /><span className="text-accent">jíj</span>?
+          Wat voor baan wil <span className="text-accent">jíj</span>?
         </h2>
         <Link
           href="/aanmelden"
