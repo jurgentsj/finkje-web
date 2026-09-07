@@ -126,11 +126,8 @@ export default async function HomePage({
             </div>
           </div>
           <div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-black/8 bg-black/8 sm:grid-cols-2 xl:grid-cols-4">
-            {voordelen.map((v, i) => (
+            {voordelen.map((v) => (
               <div key={v.titel} className="flex min-h-full flex-col gap-3 bg-white px-6 py-7 sm:px-7">
-                <span className="font-display text-[13px] font-bold tracking-[0.04em] text-accent">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
                 <span className="font-display text-[18px] leading-tight font-semibold tracking-[-0.02em] text-[#111]">
                   {v.titel}
                 </span>
