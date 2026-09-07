@@ -85,58 +85,6 @@ export default async function HomePage({
         <Carousel />
       </section>
 
-      {/* Probleemstelling */}
-      <section className="mx-auto max-w-[1360px] px-6 pb-24">
-        <div className="relative overflow-hidden rounded-[32px] border border-black/8 bg-white px-6 py-10 sm:px-12 sm:py-14 lg:px-16 lg:py-16">
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
-            <div className="flex flex-col gap-5 lg:sticky lg:top-24 lg:self-start">
-              <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Het probleem</p>
-              <h2 className="m-0 max-w-[14ch] font-display text-[clamp(34px,4.6vw,54px)] leading-[0.98] font-bold tracking-[-0.04em] text-[#111] text-balance">
-                Solliciteren voelt als tegen een dichte deur praten.
-              </h2>
-              <p className="m-0 max-w-[38ch] text-[17px] leading-relaxed text-black/55">
-                Vier momenten die elke sollicitant maar al te goed kent.
-              </p>
-            </div>
-            <div className="flex flex-col">
-              {[
-                {
-                  titel: "Scrollen, zoeken, kijken, schrijven",
-                  tekst: "Je scrolt langs honderden vacatures en moet zelf nog bedenken of je er wel bij past.",
-                },
-                {
-                  titel: "Je cv moet ‘matchen’",
-                  tekst: "Je cv vertelt niet het hele verhaal. En de kans krijgen om te praten, krijg je niet.",
-                },
-                {
-                  titel: "Helaas, je profiel sluit niet aan",
-                  tekst: "Als je überhaupt al een reactie krijgt, is het meestal een standaardmailtje.",
-                },
-                {
-                  titel: "Ik bel over die ene vacature...",
-                  tekst: "Welke ook alweer?",
-                },
-              ].map((p, i) => (
-                <div
-                  key={p.titel}
-                  className={`flex items-start gap-5 py-6 sm:gap-7 sm:py-7 ${i !== 0 ? "border-t border-black/8" : ""}`}
-                >
-                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-accent/30 bg-accent/8 font-display text-sm font-bold text-accent">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div className="flex flex-col gap-1.5">
-                    <span className="font-display text-[19px] leading-tight font-semibold tracking-[-0.02em] text-[#111]">
-                      {p.titel}
-                    </span>
-                    <span className="text-[15px] leading-relaxed text-black/55">{p.tekst}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Waarom Finkje */}
       <section className="mx-auto max-w-[1360px] px-6 pb-24">
         <div className="flex flex-col gap-12 rounded-[32px] border border-black/8 bg-white p-8 sm:p-14 lg:p-16">
@@ -194,7 +142,7 @@ export default async function HomePage({
       </section>
 
       {/* Hoe het werkt */}
-      <section className="mx-auto max-w-[1360px] px-6 py-18">
+      <section className="mx-auto max-w-[1360px] px-6 pt-0 pb-18">
         <h2 className="m-0 mb-14 max-w-[40ch] font-display text-[clamp(32px,5vw,63px)] leading-[0.96] font-bold tracking-[-0.081em]">
           In drie stappen naar jouw droombaan.
         </h2>
