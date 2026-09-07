@@ -87,14 +87,18 @@ export default async function HomePage({
 
       {/* Probleemstelling */}
       <section className="mx-auto max-w-[1360px] px-6 pb-24">
-        <div className="relative overflow-hidden rounded-[36px] bg-sand px-6 py-8 sm:px-12 sm:py-12 lg:px-16 lg:py-14">
-          <div className="relative grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.95fr)] lg:items-center lg:gap-16">
-            <div className="flex flex-col justify-center gap-5">
-              <h2 className="m-0 max-w-[15ch] font-display text-[clamp(40px,6vw,78px)] leading-[0.9] font-bold tracking-[-0.085em] text-[#111]">
+        <div className="relative overflow-hidden rounded-[32px] border border-black/8 bg-white px-6 py-10 sm:px-12 sm:py-14 lg:px-16 lg:py-16">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-20">
+            <div className="flex flex-col gap-5 lg:sticky lg:top-24 lg:self-start">
+              <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">Het probleem</p>
+              <h2 className="m-0 max-w-[14ch] font-display text-[clamp(34px,4.6vw,54px)] leading-[0.98] font-bold tracking-[-0.04em] text-[#111] text-balance">
                 Solliciteren voelt als tegen een dichte deur praten.
               </h2>
+              <p className="m-0 max-w-[38ch] text-[17px] leading-relaxed text-black/55">
+                Vier momenten die elke sollicitant maar al te goed kent.
+              </p>
             </div>
-            <div className="relative grid gap-3 pt-2 sm:grid-cols-2 lg:pt-16">
+            <div className="flex flex-col">
               {[
                 {
                   titel: "Scrollen, zoeken, kijken, schrijven",
@@ -113,9 +117,19 @@ export default async function HomePage({
                   tekst: "Welke ook alweer?",
                 },
               ].map((p, i) => (
-                <div key={p.titel} className={`flex min-h-[168px] flex-col gap-3 rounded-[24px] px-5 py-5 sm:px-6 sm:py-6 ${i === 0 ? "bg-black text-white" : i === 1 ? "bg-accent text-white" : "bg-white/75 text-[#111]"}`}>
-                  <span className="font-display text-[clamp(20px,2.4vw,23px)] leading-tight font-semibold tracking-[-0.025em]">{p.titel}</span>
-                  <span className={`text-[16px] leading-relaxed ${i < 2 ? "text-white/75" : "text-black/62"}`}>{p.tekst}</span>
+                <div
+                  key={p.titel}
+                  className={`flex items-start gap-5 py-6 sm:gap-7 sm:py-7 ${i !== 0 ? "border-t border-black/8" : ""}`}
+                >
+                  <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-accent/30 bg-accent/8 font-display text-sm font-bold text-accent">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="flex flex-col gap-1.5">
+                    <span className="font-display text-[19px] leading-tight font-semibold tracking-[-0.02em] text-[#111]">
+                      {p.titel}
+                    </span>
+                    <span className="text-[15px] leading-relaxed text-black/55">{p.tekst}</span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -125,21 +139,35 @@ export default async function HomePage({
 
       {/* Waarom Finkje */}
       <section className="mx-auto max-w-[1360px] px-6 pb-24">
-        <div className="flex flex-col gap-10 rounded-[32px] bg-sand p-8 sm:p-16">
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] items-center gap-10">
+        <div className="flex flex-col gap-12 rounded-[32px] border border-black/8 bg-white p-8 sm:p-14 lg:p-16">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center lg:gap-16">
             <div className="flex flex-col gap-4.5">
               <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">
                 De voordelen van Finkje
               </p>
-              <h2 className="m-0 max-w-[16ch] font-display text-[clamp(34px,5.2vw,58px)] leading-[0.92] font-bold tracking-[-0.083em]">
+              <h2 className="m-0 max-w-[16ch] font-display text-[clamp(32px,4.6vw,50px)] leading-[0.98] font-bold tracking-[-0.04em] text-[#111] text-balance">
                 Solliciteren zoals het zou moeten zijn
               </h2>
-              <p className="m-0 max-w-[40ch] text-[clamp(17px,1.9vw,21px)] leading-snug tracking-[-0.013em] text-black/68">
+              <p className="m-0 max-w-[42ch] text-[17px] leading-relaxed text-black/55">
                 Scannen, zoeken, kijken, schrijven. Solliciteren is een fulltime baan geworden. Gelukkig hebben wij
                 daar de oplossing voor.
               </p>
+              <div className="mt-2 flex flex-wrap items-center gap-3.5">
+                <Link
+                  href="/aanmelden"
+                  className="rounded-full bg-accent px-7 py-3.5 text-[15px] font-bold text-white transition-colors hover:bg-black"
+                >
+                  Meld je aan →
+                </Link>
+                <Link
+                  href="/hoe-het-werkt"
+                  className="rounded-full border border-black/15 px-6 py-3.5 text-[15px] font-semibold text-[#111] transition-colors hover:bg-black/5"
+                >
+                  Hoe het werkt
+                </Link>
+              </div>
             </div>
-            <div className="relative aspect-[5/4] w-full overflow-hidden rounded-3xl bg-black/5">
+            <div className="relative aspect-[5/4] w-full overflow-hidden rounded-2xl bg-black/5">
               <Image
                 src="/images/finkje-waarom.webp"
                 alt="Iemand die net goed nieuws kreeg"
@@ -149,29 +177,18 @@ export default async function HomePage({
               />
             </div>
           </div>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {voordelen.map((v) => (
-              <div key={v.titel} className="flex min-h-full flex-col gap-3 rounded-[20px] bg-white px-6 py-6 sm:px-7 sm:py-7">
-                <span className="font-display text-[clamp(21px,2.4vw,23px)] leading-tight font-semibold tracking-[-0.025em]">
+          <div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-black/8 bg-black/8 sm:grid-cols-2 xl:grid-cols-4">
+            {voordelen.map((v, i) => (
+              <div key={v.titel} className="flex min-h-full flex-col gap-3 bg-white px-6 py-7 sm:px-7">
+                <span className="font-display text-[13px] font-bold tracking-[0.04em] text-accent">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="font-display text-[18px] leading-tight font-semibold tracking-[-0.02em] text-[#111]">
                   {v.titel}
                 </span>
-                <span className="text-[17px] leading-relaxed tracking-[-0.013em] text-black/62 md:text-[16px]">{v.tekst}</span>
+                <span className="text-[15px] leading-relaxed text-black/55">{v.tekst}</span>
               </div>
             ))}
-          </div>
-          <div className="flex flex-wrap items-center gap-3.5">
-            <Link
-              href="/aanmelden"
-              className="rounded-full bg-accent px-8.5 py-4.5 text-lg font-bold text-white transition-colors hover:bg-black"
-            >
-              Meld je aan →
-            </Link>
-            <Link
-              href="/hoe-het-werkt"
-              className="rounded-full border border-black/15 px-5.5 py-4.5 text-[17px] font-semibold text-[#111] transition-colors hover:bg-black/5"
-            >
-              Hoe het werkt
-            </Link>
           </div>
         </div>
       </section>
