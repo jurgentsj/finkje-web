@@ -19,11 +19,26 @@ export function VisionStorySaaS() {
     .flatMap((value) => (Array.isArray(value) ? value : [value]))
     .filter((value): value is { title: string; paragraphs: string[]; close: string } => Boolean(value && typeof value === "object" && "title" in value && "paragraphs" in value && "close" in value));
   const [activeSlide, setActiveSlide] = useState(0);
+  const [slideHeight, setSlideHeight] = useState<number | null>(null);
   const slideCount = chapterList.length + 2;
 
   const goToSlide = useCallback((index: number) => {
     setActiveSlide(Math.max(0, Math.min(index, slideCount - 1)));
   }, [slideCount]);
+
+  // The site header sits in normal flow above this full-screen slider, so each
+  // slide must be exactly (viewport height - header height), not 100svh, or
+  // the bottom sliver of every slide ends up clipped and unreachable once
+  // body scrolling is locked.
+  useEffect(() => {
+    const updateHeight = () => {
+      const headerHeight = document.querySelector("header")?.getBoundingClientRect().height ?? 0;
+      setSlideHeight(window.innerHeight - headerHeight);
+    };
+    updateHeight();
+    window.addEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
+  }, []);
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
@@ -79,10 +94,16 @@ export function VisionStorySaaS() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [activeSlide, goToSlide]);
 
+  const vh = slideHeight ? `${slideHeight}px` : "100svh";
+
   return (
-    <main data-vision-slider className="relative h-[100svh] w-full overflow-hidden bg-[#0d2452]">
+    <main
+      data-vision-slider
+      className="relative w-full overflow-hidden bg-[#0d2452]"
+      style={{ height: vh, "--vision-vh": vh } as React.CSSProperties}
+    >
       <div className="absolute inset-0 transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)]" style={{ transform: `translateY(-${activeSlide * 100}%)` }}>
-        <section className="relative flex h-[100svh] items-start overflow-hidden bg-white px-6 py-12 text-[#111] sm:px-10 sm:py-16 lg:px-16 lg:py-20">
+        <section className="relative flex h-[var(--vision-vh)] items-start overflow-hidden bg-white px-6 py-12 text-[#111] sm:px-10 sm:py-16 lg:px-16 lg:py-20">
           <div className="pointer-events-none absolute -inset-[20%] bg-[radial-gradient(ellipse_at_15%_25%,rgba(47,111,255,0.28),transparent_42%),radial-gradient(ellipse_at_82%_70%,rgba(255,112,67,0.26),transparent_43%)]" />
           <div className="relative mx-auto w-full max-w-[1360px]">
             <p className="mb-8 text-xs font-semibold uppercase tracking-[0.18em] text-black/45">Onze visie</p>
@@ -94,13 +115,13 @@ export function VisionStorySaaS() {
         {chapterList.map((chapter, index) => {
           const theme = themes[index % themes.length];
           return (
-            <section key={chapter.title} className={`flex h-[100svh] items-start overflow-hidden px-6 py-12 ${theme.background} ${theme.foreground} sm:px-10 sm:py-16 lg:px-16 lg:py-20`}>
+            <section key={chapter.title} className={`flex h-[var(--vision-vh)] items-start overflow-hidden px-6 py-12 ${theme.background} ${theme.foreground} sm:px-10 sm:py-16 lg:px-16 lg:py-20`}>
               <div className="mx-auto grid w-full max-w-[1360px] gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-start lg:gap-24">
                 <div>
                   <p className={`mb-8 text-xs font-semibold uppercase tracking-[0.18em] ${theme.muted}`}>Onze visie</p>
                   <h2 className="m-0 max-w-[10ch] font-display text-[clamp(46px,7vw,112px)] font-semibold leading-[0.86] tracking-[-0.075em]">{chapter.title}</h2>
                 </div>
-                <div data-vision-copy className={`flex max-h-[calc(100svh-10rem)] max-w-[760px] flex-col gap-8 overflow-y-auto overscroll-contain border-t pt-8 pr-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${theme.line}`}>
+                <div data-vision-copy className={`flex max-h-[calc(var(--vision-vh)-10rem)] max-w-[760px] flex-col gap-8 overflow-y-auto overscroll-contain border-t pt-8 pr-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${theme.line}`}>
                   <div className="flex flex-col gap-6">
                     {chapter.paragraphs.flatMap((paragraph) => paragraph.split(/\n+/).filter(Boolean)).map((text, paragraphIndex) => (
                       <p key={`${chapter.title}-${paragraphIndex}`} className={`m-0 leading-relaxed ${paragraphIndex === 0 ? "text-[21px] font-medium tracking-[-0.02em]" : `text-[16px] ${theme.muted}`}`}>{text}</p>
@@ -113,7 +134,7 @@ export function VisionStorySaaS() {
           );
         })}
 
-        <section className="flex h-[100svh] items-start bg-[#ffede0] px-6 py-12 text-[#542b24] sm:px-10 sm:py-16 lg:px-16 lg:py-20">
+        <section className="flex h-[var(--vision-vh)] items-start bg-[#ffede0] px-6 py-12 text-[#542b24] sm:px-10 sm:py-16 lg:px-16 lg:py-20">
           <div className="mx-auto w-full max-w-[1360px]">
             <p className="m-0 max-w-[12ch] font-display text-[clamp(48px,8vw,126px)] font-semibold leading-[0.86] tracking-[-0.08em]">Jouw droom is het beste cv dat je ooit gemaakt hebt.</p>
             <Link href="/aanmelden" className="mt-12 inline-flex rounded-full bg-[#2f6fff] px-7 py-4 text-[17px] font-semibold text-white transition-transform hover:-translate-y-1">Zeg wat jij wil →</Link>
