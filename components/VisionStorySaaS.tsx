@@ -24,30 +24,21 @@ export function VisionStorySaaS() {
               De arbeidsmarkt verandert. Niet omdat mensen minder kunnen, maar omdat ze steeds beter weten wat ze willen.
             </p>
           </div>
-          <div className="relative hidden min-h-[230px] overflow-hidden rounded-[28px] border border-black/8 bg-[#f7f9ff] p-7 lg:block">
-            <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(47,111,255,0.12),transparent_48%,rgba(255,90,0,0.14))]" />
-            <div className="relative flex h-full flex-col justify-between">
-              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-black/45">Finkje / 01</span>
-              <span className="max-w-[16ch] font-display text-[32px] font-semibold leading-[0.95] tracking-[-0.05em]">Van cv naar richting.</span>
-            </div>
-          </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-[1360px] px-6 py-16 sm:px-10 sm:py-24 lg:px-16">
         <div className="mb-14 flex flex-col gap-5 border-b border-black/8 pb-8 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.16em] text-accent">Waarom Finkje</p>
             <h2 className="m-0 mt-3 max-w-[15ch] font-display text-[clamp(34px,5vw,64px)] font-semibold leading-[0.94] tracking-[-0.06em]">Een andere kijk op werk.</h2>
           </div>
           <p className="m-0 max-w-[34ch] text-[16px] leading-relaxed text-black/50">Lees hoe willen, interesse en vooruitkijken de manier waarop we werken veranderen.</p>
         </div>
 
         <div className="flex flex-col">
-          {chapterList.map((chapter, index) => (
+          {chapterList.map((chapter) => (
             <article key={chapter.title} className="grid gap-8 border-b border-black/8 py-10 first:pt-0 last:border-b-0 lg:grid-cols-[minmax(180px,0.36fr)_minmax(0,1fr)] lg:gap-16 lg:py-16">
               <div className="flex items-start gap-4">
-                <span className="font-mono text-sm font-semibold text-accent">{String(index + 1).padStart(2, "0")}</span>
                 <h3 className="m-0 max-w-[12ch] font-display text-[clamp(27px,3.4vw,48px)] font-semibold leading-[0.95] tracking-[-0.05em]">{chapter.title}</h3>
               </div>
               <div className="flex max-w-[760px] flex-col gap-7">
