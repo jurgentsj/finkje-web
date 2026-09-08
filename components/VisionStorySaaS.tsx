@@ -1,8 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { chapters } from "@/components/VisionStory";
 
 export function VisionStorySaaS() {
-  const chapterList = Array.isArray(chapters) ? chapters : Object.values(chapters as unknown as Record<string, (typeof chapters)[number]>);
+  const chapterList = Object.values(chapters as unknown as Record<string, unknown>)
+    .flatMap((value) => (Array.isArray(value) ? value : [value]))
+    .filter((value): value is { title: string; paragraphs: string[]; close: string } => Boolean(value && typeof value === "object" && "title" in value && "paragraphs" in value && "close" in value));
 
   return (
     <main className="bg-white text-[#111]">
