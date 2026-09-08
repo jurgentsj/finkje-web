@@ -115,11 +115,6 @@ export function VisionStorySaaS() {
         </section>
       </div>
 
-      <nav aria-label="Visie slides" className="fixed right-5 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-3 sm:right-8">
-        {Array.from({ length: slideCount }, (_, index) => (
-          <button key={index} type="button" aria-label={`Ga naar slide ${index + 1}`} aria-current={activeSlide === index ? "step" : undefined} onClick={() => goToSlide(index)} className={`h-2.5 w-2.5 rounded-full border border-white/70 transition-all ${activeSlide === index ? "scale-150 bg-white" : "bg-white/35 hover:bg-white/75"}`} />
-        ))}
-      </nav>
     </main>
   );
 }
