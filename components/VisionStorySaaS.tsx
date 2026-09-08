@@ -94,7 +94,7 @@ export function VisionStorySaaS() {
                   <p className={`mb-8 text-xs font-semibold uppercase tracking-[0.18em] ${theme.muted}`}>Onze visie</p>
                   <h2 className="m-0 max-w-[10ch] font-display text-[clamp(46px,7vw,112px)] font-semibold leading-[0.86] tracking-[-0.075em]">{chapter.title}</h2>
                 </div>
-                <div data-vision-copy className={`flex max-h-[calc(100svh-10rem)] max-w-[760px] flex-col gap-8 overflow-y-auto overscroll-contain border-t pt-8 pr-3 ${theme.line}`}>
+                <div data-vision-copy className={`flex max-h-[calc(100svh-10rem)] max-w-[760px] flex-col gap-8 overflow-y-auto overscroll-contain border-t pt-8 pr-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${theme.line}`}>
                   <div className="flex flex-col gap-6">
                     {chapter.paragraphs.flatMap((paragraph) => paragraph.split(/\n+/).filter(Boolean)).map((text, paragraphIndex) => (
                       <p key={`${chapter.title}-${paragraphIndex}`} className={`m-0 leading-relaxed ${paragraphIndex === 0 ? "text-[21px] font-medium tracking-[-0.02em]" : `text-[16px] ${theme.muted}`}`}>{text}</p>
@@ -115,6 +115,11 @@ export function VisionStorySaaS() {
         </section>
       </div>
 
+      <nav aria-label="Visie slides" className="fixed right-5 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-3 sm:right-8">
+        {Array.from({ length: slideCount }, (_, index) => (
+          <button key={index} type="button" aria-label={`Ga naar slide ${index + 1}`} aria-current={activeSlide === index ? "step" : undefined} onClick={() => goToSlide(index)} className={`h-2.5 w-2.5 rounded-full border border-white/70 transition-all ${activeSlide === index ? "scale-150 bg-white" : "bg-white/35 hover:bg-white/75"}`} />
+        ))}
+      </nav>
     </main>
   );
 }
