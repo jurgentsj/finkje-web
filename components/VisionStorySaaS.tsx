@@ -26,6 +26,30 @@ export function VisionStorySaaS() {
   }, [slideCount]);
 
   useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, []);
+
+  useEffect(() => {
+    let wheelLocked = false;
+    const onWheel = (event: WheelEvent) => {
+      event.preventDefault();
+      if (wheelLocked || Math.abs(event.deltaY) < 8) return;
+      wheelLocked = true;
+      goToSlide(activeSlide + (event.deltaY > 0 ? 1 : -1));
+      window.setTimeout(() => {
+        wheelLocked = false;
+      }, 750);
+    };
+    const element = document.querySelector("[data-vision-slider]");
+    element?.addEventListener("wheel", onWheel, { passive: false });
+    return () => element?.removeEventListener("wheel", onWheel);
+  }, [activeSlide, goToSlide]);
+
+  useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowDown" || event.key === "PageDown") {
         event.preventDefault();
@@ -41,9 +65,9 @@ export function VisionStorySaaS() {
   }, [activeSlide, goToSlide]);
 
   return (
-    <main className="relative h-[100svh] overflow-hidden bg-[#0d2452]">
+    <main data-vision-slider className="relative h-[100svh] w-full overflow-hidden bg-[#0d2452]">
       <div className="absolute inset-0 transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)]" style={{ transform: `translateY(-${activeSlide * 100}%)` }}>
-        <section className="relative flex h-[100svh] items-center overflow-hidden bg-white px-6 py-16 text-[#111] sm:px-10 lg:px-16">
+        <section className="relative flex h-[100svh] items-start overflow-hidden bg-white px-6 py-12 text-[#111] sm:px-10 sm:py-16 lg:px-16 lg:py-20">
           <div className="pointer-events-none absolute -inset-[20%] bg-[radial-gradient(ellipse_at_15%_25%,rgba(47,111,255,0.28),transparent_42%),radial-gradient(ellipse_at_82%_70%,rgba(255,112,67,0.26),transparent_43%)]" />
           <div className="relative mx-auto w-full max-w-[1360px]">
             <p className="mb-8 text-xs font-semibold uppercase tracking-[0.18em] text-black/45">Onze visie</p>
@@ -55,8 +79,8 @@ export function VisionStorySaaS() {
         {chapterList.map((chapter, index) => {
           const theme = themes[index % themes.length];
           return (
-            <section key={chapter.title} className={`flex h-[100svh] items-center px-6 py-16 ${theme.background} ${theme.foreground} sm:px-10 lg:px-16`}>
-              <div className="mx-auto grid w-full max-w-[1360px] gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-center lg:gap-24">
+            <section key={chapter.title} className={`flex h-[100svh] items-start overflow-hidden px-6 py-12 ${theme.background} ${theme.foreground} sm:px-10 sm:py-16 lg:px-16 lg:py-20`}>
+              <div className="mx-auto grid w-full max-w-[1360px] gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-start lg:gap-24">
                 <div>
                   <p className={`mb-8 text-xs font-semibold uppercase tracking-[0.18em] ${theme.muted}`}>Onze visie</p>
                   <h2 className="m-0 max-w-[10ch] font-display text-[clamp(46px,7vw,112px)] font-semibold leading-[0.86] tracking-[-0.075em]">{chapter.title}</h2>
@@ -74,7 +98,7 @@ export function VisionStorySaaS() {
           );
         })}
 
-        <section className="flex h-[100svh] items-center bg-[#ffede0] px-6 py-16 text-[#542b24] sm:px-10 lg:px-16">
+        <section className="flex h-[100svh] items-start bg-[#ffede0] px-6 py-12 text-[#542b24] sm:px-10 sm:py-16 lg:px-16 lg:py-20">
           <div className="mx-auto w-full max-w-[1360px]">
             <p className="m-0 max-w-[12ch] font-display text-[clamp(48px,8vw,126px)] font-semibold leading-[0.86] tracking-[-0.08em]">Jouw droom is het beste cv dat je ooit gemaakt hebt.</p>
             <Link href="/aanmelden" className="mt-12 inline-flex rounded-full bg-[#2f6fff] px-7 py-4 text-[17px] font-semibold text-white transition-transform hover:-translate-y-1">Zeg wat jij wil →</Link>
