@@ -88,7 +88,7 @@ export default async function HomePage({
 
       {/* Hoe het werkt */}
       <section className="mx-auto max-w-[1360px] px-6 pt-18 pb-18">
-        <h2 className="m-0 mb-14 max-w-[16ch] font-display text-[clamp(40px,12vw,74px)] leading-[0.94] font-bold tracking-[-0.05em] text-[#111] text-balance">
+        <h2 className="m-0 mb-14 max-w-[16ch] font-display text-[clamp(32px,9vw,74px)] leading-[0.96] font-bold tracking-[-0.05em] text-[#111] text-balance">
           In drie stappen naar jouw droombaan
         </h2>
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-4">
@@ -121,7 +121,7 @@ export default async function HomePage({
               <p className="m-0 text-xs font-semibold tracking-[0.16em] text-accent uppercase">
                 De voordelen van Finkje
               </p>
-              <h2 className="m-0 max-w-[16ch] font-display text-[clamp(40px,12vw,74px)] leading-[0.94] font-bold tracking-[-0.05em] text-[#111] text-balance">
+              <h2 className="m-0 max-w-[16ch] font-display text-[clamp(32px,9vw,74px)] leading-[0.96] font-bold tracking-[-0.05em] text-[#111] text-balance">
                 Solliciteren zoals het zou moeten zijn
               </h2>
               <p className="m-0 max-w-[42ch] text-[20px] leading-relaxed text-black/55">
