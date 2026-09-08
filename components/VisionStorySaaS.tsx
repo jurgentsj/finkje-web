@@ -103,15 +103,6 @@ export function VisionStorySaaS() {
       style={{ height: vh, "--vision-vh": vh } as React.CSSProperties}
     >
       <div className="absolute inset-0 transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)]" style={{ transform: `translateY(-${activeSlide * 100}%)` }}>
-        <section className="relative flex h-[var(--vision-vh)] items-start overflow-hidden bg-white px-6 py-12 text-[#111] sm:px-10 sm:py-16 lg:px-16 lg:py-20">
-          <div className="pointer-events-none absolute -inset-[20%] bg-[radial-gradient(ellipse_at_15%_25%,rgba(47,111,255,0.28),transparent_42%),radial-gradient(ellipse_at_82%_70%,rgba(255,112,67,0.26),transparent_43%)]" />
-          <div className="relative mx-auto w-full max-w-[1360px]">
-            <p className="mb-8 text-xs font-semibold uppercase tracking-[0.18em] text-black/45">Onze visie</p>
-            <h1 className="m-0 max-w-[10ch] font-display text-[clamp(58px,10vw,150px)] font-semibold leading-[0.84] tracking-[-0.08em]">Werk begint bij willen.</h1>
-            <p className="mt-10 max-w-[40ch] text-[18px] leading-relaxed text-black/55 sm:text-[21px]">De arbeidsmarkt verandert. Niet omdat mensen minder kunnen, maar omdat ze steeds beter weten wat ze willen.</p>
-          </div>
-        </section>
-
         {chapterList.map((chapter, index) => {
           const theme = themes[index % themes.length];
           return (
