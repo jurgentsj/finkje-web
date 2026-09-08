@@ -38,17 +38,23 @@ export function VisionStorySaaS() {
     const onWheel = (event: WheelEvent) => {
       if (wheelLocked || Math.abs(event.deltaY) < 8) return;
 
-      const copyPanel = (event.target as HTMLElement).closest<HTMLElement>("[data-vision-copy]");
+      const copyPanels = Array.from(document.querySelectorAll<HTMLElement>("[data-vision-copy]"));
+      const copyPanel = copyPanels[activeSlide - 1];
+      const movingDown = event.deltaY > 0;
+
       if (copyPanel) {
         const atTop = copyPanel.scrollTop <= 0;
         const atBottom = copyPanel.scrollTop + copyPanel.clientHeight >= copyPanel.scrollHeight - 2;
-        const movingDown = event.deltaY > 0;
-        if ((movingDown && !atBottom) || (!movingDown && !atTop)) return;
+        if ((movingDown && !atBottom) || (!movingDown && !atTop)) {
+          event.preventDefault();
+          copyPanel.scrollBy({ top: event.deltaY, behavior: "auto" });
+          return;
+        }
       }
 
       event.preventDefault();
       wheelLocked = true;
-      goToSlide(activeSlide + (event.deltaY > 0 ? 1 : -1));
+      goToSlide(activeSlide + (movingDown ? 1 : -1));
       window.setTimeout(() => {
         wheelLocked = false;
       }, 750);
